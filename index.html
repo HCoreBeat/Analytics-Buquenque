@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Datos</title>
+
+    <!-- Favicon de ejemplo -->
+    <link rel="icon" href="https://placehold.co/32x32/4A90E2/FFFFFF?text=B" type="image/png">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="app-header">
+        <div class="header-content">
+            <div class="app-logo">
+                <i class="fas fa-chart-line"></i>
+                <h1>Mi Dashboard</h1>
+            </div>
+            <span class="header-status"><i class="fas fa-circle status-indicator"></i> Conectado</span>
+        </div>
+    </header>
+
+    <main class="content">
+        <!-- Vista Dashboard -->
+        <div id="dashboard-view" class="view-content">
+            <header class="header">
+                <div class="header-top">
+                    <div class="search-bar">
+                        <input type="text" id="search-data" placeholder="Buscar en datos..." class="input-light">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                    
+                    <div class="header-actions">
+                        <button class="btn btn-primary" id="refresh-data">
+                            <i class="fas fa-sync-alt"></i> Actualizar
+                        </button>
+                    </div>
+                </div>
+                <div class="header-main">
+                    <div class="header-stats">
+                        <div class="stat-card primary">
+                            <i class="fas fa-chart-pie"></i>
+                            <div class="stat-content">
+                                <span class="stat-value" id="total-orders">0</span>
+                                <span class="stat-label">Pedidos Totales</span>
+                            </div>
+                            <div class="currency-panel cup">
+                                <span class="stat-value" id="total-sales">CUP 0</span>
+                                <span class="stat-label">Ventas Totales</span>
+                            </div>
+                        </div>
+                        <div class="stat-card accent">
+                            <i class="fas fa-cubes"></i>
+                            <div class="stat-content">
+                                <span class="stat-value" id="avg-order-value">CUP 0</span>
+                                <span class="stat-label">Valor Promedio Pedido</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-cube"></i>
+                            <div class="stat-content">
+                                <span class="stat-value" id="total-products">0</span>
+                                <span class="stat-label">Productos Vendidos</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-users"></i>
+                            <div class="stat-content">
+                                <span class="stat-value" id="unique-customers">0</span>
+                                <span class="stat-label">Clientes Únicos</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                
+                <div class="filters">
+                    <div class="filter-group">
+                        <label><i class="fas fa-calendar-alt"></i> Periodo</label>
+                        <select id="filter-period" class="select-light">
+                            <option value="month">Este Mes</option>
+                            <option value="last-month">Mes Pasado</option>
+                            <option value="year">Este Año</option>
+                            <option value="all">Todos</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label><i class="fas fa-calendar-week"></i> Rango de Fechas</label>
+                        <div class="date-range">
+                            <input type="date" id="filter-date-start" class="input-light">
+                            <span>a</span>
+                            <input type="date" id="filter-date-end" class="input-light">
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="dashboard-grid">
+                <div class="insights-grid">
+                    <div class="card summary-card">
+                        <h3 class="card-title"><i class="fas fa-chart-bar"></i> Resumen General</h3>
+                        <div class="summary-grid" id="general-summary"></div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title"><i class="fas fa-calendar-alt"></i> Resumen Diario</h3>
+                        <div class="summary-grid" id="daily-summary"></div>
+                    </div>
+                    
+                    <div class="card full-width">
+                        <h3 class="card-title"><i class="fas fa-star"></i> Top Productos</h3>
+                        <div class="chart-container">
+                            <canvas id="products-chart" width="300" height="200"></canvas>
+                        </div>
+                        <div class="ranking-list compact" id="top-products"></div>
+                    </div>
+
+                    <div class="card full-width">
+                        <h3 class="card-title"><i class="fas fa-chart-line"></i> Tendencias de Ventas</h3>
+                        <div class="chart-container">
+                            <canvas id="sales-trend-chart" width="300" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card full-width transactions-card">
+                    <div class="card-header-with-tabs">
+                        <h3 class="card-title"><i class="fas fa-exchange-alt"></i> Transacciones Recientes</h3>
+                        <div class="tabs">
+                            <button class="tab-btn active" data-tab="all">Todos</button>
+                            <button class="tab-btn" data-tab="affiliated">Con Afiliado</button>
+                            <button class="tab-btn" data-tab="direct">Directos</button>
+                        </div>
+                    </div>
+                    <div id="data-list" class="orders-container"></div>
+                </div>
+            </section>
+        </div>  
+    </main>
+
+    <footer class="app-footer">
+        <div class="footer-content">
+            <span>&copy; 2025 Mi Dashboard. Todos los derechos reservados.</span>
+            <span class="footer-version">Versión 1.1</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="Js/script.js" defer></script>
+</body>
+</html>
