@@ -712,9 +712,9 @@ class DashboardApp {
         }
 
         container.innerHTML = data
-            .sort((a, b) => b.date - a.date) // Ordena por fecha descendente
-            .map(order => `
-                <div class="order-card">
+            .sort((a, b) => b.date - a.date)
+            .map((order, idx) => `
+                <div class="order-card" data-order-idx="${idx}">
                     <div class="order-header">
                         <div class="order-main-info">
                             <h4>${order.nombre_comprador}</h4>
@@ -772,9 +772,89 @@ class DashboardApp {
                                 ${order.correo_comprador}
                             </div>
                         </div>
+                        <div class="receipt-btn-container" style="text-align:right;margin-top:10px;">
+                            <button class="btn btn-secondary download-receipt-btn" data-order-idx="${idx}"><i class="fas fa-file-download"></i> Descargar Recibo</button>
+                        </div>
+                        <div class="receipt-preview" id="receipt-preview-${idx}" style="display:none;"></div>
                     </div>
                 </div>
             `).join('');
+
+        // Agrega listeners a los botones de descarga de recibo
+        container.querySelectorAll('.download-receipt-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const idx = btn.getAttribute('data-order-idx');
+                this.generateAndDownloadReceipt(data[idx], idx);
+            });
+        });
+    }
+
+    // Genera y descarga el recibo como imagen usando html2canvas (estilo Amazon, sin dirección, teléfono ni email, fecha de descarga)
+    async generateAndDownloadReceipt(order, idx) {
+        // Fecha de descarga
+        const now = new Date();
+        const fechaDescarga = now.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' }) +
+            ' ' + now.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
+        // Crea el HTML del recibo estilo Amazon
+        const receiptHtml = `
+            <div id="receipt-content" style="width:370px;padding:28px 20px;background:#fff;border:1.5px solid #e3e6e8;border-radius:10px;box-shadow:0 2px 12px #0001;font-family:Arial,sans-serif;color:#222;">
+                <div style="text-align:center;margin-bottom:10px;">
+                    <img src='https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg' alt='Amazon' style='height:32px;margin-bottom:6px;filter: grayscale(1) brightness(0.7);'>
+                    <div style="font-size:13px;color:#888;">Recibo de Pago - Buquenque</div>
+                </div>
+                <hr style="margin:10px 0 14px 0;border:0;border-top:1.5px solid #e3e6e8;">
+                <div style="font-size:15px;margin-bottom:8px;"><b>Cliente:</b> ${order.nombre_comprador}</div>
+                <div style="font-size:13px;margin-bottom:8px;"><b>Fecha de emisión:</b> ${fechaDescarga}</div>
+                <div style="background:#f6f6f6;padding:10px 12px;border-radius:6px;margin-bottom:10px;">
+                    <div style="font-size:14px;margin-bottom:6px;"><b>Productos:</b></div>
+                    <table style="width:100%;font-size:13px;border-collapse:collapse;">
+                        <thead>
+                            <tr style="color:#888;text-align:left;">
+                                <th style="padding-bottom:3px;">Producto</th>
+                                <th style="padding-bottom:3px;">Cantidad</th>
+                                <th style="padding-bottom:3px;">Precio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${order.compras.map(p => `
+                                <tr>
+                                    <td>${p.name}${p.discount > 0 ? ` <span style='color:#b12704;'>(-${p.discount}% desc)</span>` : ''}</td>
+                                    <td>${p.quantity}</td>
+                                    <td>${this.getCurrencySymbol()} ${(p.unitPrice * p.quantity * (1 - (p.discount || 0)/100)).toFixed(2)}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+                <div style="font-size:15px;margin-bottom:8px;text-align:right;"><b>Total pagado:</b> <span style='color:#b12704;'>${this.getCurrencySymbol()} ${order.total.toFixed(2)}</span></div>
+                <div style="margin-top:18px;text-align:center;font-size:13px;color:#4A90E2;">¡Gracias por su compra!<br>Buquenque</div>
+            </div>
+        `;
+        // Crea un contenedor temporal oculto para el recibo
+        let preview = document.createElement('div');
+        preview.style.position = 'fixed';
+        preview.style.left = '-9999px';
+        preview.style.top = '0';
+        preview.style.width = '0';
+        preview.style.height = '0';
+        preview.style.overflow = 'hidden';
+        preview.innerHTML = receiptHtml;
+        document.body.appendChild(preview);
+        // Espera a que el DOM se actualice
+        await new Promise(r => setTimeout(r, 100));
+        // Usa html2canvas para capturar el recibo
+        if (window.html2canvas) {
+            window.html2canvas(preview.querySelector('#receipt-content')).then(canvas => {
+                const link = document.createElement('a');
+                link.download = `recibo_buquenque_${order.nombre_comprador.replace(/\s+/g,'_')}_${now.getFullYear()}${(now.getMonth()+1).toString().padStart(2,'0')}${now.getDate().toString().padStart(2,'0')}_${now.getHours().toString().padStart(2,'0')}${now.getMinutes().toString().padStart(2,'0')}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+                document.body.removeChild(preview);
+            });
+        } else {
+            alert('html2canvas no está cargado.');
+            document.body.removeChild(preview);
+        }
     }
 
     // Método para mostrar notificaciones
