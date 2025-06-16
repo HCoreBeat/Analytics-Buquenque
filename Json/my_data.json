@@ -1,3 +1,41 @@
 [
-    
+    {
+    "ip": "198.71.52.107",
+    "pais": "Cuba",
+    "fecha_hora_entrada": "2025-06-12 12:32:05",
+    "origen": "https://www.buquenque.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Test del programador",
+    "telefono_comprador": "123456789",
+    "correo_comprador": "test@test.com",
+    "direccion_envio": "Test",
+    "compras": [
+      {
+        "id": null,
+        "name": "Aceite test",
+        "type": "product",
+        "quantity": 1,
+        "unitPrice": 900,
+        "discount": 0,
+        "items": null
+      },
+      {
+        "id": null,
+        "name": "Arroz test",
+        "type": "product",
+        "quantity": 1,
+        "unitPrice": 2800,
+        "discount": 20,
+        "items": null
+      }
+    ],
+    "precio_compra_total": "3700",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Único",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://www.google.com/"
+  }
 ]
