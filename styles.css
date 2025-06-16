@@ -1,19 +1,18 @@
 :root {
-    --primary: hsl(210, 15%, 95%); /* Very light grey-blue for background */
-    --secondary: #FFFFFF; /* Pure white for cards/panels */
-    --accent: hsl(200, 70%, 50%); /* A calm, pleasing blue */
-    --accent-light: hsl(200, 70%, 75%); /* Lighter shade of accent */
-    --text: hsl(210, 10%, 25%); /* Dark, soft grey for main text */
-    --text-secondary: hsl(210, 5%, 50%); /* Lighter grey for secondary text/labels */
-    --border: hsl(210, 10%, 85%); /* Very light, subtle grey-blue for borders */
-    --success: hsl(120, 40%, 60%); /* Soft, yet clear green */
-    --error: hsl(0, 70%, 65%); /* Muted, but distinct red */
-    --info: hsl(220, 60%, 70%); /* Gentle, calming blue */
-    --warning: hsl(40, 80%, 70%); /* Soft, warm yellow */
-    --cup-color: hsl(40, 30%, 60%); /* Gentle, earthy brown/gold for CUP currency */
-
+    --primary: #EFF3FF;
+    --secondary: #FFFFFF;
+    --accent: #2171B5;
+    --accent-light: #6BAED6;
+    --text: #2171B5;
+    --text-secondary: #6BAED6;
+    --border: #BDD7E7;
+    --success: #2171B5;
+    --error: #2171B5;
+    --info: #6BAED6;
+    --warning: #BDD7E7;
+    --cup-color: #2171B5;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --border-radius: 8px; /* Consistent border-radius */
+    --border-radius: 8px;
 }
 
 * {
@@ -24,7 +23,7 @@
 }
 
 body {
-    background: var(--primary);
+    background: linear-gradient(180deg, #EFF3FF 0%, #BDD7E7 40%, #6BAED6 80%, #2171B5 100%);
     color: var(--text);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -37,17 +36,21 @@ body {
 .app-header {
     background: var(--secondary);
     border-bottom: 1px solid var(--border);
-    padding: 1rem 2rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    padding: 1.2rem 2.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.04);
     z-index: 100;
+    position: sticky;
+    top: 0;
 }
 
 .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1400px; /* Max width for content alignment */
+    max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
+    gap: 2rem;
 }
 
 .app-logo {
@@ -213,16 +216,16 @@ body {
 }
 
 .stat-card.primary {
-    border-color: var(--accent);
+    border-color: #2171B5;
 }
 
 .stat-card.accent {
-    border-color: var(--info);
+    border-color: #6BAED6;
 }
 
 .stat-card i {
     font-size: 1.6rem;
-    color: var(--accent);
+    color: #2171B5;
 }
 
 .stat-content {
@@ -230,7 +233,7 @@ body {
 }
 
 .stat-value {
-    font-size: 1.4rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--text);
     line-height: 1.2;
@@ -247,12 +250,12 @@ body {
     padding: 0.4rem;
     border-radius: 4px;
     text-align: center;
-    background: rgba(226, 182, 74, 0.1); /* CUP color with opacity */
-    border-left: 3px solid var(--cup-color);
-    color: var(--text);
+    background: #BDD7E7;
+    border-left: 3px solid #2171B5;
+    color: #2171B5;
 }
 .currency-panel .stat-value {
-    color: var(--cup-color);
+    color: #F26938;
     font-size: 1.1rem;
     font-weight: bold;
 }
@@ -342,8 +345,13 @@ body {
 }
 
 .summary-item.highlight {
-    background: rgba(74, 144, 226, 0.1);
-    border-color: rgba(74, 144, 226, 0.2);
+    background: #BDD7E7;
+    border-color: #2171B5;
+}
+
+.summary-item.yearly {
+    background: #EFF3FF;
+    border-color: #6BAED6;
 }
 
 .summary-item h4 {
@@ -388,13 +396,22 @@ body {
 
 .btn-primary {
     background: var(--accent);
-    color: var(--secondary);
+    color: #fff;
 }
 
 .btn-primary:hover {
-    opacity: 0.9;
-    transform: translateY(-2px);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background: #6BAED6;
+    color: #fff;
+}
+
+.btn-secondary, .download-receipt-btn {
+    background: var(--accent-light);
+    color: #2171B5;
+}
+
+.btn-secondary:hover, .download-receipt-btn:hover {
+    background: #2171B5;
+    color: #fff;
 }
 
 /* Transacciones */
@@ -435,7 +452,7 @@ body {
 }
 
 .order-main-info h4 {
-    color: var(--accent);
+    color: #2171B5;
     font-size: 1rem;
 }
 
@@ -524,14 +541,13 @@ body {
 }
 
 .tab-btn.active {
-    background: var(--accent);
-    color: var(--secondary);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    background: #2171B5;
+    color: #fff;
 }
 
 .tab-btn:hover:not(.active) {
-    background: rgba(74, 144, 226, 0.05); /* Lighter accent for hover */
-    color: var(--accent);
+    background: #6BAED6;
+    color: #2171B5;
 }
 
 .header-actions {
@@ -554,8 +570,8 @@ body {
 }
 
 .order-card .affiliate-info {
-    background: rgba(74, 144, 226, 0.08);
-    border-radius: 6px;
+    background: #EFF3FF;
+    border-color: #6BAED6;
     padding: 0.4rem;
     margin-top: 0.4rem;
     font-size: 0.75rem;
@@ -744,97 +760,56 @@ body {
     }
 }
 
-@media (max-width: 768px) {
-    .app-header, .app-footer {
-        padding: 0.8rem 1rem;
-    }
-    .header-content, .footer-content {
+@media (max-width: 900px) {
+    .header-content {
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.5rem;
+        gap: 0.7rem;
     }
-    .header-content .header-status {
-        align-self: flex-end;
+    .app-header {
+        padding: 1rem 1rem;
     }
+}
 
-    .content {
-        padding: 1rem;
+@media (max-width: 768px) {
+    body {
+        background: linear-gradient(180deg, #EFF3FF 0%, #BDD7E7 60%, #2171B5 100%);
     }
-    .header-stats {
-        grid-template-columns: 1fr;
+    .content, .filters, .card, .stat-card, .order-card {
+        padding: 0.8rem !important;
     }
-    
-    .stat-card {
-        padding: 1rem;
+    .header-content, .footer-content {
+        padding: 0.5rem 0 !important;
     }
-    
-    .header-top {
-        flex-direction: column;
-        align-items: stretch;
+    .summary-grid {
+        grid-template-columns: 1fr !important;
     }
+}
 
-    .search-bar {
-        max-width: 100%;
-        width: 100%;
+@media (min-width: 1200px) {
+    .dashboard-grid {
+        flex-direction: row;
+        display: flex;
+        gap: 2.5rem;
     }
-    
-    .header-actions {
-        width: 100%;
-        justify-content: center;
+    .insights-grid {
+        flex: 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
     }
-
-    .filters {
-        flex-direction: column;
-        padding: 1rem;
-        gap: 0.8rem;
+    .transactions-card {
+        flex: 1.2;
+        min-width: 350px;
+        max-width: 500px;
     }
 }
 
 @media (max-width: 480px) {
+    .card, .stat-card, .order-card, .filters {
+        padding: 0.5rem !important;
+    }
     .app-logo h1 {
-        font-size: 1.3rem;
-    }
-    .app-logo i {
-        font-size: 1.5rem;
-    }
-    .header-status {
-        font-size: 0.8rem;
-    }
-
-    .order-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-    }
-    
-    .meta-item {
-        font-size: 0.65rem;
-        padding: 0.15rem 0.5rem;
-    }
-
-    .order-main-info h4 {
-        font-size: 0.9rem;
-    }
-
-    .order-stats .stat-value {
         font-size: 1.1rem;
-    }
-
-    .order-stats .stat-label {
-        font-size: 0.7rem;
-    }
-
-    .tab-btn {
-        padding: 0.3rem 0.6rem;
-        font-size: 0.75rem;
-    }
-
-    .card-title {
-        font-size: 1rem;
-    }
-
-    .footer-content {
-        justify-content: center;
-        text-align: center;
     }
 }
