@@ -37,5 +37,55 @@
     "tipo_usuario": "Único",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "https://www.google.com/"
-  }
+  },
+    {
+  "ip": "205.147.22.27",
+  "pais": "MX",
+  "fecha_hora_entrada": "2025-12-25 17:35:46",
+  "origen": "https://www.buquenqe.com/#",
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 0,
+  "tiempo_carga_pagina_ms": 0,
+  "nombre_comprador": "sadfdfsdfas",
+  "telefono_comprador": "123456",
+  "correo_comprador": "sdfasfdasd@asdas.asd",
+  "direccion_envio": "qwerty",
+  "compras": [
+    {
+      "id": null,
+      "name": "Leche en Polvo Sabor Fresa (1kg)",
+      "quantity": 1,
+      "unitPrice": 2700,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Paquete de salchichas (350g) 7u",
+      "quantity": 1,
+      "unitPrice": 400,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Mollejas de Pollo (1kg)",
+      "quantity": 1,
+      "unitPrice": 1300,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Hígado de Pollo (1kg)",
+      "quantity": 1,
+      "unitPrice": 1200,
+      "discount": 0
+    }
+  ],
+  "precio_compra_total": "5600.00",
+  "navegador": "Chrome",
+  "sistema_operativo": "Windows",
+  "tipo_usuario": "Único",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
+}
 ]
+
