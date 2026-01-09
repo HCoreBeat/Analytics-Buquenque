@@ -1,89 +1,29 @@
 [
-    {
-    "ip": "198.71.52.107",
-    "pais": "Cuba",
-    "fecha_hora_entrada": "2025-06-12 12:32:05",
-    "origen": "https://www.buquenque.com/",
-    "afiliado": "Ninguno",
-    "duracion_sesion_segundos": 0,
-    "tiempo_carga_pagina_ms": 0,
-    "nombre_comprador": "Test del programador",
-    "telefono_comprador": "123456789",
-    "correo_comprador": "test@test.com",
-    "direccion_envio": "Test",
-    "compras": [
-      {
-        "id": null,
-        "name": "Aceite test",
-        "type": "product",
-        "quantity": 1,
-        "unitPrice": 900,
-        "discount": 0,
-        "items": null
-      },
-      {
-        "id": null,
-        "name": "Arroz test",
-        "type": "product",
-        "quantity": 1,
-        "unitPrice": 2800,
-        "discount": 20,
-        "items": null
-      }
-    ],
-    "precio_compra_total": "3700",
-    "navegador": "Chrome",
-    "sistema_operativo": "Linux",
-    "tipo_usuario": "Único",
-    "tiempo_promedio_pagina": 0,
-    "fuente_trafico": "https://www.google.com/"
-  },
-    {
-  "ip": "205.147.22.27",
-  "pais": "MX",
-  "fecha_hora_entrada": "2025-12-25 17:35:46",
+{
+  "ip": "2603:6012:f8f0:5850:d5bd:92e7:919d:afc3",
+  "pais": "US",
+  "fecha_hora_entrada": "2026-01-09 16:37:06",
   "origen": "https://www.buquenqe.com/#",
   "afiliado": "Ninguno",
   "duracion_sesion_segundos": 0,
   "tiempo_carga_pagina_ms": 0,
-  "nombre_comprador": "sadfdfsdfas",
-  "telefono_comprador": "123456",
-  "correo_comprador": "sdfasfdasd@asdas.asd",
-  "direccion_envio": "qwerty",
+  "nombre_comprador": "Daimarelis Diaz Vazquez",
+  "telefono_comprador": "54935704",
+  "correo_comprador": "daimarelisdiazvasquez@gmail.com",
+  "direccion_envio": "Calle Colón número 158",
   "compras": [
     {
       "id": null,
-      "name": "Leche en Polvo Sabor Fresa (1kg)",
+      "name": "Pack x 6 Manzana 🍎",
       "quantity": 1,
-      "unitPrice": 2700,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Paquete de salchichas (350g) 7u",
-      "quantity": 1,
-      "unitPrice": 400,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Mollejas de Pollo (1kg)",
-      "quantity": 1,
-      "unitPrice": 1300,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Hígado de Pollo (1kg)",
-      "quantity": 1,
-      "unitPrice": 1200,
+      "unitPrice": 6.9,
       "discount": 0
     }
   ],
-  "precio_compra_total": "5600.00",
-  "navegador": "Chrome",
-  "sistema_operativo": "Windows",
-  "tipo_usuario": "Único",
+  "precio_compra_total": "6.90",
+  "navegador": "Safari",
+  "sistema_operativo": "MacOS",
+  "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
 }
