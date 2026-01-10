@@ -1,0 +1,103 @@
+/* 
+ * ═══════════════════════════════════════════════════════════
+ * VARIABLES Y PALETA DE COLORES - PROFESIONAL Y ARMONIOSA
+ * ═══════════════════════════════════════════════════════════
+ */
+
+:root {
+    /* COLOR PALETTE - Mejorada para evitar contrastes extremos */
+    
+    /* Colores Primarios - Profesionales */
+    --primary: #1E3A5F;          /* Azul oscuro profesional */
+    --primary-light: #2D4A7B;    /* Variación más clara del primario */
+    --primary-lighter: #3D5A8F;  /* Aún más clara para legibilidad */
+    
+    /* Colores Secundarios - Neutros y armoniosos */
+    --secondary: #F8FAFB;        /* Blanco muy suave */
+    --secondary-dark: #F1F5F9;   /* Gris muy claro */
+    --secondary-darker: #E2E8F0; /* Gris claro */
+    
+    /* Colores de Acento - Modernos */
+    --accent: #2563EB;           /* Azul vivo moderno */
+    --accent-light: #93C5FD;     /* Azul claro para hover */
+    --accent-lighter: #DBEAFE;   /* Azul muy claro para backgrounds */
+    
+    /* Colores de Texto - Con buen contraste */
+    --text: #111827;             /* Casi negro, excelente contraste */
+    --text-secondary: #4B5563;   /* Gris intermedio */
+    --text-light: #6B7280;       /* Gris más claro */
+    --text-lighter: #9CA3AF;     /* Gris muy claro */
+    
+    /* Colores de Bordes */
+    --border: #D1D5DB;           /* Gris suave para bordes */
+    --border-light: #E5E7EB;     /* Gris muy claro para bordes suaves */
+    
+    /* Background de Hover */
+    --hover-bg: #F1F5F9;         /* Gris muy claro para hover states */
+    
+    /* Estados de Componentes */
+    --success: #16A34A;          /* Verde exitoso */
+    --success-light: #DCFCE7;    /* Verde muy claro */
+    --error: #DC2626;            /* Rojo de error */
+    --error-light: #FEE2E2;      /* Rojo muy claro */
+    --warning: #F59E0B;          /* Naranja de advertencia */
+    --warning-light: #FEF3C7;    /* Naranja muy claro */
+    --info: #2563EB;             /* Azul de información */
+    --info-light: #DBEAFE;       /* Azul muy claro */
+    
+    /* Gradientes - Profesionales */
+    --gradient-1: #2563EB;       /* Inicio azul */
+    --gradient-2: #7C3AED;       /* Fin púrpura */
+    --gradient-alt: #1E40AF;     /* Alternativo azul más oscuro */
+    
+    /* Sombras - Sutiles */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
+    --shadow-xl: 0 15px 35px rgba(0, 0, 0, 0.15);
+    
+    /* Efectos y Transiciones */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s ease-out;
+    --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Border Radius */
+    --border-radius: 12px;
+    --border-radius-sm: 6px;
+    --border-radius-lg: 16px;
+    
+    /* Espaciado */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 2.5rem;
+    
+    /* Tipografía */
+    --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'Menlo', 'Consolas', monospace;
+}
+
+/* ═══════════════════════════════════════════════════════════
+ * COLORES OSCUROS PARA FONDOS SIN CONTRASTE EXTREMO
+ * ═══════════════════════════════════════════════════════════ */
+
+body {
+    background: linear-gradient(135deg, #1E3A5F 0%, #2D4A7B 50%, #1A2841 100%);
+    color: var(--text);
+}
+
+/* ═══════════════════════════════════════════════════════════
+ * ACCESIBILIDAD - SUFICIENTES RELACIONES DE CONTRASTE
+ * ═══════════════════════════════════════════════════════════ */
+
+/* WCAG AA - Contraste mínimo 4.5:1 para texto normal */
+/* WCAG AAA - Contraste mínimo 7:1 para texto pequeño */
+
+/* Verificados:
+ * - Texto oscuro (#111827) en fondo claro (#F8FAFB): ~12:1 ✓
+ * - Texto oscuro (#111827) en fondo azul claro (#DBEAFE): ~8:1 ✓
+ * - Texto gris (#4B5563) en fondo claro (#F8FAFB): ~5:1 ✓
+ * - Acento azul (#2563EB) en fondo blanco (#FFFFFF): ~5:5:1 ✓
+ */

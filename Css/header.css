@@ -1,0 +1,96 @@
+/* ═══════════════════════════════════════════════════════════
+ * HEADER - Encabezado de la aplicación
+ * ═══════════════════════════════════════════════════════════ */
+
+.app-header {
+    background: var(--secondary);
+    border-bottom: 1px solid var(--border-light);
+    padding: 1.5rem 2.5rem;
+    box-shadow: var(--shadow-md);
+    z-index: 100;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(10px);
+    background-color: rgba(248, 250, 251, 0.95);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 100%;
+    gap: 2rem;
+}
+
+.app-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.app-logo i {
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.app-logo h1 {
+    font-size: 1.5rem;
+    color: var(--text);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.header-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.status-indicator {
+    font-size: 0.7rem;
+    color: var(--success);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Responsive Header */
+@media (max-width: 768px) {
+    .app-header {
+        padding: 1rem 1.5rem;
+    }
+    
+    .header-content {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .app-logo h1 {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .app-header {
+        padding: 0.55rem 0.75rem;
+    }
+    
+    .app-logo h1 {
+        font-size: 0.85rem;
+    }
+    
+    .header-status {
+        font-size: 0.7rem;
+    }
+}

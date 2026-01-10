@@ -1,0 +1,703 @@
+/* ═══════════════════════════════════════════════════════════
+ * SERVER PANEL - Lógica del panel de control del servidor
+ * ═══════════════════════════════════════════════════════════ */
+
+const BACKEND_URL = 'https://backend-buquenque.onrender.com';
+
+class ServerPanel {
+    constructor() {
+        this.init();
+        this.setupEventListeners();
+        this.initAutoRefresh();
+    }
+
+    init() {
+        this.hamburgerBtn = document.getElementById('hamburger-btn');
+        this.sidebarMenu = document.getElementById('sidebar-menu');
+        this.menuOverlay = document.getElementById('menu-overlay');
+        this.closeMenuBtn = document.getElementById('close-menu');
+        this.menuItems = document.querySelectorAll('.menu-item');
+        this.viewContents = document.querySelectorAll('.view-content');
+        this.refreshServerBtn = document.getElementById('refresh-server-btn');
+        this.autoRefreshSelect = document.getElementById('auto-refresh-select');
+        this.lastUpdateEl = document.getElementById('last-update-time');
+        this.currentView = 'dashboard';
+        this.autoRefreshInterval = null;
+        this.lastUpdateTime = null;
+    }
+
+    setupEventListeners() {
+        // Hamburger menu toggle
+        this.hamburgerBtn?.addEventListener('click', () => this.toggleMenu());
+        this.menuOverlay?.addEventListener('click', () => this.closeMenu());
+        this.closeMenuBtn?.addEventListener('click', () => this.closeMenu());
+
+        // Menu items
+        this.menuItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const view = item.dataset.view;
+                this.switchView(view);
+                this.closeMenu();
+            });
+        });
+
+        // Refresh server button
+        this.refreshServerBtn?.addEventListener('click', () => this.loadServerData());
+
+        // Auto-refresh select
+        this.autoRefreshSelect?.addEventListener('change', (e) => {
+            const interval = parseInt(e.target.value);
+            this.setAutoRefresh(interval);
+        });
+
+        // Initial data load if server view is loaded
+        if (this.currentView === 'server') {
+            this.loadServerData();
+        }
+    }
+
+    initAutoRefresh() {
+        // Load saved preference from localStorage
+        const savedInterval = localStorage.getItem('serverAutoRefreshInterval');
+        if (savedInterval && this.autoRefreshSelect) {
+            this.autoRefreshSelect.value = savedInterval;
+            const interval = parseInt(savedInterval);
+            if (interval > 0) {
+                this.setAutoRefresh(interval);
+            }
+        }
+    }
+
+    setAutoRefresh(interval) {
+        // Clear existing interval
+        if (this.autoRefreshInterval) {
+            clearInterval(this.autoRefreshInterval);
+            this.autoRefreshInterval = null;
+        }
+
+        // Save preference to localStorage
+        localStorage.setItem('serverAutoRefreshInterval', interval.toString());
+
+        // Set new interval if > 0
+        if (interval > 0 && this.currentView === 'server') {
+            this.autoRefreshInterval = setInterval(() => {
+                this.loadServerData();
+            }, interval * 1000);
+        }
+    }
+
+    toggleMenu() {
+        this.sidebarMenu?.classList.toggle('active');
+        this.menuOverlay?.classList.toggle('active');
+        this.hamburgerBtn?.classList.toggle('active');
+    }
+
+    closeMenu() {
+        this.sidebarMenu?.classList.remove('active');
+        this.menuOverlay?.classList.remove('active');
+        this.hamburgerBtn?.classList.remove('active');
+    }
+
+    switchView(view) {
+        this.currentView = view;
+
+        // Update menu items
+        this.menuItems.forEach(item => {
+            item.classList.toggle('active', item.dataset.view === view);
+        });
+
+        // Update view contents
+        this.viewContents.forEach(content => {
+            content.classList.toggle('active', content.id === `${view}-view`);
+        });
+
+        // Load data if switching to server view
+        if (view === 'server') {
+            this.loadServerData();
+            // Resume auto-refresh if enabled
+            const savedInterval = localStorage.getItem('serverAutoRefreshInterval');
+            if (savedInterval && parseInt(savedInterval) > 0) {
+                this.setAutoRefresh(parseInt(savedInterval));
+            }
+        } else {
+            // Clear auto-refresh when leaving server view
+            if (this.autoRefreshInterval) {
+                clearInterval(this.autoRefreshInterval);
+                this.autoRefreshInterval = null;
+            }
+        }
+    }
+
+    async loadServerData() {
+        try {
+            this.showLoadingStates();
+            
+            // Fetch all required data
+            const [statusData, statsData, newOrdersData] = await Promise.all([
+                this.fetchServerStatus(),
+                this.fetchStatistics(),
+                this.fetchNewOrders()
+            ]);
+
+            // Update UI with data
+            this.updateServerStatus(statusData);
+            this.updateStatistics(statsData);
+            this.updateNewOrders(newOrdersData);
+            this.updateUserActivity(statsData);
+            this.updateTrafficSources(statsData);
+            this.updateCountriesDistribution(statsData);
+            this.updateBrowserStats(statsData);
+            this.updateConversionAnalytics(statsData);
+            this.updatePerformanceMetrics(statsData);
+            this.updateAffiliatePerformance(statsData);
+            
+            // Update last update time
+            this.updateLastUpdateTime();
+
+        } catch (error) {
+            console.error('Error loading server data:', error);
+            this.showError('Error al cargar datos del servidor');
+        }
+    }
+
+    updateLastUpdateTime() {
+        const now = new Date();
+        this.lastUpdateTime = now;
+        
+        const timeString = now.toLocaleTimeString('es-ES', {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        });
+
+        if (this.lastUpdateEl) {
+            this.lastUpdateEl.textContent = `Actualizado a las ${timeString}`;
+        }
+    }
+
+    async fetchServerStatus() {
+        const response = await fetch(`${BACKEND_URL}/api/server-status`);
+        if (!response.ok) throw new Error('Error fetching server status');
+        return response.json();
+    }
+
+    async fetchStatistics() {
+        const response = await fetch(`${BACKEND_URL}/obtener-estadisticas`);
+        if (!response.ok) throw new Error('Error fetching statistics');
+        return response.json();
+    }
+
+    async fetchNewOrders() {
+        const response = await fetch(`${BACKEND_URL}/api/new-orders`);
+        if (!response.ok) throw new Error('Error fetching new orders');
+        const data = await response.json();
+        return data.newOrders || [];
+    }
+
+    updateServerStatus(data) {
+        const statusEl = document.getElementById('server-status-content');
+        if (!statusEl) return;
+
+        const startTime = new Date(data.startTime);
+        const uptime = this.calculateUptime(startTime);
+
+        statusEl.innerHTML = `
+            <div class="status-item">
+                <span class="label">Estado:</span>
+                <span class="value status-running">${data.status || 'Running'}</span>
+            </div>
+            <div class="status-item">
+                <span class="label">Hora de Inicio:</span>
+                <span class="value">${startTime.toLocaleString('es-ES')}</span>
+            </div>
+            <div class="status-item">
+                <span class="label">Tiempo de Actividad:</span>
+                <span class="value">${uptime}</span>
+            </div>
+        `;
+
+        // Store logs
+        this.updateLogs(data.logs || []);
+    }
+
+    calculateUptime(startTime) {
+        const now = new Date();
+        const diff = now - startTime;
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+        let uptime = [];
+        if (days > 0) uptime.push(`${days}d`);
+        if (hours > 0) uptime.push(`${hours}h`);
+        if (minutes > 0) uptime.push(`${minutes}m`);
+
+        return uptime.join(' ') || 'Menos de 1 minuto';
+    }
+
+    updateLogs(logs) {
+        const logsContainer = document.getElementById('server-logs-container');
+        if (!logsContainer) return;
+
+        if (logs.length === 0) {
+            logsContainer.innerHTML = '<p class="no-data">Sin logs disponibles</p>';
+            return;
+        }
+
+        const logsHTML = logs
+            .slice(-50) // Show last 50 logs
+            .reverse()
+            .map(log => {
+                const messageClass = log.includes('ERROR') ? 'error' : log.includes('WARN') ? 'warning' : 'success';
+                const parts = log.match(/\[(.*?)\](.*)/);
+                
+                if (!parts) return `<div class="log-entry"><div class="log-message ${messageClass}">${log}</div></div>`;
+
+                const timestamp = parts[1];
+                const message = parts[2].trim();
+
+                return `
+                    <div class="log-entry">
+                        <span class="log-timestamp">[${timestamp}]</span>
+                        <span class="log-message ${messageClass}">${message}</span>
+                    </div>
+                `;
+            })
+            .join('');
+
+        logsContainer.innerHTML = logsHTML;
+    }
+
+    updateStatistics(stats) {
+        const totalStats = document.getElementById('total-stats');
+        const uniqueUsers = document.getElementById('unique-users');
+        const totalOrders = document.getElementById('total-orders-server');
+        const totalRevenue = document.getElementById('total-revenue');
+
+        if (totalStats) totalStats.textContent = stats.length;
+
+        // Calculate unique IPs
+        const uniqueIPs = new Set(stats.map(s => s.ip)).size;
+        if (uniqueUsers) uniqueUsers.textContent = uniqueIPs;
+
+        // Calculate orders
+        const orders = stats.filter(s => Array.isArray(s.compras) && s.compras.length > 0);
+        if (totalOrders) totalOrders.textContent = orders.length;
+
+        // Calculate revenue
+        const revenue = stats.reduce((sum, s) => sum + (s.precio_compra_total || 0), 0);
+        if (totalRevenue) totalRevenue.textContent = `$ ${revenue.toLocaleString('es-ES')}`;
+    }
+
+    updateNewOrders(orders) {
+        const container = document.getElementById('new-orders-container');
+        const count = document.getElementById('new-orders-count');
+
+        if (!container) return;
+
+        if (count) count.textContent = orders.length;
+
+        if (orders.length === 0) {
+            container.innerHTML = '<p class="no-data">No hay pedidos nuevos</p>';
+            return;
+        }
+
+        const tableHTML = `
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Cliente</th>
+                        <th>Teléfono</th>
+                        <th>Productos</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${orders.map(order => `
+                        <tr>
+                            <td>${new Date(order.fecha_hora_entrada).toLocaleString('es-ES')}</td>
+                            <td>${order.nombre_comprador || 'N/A'}</td>
+                            <td>${order.telefono_comprador || 'N/A'}</td>
+                            <td>${(order.compras || []).length}</td>
+                            <td>$ ${(order.precio_compra_total || 0).toLocaleString('es-ES')}</td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            </table>
+        `;
+
+        container.innerHTML = tableHTML;
+    }
+
+    updateUserActivity(stats) {
+        const container = document.getElementById('users-activity-container');
+        if (!container) return;
+
+        if (stats.length === 0) {
+            container.innerHTML = '<p class="no-data">No hay actividad de usuarios</p>';
+            return;
+        }
+
+        // Show last 20 users
+        const tableHTML = `
+            <table>
+                <thead>
+                    <tr>
+                        <th>IP</th>
+                        <th>País</th>
+                        <th>Entrada</th>
+                        <th>Origen</th>
+                        <th>Tipo</th>
+                        <th>Duración (s)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${stats.slice(-20).reverse().map(user => `
+                        <tr>
+                            <td class="ip-col">${user.ip}</td>
+                            <td>${user.pais || 'N/A'}</td>
+                            <td class="date-col">${new Date(user.fecha_hora_entrada).toLocaleString('es-ES')}</td>
+                            <td class="origen-col">${user.origen || 'N/A'}</td>
+                            <td><span class="badge">${user.tipo_usuario || 'N/A'}</span></td>
+                            <td>${user.duracion_sesion_segundos || 0}</td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            </table>
+        `;
+
+        container.innerHTML = tableHTML;
+    }
+
+    updateTrafficSources(stats) {
+        const container = document.getElementById('traffic-sources');
+        if (!container) return;
+
+        // Group by origen
+        const sources = {};
+        stats.forEach(s => {
+            const origin = s.origen || 'Desconocido';
+            sources[origin] = (sources[origin] || 0) + 1;
+        });
+
+        const total = stats.length;
+        const sorted = Object.entries(sources)
+            .sort(([, a], [, b]) => b - a)
+            .map(([source, count]) => ({
+                source,
+                count,
+                percentage: ((count / total) * 100).toFixed(1)
+            }));
+
+        if (sorted.length === 0) {
+            container.innerHTML = '<p class="no-data">Sin datos de fuentes de tráfico</p>';
+            return;
+        }
+
+        const html = sorted.map(item => `
+            <div class="stat-row">
+                <span class="label">${item.source}</span>
+                <span class="value">
+                    <span class="percentage">${item.count} (${item.percentage}%)</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${item.percentage}%"></div>
+                    </div>
+                </span>
+            </div>
+        `).join('');
+
+        container.innerHTML = html;
+    }
+
+    updateCountriesDistribution(stats) {
+        const container = document.getElementById('countries-distribution');
+        if (!container) return;
+
+        // Group by country
+        const countries = {};
+        stats.forEach(s => {
+            const country = s.pais || 'Desconocido';
+            countries[country] = (countries[country] || 0) + 1;
+        });
+
+        const total = stats.length;
+        const sorted = Object.entries(countries)
+            .sort(([, a], [, b]) => b - a)
+            .slice(0, 10)
+            .map(([country, count]) => ({
+                country,
+                count,
+                percentage: ((count / total) * 100).toFixed(1)
+            }));
+
+        if (sorted.length === 0) {
+            container.innerHTML = '<p class="no-data">Sin datos de países</p>';
+            return;
+        }
+
+        const html = sorted.map(item => `
+            <div class="stat-row">
+                <span class="label">${item.country}</span>
+                <span class="value">
+                    <span class="percentage">${item.count} (${item.percentage}%)</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${item.percentage}%"></div>
+                    </div>
+                </span>
+            </div>
+        `).join('');
+
+        container.innerHTML = html;
+    }
+
+    updateBrowserStats(stats) {
+        const container = document.getElementById('browser-os-stats');
+        if (!container) return;
+
+        // Group by browser and OS
+        const browsers = {};
+        const oses = {};
+
+        stats.forEach(s => {
+            const browser = s.navegador || 'Desconocido';
+            const os = s.sistema_operativo || 'Desconocido';
+
+            browsers[browser] = (browsers[browser] || 0) + 1;
+            oses[os] = (oses[os] || 0) + 1;
+        });
+
+        const total = stats.length;
+
+        const browserEntries = Object.entries(browsers)
+            .sort(([, a], [, b]) => b - a)
+            .slice(0, 5);
+
+        const osEntries = Object.entries(oses)
+            .sort(([, a], [, b]) => b - a)
+            .slice(0, 5);
+
+        let html = '<div style="margin-bottom: 1rem;"><strong>Navegadores:</strong>';
+        if (browserEntries.length === 0) {
+            html += '<p class="no-data">Sin datos</p>';
+        } else {
+            html += browserEntries.map(([browser, count]) => `
+                <div class="stat-row">
+                    <span class="label">${browser}</span>
+                    <span class="value">
+                        <span class="percentage">${count} (${((count / total) * 100).toFixed(1)}%)</span>
+                    </span>
+                </div>
+            `).join('');
+        }
+        html += '</div>';
+
+        html += '<div><strong>Sistemas Operativos:</strong>';
+        if (osEntries.length === 0) {
+            html += '<p class="no-data">Sin datos</p>';
+        } else {
+            html += osEntries.map(([os, count]) => `
+                <div class="stat-row">
+                    <span class="label">${os}</span>
+                    <span class="value">
+                        <span class="percentage">${count} (${((count / total) * 100).toFixed(1)}%)</span>
+                    </span>
+                </div>
+            `).join('');
+        }
+        html += '</div>';
+
+        container.innerHTML = html;
+    }
+
+    updateConversionAnalytics(stats) {
+        const container = document.getElementById('conversion-analytics');
+        if (!container) return;
+
+        const totalVisits = stats.length;
+        const conversions = stats.filter(s => Array.isArray(s.compras) && s.compras.length > 0).length;
+        const conversionRate = ((conversions / totalVisits) * 100).toFixed(2);
+
+        const recurringUsers = stats.filter(s => s.tipo_usuario === 'Recurrente').length;
+        const newUsers = stats.filter(s => s.tipo_usuario === 'Único').length;
+
+        const avgSessionDuration = (stats.reduce((sum, s) => sum + (s.duracion_sesion_segundos || 0), 0) / totalVisits).toFixed(2);
+        const avgPageLoadTime = (stats.reduce((sum, s) => sum + (s.tiempo_carga_pagina_ms || 0), 0) / totalVisits).toFixed(2);
+
+        const html = `
+            <div class="metric-card">
+                <div class="metric-label">Tasa de Conversión</div>
+                <div class="metric-value">${conversionRate}%</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Usuarios Nuevos</div>
+                <div class="metric-value">${newUsers}</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Usuarios Recurrentes</div>
+                <div class="metric-value">${recurringUsers}</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Duración Promedio (s)</div>
+                <div class="metric-value">${avgSessionDuration}</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Carga Promedio (ms)</div>
+                <div class="metric-value">${avgPageLoadTime}</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Visitas Totales</div>
+                <div class="metric-value">${totalVisits}</div>
+            </div>
+        `;
+
+        container.innerHTML = html;
+    }
+
+    updatePerformanceMetrics(stats) {
+        const container = document.getElementById('performance-metrics');
+        if (!container) return;
+
+        const totalLoadTime = stats.reduce((sum, s) => sum + (s.tiempo_carga_pagina_ms || 0), 0);
+        const avgLoadTime = (totalLoadTime / stats.length).toFixed(2);
+        
+        const fastLoads = stats.filter(s => (s.tiempo_carga_pagina_ms || 0) < 1000).length;
+        const mediumLoads = stats.filter(s => (s.tiempo_carga_pagina_ms || 0) >= 1000 && (s.tiempo_carga_pagina_ms || 0) < 3000).length;
+        const slowLoads = stats.filter(s => (s.tiempo_carga_pagina_ms || 0) >= 3000).length;
+
+        const avgSessionDuration = (stats.reduce((sum, s) => sum + (s.duracion_sesion_segundos || 0), 0) / stats.length).toFixed(2);
+        
+        const html = `
+            <div class="metric-card">
+                <div class="metric-label">Tiempo Promedio de Carga</div>
+                <div class="metric-value">${avgLoadTime}ms</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Cargas Rápidas (&lt;1s)</div>
+                <div class="metric-value">${fastLoads}</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Cargas Medias (1-3s)</div>
+                <div class="metric-value">${mediumLoads}</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Cargas Lentas (&gt;3s)</div>
+                <div class="metric-value">${slowLoads}</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Duración Promedio Sesión</div>
+                <div class="metric-value">${avgSessionDuration}s</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Tiempo Promedio por Página</div>
+                <div class="metric-value">${(stats.reduce((sum, s) => sum + (s.tiempo_promedio_pagina || 0), 0) / stats.length).toFixed(2)}s</div>
+            </div>
+        `;
+
+        container.innerHTML = html;
+    }
+
+    updateAffiliatePerformance(stats) {
+        const container = document.getElementById('affiliate-performance');
+        if (!container) return;
+
+        // Group by affiliate
+        const affiliates = {};
+        stats.forEach(s => {
+            const affiliate = s.afiliado || 'Ninguno';
+            if (!affiliates[affiliate]) {
+                affiliates[affiliate] = {
+                    visits: 0,
+                    conversions: 0,
+                    revenue: 0
+                };
+            }
+            affiliates[affiliate].visits++;
+            if (Array.isArray(s.compras) && s.compras.length > 0) {
+                affiliates[affiliate].conversions++;
+                affiliates[affiliate].revenue += s.precio_compra_total || 0;
+            }
+        });
+
+        const sorted = Object.entries(affiliates)
+            .map(([name, data]) => ({
+                name,
+                ...data,
+                conversionRate: ((data.conversions / data.visits) * 100).toFixed(2)
+            }))
+            .sort((a, b) => b.revenue - a.revenue);
+
+        if (sorted.length === 0) {
+            container.innerHTML = '<p class="no-data">Sin datos de afiliados</p>';
+            return;
+        }
+
+        const tableHTML = `
+            <table>
+                <thead>
+                    <tr>
+                        <th>Afiliado</th>
+                        <th>Visitas</th>
+                        <th>Conversiones</th>
+                        <th>Tasa Conv.</th>
+                        <th>Ingresos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${sorted.map(affiliate => `
+                        <tr>
+                            <td>${affiliate.name}</td>
+                            <td>${affiliate.visits}</td>
+                            <td>${affiliate.conversions}</td>
+                            <td>${affiliate.conversionRate}%</td>
+                            <td>$ ${affiliate.revenue.toLocaleString('es-ES')}</td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            </table>
+        `;
+
+        container.innerHTML = tableHTML;
+    }
+
+    showLoadingStates() {
+        const containers = [
+            'server-status-content',
+            'stats-summary',
+            'new-orders-container',
+            'server-logs-container',
+            'users-activity-container',
+            'traffic-sources',
+            'countries-distribution',
+            'browser-os-stats',
+            'conversion-analytics',
+            'performance-metrics',
+            'affiliate-performance'
+        ];
+
+        containers.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.innerHTML = '<p class="no-data">Cargando...</p>';
+        });
+    }
+
+    showError(message) {
+        const containers = [
+            'server-status-content',
+            'stats-summary',
+            'new-orders-container'
+        ];
+
+        containers.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.innerHTML = `<p class="no-data" style="color: #ff6b6b;">❌ ${message}</p>`;
+        });
+    }
+}
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    new ServerPanel();
+});

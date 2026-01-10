@@ -8,12 +8,18 @@
     <!-- Favicon de ejemplo -->
     <link rel="icon" href="https://placehold.co/32x32/4A90E2/FFFFFF?text=B" type="image/png">
 
-    <link rel="stylesheet" href="styles.css">
+    <!-- CSS Modularizado -->
+    <link rel="stylesheet" href="Css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header class="app-header">
         <div class="header-content">
+            <button class="hamburger-menu" id="hamburger-btn" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <div class="app-logo">
                 <i class="fas fa-chart-line"></i>
                 <h1>Buquenque Dashboard</h1>
@@ -22,9 +28,29 @@
         </div>
     </header>
 
-    <main class="content">
+    <!-- Overlay para cerrar menú (mobile) -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+
+    <div class="main-wrapper">
+        <!-- Menú Lateral -->
+        <nav class="sidebar-menu" id="sidebar-menu">
+            <div class="menu-header">
+                <h2>Menú</h2>
+                <button class="close-menu" id="close-menu" aria-label="Cerrar menú">&times;</button>
+            </div>
+            <ul class="menu-list">
+                <li><a href="#" class="menu-item active" data-view="dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="#" class="menu-item" data-view="server"><i class="fas fa-server"></i> Server</a></li>
+                <li><a href="#" class="menu-item" data-view="inventory"><i class="fas fa-boxes"></i> Inventario</a></li>
+                <li class="menu-separator"></li>
+                <li><a href="#" class="menu-item" data-view="settings"><i class="fas fa-cog"></i> Ajustes</a></li>
+            </ul>
+        </nav>
+
+        <!-- Contenido Principal -->
+        <main class="content">
         <!-- Vista Dashboard -->
-        <div id="dashboard-view" class="view-content">
+        <div id="dashboard-view" class="view-content active">
             <header class="header">
                 <div class="header-top">
                     <div class="search-bar">
@@ -47,14 +73,14 @@
                                 <span class="stat-label">Pedidos Totales</span>
                             </div>
                             <div class="currency-panel cup">
-                                <span class="stat-value" id="total-sales">CUP 0</span>
+                                <span class="stat-value" id="total-sales">$ 0</span>
                                 <span class="stat-label">Ventas Totales</span>
                             </div>
                         </div>
                         <div class="stat-card accent">
                             <i class="fas fa-cubes"></i>
                             <div class="stat-content">
-                                <span class="stat-value" id="avg-order-value">CUP 0</span>
+                                <span class="stat-value" id="avg-order-value">$ 0</span>
                                 <span class="stat-label">Valor Promedio Pedido</span>
                             </div>
                         </div>
@@ -136,18 +162,191 @@
                     <div id="data-list" class="orders-container"></div>
                 </div>
             </section>
-        </div>  
+        </div>
+
+        <!-- Vista Server -->
+        <div id="server-view" class="view-content">
+            <div class="server-header">
+                <h2><i class="fas fa-server"></i> Panel de Control del Servidor</h2>
+                <div class="server-controls">
+                    <div class="auto-refresh-panel">
+                        <label for="auto-refresh-select" class="refresh-label">
+                            <i class="fas fa-sync"></i> Auto-actualizar:
+                        </label>
+                        <select id="auto-refresh-select" class="refresh-select">
+                            <option value="0">Desactivado</option>
+                            <option value="15">Cada 15s</option>
+                            <option value="30">Cada 30s</option>
+                            <option value="60">Cada 60s</option>
+                        </select>
+                        <span class="last-update" id="last-update-time">Actualizado hace poco</span>
+                    </div>
+                    <button class="btn btn-primary" id="refresh-server-btn">
+                        <i class="fas fa-sync-alt"></i> Actualizar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Server Grid con orden de prioridad CSS (nth-child) -->
+            <div class="server-grid">
+                
+                <!-- 1. ESTADO DEL SERVIDOR (Priority: 1 - Full Width) -->
+                <div class="server-card status-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-heartbeat"></i> Estado del Servidor</h3>
+                    </div>
+                    <div class="status-content" id="server-status-content">
+                        <div class="status-item">
+                            <span class="label">Estado:</span>
+                            <span class="value status-running" id="server-state">Cargando...</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="label">Hora de Inicio:</span>
+                            <span class="value" id="server-start-time">Cargando...</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="label">Tiempo de Actividad:</span>
+                            <span class="value" id="server-uptime">Cargando...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. RESUMEN DE ESTADÍSTICAS (Priority: 2) -->
+                <div class="server-card stats-summary-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-chart-bar"></i> Resumen Estadísticas</h3>
+                    </div>
+                    <div class="stats-grid" id="stats-summary">
+                        <div class="stat-box">
+                            <span class="stat-label">Total Registros</span>
+                            <span class="stat-value" id="total-stats">0</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label">Usuarios Únicos</span>
+                            <span class="stat-value" id="unique-users">0</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label">Pedidos</span>
+                            <span class="stat-value" id="total-orders-server">0</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label">Ingresos</span>
+                            <span class="stat-value" id="total-revenue">CUP 0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. PEDIDOS NUEVOS (Priority: 3 - Full Width) -->
+                <div class="server-card full-width">
+                    <div class="card-header">
+                        <h3><i class="fas fa-boxes"></i> Pedidos Nuevos</h3>
+                        <span class="badge" id="new-orders-count">0</span>
+                    </div>
+                    <div class="table-responsive" id="new-orders-container">
+                        <p class="no-data">Cargando pedidos...</p>
+                    </div>
+                </div>
+
+                <!-- 4. LOGS DEL SERVIDOR (Priority: 4 - Full Width) -->
+                <div class="server-card full-width">
+                    <div class="card-header">
+                        <h3><i class="fas fa-list"></i> Logs del Servidor</h3>
+                        <button class="btn-icon" id="clear-logs-btn" title="Limpiar logs">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                    <div class="logs-container" id="server-logs-container">
+                        <p class="no-data">Cargando logs...</p>
+                    </div>
+                </div>
+
+                <!-- 5. ACTIVIDAD DE USUARIOS (Priority: 5 - Full Width) -->
+                <div class="server-card full-width">
+                    <div class="card-header">
+                        <h3><i class="fas fa-user-circle"></i> Actividad de Usuarios</h3>
+                        <div class="filter-logs">
+                            <input type="text" id="filter-users" placeholder="Buscar por IP o país..." class="input-light small">
+                        </div>
+                    </div>
+                    <div class="table-responsive" id="users-activity-container">
+                        <p class="no-data">Cargando usuarios...</p>
+                    </div>
+                </div>
+
+                <!-- 6. FUENTES DE TRÁFICO (Priority: 6) -->
+                <div class="server-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-globe"></i> Tráfico</h3>
+                    </div>
+                    <div class="traffic-stats" id="traffic-sources">
+                        <p class="no-data">Cargando...</p>
+                    </div>
+                </div>
+
+                <!-- 7. DISTRIBUCIÓN DE PAÍSES (Priority: 7) -->
+                <div class="server-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-map"></i> Países</h3>
+                    </div>
+                    <div class="countries-stats" id="countries-distribution">
+                        <p class="no-data">Cargando...</p>
+                    </div>
+                </div>
+
+                <!-- 8. NAVEGADORES Y SO (Priority: 8) -->
+                <div class="server-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-desktop"></i> Navegadores</h3>
+                    </div>
+                    <div class="browser-stats" id="browser-os-stats">
+                        <p class="no-data">Cargando...</p>
+                    </div>
+                </div>
+
+                <!-- 9. ANÁLISIS DE CONVERSIÓN (Priority: 9) -->
+                <div class="server-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-funnel"></i> Conversión</h3>
+                    </div>
+                    <div class="conversion-stats" id="conversion-analytics">
+                        <p class="no-data">Cargando...</p>
+                    </div>
+                </div>
+
+                <!-- 10. MÉTRICAS DE RENDIMIENTO (Priority: 10 - Full Width) -->
+                <div class="server-card full-width">
+                    <div class="card-header">
+                        <h3><i class="fas fa-tachometer-alt"></i> Rendimiento</h3>
+                    </div>
+                    <div class="performance-metrics" id="performance-metrics">
+                        <p class="no-data">Cargando...</p>
+                    </div>
+                </div>
+
+                <!-- 11. DESEMPEÑO DE AFILIADOS (Priority: 11 - Full Width) -->
+                <div class="server-card full-width">
+                    <div class="card-header">
+                        <h3><i class="fas fa-link"></i> Afiliados</h3>
+                    </div>
+                    <div class="table-responsive" id="affiliate-performance">
+                        <p class="no-data">Cargando...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
+    </div>
 
     <footer class="app-footer">
         <div class="footer-content">
-            <span>&copy; 2025 Buquenque Dashboard. Todos los derechos reservados H.A.</span>
-            <span class="footer-version">Versión 1.3.3</span>
+            <span>&copy; 2026 Buquenque Dashboard. Todos los derechos reservados HLab</span>
+            <span class="footer-version">Versión 1.7.4</span>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="Js/script.js" defer></script>
+    <script type="module" src="Js/script-new.js" defer></script>
+    <script type="module" src="Js/server-panel.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,130 @@
+/* ═══════════════════════════════════════════════════════════
+ * LAYOUT - Estructura principal de contenido
+ * ═══════════════════════════════════════════════════════════ */
+
+.content {
+    flex-grow: 1;
+    padding: 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+    margin-left: 170px;
+    width: 100%;
+}
+
+.view-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.view-content.hidden {
+    display: none !important;
+}
+
+/* Encabezado de vista */
+.header {
+    margin-bottom: 1.5rem;
+}
+
+.header-main {
+    margin-bottom: 1rem;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.875rem;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.header-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+/* Contenedor principal del dashboard */
+.dashboard-grid {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Grid de insights */
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    gap: 1.5rem;
+}
+
+/* Responsive Layout */
+@media (max-width: 1200px) {
+    .content {
+        padding: 1.5rem;
+    }
+    
+    .insights-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .content {
+        padding: 1rem;
+    }
+    
+    .header-top {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .header-actions {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        padding: 0.55rem;
+    }
+    
+    .header {
+        margin-bottom: 0.75rem;
+    }
+    
+    .dashboard-grid {
+        gap: 0.65rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .dashboard-grid {
+        flex-direction: row;
+        gap: 2.5rem;
+    }
+    
+    .insights-grid {
+        flex: 2;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+    
+    .transactions-card {
+        flex: 1.2;
+        min-width: 350px;
+        max-width: 500px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .content {
+        max-width: 1600px;
+    }
+    
+    .insights-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
