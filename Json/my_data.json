@@ -201,6 +201,90 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+}, 
+{
+  "ip": "2600:387:f:b14::3",
+  "pais": "US",
+  "fecha_hora_entrada": "2026-01-10 15:46:37",
+  "origen": "https://www.buquenqe.com/#",
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 0,
+  "tiempo_carga_pagina_ms": 0,
+  "nombre_comprador": "Eilys Cespedes",
+  "telefono_comprador": "7863023628",
+  "correo_comprador": "edcespedes95@gmail.com",
+  "direccion_envio": "Calle Cristino Barreda #32",
+  "compras": [
+    {
+      "id": null,
+      "name": "Caja de Malta",
+      "quantity": 1,
+      "unitPrice": 25,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Manzana 🍎 x unidad",
+      "quantity": 6,
+      "unitPrice": 1.15,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Cartón de Huevos",
+      "quantity": 1,
+      "unitPrice": 11.5,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Leche en polvo (1kg)",
+      "quantity": 2,
+      "unitPrice": 9,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Leche Condensada Azucarada Castellum (390g)",
+      "quantity": 3,
+      "unitPrice": 1.42,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Papel Sanitario",
+      "quantity": 2,
+      "unitPrice": 2.4,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Frijol Negro (500g)",
+      "quantity": 2,
+      "unitPrice": 1.99,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Alubia Pinta (500g)",
+      "quantity": 2,
+      "unitPrice": 1.99,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Paquete de azúcar 1kg",
+      "quantity": 2,
+      "unitPrice": 1.95,
+      "discount": 0
+    }
+  ],
+  "precio_compra_total": "82.32",
+  "navegador": "Desconocido",
+  "sistema_operativo": "MacOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
 }
 ]
 
