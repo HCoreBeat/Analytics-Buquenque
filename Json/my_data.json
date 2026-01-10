@@ -179,9 +179,23 @@
       "quantity": 1,
       "unitPrice": 1.12,
       "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Jabón de Baño Florona (75g)",
+      "quantity": 2,
+      "unitPrice": 0.80,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Pasta de tomate 🍅 Oderchi (500g)",
+      "quantity": 2,
+      "unitPrice": 1.70,
+      "discount": 0
     }
   ],
-  "precio_compra_total": "46.78",
+  "precio_compra_total": "51.78",
   "navegador": "Safari",
   "sistema_operativo": "MacOS",
   "tipo_usuario": "Recurrente",
