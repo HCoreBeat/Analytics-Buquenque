@@ -26,6 +26,167 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+},
+{
+  "ip": "174.58.33.68",
+  "pais": "US",
+  "fecha_hora_entrada": "2026-01-10 12:24:52",
+  "origen": "https://www.buquenqe.com/#",
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 0,
+  "tiempo_carga_pagina_ms": 0,
+  "nombre_comprador": "Yilian Perea Verdecia",
+  "telefono_comprador": "+19412506664",
+  "correo_comprador": "yilianpverdecia@gmail.com",
+  "direccion_envio": "Calle Aurora #21 entre Pepito Peña y Fernando de la Cruz Reparto Aurora",
+  "compras": [
+    {
+      "id": null,
+      "name": "Manzana 🍎 x unidad",
+      "quantity": 4,
+      "unitPrice": 1.15,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Nutella de Chocolate (350g)",
+      "quantity": 2,
+      "unitPrice": 3.25,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Paquete de salchichas (340g)",
+      "quantity": 2,
+      "unitPrice": 1.5,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Papas tostadas 30g",
+      "quantity": 1,
+      "unitPrice": 0.9,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Bolsa de pan 10u",
+      "quantity": 1,
+      "unitPrice": 1.8,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Caja de galletas de soda Saltine 227g",
+      "quantity": 1,
+      "unitPrice": 1.9,
+      "discount": 0
+    },
+    {
+      "id": "group_Sorbeto de",
+      "name": "Sorbeto de (Fresa Renata) (115g)",
+      "quantity": 1,
+      "unitPrice": 1.15,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Galletas Lamore (150g)",
+      "quantity": 1,
+      "unitPrice": 1.25,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Codito (500g)",
+      "quantity": 1,
+      "unitPrice": 1.07,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Mortadella de Pollo",
+      "quantity": 1,
+      "unitPrice": 2.49,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Sopa instantánea sabor Pollo (80g)",
+      "quantity": 3,
+      "unitPrice": 0.8,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Refresco Instantáneo (3Lt)",
+      "quantity": 2,
+      "unitPrice": 0.25,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Chupa Chupa x unidad",
+      "quantity": 5,
+      "unitPrice": 0.25,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Cartón de Huevos",
+      "quantity": 1,
+      "unitPrice": 11.5,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Ketchup Pramesa (300g)",
+      "quantity": 1,
+      "unitPrice": 1.8,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Cepillo de diente (/u)",
+      "quantity": 1,
+      "unitPrice": 0.5,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Galletas Snack (30g)",
+      "quantity": 1,
+      "unitPrice": 0.5,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Paquete de Harina (1kg)",
+      "quantity": 1,
+      "unitPrice": 2.25,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Pastilla de Pollo x unidad",
+      "quantity": 2,
+      "unitPrice": 0.15,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Espaguetis (500g)",
+      "quantity": 1,
+      "unitPrice": 1.12,
+      "discount": 0
+    }
+  ],
+  "precio_compra_total": "46.78",
+  "navegador": "Safari",
+  "sistema_operativo": "MacOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
 }
 ]
 
