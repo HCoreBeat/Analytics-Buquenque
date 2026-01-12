@@ -1,361 +1,142 @@
 [
-{
-  "ip": "2603:6012:f8f0:5850:d5bd:92e7:919d:afc3",
-  "pais": "US",
-  "fecha_hora_entrada": "2026-01-09 16:37:06",
-  "origen": "https://www.buquenqe.com/#",
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 0,
-  "tiempo_carga_pagina_ms": 0,
-  "nombre_comprador": "Daimarelis Diaz Vazquez",
-  "telefono_comprador": "54935704",
-  "correo_comprador": "daimarelisdiazvasquez@gmail.com",
-  "direccion_envio": "Calle Colón número 158",
-  "compras": [
-    {
-      "id": null,
-      "name": "Pack x 6 Manzana 🍎",
-      "quantity": 1,
-      "unitPrice": 6.9,
-      "discount": 0
-    }
-  ],
-  "precio_compra_total": "6.90",
-  "navegador": "Safari",
-  "sistema_operativo": "MacOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-},
-{
-  "ip": "174.58.33.68",
-  "pais": "US",
-  "fecha_hora_entrada": "2026-01-10 12:24:52",
-  "origen": "https://www.buquenqe.com/#",
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 0,
-  "tiempo_carga_pagina_ms": 0,
-  "nombre_comprador": "Yilian Perea Verdecia",
-  "telefono_comprador": "+19412506664",
-  "correo_comprador": "yilianpverdecia@gmail.com",
-  "direccion_envio": "Calle Aurora #21 entre Pepito Peña y Fernando de la Cruz Reparto Aurora",
-  "compras": [
-    {
-      "id": null,
-      "name": "Manzana 🍎 x unidad",
-      "quantity": 4,
-      "unitPrice": 1.15,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Nutella de Chocolate (350g)",
-      "quantity": 2,
-      "unitPrice": 3.25,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Paquete de salchichas (340g)",
-      "quantity": 2,
-      "unitPrice": 1.5,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Papas tostadas 30g",
-      "quantity": 1,
-      "unitPrice": 0.9,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Bolsa de pan 10u",
-      "quantity": 1,
-      "unitPrice": 1.8,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Caja de galletas de soda Saltine 227g",
-      "quantity": 1,
-      "unitPrice": 1.9,
-      "discount": 0
-    },
-    {
-      "id": "group_Sorbeto de",
-      "name": "Sorbeto de (Fresa Renata) (115g)",
-      "quantity": 1,
-      "unitPrice": 1.15,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Galletas Lamore (150g)",
-      "quantity": 1,
-      "unitPrice": 1.25,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Codito (500g)",
-      "quantity": 1,
-      "unitPrice": 1.07,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Mortadella de Pollo",
-      "quantity": 1,
-      "unitPrice": 2.49,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Sopa instantánea sabor Pollo (80g)",
-      "quantity": 3,
-      "unitPrice": 0.8,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Refresco Instantáneo (3Lt)",
-      "quantity": 2,
-      "unitPrice": 0.25,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Chupa Chupa x unidad",
-      "quantity": 5,
-      "unitPrice": 0.25,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Cartón de Huevos",
-      "quantity": 1,
-      "unitPrice": 11.5,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Ketchup Pramesa (300g)",
-      "quantity": 1,
-      "unitPrice": 1.8,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Cepillo de diente (/u)",
-      "quantity": 1,
-      "unitPrice": 0.5,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Galletas Snack (30g)",
-      "quantity": 1,
-      "unitPrice": 0.5,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Paquete de Harina (1kg)",
-      "quantity": 1,
-      "unitPrice": 2.25,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Pastilla de Pollo x unidad",
-      "quantity": 2,
-      "unitPrice": 0.15,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Espaguetis (500g)",
-      "quantity": 1,
-      "unitPrice": 1.12,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Jabón de Baño Florona (75g)",
-      "quantity": 2,
-      "unitPrice": 0.80,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Pasta de Tomate 🍅 Oderich (350g)",
-      "quantity": 2,
-      "unitPrice": 1.70,
-      "discount": 0
-    }
-  ],
-  "precio_compra_total": "51.78",
-  "navegador": "Safari",
-  "sistema_operativo": "MacOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-}, 
-{
-  "ip": "2600:387:f:b14::3",
-  "pais": "US",
-  "fecha_hora_entrada": "2026-01-10 15:46:37",
-  "origen": "https://www.buquenqe.com/#",
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 0,
-  "tiempo_carga_pagina_ms": 0,
-  "nombre_comprador": "Eilys Cespedes",
-  "telefono_comprador": "7863023628",
-  "correo_comprador": "edcespedes95@gmail.com",
-  "direccion_envio": "Calle Cristino Barreda #32",
-  "compras": [
-    {
-      "id": null,
-      "name": "Caja de Malta",
-      "quantity": 1,
-      "unitPrice": 25,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Manzana 🍎 x unidad",
-      "quantity": 6,
-      "unitPrice": 1.15,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Cartón de Huevos",
-      "quantity": 1,
-      "unitPrice": 11.5,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Leche en polvo (1kg)",
-      "quantity": 2,
-      "unitPrice": 9,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Leche Condensada Azucarada Castellum (390g)",
-      "quantity": 3,
-      "unitPrice": 1.42,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Papel Sanitario",
-      "quantity": 2,
-      "unitPrice": 2.4,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Frijol Negro (500g)",
-      "quantity": 2,
-      "unitPrice": 1.99,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Alubia Pinta (500g)",
-      "quantity": 2,
-      "unitPrice": 1.99,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Paquete de azúcar 1kg",
-      "quantity": 2,
-      "unitPrice": 1.95,
-      "discount": 0
-    }
-  ],
-  "precio_compra_total": "82.32",
-  "navegador": "Desconocido",
-  "sistema_operativo": "MacOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-},
   {
-  "ip": "2601:58a:8e7c:95f0:59e2:4717:189b:70b",
-  "pais": "US",
-  "fecha_hora_entrada": "2026-01-11 11:09:29",
-  "origen": "https://www.buquenqe.com/#",
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 0,
-  "tiempo_carga_pagina_ms": 0,
-  "nombre_comprador": "Katery Gomez",
-  "telefono_comprador": "7868513045",
-  "correo_comprador": "katerygomez18@gmail.com",
-  "direccion_envio": "Rosendo Arteaga numero 31 alto entre Cuba y primera reparto sosa",
-  "compras": [
-    {
-      "id": "group_Sorbeto de",
-      "name": "Sorbeto de (Fresa Renata) (115g)",
-      "quantity": 3,
-      "unitPrice": 1.15,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Galletas Monro Vainilla (50g)",
-      "quantity": 3,
-      "unitPrice": 0.7,
-      "discount": 0
-    },
-    {
-      "id": "group_Galletas Hello",
-      "name": "Galletas Hello (Fresa) (50g)",
-      "quantity": 4,
-      "unitPrice": 0.59,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Yogurt probiótico de 1L (fresa y platanito)",
-      "quantity": 2,
-      "unitPrice": 6,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Bolsa de pan 10u",
-      "quantity": 2,
-      "unitPrice": 1.8,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Galletas Petit Biscuits de coco 80g",
-      "quantity": 3,
-      "unitPrice": 0.8,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Refresco Instantáneo (3Lt)",
-      "quantity": 6,
-      "unitPrice": 0.25,
-      "discount": 0
-    }
-  ],
-  "precio_compra_total": "27.41",
-  "navegador": "Safari",
-  "sistema_operativo": "MacOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-}
+    "ip": "2a0d:5600:8:110::11",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-01-12 07:10:37",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 2917,
+    "nombre_comprador": "N/A",
+    "telefono_comprador": "N/A",
+    "correo_comprador": "N/A",
+    "direccion_envio": "N/A",
+    "compras": [],
+    "precio_compra_total": 0,
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Único",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2a0d:5600:8:110::11",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-01-12 07:28:37",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 1671,
+    "nombre_comprador": "N/A",
+    "telefono_comprador": "N/A",
+    "correo_comprador": "N/A",
+    "direccion_envio": "N/A",
+    "compras": [],
+    "precio_compra_total": 0,
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2a0d:5600:8:110::11",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-01-12 08:24:00",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 722,
+    "nombre_comprador": "N/A",
+    "telefono_comprador": "N/A",
+    "correo_comprador": "N/A",
+    "direccion_envio": "N/A",
+    "compras": [],
+    "precio_compra_total": 0,
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "152.206.33.134",
+    "pais": "CU",
+    "fecha_hora_entrada": "2026-01-12 08:54:26",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 13688,
+    "nombre_comprador": "N/A",
+    "telefono_comprador": "N/A",
+    "correo_comprador": "N/A",
+    "direccion_envio": "N/A",
+    "compras": [],
+    "precio_compra_total": 0,
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Único",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:58a:8e7c:95f0:5dda:aef8:a75b:7be2",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-01-12 08:57:15",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 1293,
+    "nombre_comprador": "N/A",
+    "telefono_comprador": "N/A",
+    "correo_comprador": "N/A",
+    "direccion_envio": "N/A",
+    "compras": [],
+    "precio_compra_total": 0,
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Único",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "152.206.240.125",
+    "pais": "CU",
+    "fecha_hora_entrada": "2026-01-12 08:59:47",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 976,
+    "nombre_comprador": "N/A",
+    "telefono_comprador": "N/A",
+    "correo_comprador": "N/A",
+    "direccion_envio": "N/A",
+    "compras": [],
+    "precio_compra_total": 0,
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Único",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:1700:5ec0:b6e0:79:8426:67e9:9ae6",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-01-12 09:02:16",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 541,
+    "nombre_comprador": "N/A",
+    "telefono_comprador": "N/A",
+    "correo_comprador": "N/A",
+    "direccion_envio": "N/A",
+    "compras": [],
+    "precio_compra_total": 0,
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Único",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  }
 ]
-
-
