@@ -54,7 +54,15 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 0.8rem;
-    margin-bottom: 1rem;
+    padding: 1.25rem;
+    border-bottom: 1px solid var(--border-light);
+    background: var(--secondary);
+}
+
+.card-header-with-tabs .card-title {
+    margin: 0;
+    flex: 1;
+    min-width: 200px;
 }
 
 /* Responsive Cards */
