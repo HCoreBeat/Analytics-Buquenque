@@ -285,6 +285,77 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+},
+  {
+  "ip": "2601:58a:8e7c:95f0:59e2:4717:189b:70b",
+  "pais": "US",
+  "fecha_hora_entrada": "2026-01-11 11:09:29",
+  "origen": "https://www.buquenqe.com/#",
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 0,
+  "tiempo_carga_pagina_ms": 0,
+  "nombre_comprador": "Katery Gomez",
+  "telefono_comprador": "7868513045",
+  "correo_comprador": "katerygomez18@gmail.com",
+  "direccion_envio": "Rosendo Arteaga numero 31 alto entre Cuba y primera reparto sosa",
+  "compras": [
+    {
+      "id": "group_Sorbeto de",
+      "name": "Sorbeto de (Fresa Renata) (115g)",
+      "quantity": 3,
+      "unitPrice": 1.15,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Galletas Monro Vainilla (50g)",
+      "quantity": 3,
+      "unitPrice": 0.7,
+      "discount": 0
+    },
+    {
+      "id": "group_Galletas Hello",
+      "name": "Galletas Hello (Fresa) (50g)",
+      "quantity": 4,
+      "unitPrice": 0.59,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Yogurt probiótico de 1L (fresa y platanito)",
+      "quantity": 2,
+      "unitPrice": 6,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Bolsa de pan 10u",
+      "quantity": 2,
+      "unitPrice": 1.8,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Galletas Petit Biscuits de coco 80g",
+      "quantity": 3,
+      "unitPrice": 0.8,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Refresco Instantáneo (3Lt)",
+      "quantity": 6,
+      "unitPrice": 0.25,
+      "discount": 0
+    }
+  ],
+  "precio_compra_total": "27.41",
+  "navegador": "Safari",
+  "sistema_operativo": "MacOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
 }
 ]
+
 
