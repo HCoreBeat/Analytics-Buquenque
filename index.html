@@ -11,6 +11,8 @@
     <!-- CSS Modularizado -->
     <link rel="stylesheet" href="Css/main.css">
     <link rel="stylesheet" href="Css/pedidos-new.css">
+    <link rel="stylesheet" href="Css/settings.css">
+    <link rel="stylesheet" href="Css/modal-github.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -36,7 +38,7 @@
         <!-- Menú Lateral -->
         <nav class="sidebar-menu" id="sidebar-menu">
             <div class="menu-header">
-                <h2>Menú</h2>
+                <h2><i class="fas fa-bars" style="margin-right: 0.4rem;"></i>Navegación</h2>
                 <button class="close-menu" id="close-menu" aria-label="Cerrar menú">&times;</button>
             </div>
             <ul class="menu-list">
@@ -244,7 +246,12 @@
                 <div class="server-card full-width">
                     <div class="card-header">
                         <h3><i class="fas fa-boxes"></i> Pedidos Nuevos</h3>
-                        <span class="badge" id="new-orders-count">0</span>
+                        <div class="card-header-actions">
+                            <span class="badge" id="new-orders-count">0</span>
+                            <button class="btn btn-success" id="save-orders-to-github" title="Guardar pedidos en GitHub">
+                                <i class="fab fa-github"></i> Guardar en GitHub
+                            </button>
+                        </div>
                     </div>
                     <div class="table-responsive" id="new-orders-container">
                         <p class="no-data">Cargando pedidos...</p>
@@ -401,15 +408,156 @@
                 </div>
             </div>
         </div>
+
+        <!-- Vista Settings -->
+        <div id="settings-view" class="view-content">
+            <div class="settings-header">
+                <h2><i class="fas fa-cog"></i> Ajustes</h2>
+            </div>
+            
+            <div class="settings-container">
+                <!-- GitHub Integration Section -->
+                <div class="settings-card">
+                    <div class="card-header">
+                        <h3><i class="fab fa-github"></i> Integración de GitHub</h3>
+                        <p class="card-description">Configura tu token de GitHub para guardar datos en tus repositorios</p>
+                    </div>
+                    
+                    <div class="settings-form">
+                        <div class="form-group">
+                            <label for="github-token-input">Token de GitHub</label>
+                            <div class="token-input-wrapper">
+                                <input 
+                                    type="password" 
+                                    id="github-token-input" 
+                                    placeholder="ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+                                    class="input-light token-input"
+                                >
+                                <button class="btn-toggle-token" id="toggle-token-visibility" title="Mostrar/Ocultar token">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <p class="input-help">
+                                <i class="fas fa-info-circle"></i>
+                                Tu token se almacena localmente en el navegador por tanto evita darle el telefono a alguien mas que pueda entrar aqui.
+                            </p>
+                        </div>
+
+                        <div class="form-group info-group">
+                            <h4>Configuración Fija</h4>
+                            <div class="config-display">
+                                <div class="config-item">
+                                    <span class="label">Repositorio:</span>
+                                    <span class="value" id="config-repo">HCoreBeat/Analytics-Buquenque</span>
+                                </div>
+                                <div class="config-item">
+                                    <span class="label">Ruta del Archivo:</span>
+                                    <span class="value" id="config-file-path">Json/my_data.json</span>
+                                </div>
+                            </div>
+                            <p class="input-help">
+                                <i class="fas fa-lock"></i>
+                                Estos valores están predefinidos y no pueden ser cambiados
+                            </p>
+                        </div>
+
+                        <div class="form-actions">
+                            <button class="btn btn-primary" id="save-github-settings">
+                                <i class="fas fa-save"></i> Guardar Token
+                            </button>
+                            <button class="btn btn-secondary" id="test-github-connection">
+                                <i class="fas fa-plug"></i> Probar Conexión
+                            </button>
+                            <button class="btn btn-danger" id="clear-github-settings">
+                                <i class="fas fa-trash"></i> Limpiar Token
+                            </button>
+                        </div>
+
+                        <div class="settings-status" id="github-settings-status" style="display: none;"></div>
+                    </div>
+                </div>
+
+                <!-- Other Settings -->
+                <div class="settings-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-sliders-h"></i> Preferencias Generales</h3>
+                    </div>
+                    
+                    <div class="settings-form">
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="auto-save-enabled" class="checkbox">
+                                Guardar automáticamente pedidos
+                            </label>
+                            <p class="input-help">
+                                Los pedidos se guardarán automáticamente en GitHub según la frecuencia seleccionada
+                            </p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="auto-save-interval">Intervalo de Auto-guardado</label>
+                            <select id="auto-save-interval" class="select-light">
+                                <option value="5">Cada 5 minutos</option>
+                                <option value="10">Cada 10 minutos</option>
+                                <option value="30">Cada 30 minutos</option>
+                                <option value="60">Cada 1 hora</option>
+                            </select>
+                        </div>
+
+                        <div class="form-actions">
+                            <button class="btn btn-primary" id="save-preferences">
+                                <i class="fas fa-save"></i> Guardar Preferencias
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     </div>
 
     <footer class="app-footer">
         <div class="footer-content">
             <span>&copy; 2026 Buquenque Dashboard. Todos los derechos reservados HLab</span>
-            <span class="footer-version">Versión 1.7.4</span>
+            <span class="footer-version">Versión 1.8.4</span>
         </div>
     </footer>
+
+    <!-- Modal de Guardado en GitHub -->
+    <div class="github-save-modal" id="github-save-modal">
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Guardando pedidos...</h3>
+                <button class="modal-close" id="modal-close-btn" aria-label="Cerrar">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-icon" id="modal-icon">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </div>
+                <div class="modal-message" id="modal-message">
+                    <p class="status-text" id="status-text">Conectando con GitHub...</p>
+                    <p class="detail-text" id="detail-text">Por favor espera</p>
+                </div>
+                <div class="modal-progress" id="modal-progress" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <p class="progress-text" id="progress-text">0%</p>
+                </div>
+            </div>
+            <div class="modal-footer" id="modal-footer">
+                <button class="btn btn-primary" id="modal-retry-btn" style="display: none;">
+                    <i class="fas fa-redo"></i> Reintentar
+                </button>
+                <button class="btn btn-secondary" id="modal-close-final-btn" style="display: none;">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>

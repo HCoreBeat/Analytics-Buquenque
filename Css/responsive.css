@@ -26,12 +26,6 @@
     grid-template-columns: 2fr 1fr;
     gap: 2rem;
   }
-
-  .transactions-card {
-    width: 100%;
-    min-height: 400px;
-    max-height: 600px;
-  }
 }
 
 /* Desktop - 1200px */

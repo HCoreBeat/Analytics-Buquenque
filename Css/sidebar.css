@@ -6,7 +6,7 @@
 .hamburger-menu {
     display: none;
     flex-direction: column;
-    background: none;
+    background: transparent;
     border: none;
     cursor: pointer;
     padding: 0.6rem 0.5rem;
@@ -18,9 +18,9 @@
 }
 
 .hamburger-menu:hover {
-    opacity: 0.9;
+    opacity: 1;
     transform: scale(1.08);
-    background: var(--hover-bg);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .hamburger-menu:active {
@@ -29,18 +29,18 @@
 
 .hamburger-menu span {
     width: 24px;
-    height: 3px;
-    background: var(--accent);
-    border-radius: 3px;
+    height: 2.5px;
+    background: #ffffff;
+    border-radius: 2px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: block;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 /* Hamburger Active States */
 .hamburger-menu.active span:nth-child(1) {
     transform: rotate(45deg) translate(10px, 10px);
-    background: var(--accent-light);
+    background: #4A90E2;
 }
 
 .hamburger-menu.active span:nth-child(2) {
@@ -50,19 +50,19 @@
 
 .hamburger-menu.active span:nth-child(3) {
     transform: rotate(-45deg) translate(8px, -8px);
-    background: var(--accent-light);
+    background: #4A90E2;
 }
 
 /* Sidebar Menu - Responsive & Animated */
 .sidebar-menu {
     position: fixed;
-    left: -170px;
+    left: -280px;
     top: 0;
-    width: 170px;
+    width: 280px;
     height: 100vh;
-    background: var(--secondary);
-    border-right: 2px solid var(--border-light);
-    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.12);
+    background: linear-gradient(180deg, #f8fafb 0%, #f0f3f7 100%);
+    border-right: 1px solid rgba(74, 144, 226, 0.1);
+    box-shadow: 2px 0 16px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     overflow-y: auto;
@@ -95,7 +95,7 @@
 
 .sidebar-menu.active {
     left: 0;
-    box-shadow: 3px 0 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 3px 0 20px rgba(0, 0, 0, 0.12);
 }
 
 /* Menu Header - Enhanced */
@@ -103,14 +103,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.25rem 1.5rem;
-    border-bottom: 2px solid var(--border-light);
-    background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+    padding: 1.5rem 1.5rem;
+    border-bottom: 1px solid rgba(74, 144, 226, 0.15);
+    background: linear-gradient(135deg, #2a3f5f 0%, #354a6b 100%);
     background-clip: padding-box;
     flex-shrink: 0;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .menu-header::before {
@@ -119,30 +119,31 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent-light), transparent);
+    height: 2px;
+    background: linear-gradient(90deg, #4A90E2, transparent);
 }
 
 .menu-header h2 {
     margin: 0;
-    font-size: 1.25rem;
+    font-size: 0.95rem;
     color: white;
-    font-weight: 700;
+    font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    letter-spacing: 0.3px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    gap: 0.6rem;
+    letter-spacing: 0.5px;
+    text-shadow: none;
+    text-transform: uppercase;
 }
 
 .menu-header h2::before {
     content: '';
     display: inline-block;
-    width: 4px;
-    height: 28px;
-    background: white;
+    width: 3px;
+    height: 22px;
+    background: #4A90E2;
     border-radius: 2px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.3);
 }
 
 /* Close Button - Enhanced */
@@ -158,14 +159,14 @@
     align-items: center;
     justify-content: center;
     border-radius: 4px;
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
 }
 
 .close-menu:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.12);
     transform: rotate(90deg);
-    color: var(--accent-light);
+    color: #4A90E2;
 }
 
 .close-menu:active {
@@ -196,76 +197,103 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 1rem 1.25rem;
+    padding: 0.95rem 1.25rem;
     color: var(--text);
     text-decoration: none;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border-left: 4px solid transparent;
+    border-left: 3px solid transparent;
     border-right: 0;
     font-weight: 500;
     position: relative;
-    margin: 0 0.5rem;
-    border-radius: 0 8px 8px 0;
+    margin: 0 0.65rem;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.95rem;
 }
 
 .menu-item i {
-    font-size: 1.15rem;
-    width: 24px;
+    font-size: 1.1rem;
+    width: 22px;
     text-align: center;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     min-width: 20px;
+    color: var(--text-secondary);
 }
 
 /* Menu Item Hover State */
 .menu-item:hover {
-    background: var(--hover-bg);
-    border-left-color: var(--accent);
-    color: var(--accent);
+    background: rgba(74, 144, 226, 0.08);
+    border-left-color: #4A90E2;
+    color: #4A90E2;
     padding-left: 1.35rem;
-    transform: translateX(4px);
-    box-shadow: inset 0 0 8px rgba(74, 144, 226, 0.08);
+    transform: translateX(2px);
+    box-shadow: inset 2px 0 0 rgba(74, 144, 226, 0.15);
 }
 
 .menu-item:hover i {
-    transform: scale(1.15) translateX(2px);
+    transform: scale(1.12) translateX(2px);
+    color: #4A90E2;
 }
 
 /* Menu Item Active State */
 .menu-item.active {
-    background: linear-gradient(90deg, rgba(74, 144, 226, 0.15), transparent);
-    border-left-color: var(--accent-light);
-    color: var(--accent);
-    font-weight: 700;
-    box-shadow: inset 0 0 12px rgba(74, 144, 226, 0.12);
+    background: linear-gradient(90deg, 
+        rgba(74, 144, 226, 0.15) 0%, 
+        rgba(74, 144, 226, 0.08) 50%, 
+        transparent 100%);
+    border-left: 3px solid #4A90E2;
+    border-radius: 0 6px 6px 0;
+    color: #4A90E2;
+    font-weight: 600;
+    box-shadow: inset 3px 0 0 rgba(74, 144, 226, 0.3);
     position: relative;
+    margin: 0.3rem 0.65rem;
+    padding-left: 1.1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .menu-item.active::after {
     content: '';
     position: absolute;
-    right: 0;
+    right: -0.65rem;
     top: 50%;
     transform: translateY(-50%);
     width: 3px;
     height: 60%;
-    background: var(--accent-light);
+    background: linear-gradient(180deg, #4A90E2, #7AACFF);
     border-radius: 3px 0 0 3px;
-    box-shadow: 0 0 8px rgba(74, 144, 226, 0.4);
+    box-shadow: -2px 0 8px rgba(74, 144, 226, 0.4);
+    opacity: 1;
+    animation: slideInRight 0.3s ease;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        width: 0;
+        right: -0.8rem;
+    }
+    to {
+        opacity: 1;
+        width: 3px;
+        right: -0.65rem;
+    }
 }
 
 .menu-item.active i {
-    color: var(--accent-light);
+    color: #4A90E2;
+    text-shadow: 0 0 6px rgba(74, 144, 226, 0.25);
+    transition: all 0.3s ease;
 }
 
-/* Menu Item Icon - Improved styling */
-.menu-item i {
-    min-width: 20px;
+.menu-item.active:hover {
+    background: linear-gradient(90deg, 
+        rgba(74, 144, 226, 0.18) 0%, 
+        rgba(74, 144, 226, 0.1) 50%, 
+        transparent 100%);
+    box-shadow: inset 3px 0 0 rgba(74, 144, 226, 0.35);
 }
 
-/* Hover effect improvement */
-.menu-item:hover {
-    box-shadow: inset 0 0 8px rgba(74, 144, 226, 0.08);
-}
+/* Removed duplicate menu-item:hover styles - already defined above */
 
 /* Menu Overlay - Enhanced */
 .menu-overlay {
@@ -319,7 +347,6 @@
 .app-logo h1 {
     margin: 0;
     font-size: 1.3rem;
-    color: var(--text);
     white-space: nowrap;
     letter-spacing: -0.5px;
 }
@@ -329,7 +356,6 @@
     align-items: center;
     gap: 0.5rem;
     font-size: 0.85rem;
-    color: var(--text-secondary);
     white-space: nowrap;
 }
 
@@ -839,7 +865,6 @@
 
     .menu-header {
         padding: 1rem;
-        background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
     }
 
     .menu-header h2 {

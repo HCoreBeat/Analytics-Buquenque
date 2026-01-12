@@ -2,13 +2,24 @@
  * SERVER PANEL - Lógica del panel de control del servidor
  * ═══════════════════════════════════════════════════════════ */
 
+import { GitHubManager } from './githubManager.js';
+import { GitHubSaveModal } from './githubSaveModal.js';
+import { showAlert } from './utils.js';
+
 const BACKEND_URL = 'https://backend-buquenque.onrender.com';
 
 class ServerPanel {
     constructor() {
+        this.githubManager = new GitHubManager();
+        this.saveModal = new GitHubSaveModal();
+        this.allOrdersData = [];
+        this.newOrdersData = [];
+        this.previousNewOrdersCount = 0;
+        this.autoSaveInterval = null;
         this.init();
         this.setupEventListeners();
         this.initAutoRefresh();
+        this.initAutoSave();
     }
 
     init() {
@@ -21,6 +32,7 @@ class ServerPanel {
         this.refreshServerBtn = document.getElementById('refresh-server-btn');
         this.autoRefreshSelect = document.getElementById('auto-refresh-select');
         this.lastUpdateEl = document.getElementById('last-update-time');
+        this.saveOrdersBtn = document.getElementById('save-orders-to-github');
         this.currentView = 'dashboard';
         this.autoRefreshInterval = null;
         this.lastUpdateTime = null;
@@ -45,6 +57,9 @@ class ServerPanel {
         // Refresh server button
         this.refreshServerBtn?.addEventListener('click', () => this.loadServerData());
 
+        // Save orders to GitHub button
+        this.saveOrdersBtn?.addEventListener('click', () => this.saveOrdersToGitHub());
+
         // Auto-refresh select
         this.autoRefreshSelect?.addEventListener('change', (e) => {
             const interval = parseInt(e.target.value);
@@ -66,6 +81,37 @@ class ServerPanel {
             if (interval > 0) {
                 this.setAutoRefresh(interval);
             }
+        }
+    }
+
+    initAutoSave() {
+        // Load auto-save preferences
+        const autoSaveEnabled = localStorage.getItem('auto_save_enabled') === 'true';
+        const autoSaveIntervalMin = parseInt(localStorage.getItem('auto_save_interval') || '5');
+        const autoSaveIntervalMs = autoSaveIntervalMin * 60 * 1000; // Convertir minutos a milisegundos
+
+        if (!autoSaveEnabled) {
+            return;
+        }
+
+        // Configurar intervalo de auto-guardado
+        this.autoSaveInterval = setInterval(() => {
+            this.checkAndAutoSave();
+        }, autoSaveIntervalMs);
+    }
+
+    async checkAndAutoSave() {
+        // Solo guardar si hay nuevos pedidos
+        if (!this.newOrdersData || this.newOrdersData.length === 0) {
+            return;
+        }
+
+        const currentNewOrdersCount = this.newOrdersData.length;
+        
+        // Guardar solo si hay nuevos pedidos que no hemos guardado
+        if (currentNewOrdersCount > this.previousNewOrdersCount) {
+            this.previousNewOrdersCount = currentNewOrdersCount;
+            await this.saveOrdersToGitHub(true); // true = auto-save silencioso
         }
     }
 
@@ -120,6 +166,8 @@ class ServerPanel {
             if (savedInterval && parseInt(savedInterval) > 0) {
                 this.setAutoRefresh(parseInt(savedInterval));
             }
+            // Resume auto-save if enabled
+            this.initAutoSave();
         } else {
             // Clear auto-refresh when leaving server view
             if (this.autoRefreshInterval) {
@@ -139,6 +187,12 @@ class ServerPanel {
                 this.fetchStatistics(),
                 this.fetchNewOrders()
             ]);
+
+            // Guardar SOLO los pedidos nuevos (no las estadísticas)
+            this.newOrdersData = newOrdersData;
+            
+            // Guardar todas las estadísticas para análisis
+            this.allOrdersData = statsData;
 
             // Update UI with data
             this.updateServerStatus(statusData);
@@ -694,6 +748,110 @@ class ServerPanel {
             const el = document.getElementById(id);
             if (el) el.innerHTML = `<p class="no-data" style="color: #ff6b6b;">❌ ${message}</p>`;
         });
+    }
+
+    /**
+     * Guarda los pedidos actuales en GitHub
+     */
+    async saveOrdersToGitHub(isSilent = false) {
+        // Verificar si GitHub está configurado
+        if (!this.githubManager.isConfigured()) {
+            if (!isSilent) {
+                showAlert('❌ Por favor, configura tu token de GitHub en Ajustes', 'error', 3000);
+            }
+            return;
+        }
+
+        // Verificar si hay pedidos nuevos para guardar
+        if (!this.newOrdersData || this.newOrdersData.length === 0) {
+            if (!isSilent) {
+                showAlert('❌ No hay pedidos nuevos para guardar', 'warning', 2000);
+            }
+            return;
+        }
+
+        // Solo mostrar modal si no es guardado silencioso (auto-save)
+        if (!isSilent) {
+            this.saveModal.showLoading();
+        }
+
+        try {
+            // 1. Obtener los datos existentes de GitHub
+            this.saveModal.updateDetail('Obteniendo datos actuales de GitHub...');
+            
+            let existingData = [];
+            try {
+                existingData = await this.githubManager.loadPedidos();
+            } catch (error) {
+                console.log('No hay datos existentes en GitHub, se crearán nuevos');
+                existingData = [];
+            }
+
+            // 2. Combinar con los nuevos pedidos (evitar duplicados)
+            this.saveModal.updateDetail('Procesando pedidos nuevos...');
+            const allPedidos = this.mergePedidos(existingData, this.newOrdersData);
+            
+            // 3. Guardar en GitHub
+            this.saveModal.updateDetail('Guardando en GitHub...');
+            const timestamp = new Date().toLocaleString('es-ES');
+            const commitMessage = `Actualizar pedidos - ${timestamp} (${this.newOrdersData.length} pedidos nuevos)`;
+
+            const result = await this.githubManager.savePedidos(allPedidos, commitMessage);
+
+            // 4. Éxito
+            if (!isSilent) {
+                this.saveModal.showSuccess(result.message, this.newOrdersData.length);
+                showAlert(`✅ ${result.message}`, 'success', 3000);
+            } else {
+                console.log('Auto-save completado:', result.message);
+            }
+
+        } catch (error) {
+            console.error('Error al guardar en GitHub:', error);
+            
+            if (!isSilent) {
+                this.saveModal.showError(
+                    error.message,
+                    () => this.saveOrdersToGitHub(isSilent)
+                );
+            }
+            
+            showAlert(`❌ Error: ${error.message}`, 'error', 4000);
+        }
+    }
+
+    /**
+     * Combina pedidos nuevos con los existentes, evitando duplicados
+     * @param {Array} existingData - Pedidos existentes en GitHub
+     * @param {Array} newOrders - Pedidos nuevos del backend
+     * @returns {Array} Pedidos combinados sin duplicados
+     */
+    mergePedidos(existingData, newOrders) {
+        if (!Array.isArray(existingData)) {
+            existingData = [];
+        }
+        if (!Array.isArray(newOrders)) {
+            newOrders = [];
+        }
+
+        // Crear un mapa de pedidos existentes para evitar duplicados
+        // Usamos IP + fecha_hora_entrada como clave única
+        const existingMap = {};
+        existingData.forEach(pedido => {
+            const key = `${pedido.ip}_${pedido.fecha_hora_entrada}`;
+            existingMap[key] = pedido;
+        });
+
+        // Agregar nuevos pedidos que no estén duplicados
+        newOrders.forEach(newPedido => {
+            const key = `${newPedido.ip}_${newPedido.fecha_hora_entrada}`;
+            if (!existingMap[key]) {
+                existingMap[key] = newPedido;
+            }
+        });
+
+        // Retornar array de valores
+        return Object.values(existingMap);
     }
 }
 

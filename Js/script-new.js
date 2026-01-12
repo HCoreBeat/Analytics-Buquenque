@@ -6,6 +6,7 @@
 import { DataManager } from './dataManager.js';
 import { ChartManager } from './chartManager.js';
 import { UIRenderer } from './uiRenderer.js';
+import { SettingsUI } from './settingsUI.js';
 import { showAlert, getCurrencySymbol } from './utils.js';
 
 class DashboardApp {
@@ -134,4 +135,7 @@ class DashboardApp {
 }
 
 // Inicializar cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', () => new DashboardApp());
+document.addEventListener('DOMContentLoaded', () => {
+    new DashboardApp();
+    new SettingsUI();
+});

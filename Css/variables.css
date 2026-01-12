@@ -77,6 +77,22 @@
     /* Tipografía */
     --font-family: 'Inter', system-ui, -apple-system, sans-serif;
     --font-mono: 'Menlo', 'Consolas', monospace;
+
+    --color-primary: #4a90e2;
+    --color-success: #28a745;
+    --color-warning: #ffc107;
+    --color-danger: #dc3545;
+    --color-pending: #ffa500;
+    --color-light: #f8f9fa;
+    --color-light-gray: #f0f2f5;
+    --color-border: #e9ecef;
+    --color-text-primary: #2d3436;
+    --color-text-secondary: #636e72;
+    --color-text-light: #95a5a6;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ═══════════════════════════════════════════════════════════

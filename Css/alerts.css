@@ -106,7 +106,7 @@
 /* Alert Warning */
 .alert.warning {
     border-left: 4px solid var(--warning);
-    background: linear-gradient(135deg, var(--warning-light) 0%, rgba(245, 158, 11, 0.05) 100%);
+    background: var(--warning-light)
 }
 
 .alert.warning i {

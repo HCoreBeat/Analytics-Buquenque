@@ -160,7 +160,12 @@ export class UIRenderer {
                 <div class="order-card" data-order-idx="${idx}">
                     <div class="order-header">
                         <div class="order-main-info">
-                            <h4>${order.nombre_comprador}</h4>
+                            <div class="customer-header">
+                                <div class="customer-avatar">
+                                    <span>${order.nombre_comprador.charAt(0).toUpperCase()}</span>
+                                </div>
+                                <h4>${order.nombre_comprador}</h4>
+                            </div>
                             <div class="order-meta">
                                 <span class="meta-item">
                                     <i class="fas fa-calendar"></i>
