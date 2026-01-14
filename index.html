@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="Css/pedidos-new.css">
     <link rel="stylesheet" href="Css/settings.css">
     <link rel="stylesheet" href="Css/modal-github.css">
+    <link rel="stylesheet" href="Css/inventory.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -38,7 +39,7 @@
         <!-- Menú Lateral -->
         <nav class="sidebar-menu" id="sidebar-menu">
             <div class="menu-header">
-                <h2><i class="fas fa-bars" style="margin-right: 0.4rem;"></i>Navegación</h2>
+                <h2><i class="fas fa-bars" style="margin-right: 0.4rem;"></i>Nav</h2>
                 <button class="close-menu" id="close-menu" aria-label="Cerrar menú">&times;</button>
             </div>
             <ul class="menu-list">
@@ -66,6 +67,10 @@
                     <div class="header-actions">
                         <button class="btn btn-primary" id="refresh-data">
                             <i class="fas fa-sync-alt"></i> Actualizar
+                        </button>
+
+                        <button id="open-filters" class="btn btn-outline" aria-haspopup="dialog" aria-controls="filters-modal">
+                            <i class="fas fa-filter"></i> Filtros
                         </button>
                     </div>
                 </div>
@@ -105,23 +110,39 @@
                         </div>
                     </div>
                 </div>
-                                
-                <div class="filters">
-                    <div class="filter-group">
-                        <label><i class="fas fa-calendar-alt"></i> Periodo</label>
-                        <select id="filter-period" class="select-light">
-                            <option value="month">Este Mes</option>
-                            <option value="last-month">Mes Pasado</option>
-                            <option value="year">Este Año</option>
-                            <option value="all">Todos</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label><i class="fas fa-calendar-week"></i> Rango de Fechas</label>
-                        <div class="date-range">
-                            <input type="date" id="filter-date-start" class="input-light">
-                            <span>a</span>
-                            <input type="date" id="filter-date-end" class="input-light">
+
+                <!-- Filters Modal -->
+                <div id="filters-modal" class="filters-modal github-save-modal" role="dialog" aria-modal="true" aria-hidden="true">
+                    <div class="modal-overlay" id="filters-modal-overlay"></div>
+                    <div class="modal-content" role="document">
+                        <div class="modal-header">
+                            <h3>Filtros</h3>
+                            <button class="modal-close" id="filters-modal-close" aria-label="Cerrar filtros">&times;</button>
+                        </div>
+                        <div class="modal-body" style="align-items:flex-start;">
+                            <div class="filters" style="display:block; width:100%;">
+                                <div class="filter-group">
+                                    <label><i class="fas fa-calendar-alt"></i> Periodo</label>
+                                    <select id="filter-period" class="select-light">
+                                        <option value="month">Este Mes</option>
+                                        <option value="last-month">Mes Pasado</option>
+                                        <option value="year">Este Año</option>
+                                        <option value="all">Todos</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group">
+                                    <label><i class="fas fa-calendar-week"></i> Rango de Fechas</label>
+                                    <div class="date-range">
+                                        <input type="date" id="filter-date-start" class="input-light">
+                                        <span>a</span>
+                                        <input type="date" id="filter-date-end" class="input-light">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn" id="filters-apply">Aplicar</button>
+                            <button class="btn btn-secondary" id="filters-close">Cerrar</button>
                         </div>
                     </div>
                 </div>
@@ -346,6 +367,9 @@
             </div>
         </div>
 
+        <!-- Vista Inventario -->
+        <div id="inventory-view" class="view-content"></div>
+
         <!-- Vista Pedidos -->
         <div id="pedidos-view" class="view-content">
             <div class="pedidos-header">
@@ -519,7 +543,7 @@
     <footer class="app-footer">
         <div class="footer-content">
             <span>&copy; 2026 Buquenque Dashboard. Todos los derechos reservados HLab</span>
-            <span class="footer-version">Versión 1.8.4</span>
+            <span class="footer-version">Versión 1.9.4</span>
         </div>
     </footer>
 

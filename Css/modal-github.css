@@ -238,6 +238,53 @@
     }
 
     .modal-header h3 {
+}
+
+/* Filters Modal overrides */
+.filters-modal .modal-content {
+    max-width: 720px;
+    width: 95%;
+}
+
+@media (max-width: 768px) {
+    .filters-modal .modal-content {
+        max-width: 95%;
+        padding: 0;
+    }
+}
+
+.filters-modal .modal-body {
+    padding: 1rem 1.5rem;
+}
+
+.filters-modal .filters {
+    padding: 0; /* inner padding handled by modal-body */
+}
+
+.filters-modal .modal-footer {
+    justify-content: space-between;
+}
+
+/* Small screens: make filter controls vertical */
+@media (max-width: 480px) {
+    .filters-modal .filter-group {
+        width: 100%;
+    }
+}
+
+/* End Filters Modal overrides */
+
+@media (max-width: 600px) {
+    .modal-content {
+        width: 95%;
+        margin: 1rem;
+    }
+
+    .modal-header {
+        padding: 1rem;
+    }
+
+    .modal-header h3 {
         font-size: 1.1rem;
     }
 

@@ -7,12 +7,16 @@ import { DataManager } from './dataManager.js';
 import { ChartManager } from './chartManager.js';
 import { UIRenderer } from './uiRenderer.js';
 import { SettingsUI } from './settingsUI.js';
+import { InventoryApp } from './inventoryApp.js';
+import { GitHubManager } from './githubManager.js';
 import { showAlert, getCurrencySymbol } from './utils.js';
 
 class DashboardApp {
     constructor() {
         this.dataManager = new DataManager();
         this.chartManager = new ChartManager();
+        this.inventoryApp = null;
+        this.githubManager = new GitHubManager();
         this.initialize();
     }
 
@@ -23,19 +27,105 @@ class DashboardApp {
             
             // Inicializar gráficos
             this.chartManager.initCharts();
+
+            // Inicializar Sistema de Inventario
+            this.inventoryApp = new InventoryApp(this.githubManager);
+            await this.inventoryApp.initialize();
             
             // Configurar event listeners
             this.setupEventListeners();
+            this.setupViewNavigation();
+
+            // Forzar estado inicial de vistas: ocultar todas excepto la activa del menú
+            this.switchView(document.querySelector('.menu-item.active')?.dataset.view || 'dashboard');
 
             // Cargar datos iniciales
-            document.getElementById('filter-period').value = 'all';
+            // Por defecto usar este mes
+            document.getElementById('filter-period').value = 'month';
             this.applyFilters();
+
+            // Configurar modal de filtros
+            const openFiltersBtn = document.getElementById('open-filters');
+            const filtersModal = document.getElementById('filters-modal');
+            const filtersOverlay = document.getElementById('filters-modal-overlay');
+            const filtersClose = document.getElementById('filters-modal-close');
+            const filtersCloseFooter = document.getElementById('filters-close');
+            const filtersApply = document.getElementById('filters-apply');
+
+            function openFilters() {
+                if (filtersModal) {
+                    filtersModal.classList.add('active');
+                    filtersModal.setAttribute('aria-hidden', 'false');
+                    // Focus al primer control
+                    const firstControl = filtersModal.querySelector('select, input, button');
+                    if (firstControl) firstControl.focus();
+                }
+            }
+            function closeFilters() {
+                if (filtersModal) {
+                    filtersModal.classList.remove('active');
+                    filtersModal.setAttribute('aria-hidden', 'true');
+                }
+            }
+
+            if (openFiltersBtn) openFiltersBtn.addEventListener('click', () => openFilters());
+            if (filtersOverlay) filtersOverlay.addEventListener('click', () => closeFilters());
+            if (filtersClose) filtersClose.addEventListener('click', () => closeFilters());
+            if (filtersCloseFooter) filtersCloseFooter.addEventListener('click', () => closeFilters());
+            if (filtersApply) filtersApply.addEventListener('click', () => { this.applyFilters(); closeFilters(); });
+
+            // Cerrar con Escape
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeFilters(); });
             
             showAlert('✅ Dashboard cargado correctamente', 'success', 2000);
         } catch (error) {
             console.error('Error al inicializar:', error);
             showAlert(`❌ Error: ${error.message}`, 'error');
         }
+    }
+
+    /**
+     * Configurar navegación entre vistas
+     */
+    setupViewNavigation() {
+        document.querySelectorAll('.menu-item[data-view]').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const viewName = item.dataset.view;
+                this.switchView(viewName);
+            });
+        });
+    }
+
+    /**
+     * Cambiar vista activa
+     */
+    switchView(viewName) {
+        // Ocultar todas las vistas (usar clase .hidden para control explícito)
+        document.querySelectorAll('.view-content').forEach(view => {
+            view.classList.add('hidden');
+            view.classList.remove('active');
+        });
+
+        // Mostrar vista seleccionada
+        const selectedView = document.getElementById(`${viewName}-view`);
+        if (selectedView) {
+            selectedView.classList.remove('hidden');
+            selectedView.classList.add('active');
+        }
+
+        // Si la vista es inventario, inicializar la UI bajo demanda
+        if (viewName === 'inventory' && this.inventoryApp) {
+            this.inventoryApp.showInventory().catch(err => console.warn('Error mostrando inventario:', err));
+        }
+
+        // Actualizar menu activo
+        document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
+        document.querySelector(`.menu-item[data-view="${viewName}"]`)?.classList.add('active');
+
+        // Cerrar menu en mobile
+        const sidebar = document.getElementById('sidebar-menu');
+        if (sidebar && sidebar.classList.contains('active')) sidebar.classList.remove('active');
     }
 
     setupEventListeners() {

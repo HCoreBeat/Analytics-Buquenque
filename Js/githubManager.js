@@ -248,4 +248,85 @@ export class GitHubManager {
             throw new Error(`Error al obtener historial: ${error.message}`);
         }
     }
+
+    /**
+     * Sube un archivo a GitHub usando la API (para repositorio Buquenque)
+     * @param {string} filePath - Ruta del archivo en el repositorio
+     * @param {string} base64Content - Contenido en Base64
+     * @param {string} message - Mensaje del commit
+     */
+    async uploadFile(filePath, base64Content, message = 'Actualizar archivo') {
+        if (!this.isConfigured()) {
+            throw new Error('Token de GitHub no configurado');
+        }
+
+        try {
+            // Obtener SHA del archivo si existe (para actualización)
+            let sha = null;
+            try {
+                const response = await fetch(
+                    `${this.apiBase}/repos/HCoreBeat/Buquenque/contents/${filePath}`,
+                    {
+                        headers: {
+                            'Authorization': `token ${this.token}`,
+                            'Accept': 'application/vnd.github.v3+json'
+                        }
+                    }
+                );
+
+                if (response.ok) {
+                    const data = await response.json();
+                    sha = data.sha;
+                }
+            } catch (error) {
+                console.log(`Archivo no existe o error al obtener SHA: ${filePath}`);
+            }
+
+            // Preparar el body
+            const body = {
+                message: message,
+                content: base64Content,
+                branch: 'main'
+            };
+
+            if (sha) {
+                body.sha = sha;
+            }
+
+            // Hacer PUT a GitHub
+            const response = await fetch(
+                `${this.apiBase}/repos/HCoreBeat/Buquenque/contents/${filePath}`,
+                {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `token ${this.token}`,
+                        'Accept': 'application/vnd.github.v3+json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(body)
+                }
+            );
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                if (response.status === 409) {
+                    throw new Error(`Conflicto al actualizar ${filePath}. Intenta de nuevo.`);
+                } else if (response.status === 401) {
+                    throw new Error('Token de GitHub inválido o expirado');
+                }
+                throw new Error(`Error ${response.status}: ${errorData.message || response.statusText}`);
+            }
+
+            const result = await response.json();
+            return {
+                success: true,
+                message: `Archivo subido: ${filePath}`,
+                commit: result.commit,
+                sha: result.content.sha
+            };
+        } catch (error) {
+            console.error('Error en uploadFile:', error);
+            throw error;
+        }
+    }
 }
