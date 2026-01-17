@@ -27,7 +27,6 @@
     position: relative;
     background: white;
     border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     max-width: 450px;
     width: 90%;
     animation: slideUp 0.3s ease;
@@ -238,6 +237,8 @@
     }
 
     .modal-header h3 {
+        font-size: 1.1rem;
+    }
 }
 
 /* Filters Modal overrides */
@@ -285,7 +286,7 @@
     }
 
     .modal-header h3 {
-        font-size: 1.1rem;
+        font-size: 1.6rem;
     }
 
     .modal-body {
@@ -549,6 +550,7 @@
     flex: 1;
     font-weight: 500;
     color: #333;
+    overflow: overlay;
 }
 
 .stat-row .value {

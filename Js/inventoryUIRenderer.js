@@ -184,10 +184,10 @@ export class InventoryUIRenderer {
                         </div>
                         <div class="product-actions">
                             <button class="btn-product-edit" data-product-id="${product.id}">
-                                <i class="fas fa-edit"></i> Editar
+                                <i class="fas fa-edit"></i>
                             </button>
                             <button class="btn-product-delete" data-product-id="${product.id}">
-                                <i class="fas fa-trash"></i> Eliminar
+                                <i class="fas fa-trash"></i>
                             </button>
                         </div>
                     </div>
@@ -417,7 +417,6 @@ export class InventoryUIRenderer {
                 <div class="product-modal" id="product-modal">
                     <div class="modal-header">
                         <h3 class="modal-title">${title}</h3>
-                        <button class="modal-close">&times;</button>
                     </div>
 
                     <div class="modal-content">
@@ -437,14 +436,18 @@ export class InventoryUIRenderer {
 
                             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                                 <div class="form-group">
-                                    <label>Precio *</label>
-                                    <input type="number" name="precio" value="${product?.precio || ''}" step="0.01" min="0" required>
+                                    <label>Precio Original *</label>
+                                    <input type="number" name="precio" value="${product?.precio || ''}" step="0.01" min="0" required id="input-precio-original">
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Descuento (%)</label>
-                                    <input type="number" name="descuento" value="${product?.descuento || 0}" min="0" max="100" step="0.01">
+                                    <label>Precio Final Deseado</label>
+                                    <input type="number" name="precio_final_deseado" value="${product?.precioFinal || ''}" step="0.01" min="0" id="input-precio-final" placeholder="Ingresa el precio final deseado">
                                 </div>
+                            </div>
+
+                            <div class="form-group" style="display: none;">
+                                <input type="hidden" name="descuento" id="input-descuento" value="${product?.descuento || 0}">
                             </div>
 
                             <div class="form-group">
@@ -535,6 +538,9 @@ export class InventoryUIRenderer {
         const submitBtn = document.getElementById('btn-modal-submit');
         const imageUploadArea = document.getElementById('image-upload-area');
         const imageInput = document.getElementById('image-upload-input');
+        const precioOriginalInput = document.getElementById('input-precio-original');
+        const precioFinalInput = document.getElementById('input-precio-final');
+        const descuentoInput = document.getElementById('input-descuento');
         let selectedImage = null;
 
         const product = mode === 'edit' ? this.productManager.getProductById(productId) : null;
@@ -549,6 +555,29 @@ export class InventoryUIRenderer {
             this.updateImagePreview(product.imagenUrl);
         }
 
+        // Lógica de cálculo automático del descuento
+        const calcularDescuento = () => {
+            const precioOriginal = parseFloat(precioOriginalInput.value) || 0;
+            const precioFinal = parseFloat(precioFinalInput.value) || 0;
+
+            if (precioOriginal > 0 && precioFinal > 0) {
+                if (precioFinal > precioOriginal) {
+                    alert('El precio final no puede ser mayor al precio original');
+                    precioFinalInput.value = '';
+                    descuentoInput.value = 0;
+                    return;
+                }
+                const descuentoPorcentaje = ((precioOriginal - precioFinal) / precioOriginal) * 100;
+                descuentoInput.value = parseFloat(descuentoPorcentaje.toFixed(2));
+            } else if (precioFinal === 0) {
+                descuentoInput.value = 0;
+            }
+        };
+
+        precioOriginalInput.addEventListener('change', calcularDescuento);
+        precioFinalInput.addEventListener('input', calcularDescuento);
+        precioFinalInput.addEventListener('change', calcularDescuento);
+
         // Cerrar modal
         const closeModal = () => {
             if (overlay && overlay.parentElement) {
@@ -557,7 +586,11 @@ export class InventoryUIRenderer {
         };
 
         if (closeBtn) {
-            closeBtn.addEventListener('click', closeModal);
+            closeBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                closeModal();
+            });
         }
         cancelBtn.addEventListener('click', closeModal);
         overlay.addEventListener('click', (e) => {
@@ -748,12 +781,13 @@ export class InventoryUIRenderer {
 
     async handleProductFormSubmit(mode, productId, form, imageFile) {
         const formData = new FormData(form);
+        const descuentoCalculado = parseFloat(formData.get('descuento')) || 0;
         const productData = {
             id: mode === 'edit' ? productId : undefined,
             nombre: formData.get('nombre'),
             categoria: formData.get('categoria'),
             precio: parseFloat(formData.get('precio')),
-            descuento: parseFloat(formData.get('descuento')) || 0,
+            descuento: descuentoCalculado,
             descripcion: formData.get('descripcion'),
             disponibilidad: formData.get('disponibilidad') === 'on',
             nuevo: formData.get('nuevo') === 'on',
