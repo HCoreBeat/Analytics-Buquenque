@@ -355,5 +355,189 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
-  }
+  },
+  {
+  "ip": null,
+  "pais": "US",
+  "fecha_hora_entrada": "2026-01-18 00:40:05",
+  "origen": "https://www.buquenqe.com/#Paquete%20de%20papas%20Idaho%20(5lbs)",
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 0,
+  "tiempo_carga_pagina_ms": 0,
+  "nombre_comprador": "Gabriela Amat",
+  "telefono_comprador": "15313101671",
+  "correo_comprador": "gabrielamtley1506@gmail.com",
+  "direccion_envio": "Calle Agustín Cebereco. Edificio 34 Apto D1 Reparto Santos Las tunas",
+  "compras": [
+    {
+      "name": "Cartón de Huevos",
+      "quantity": 1,
+      "unitPrice": 9.0,
+      "total": 9.0
+    },
+    {
+      "name": "Paquete de cuartos de pollo 10 lbs",
+      "quantity": 1,
+      "unitPrice": 12.0,
+      "total": 12.0
+    },
+    {
+      "name": "Aceite (900ml)",
+      "quantity": 1,
+      "unitPrice": 3.65,
+      "total": 3.65
+    },
+    {
+      "name": "Arroz (1Kg)",
+      "quantity": 2,
+      "unitPrice": 2.4,
+      "total": 4.8
+    },
+    {
+      "name": "Mortadella de Pollo",
+      "quantity": 2,
+      "unitPrice": 2.49,
+      "total": 4.98
+    },
+    {
+      "name": "Caja de Malta",
+      "quantity": 1,
+      "unitPrice": 25.0,
+      "total": 25.0
+    },
+    {
+      "name": "Azúcar Blanca (1Kg)",
+      "quantity": 1,
+      "unitPrice": 2.05,
+      "total": 2.05
+    },
+    {
+      "name": "Codito (500g)",
+      "quantity": 2,
+      "unitPrice": 1.07,
+      "total": 2.14
+    },
+    {
+      "name": "Leche en polvo (1kg)",
+      "quantity": 2,
+      "unitPrice": 8.0,
+      "total": 16.0
+    },
+    {
+      "name": "Frijol Negro (500g)",
+      "quantity": 2,
+      "unitPrice": 1.99,
+      "total": 3.98
+    },
+    {
+      "name": "Leche Condensada Azucarada Castellum (390g)",
+      "quantity": 2,
+      "unitPrice": 1.42,
+      "total": 2.84
+    },
+    {
+      "name": "Detergente (500g)",
+      "quantity": 2,
+      "unitPrice": 1.75,
+      "total": 3.5
+    },
+    {
+      "name": "Paquete de salchichas (340g)",
+      "quantity": 2,
+      "unitPrice": 1.5,
+      "total": 3.0
+    },
+    {
+      "name": "Alubia Pinta (500g)",
+      "quantity": 2,
+      "unitPrice": 1.99,
+      "total": 3.98
+    },
+    {
+      "name": "Café Purasangre (250g)",
+      "quantity": 1,
+      "unitPrice": 5.99,
+      "total": 5.99
+    },
+    {
+      "name": "Mayonesa Victoria (250ml)",
+      "quantity": 1,
+      "unitPrice": 2.47,
+      "total": 2.47
+    },
+    {
+      "name": "Comino Molido (171.1g)",
+      "quantity": 1,
+      "unitPrice": 4.39,
+      "total": 4.39
+    },
+    {
+      "name": "Pasta de Tomate Oderich (350g)",
+      "quantity": 2,
+      "unitPrice": 1.7,
+      "total": 3.4
+    },
+    {
+      "name": "Cabeza de Ajo",
+      "quantity": 2,
+      "unitPrice": 0.51,
+      "total": 1.02
+    },
+    {
+      "name": "Plátano (por unidad)",
+      "quantity": 10,
+      "unitPrice": 0.31,
+      "total": 3.1
+    },
+    {
+      "name": "Limón (por libra)",
+      "quantity": 1,
+      "unitPrice": 1.5,
+      "total": 1.5
+    },
+    {
+      "name": "Bolsa de pan 10u",
+      "quantity": 2,
+      "unitPrice": 1.8,
+      "total": 3.6
+    },
+    {
+      "name": "Pimiento x lb",
+      "quantity": 1,
+      "unitPrice": 2.97,
+      "total": 2.97
+    },
+    {
+      "name": "Cebolla morada x lb",
+      "quantity": 1,
+      "unitPrice": 3.37,
+      "total": 3.37
+    },
+    {
+      "name": "Cebolla blanca x lb",
+      "quantity": 1,
+      "unitPrice": 3.37,
+      "total": 3.37
+    },
+    {
+      "name": "Chuleta de cerdo x lb",
+      "quantity": 5,
+      "unitPrice": 3.31,
+      "total": 16.55
+    },
+    {
+      "name": "Paquete de papas Idaho (5lbs)",
+      "quantity": 1,
+      "unitPrice": 9.97,
+      "total": 9.97
+    }
+  ],
+  "precio_compra_total": "158.62",
+  "navegador": "Safari",
+  "sistema_operativo": "MacOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
+}
+
 ]
