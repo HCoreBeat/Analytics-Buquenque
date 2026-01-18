@@ -9,6 +9,7 @@ import { UIRenderer } from './uiRenderer.js';
 import { SettingsUI } from './settingsUI.js';
 import { InventoryApp } from './inventoryApp.js';
 import { GitHubManager } from './githubManager.js';
+import { NotificationEditorUI } from './notificationEditorUI.js';
 import { showAlert, getCurrencySymbol } from './utils.js';
 
 class DashboardApp {
@@ -16,6 +17,7 @@ class DashboardApp {
         this.dataManager = new DataManager();
         this.chartManager = new ChartManager();
         this.inventoryApp = null;
+        this.notificationEditor = null;
         this.githubManager = new GitHubManager();
         this.initialize();
     }
@@ -31,6 +33,9 @@ class DashboardApp {
             // Inicializar Sistema de Inventario
             this.inventoryApp = new InventoryApp(this.githubManager);
             await this.inventoryApp.initialize();
+
+            // Inicializar Editor de Notificaciones
+            this.notificationEditor = new NotificationEditorUI();
             
             // Configurar event listeners
             this.setupEventListeners();
@@ -117,6 +122,12 @@ class DashboardApp {
         // Si la vista es inventario, inicializar la UI bajo demanda
         if (viewName === 'inventory' && this.inventoryApp) {
             this.inventoryApp.showInventory().catch(err => console.warn('Error mostrando inventario:', err));
+        }
+
+        // Si la vista es notificaciones, reinicializar el editor
+        if (viewName === 'notifications' && this.notificationEditor) {
+            // Reiniciar para cargar datos frescos
+            this.notificationEditor.init().catch(err => console.warn('Error inicializando notificaciones:', err));
         }
 
         // Actualizar menu activo

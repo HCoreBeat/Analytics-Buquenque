@@ -548,6 +548,7 @@
     align-items: center;
     border-top: 1px solid #ecf0f1;
     padding-top: 0.75rem;
+    gap: 10px;
 }
 
 .product-price {

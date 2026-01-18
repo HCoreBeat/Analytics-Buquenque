@@ -199,9 +199,9 @@ function renderPedidos(pedidos) {
     });
     
     if (totalBadge) {
-        totalBadge.textContent = new Intl.NumberFormat('es-CU', {
+        totalBadge.textContent = new Intl.NumberFormat('en-US', {
             style: 'currency',
-            currency: 'CUP',
+            currency: 'USD',
             minimumFractionDigits: 2
         }).format(totalVentas);
     }
@@ -254,12 +254,13 @@ function crearCardPedido(pedido) {
     
     // Información del pedido
     const fecha = new Date(pedido.fecha_hora_entrada);
-    const fechaFormato = fecha.toLocaleDateString('es-CU');
-    const horaFormato = fecha.toLocaleTimeString('es-CU', { hour: '2-digit', minute: '2-digit' });
+    const fechaFormato = fecha.toLocaleDateString('en-US');
+    const horaFormato = fecha.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
     const totalPrecio = parseFloat(pedido.precio_compra_total) || 0;
-    const precioFormato = new Intl.NumberFormat('es-CU', {
+    const precioFormato = new Intl.NumberFormat('en-US', {
         style: 'currency',
-        currency: 'CUP'
+        currency: 'USD',
+        minimumFractionDigits: 2
     }).format(totalPrecio);
     
     // Información adicional
@@ -273,9 +274,10 @@ function crearCardPedido(pedido) {
     if (pedido.compras && pedido.compras.length > 0) {
         pedido.compras.forEach((producto, idx) => {
             const precioProducto = (producto.unitPrice * producto.quantity) - (producto.discount || 0);
-            const precioProductoFormato = new Intl.NumberFormat('es-CU', {
+            const precioProductoFormato = new Intl.NumberFormat('en-US', {
                 style: 'currency',
-                currency: 'CUP'
+                currency: 'USD',
+                minimumFractionDigits: 2
             }).format(precioProducto);
             
             productosHTML += `
@@ -509,9 +511,9 @@ function actualizarEstadisticas() {
     }
     
     if (totalBadge) {
-        totalBadge.textContent = new Intl.NumberFormat('es-CU', {
+        totalBadge.textContent = new Intl.NumberFormat('en-US', {
             style: 'currency',
-            currency: 'CUP',
+            currency: 'USD',
             minimumFractionDigits: 2
         }).format(totalVentas);
     }

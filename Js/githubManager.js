@@ -329,4 +329,87 @@ export class GitHubManager {
             throw error;
         }
     }
+
+    /**
+     * Guarda los datos de notificación en el repositorio Buquenque
+     * @param {Object} notificationData - Objeto con id, titulo, mensaje, subtitulo, tipo, icono
+     * @param {String} commitMessage - Mensaje del commit
+     */
+    async saveNotificationData(notificationData, commitMessage = 'Actualizar notificación desde editor') {
+        if (!this.isConfigured()) {
+            throw new Error('Configuración incompleta. Por favor, configura tu token de GitHub.');
+        }
+
+        try {
+            // Ruta del archivo en el repositorio Buquenque
+            const filePath = 'Json/data.json';
+            const repoPath = 'HCoreBeat/Buquenque';
+
+            // Obtener SHA del archivo si existe
+            let sha = null;
+            try {
+                const response = await fetch(
+                    `${this.apiBase}/repos/${repoPath}/contents/${filePath}`,
+                    {
+                        headers: {
+                            'Authorization': `token ${this.token}`,
+                            'Accept': 'application/vnd.github.v3+json'
+                        }
+                    }
+                );
+
+                if (response.ok) {
+                    const data = await response.json();
+                    sha = data.sha;
+                }
+            } catch (error) {
+                console.log(`Archivo no existe, se creará uno nuevo: ${filePath}`);
+            }
+
+            // Preparar contenido
+            const fileContent = JSON.stringify(notificationData, null, 4);
+            const encodedContent = btoa(unescape(encodeURIComponent(fileContent)));
+
+            // Preparar body de la solicitud
+            const body = {
+                message: commitMessage,
+                content: encodedContent,
+                branch: 'main'
+            };
+
+            if (sha) {
+                body.sha = sha;
+            }
+
+            // Hacer PUT a GitHub
+            const response = await fetch(
+                `${this.apiBase}/repos/${repoPath}/contents/${filePath}`,
+                {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `token ${this.token}`,
+                        'Accept': 'application/vnd.github.v3+json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(body)
+                }
+            );
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(`Error ${response.status}: ${errorData.message || response.statusText}`);
+            }
+
+            const result = await response.json();
+            return {
+                success: true,
+                message: 'Notificación guardada exitosamente en GitHub',
+                commit: result.commit.html_url,
+                sha: result.content.sha,
+                file: filePath
+            };
+        } catch (error) {
+            throw new Error(`Error al guardar notificación: ${error.message}`);
+        }
+    }
 }
