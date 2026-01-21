@@ -555,7 +555,7 @@
     {
       "id": null,
       "name": "Pack de 12 Estropajos",
-      "quantity": 2,
+      "quantity": 1,
       "unitPrice": 3.35,
       "discount": 0
     },
@@ -567,7 +567,7 @@
       "discount": 0
     }
   ],
-  "precio_compra_total": "12.20",
+  "precio_compra_total": "8.85",
   "navegador": "Chrome",
   "sistema_operativo": "Linux",
   "tipo_usuario": "Recurrente",
