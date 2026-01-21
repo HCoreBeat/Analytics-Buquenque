@@ -538,6 +538,41 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+}, 
+{
+  "ip": null,
+  "pais": "CU",
+  "fecha_hora_entrada": "2026-01-20 23:45:54",
+  "origen": "https://www.buquenqe.com/#",
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 0,
+  "tiempo_carga_pagina_ms": 0,
+  "nombre_comprador": "Nayelis Nagarian Escobar",
+  "telefono_comprador": "56252973",
+  "correo_comprador": "nayelis@nauta.cu",
+  "direccion_envio": "Eddy martines edificio 53 apto A9, entre Agustín Cebreco y Israel Santo",
+  "compras": [
+    {
+      "id": null,
+      "name": "Pack de 12 Estropajos",
+      "quantity": 2,
+      "unitPrice": 3.35,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Paquete de mollejas de pollo (5lbs)",
+      "quantity": 1,
+      "unitPrice": 5.50,
+      "discount": 0
+    }
+  ],
+  "precio_compra_total": "12.20",
+  "navegador": "Chrome",
+  "sistema_operativo": "Linux",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
 }
 
 ]
