@@ -573,6 +573,92 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+}, 
+{
+  "ip": "Desconocida",
+  "pais": "US",
+  "fecha_hora_entrada": "2026-01-23 00:52:11",
+  "origen": "https://www.buquenqe.com/#",
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 0,
+  "tiempo_carga_pagina_ms": 0,
+  "nombre_comprador": "Fabio Roman Moreno",
+  "telefono_comprador": "+17862299155",
+  "correo_comprador": "fabiogrm2024@gmail.com",
+  "direccion_envio": "Ave. Frank País Edificio 1 apto 13. Entre ave. 2 de diciembre y R naranjo. Rpto Velazquez",
+  "compras": [
+    {
+      "id": null,
+      "name": "Papel Sanitario",
+      "quantity": 1,
+      "unitPrice": 2.4,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Mayonesa Victoria (250ml)",
+      "quantity": 1,
+      "unitPrice": 2.47,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Refresco Gaseado Mate (1.5Lt)",
+      "quantity": 1,
+      "unitPrice": 2.5,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Paquete de salchichas (340g)",
+      "quantity": 2,
+      "unitPrice": 1.5,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Arroz (1Kg)",
+      "quantity": 4,
+      "unitPrice": 2.4,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Frijol Negro (500g)",
+      "quantity": 1,
+      "unitPrice": 1.99,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Leche Condensada Azucarada Castellum (390g)",
+      "quantity": 2,
+      "unitPrice": 1.42,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Paquete de azúcar 1kg",
+      "quantity": 2,
+      "unitPrice": 1.95,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Paquete de café Dufiltro (250g)",
+      "quantity": 2,
+      "unitPrice": 3.9,
+      "discount": 0
+    }
+  ],
+  "precio_compra_total": "36.50",
+  "navegador": "Samsung Browser",
+  "sistema_operativo": "Linux",
+  "tipo_usuario": "No especificado",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo",
+  "numero_pedido": "ORD-MKQ3WIMY"
 }
+
 
 ]
