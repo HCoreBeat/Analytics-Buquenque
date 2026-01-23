@@ -4,6 +4,8 @@
  */
 
 import { createObjectURL, revokeObjectURL, base64ToDataURL } from './inventoryUtils.js';
+import { GitHubSaveModal } from './githubSaveModal.js';
+import { GitHubImagesModal } from './githubImagesModal.js';
 
 export class InventoryUIRenderer {
     constructor(containerSelector = '#inventory-view') {
@@ -18,6 +20,14 @@ export class InventoryUIRenderer {
         this.productManager = productManager;
         this.renderInventoryTemplate();
         this.setupEventListeners();
+
+        // Modal de guardado en GitHub
+        try {
+            this.githubSaveModal = new GitHubSaveModal();
+        } catch (e) {
+            console.warn('No se pudo inicializar GitHubSaveModal', e);
+            this.githubSaveModal = null;
+        }
 
         // Estado inicial: mostrar Productos (grid visible), ocultar Cambios (staging panel hidden)
         const btnProducts = document.getElementById('btn-view-products');
@@ -57,6 +67,9 @@ export class InventoryUIRenderer {
 
                     <button class="btn btn-primary" id="btn-add-product">
                         <i class="fas fa-plus"></i> Nuevo Producto
+                    </button>
+                    <button class="btn btn-outline" id="btn-manage-repo-images">
+                        <i class="fas fa-images"></i> Imágenes Repo
                     </button>
                     <button class="btn btn-secondary" id="btn-refresh-products">
                         <i class="fas fa-sync-alt"></i> Recargar
@@ -692,6 +705,28 @@ export class InventoryUIRenderer {
             refreshBtn.addEventListener('click', () => this.handleRefreshProducts());
         }
 
+        // Botón administrar imágenes del repo
+        const imagesBtn = document.getElementById('btn-manage-repo-images');
+        if (imagesBtn) {
+            imagesBtn.addEventListener('click', () => {
+                try {
+                    if (!this.productManager) return alert('ProductManager no inicializado');
+                    const ghManager = this.productManager.githubManager;
+                    if (!ghManager || !ghManager.isConfigured()) {
+                        return alert('Token de GitHub no configurado. Ve a Ajustes para configurarlo.');
+                    }
+
+                    if (!this.githubImagesModal) {
+                        this.githubImagesModal = new GitHubImagesModal(ghManager, this.productManager);
+                    }
+                    this.githubImagesModal.show();
+                } catch (err) {
+                    console.error('Error abriendo modal de imágenes:', err);
+                    alert('No se pudo abrir el modal de imágenes: ' + err.message);
+                }
+            });
+        }
+
         // Búsqueda
         const searchInput = document.getElementById('search-products');
         if (searchInput) {
@@ -853,23 +888,42 @@ export class InventoryUIRenderer {
     async handleSyncGitHub() {
         const syncBtn = document.getElementById('btn-sync-github');
         if (!syncBtn) return;
-
         const originalText = syncBtn.innerHTML;
         syncBtn.disabled = true;
         syncBtn.innerHTML = '<span class="loading-spinner"></span> Sincronizando...';
 
-        try {
-            const result = await this.productManager.saveAllStagedChanges();
-            this.updateStagingPanel();
-            this.renderProductsGrid();
-            const msg = result && result.message ? `✓ ${result.message}` : '✓ Sincronización completada exitosamente';
-            this.showNotification(msg, 'success');
-        } catch (error) {
-            this.showNotification(`Error en sincronización: ${error.message}`, 'error');
-        } finally {
-            syncBtn.disabled = false;
-            syncBtn.innerHTML = originalText;
-        }
+        // Use modal if available
+        const modal = this.githubSaveModal || null;
+        if (modal) modal.showLoading();
+
+        const progressCb = (percent, message) => {
+            try {
+                if (modal) {
+                    if (percent != null) modal.showProgress(percent, message || 'Procesando...');
+                    else modal.updateDetail(message || 'Procesando...');
+                }
+            } catch (e) { console.warn('progressCb error', e); }
+        };
+
+        const doSync = async () => {
+            try {
+                const result = await this.productManager.saveAllStagedChanges(progressCb);
+                this.updateStagingPanel();
+                this.renderProductsGrid();
+                const msg = result && result.message ? result.message : 'Sincronización completada exitosamente';
+                if (modal) modal.showSuccess(msg, result.filesUpdated || 0);
+                this.showNotification(`✓ ${msg}`, 'success');
+            } catch (error) {
+                if (modal) modal.showError(error.message || 'Error desconocido', () => doSync());
+                this.showNotification(`Error en sincronización: ${error.message}`, 'error');
+            } finally {
+                syncBtn.disabled = false;
+                syncBtn.innerHTML = originalText;
+            }
+        };
+
+        // Ejecutar sincronización
+        doSync();
     }
 
     async handleRefreshProducts() {

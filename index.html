@@ -111,6 +111,15 @@
                                 <span class="stat-label">Clientes Únicos</span>
                             </div>
                         </div>
+                        <div class="stat-card">
+                            <i class="fas fa-user-check"></i>
+                            <div class="stat-content" id="server-available-users-card">
+                                <div class="metric-card small">
+                                    <div class="metric-label">Visitas Totales</div>
+                                    <div class="metric-value" id="server-available-users">0</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -141,6 +150,53 @@
                                         <input type="date" id="filter-date-end" class="input-light">
                                     </div>
                                 </div>
+                                    <div class="filter-group">
+                                        <label><i class="fas fa-globe"></i> País</label>
+                                        <select id="filter-country" class="select-light">
+                                            <option value="all">Todos</option>
+                                        </select>
+                                    </div>
+                                    <div class="filter-group">
+                                        <label><i class="fas fa-link"></i> Afiliado</label>
+                                        <select id="filter-affiliate" class="select-light">
+                                            <option value="all">Todos</option>
+                                        </select>
+                                    </div>
+                                    <div class="filter-group">
+                                        <label><i class="fas fa-user-tag"></i> Tipo de Usuario</label>
+                                        <select id="filter-user-type" class="select-light">
+                                            <option value="all">Todos</option>
+                                            <option value="Único">Único</option>
+                                            <option value="Recurrente">Recurrente</option>
+                                        </select>
+                                    </div>
+                                    <div class="filter-group">
+                                        <label><i class="fas fa-desktop"></i> Navegador</label>
+                                        <select id="filter-browser" class="select-light">
+                                            <option value="all">Todos</option>
+                                        </select>
+                                    </div>
+                                    <div class="filter-group">
+                                        <label><i class="fas fa-hdd"></i> Sistema Operativo</label>
+                                        <select id="filter-os" class="select-light">
+                                            <option value="all">Todos</option>
+                                        </select>
+                                    </div>
+                                    <div class="filter-group">
+                                        <label><i class="fas fa-dollar-sign"></i> Precio Total</label>
+                                        <div style="display:flex;gap:0.5rem;">
+                                            <input type="number" id="filter-min-total" class="input-light" placeholder="Min">
+                                            <input type="number" id="filter-max-total" class="input-light" placeholder="Max">
+                                        </div>
+                                    </div>
+                                    <div class="filter-group">
+                                        <label><i class="fas fa-shopping-bag"></i> Contiene Pedido</label>
+                                        <select id="filter-has-purchase" class="select-light">
+                                            <option value="all">Todos</option>
+                                            <option value="with">Con Compra</option>
+                                            <option value="without">Sin Compra</option>
+                                        </select>
+                                    </div>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -242,26 +298,26 @@
                 </div>
 
                 <!-- 2. RESUMEN DE ESTADÍSTICAS (Priority: 2) -->
-                <div class="server-card stats-summary-card">
+                <div class="server-card runtime-card">
                     <div class="card-header">
-                        <h3><i class="fas fa-chart-bar"></i> Resumen Estadísticas</h3>
+                        <h3><i class="fas fa-microchip"></i> Estado del Servidor (Runtime)</h3>
                     </div>
-                    <div class="stats-grid" id="stats-summary">
-                        <div class="stat-box">
-                            <span class="stat-label">Total Registros</span>
-                            <span class="stat-value" id="total-stats">0</span>
+                    <div class="runtime-grid" id="server-runtime-stats">
+                        <div class="stat-row">
+                            <span class="label">CPU</span>
+                            <span class="value" id="server-cpu">Cargando...</span>
                         </div>
-                        <div class="stat-box">
-                            <span class="stat-label">Usuarios Únicos</span>
-                            <span class="stat-value" id="unique-users">0</span>
+                        <div class="stat-row">
+                            <span class="label">Memoria (heapUsed)</span>
+                            <span class="value" id="server-memory">Cargando...</span>
                         </div>
-                        <div class="stat-box">
-                            <span class="stat-label">Pedidos</span>
-                            <span class="stat-value" id="total-orders-server">0</span>
+                        <div class="stat-row">
+                            <span class="label">Cores</span>
+                            <span class="value" id="server-cores">Cargando...</span>
                         </div>
-                        <div class="stat-box">
-                            <span class="stat-label">Ingresos</span>
-                            <span class="stat-value" id="total-revenue">CUP 0</span>
+                        <div class="stat-row">
+                            <span class="label">Muestra CPU (ms)</span>
+                            <span class="value" id="server-sample">100</span>
                         </div>
                     </div>
                 </div>

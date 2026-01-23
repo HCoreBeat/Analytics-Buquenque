@@ -196,6 +196,7 @@ class ServerPanel {
 
             // Update UI with data
             this.updateServerStatus(statusData);
+            this.updateRuntimeStats(statusData);
             this.updateStatistics(statsData);
             this.updateNewOrders(newOrdersData);
             this.updateUserActivity(statsData);
@@ -322,6 +323,44 @@ class ServerPanel {
             .join('');
 
         logsContainer.innerHTML = logsHTML;
+    }
+
+    updateRuntimeStats(data) {
+        const container = document.getElementById('server-runtime-stats');
+        if (!container || !data) return;
+
+        try {
+            const cpu = data.cpu || {};
+            const memory = data.memory || {};
+
+            const cpuText = `${cpu.percent != null ? cpu.percent + '%' : 'N/A'} (${cpu.cores || 'N/A'} cores)`;
+            const memText = memory.heapUsed != null ? `${(memory.heapUsed / 1024 / 1024).toFixed(2)} MB` : 'N/A';
+            const coresText = cpu.cores || 'N/A';
+            const sample = (cpu.sampleMs) || 100;
+
+            const html = `
+                <div class="stat-row">
+                    <span class="label">CPU</span>
+                    <span class="value">${cpuText}</span>
+                </div>
+                <div class="stat-row">
+                    <span class="label">Memoria (heapUsed)</span>
+                    <span class="value">${memText}</span>
+                </div>
+                <div class="stat-row">
+                    <span class="label">Cores</span>
+                    <span class="value">${coresText}</span>
+                </div>
+                <div class="stat-row">
+                    <span class="label">Muestra CPU (ms)</span>
+                    <span class="value">${sample}</span>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        } catch (err) {
+            console.warn('Error actualizando runtime stats', err);
+        }
     }
 
     updateStatistics(stats) {
@@ -719,6 +758,7 @@ class ServerPanel {
     showLoadingStates() {
         const containers = [
             'server-status-content',
+            'server-runtime-stats',
             'stats-summary',
             'new-orders-container',
             'server-logs-container',

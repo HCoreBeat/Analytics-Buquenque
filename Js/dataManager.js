@@ -125,6 +125,39 @@ export class DataManager {
     }
 
     /**
+     * Filtra por múltiples criterios: fechas, país, afiliado, tipo usuario, navegador, OS, rango de precio y si contiene compra
+     */
+    filterByCriteria({ startDate = null, endDate = null, period = 'all', country = 'all', affiliate = 'all', userType = 'all', browser = 'all', os = 'all', minTotal = null, maxTotal = null, hasPurchase = 'all' } = {}) {
+        // Primero filtrar por rango/periodo usando la función existente
+        this.filterByDateRange(startDate, endDate, period);
+
+        this.filteredData = this.filteredData.filter(item => {
+            if (country && country !== 'all' && (item.country || '').toLowerCase() !== (country || '').toLowerCase()) return false;
+            if (affiliate && affiliate !== 'all' && (item.affiliate || '').toLowerCase() !== (affiliate || '').toLowerCase()) return false;
+            if (userType && userType !== 'all' && (item.userType || '').toLowerCase() !== (userType || '').toLowerCase()) return false;
+            if (browser && browser !== 'all' && (item.browser || '').toLowerCase() !== (browser || '').toLowerCase()) return false;
+            if (os && os !== 'all' && (item.operatingSystem || '').toLowerCase() !== (os || '').toLowerCase()) return false;
+
+            if (minTotal !== null && minTotal !== '' && !isNaN(Number(minTotal))) {
+                if ((item.total || 0) < Number(minTotal)) return false;
+            }
+            if (maxTotal !== null && maxTotal !== '' && !isNaN(Number(maxTotal))) {
+                if ((item.total || 0) > Number(maxTotal)) return false;
+            }
+
+            if (hasPurchase === 'with') {
+                if (!Array.isArray(item.compras) || item.compras.length === 0) return false;
+            } else if (hasPurchase === 'without') {
+                if (Array.isArray(item.compras) && item.compras.length > 0) return false;
+            }
+
+            return true;
+        });
+
+        return this.filteredData;
+    }
+
+    /**
      * Busca en los datos
      */
     search(searchTerm) {

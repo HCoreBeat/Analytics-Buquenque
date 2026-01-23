@@ -47,6 +47,10 @@ class DashboardApp {
             // Cargar datos iniciales
             // Por defecto usar este mes
             document.getElementById('filter-period').value = 'month';
+
+            // Poblar opciones dinámicas de filtros (países, afiliados, navegadores, OS)
+            this.populateFilterOptions();
+
             this.applyFilters();
 
             // Configurar modal de filtros
@@ -190,12 +194,58 @@ class DashboardApp {
         });
     }
 
+    populateFilterOptions() {
+        try {
+            const countries = Array.from(new Set(this.dataManager.data.map(d => d.country).filter(Boolean))).sort();
+            const affiliates = Array.from(new Set(this.dataManager.data.map(d => d.affiliate).filter(Boolean))).sort();
+            const browsers = Array.from(new Set(this.dataManager.data.map(d => d.browser).filter(Boolean))).sort();
+            const oses = Array.from(new Set(this.dataManager.data.map(d => d.operatingSystem).filter(Boolean))).sort();
+
+            const countryEl = document.getElementById('filter-country');
+            const affiliateEl = document.getElementById('filter-affiliate');
+            const browserEl = document.getElementById('filter-browser');
+            const osEl = document.getElementById('filter-os');
+
+            if (countryEl) {
+                countries.forEach(c => {
+                    const opt = document.createElement('option'); opt.value = c; opt.textContent = c; countryEl.appendChild(opt);
+                });
+            }
+            if (affiliateEl) {
+                affiliates.forEach(a => {
+                    const opt = document.createElement('option'); opt.value = a; opt.textContent = a; affiliateEl.appendChild(opt);
+                });
+            }
+            if (browserEl) {
+                browsers.forEach(b => {
+                    const opt = document.createElement('option'); opt.value = b; opt.textContent = b; browserEl.appendChild(opt);
+                });
+            }
+            if (osEl) {
+                oses.forEach(o => {
+                    const opt = document.createElement('option'); opt.value = o; opt.textContent = o; osEl.appendChild(opt);
+                });
+            }
+        } catch (err) {
+            console.warn('Error poblando opciones de filtros', err);
+        }
+    }
+
     applyFilters() {
         const startDate = document.getElementById('filter-date-start')?.value;
         const endDate = document.getElementById('filter-date-end')?.value;
         const period = document.getElementById('filter-period')?.value || 'all';
 
-        this.dataManager.filterByDateRange(startDate, endDate, period);
+        const country = document.getElementById('filter-country')?.value || 'all';
+        const affiliate = document.getElementById('filter-affiliate')?.value || 'all';
+        const userType = document.getElementById('filter-user-type')?.value || 'all';
+        const browser = document.getElementById('filter-browser')?.value || 'all';
+        const os = document.getElementById('filter-os')?.value || 'all';
+        const minTotal = document.getElementById('filter-min-total')?.value;
+        const maxTotal = document.getElementById('filter-max-total')?.value;
+        const hasPurchase = document.getElementById('filter-has-purchase')?.value || 'all';
+
+        this.dataManager.filterByCriteria({ startDate, endDate, period, country, affiliate, userType, browser, os, minTotal, maxTotal, hasPurchase });
         this.updateDashboard();
     }
 
@@ -203,6 +253,27 @@ class DashboardApp {
         // Actualizar estadísticas
         const stats = this.dataManager.getStats();
         UIRenderer.updateStats(stats);
+
+        // Mostrar 'Visitas Totales' obtenidas desde el backend (/obtener-estadisticas).
+        (function updateVisitsFromBackend(self) {
+            const BACKEND_URL = 'https://backend-buquenque.onrender.com';
+            fetch(`${BACKEND_URL}/obtener-estadisticas`)
+                .then(resp => {
+                    if (!resp.ok) throw new Error('Backend response not OK');
+                    return resp.json();
+                })
+                .then(serverStats => {
+                    const totalVisits = Array.isArray(serverStats) ? serverStats.length : 0;
+                    const el = document.getElementById('server-available-users');
+                    if (el) el.textContent = totalVisits;
+                })
+                .catch(err => {
+                    console.warn('No se pudo obtener visitas totales desde backend, usando local', err);
+                    const totalVisits = Array.isArray(self.dataManager.data) ? self.dataManager.data.length : 0;
+                    const el = document.getElementById('server-available-users');
+                    if (el) el.textContent = totalVisits;
+                });
+        })(this);
 
         // Actualizar resumen general
         const monthlyData = this.dataManager.getMonthlyComparison();

@@ -28,19 +28,6 @@
     cursor: not-allowed;
 }
 
-/* Button Primary */
-.btn-primary {
-    background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
-    color: #fff;
-    border: none;
-}
-
-.btn-primary:hover:not(:disabled) {
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-2px);
-    background: linear-gradient(135deg, var(--accent), var(--accent-light));
-}
-
 .btn-primary:focus {
     outline: 2px solid var(--accent);
     outline-offset: 2px;

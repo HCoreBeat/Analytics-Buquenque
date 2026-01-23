@@ -412,4 +412,99 @@ export class GitHubManager {
             throw new Error(`Error al guardar notificación: ${error.message}`);
         }
     }
+
+    /**
+     * Lista el contenido de un directorio en el repositorio Buquenque
+     * @param {string} dirPath - Ruta dentro del repo (e.g., 'Images' o 'Images/products')
+     * @returns {Promise<Array>} - Array de objetos con { name, path, type, sha, download_url }
+     */
+    async listRepoDirectory(dirPath = '') {
+        if (!this.isConfigured()) {
+            throw new Error('Token de GitHub no configurado');
+        }
+
+        try {
+            const repoPath = `HCoreBeat/Buquenque`;
+            const url = `${this.apiBase}/repos/${repoPath}/contents/${dirPath}`;
+            const response = await fetch(url, {
+                headers: {
+                    'Authorization': `token ${this.token}`,
+                    'Accept': 'application/vnd.github.v3+json'
+                }
+            });
+
+            if (!response.ok) {
+                if (response.status === 404) {
+                    return [];
+                }
+                throw new Error(`Error ${response.status}: ${response.statusText}`);
+            }
+
+            const data = await response.json();
+            // Si es un archivo único, devolverlo como array
+            if (!Array.isArray(data)) return [data];
+            return data.map(item => ({
+                name: item.name,
+                path: item.path,
+                type: item.type,
+                sha: item.sha,
+                download_url: item.download_url,
+                size: item.size || 0
+            }));
+        } catch (error) {
+            throw new Error(`Error listando directorio: ${error.message}`);
+        }
+    }
+
+    /**
+     * Elimina un archivo del repositorio Buquenque
+     * @param {string} filePath - Ruta completa del archivo en el repo (ej: 'Images/foo.jpg')
+     * @param {string} commitMessage - Mensaje del commit de borrado
+     */
+    async deleteFileFromRepo(filePath, commitMessage = 'Eliminar archivo desde panel') {
+        if (!this.isConfigured()) {
+            throw new Error('Token de GitHub no configurado');
+        }
+
+        try {
+            const repoPath = `HCoreBeat/Buquenque`;
+
+            // Obtener SHA del archivo
+            const getResp = await fetch(`${this.apiBase}/repos/${repoPath}/contents/${filePath}`, {
+                headers: {
+                    'Authorization': `token ${this.token}`,
+                    'Accept': 'application/vnd.github.v3+json'
+                }
+            });
+
+            if (!getResp.ok) {
+                const err = await getResp.json().catch(() => ({}));
+                throw new Error(`No se pudo obtener SHA: ${getResp.status} ${err.message || getResp.statusText}`);
+            }
+
+            const fileData = await getResp.json();
+            const sha = fileData.sha;
+
+            // Ejecutar DELETE con body
+            const delResp = await fetch(`${this.apiBase}/repos/${repoPath}/contents/${filePath}`, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `token ${this.token}`,
+                    'Accept': 'application/vnd.github.v3+json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: commitMessage, sha, branch: 'main' })
+            });
+
+            if (!delResp.ok) {
+                const errBody = await delResp.json().catch(() => ({}));
+                throw new Error(`Error eliminando: ${delResp.status} ${errBody.message || delResp.statusText}`);
+            }
+
+            const result = await delResp.json();
+            return { success: true, commit: result.commit, content: result.content };
+        } catch (error) {
+            throw new Error(`Error eliminando archivo: ${error.message}`);
+        }
+    }
 }

@@ -273,7 +273,7 @@ export class ProductManager {
      * Sincroniza todos los cambios con GitHub
      * @returns {Promise<Object>} - Resultado de sincronización
      */
-    async saveAllStagedChanges() {
+    async saveAllStagedChanges(progressCallback = null) {
         if (!this.githubManager) {
             throw new Error('GitHubManager no está configurado');
         }
@@ -290,8 +290,19 @@ export class ProductManager {
             // 1. Procesar cambios
             const processedProducts = JSON.parse(JSON.stringify(this.products));
 
+            // helper para reportar progreso de manera segura
+            const report = (percent, message) => {
+                try { if (typeof progressCallback === 'function') progressCallback(percent, message); } catch(e) { console.warn('progressCallback error', e); }
+            };
+
+            report(5, 'Iniciando procesamiento de cambios...');
+
+            let processedCount = 0;
             for (const change of this.stagedChanges) {
                 console.log(`Procesando cambio: ${change.type} - ${change.productId}`);
+
+                processedCount++;
+                report(Math.round((processedCount / this.stagedChanges.length) * 50), `Procesando cambios (${processedCount}/${this.stagedChanges.length})...`);
 
                 // 2. Subir imágenes nuevas/modificadas
                 if (change.hasNewImage && change.imageKey) {
@@ -303,6 +314,7 @@ export class ProductManager {
                             imageData.base64
                         );
                         console.log(`Imagen subida: ${uploadPath}`);
+                        report(null, `Imagen subida: ${change.imageKey}`);
                     }
                 }
 
@@ -379,13 +391,15 @@ export class ProductManager {
                 const base64Content = btoa(unescape(encodeURIComponent(jsonString)));
                 
                 // 5. Subir archivo de productos a GitHub
-                const uploadResult = await this.githubManager.uploadFile(
+                report(75, 'Subiendo archivo de productos a la base de datos...');
+                uploadResult = await this.githubManager.uploadFile(
                     CONFIG.GITHUB_API.PRODUCTS_FILE_PATH,
                     base64Content,
                     `Actualizar inventario - ${processedProducts.length} productos (${this.stagedChanges.length} cambios)`
                 );
                 
-                console.log(`✓ Archivo subido a GitHub correctamente`);
+                console.log(`✓ Archivo subido a la base de datos correctamente`);
+                report(95, 'Archivo de productos subido. Finalizando...');
             } catch (error) {
                 console.error('Error validando o serializando JSON:', error);
                 throw error;
@@ -395,9 +409,10 @@ export class ProductManager {
             await this.discardAllChanges();
             this.lastSync = new Date();
 
+            report(100, 'Sincronización completada');
             return {
                 success: true,
-                message: 'Todos los cambios han sido sincronizados con GitHub',
+                message: 'Todos los cambios han sido sincronizados con la base de datos',
                 filesUpdated: this.stagedChanges.length + 1, // +1 por el archivo de productos
                 commitSha: uploadResult?.commit?.sha || null
             };
