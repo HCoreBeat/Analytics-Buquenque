@@ -658,7 +658,49 @@
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo",
   "numero_pedido": "ORD-MKQ3WIMY"
+}, 
+{
+  "ip": "Desconocida",
+  "pais": "CU",
+  "fecha_hora_entrada": "2026-01-23 17:01:13",
+  "origen": "https://www.buquenqe.com/#",
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 0,
+  "tiempo_carga_pagina_ms": 0,
+  "nombre_comprador": "Yudith Vázquez Nuñez",
+  "telefono_comprador": "53192532",
+  "correo_comprador": "bellyu0529@gmail.com",
+  "direccion_envio": "Calle José Fernández Peña #56 /Eddy Chibás y Cristino Naranjo. Sosa",
+  "compras": [
+    {
+      "id": null,
+      "name": "Paquete de muslo de pollo (2kg)",
+      "quantity": 2,
+      "unitPrice": 5.5,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Leche en polvo (1kg)",
+      "quantity": 2,
+      "unitPrice": 8.0,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Mortadella de Pollo",
+      "quantity": 1,
+      "unitPrice": 2.49,
+      "discount": 0
+    }
+  ],
+  "precio_compra_total": "29.49",
+  "navegador": "Samsung Browser",
+  "sistema_operativo": "Linux",
+  "tipo_usuario": "No especificado",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo",
+  "numero_pedido": "ORD-MKR2IPNC"
 }
-
 
 ]
