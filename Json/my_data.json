@@ -675,7 +675,7 @@
     {
       "id": null,
       "name": "Paquete de muslo de pollo (2kg)",
-      "quantity": 2,
+      "quantity": 1,
       "unitPrice": 5.5,
       "discount": 0
     },
@@ -692,9 +692,23 @@
       "quantity": 1,
       "unitPrice": 2.49,
       "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Chorizo",
+      "quantity": 1,
+      "unitPrice": 4.5,
+      "discount": 0
+    },
+    {
+      "id": null,
+      "name": "Pasta de tomate",
+      "quantity": 1,
+      "unitPrice": 1.7,
+      "discount": 0
     }
   ],
-  "precio_compra_total": "29.49",
+  "precio_compra_total": "30.19",
   "navegador": "Samsung Browser",
   "sistema_operativo": "Linux",
   "tipo_usuario": "No especificado",
