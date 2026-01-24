@@ -10,11 +10,11 @@
     "nombre_comprador": "Daimarelis Diaz Vazquez",
     "telefono_comprador": "54935704",
     "correo_comprador": "daimarelisdiazvasquez@gmail.com",
-    "direccion_envio": "Calle Colón número 158",
+    "direccion_envio": "Calle ColÃ³n nÃºmero 158",
     "compras": [
       {
         "id": null,
-        "name": "Pack x 6 Manzana 🍎",
+        "name": "Pack x 6 Manzana ð",
         "quantity": 1,
         "unitPrice": 6.9,
         "discount": 0
@@ -38,11 +38,11 @@
     "nombre_comprador": "Yilian Perea Verdecia",
     "telefono_comprador": "+19412506664",
     "correo_comprador": "yilianpverdecia@gmail.com",
-    "direccion_envio": "Calle Aurora #21 entre Pepito Peña y Fernando de la Cruz Reparto Aurora",
+    "direccion_envio": "Calle Aurora #21 entre Pepito PeÃ±a y Fernando de la Cruz Reparto Aurora",
     "compras": [
       {
         "id": null,
-        "name": "Manzana 🍎 x unidad",
+        "name": "Manzana ð x unidad",
         "quantity": 4,
         "unitPrice": 1.15,
         "discount": 0
@@ -112,14 +112,14 @@
       },
       {
         "id": null,
-        "name": "Sopa instantánea sabor Pollo (80g)",
+        "name": "Sopa instantÃ¡nea sabor Pollo (80g)",
         "quantity": 3,
         "unitPrice": 0.8,
         "discount": 0
       },
       {
         "id": null,
-        "name": "Refresco Instantáneo (3Lt)",
+        "name": "Refresco InstantÃ¡neo (3Lt)",
         "quantity": 2,
         "unitPrice": 0.25,
         "discount": 0
@@ -133,7 +133,7 @@
       },
       {
         "id": null,
-        "name": "Cartón de Huevos",
+        "name": "CartÃ³n de Huevos",
         "quantity": 1,
         "unitPrice": 11.5,
         "discount": 0
@@ -182,14 +182,14 @@
       },
       {
         "id": null,
-        "name": "Jabón de Baño Florona (75g)",
+        "name": "JabÃ³n de BaÃ±o Florona (75g)",
         "quantity": 2,
         "unitPrice": 0.8,
         "discount": 0
       },
       {
         "id": null,
-        "name": "Pasta de Tomate 🍅 Oderich (350g)",
+        "name": "Pasta de Tomate ð Oderich (350g)",
         "quantity": 2,
         "unitPrice": 1.7,
         "discount": 0
@@ -224,14 +224,14 @@
       },
       {
         "id": null,
-        "name": "Manzana 🍎 x unidad",
+        "name": "Manzana ð x unidad",
         "quantity": 6,
         "unitPrice": 1.15,
         "discount": 0
       },
       {
         "id": null,
-        "name": "Cartón de Huevos",
+        "name": "CartÃ³n de Huevos",
         "quantity": 1,
         "unitPrice": 11.5,
         "discount": 0
@@ -273,7 +273,7 @@
       },
       {
         "id": null,
-        "name": "Paquete de azúcar 1kg",
+        "name": "Paquete de azÃºcar 1kg",
         "quantity": 2,
         "unitPrice": 1.95,
         "discount": 0
@@ -322,7 +322,7 @@
       },
       {
         "id": null,
-        "name": "Yogurt probiótico de 1L (fresa y platanito)",
+        "name": "Yogurt probiÃ³tico de 1L (fresa y platanito)",
         "quantity": 2,
         "unitPrice": 6,
         "discount": 0
@@ -343,7 +343,7 @@
       },
       {
         "id": null,
-        "name": "Refresco Instantáneo (3Lt)",
+        "name": "Refresco InstantÃ¡neo (3Lt)",
         "quantity": 6,
         "unitPrice": 0.25,
         "discount": 0
@@ -357,364 +357,405 @@
     "fuente_trafico": "Directo"
   },
   {
-  "ip": null,
-  "pais": "US",
-  "fecha_hora_entrada": "2026-01-18 00:40:05",
-  "origen": "https://www.buquenqe.com/#Paquete%20de%20papas%20Idaho%20(5lbs)",
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 0,
-  "tiempo_carga_pagina_ms": 0,
-  "nombre_comprador": "Gabriela Amat",
-  "telefono_comprador": "15313101671",
-  "correo_comprador": "gabrielamtley1506@gmail.com",
-  "direccion_envio": "Calle Agustín Cebereco. Edificio 34 Apto D1 Reparto Santos Las tunas",
-  "compras": [
-    {
-      "name": "Cartón de Huevos",
-      "quantity": 1,
-      "unitPrice": 9.0,
-      "total": 9.0
-    },
-    {
-      "name": "Paquete de cuartos de pollo 10 lbs",
-      "quantity": 1,
-      "unitPrice": 12.0,
-      "total": 12.0
-    },
-    {
-      "name": "Aceite (900ml)",
-      "quantity": 1,
-      "unitPrice": 3.65,
-      "total": 3.65
-    },
-    {
-      "name": "Arroz (1Kg)",
-      "quantity": 2,
-      "unitPrice": 2.4,
-      "total": 4.8
-    },
-    {
-      "name": "Mortadella de Pollo",
-      "quantity": 2,
-      "unitPrice": 2.49,
-      "total": 4.98
-    },
-    {
-      "name": "Caja de Malta",
-      "quantity": 1,
-      "unitPrice": 25.0,
-      "total": 25.0
-    },
-    {
-      "name": "Azúcar Blanca (1Kg)",
-      "quantity": 1,
-      "unitPrice": 2.05,
-      "total": 2.05
-    },
-    {
-      "name": "Codito (500g)",
-      "quantity": 2,
-      "unitPrice": 1.07,
-      "total": 2.14
-    },
-    {
-      "name": "Leche en polvo (1kg)",
-      "quantity": 2,
-      "unitPrice": 8.0,
-      "total": 16.0
-    },
-    {
-      "name": "Frijol Negro (500g)",
-      "quantity": 2,
-      "unitPrice": 1.99,
-      "total": 3.98
-    },
-    {
-      "name": "Leche Condensada Azucarada Castellum (390g)",
-      "quantity": 2,
-      "unitPrice": 1.42,
-      "total": 2.84
-    },
-    {
-      "name": "Detergente (500g)",
-      "quantity": 2,
-      "unitPrice": 1.75,
-      "total": 3.5
-    },
-    {
-      "name": "Paquete de salchichas (340g)",
-      "quantity": 2,
-      "unitPrice": 1.5,
-      "total": 3.0
-    },
-    {
-      "name": "Alubia Pinta (500g)",
-      "quantity": 2,
-      "unitPrice": 1.99,
-      "total": 3.98
-    },
-    {
-      "name": "Café Purasangre (250g)",
-      "quantity": 1,
-      "unitPrice": 5.99,
-      "total": 5.99
-    },
-    {
-      "name": "Mayonesa Victoria (250ml)",
-      "quantity": 1,
-      "unitPrice": 2.47,
-      "total": 2.47
-    },
-    {
-      "name": "Comino Molido (171.1g)",
-      "quantity": 1,
-      "unitPrice": 4.39,
-      "total": 4.39
-    },
-    {
-      "name": "Pasta de Tomate Oderich (350g)",
-      "quantity": 2,
-      "unitPrice": 1.7,
-      "total": 3.4
-    },
-    {
-      "name": "Cabeza de Ajo",
-      "quantity": 2,
-      "unitPrice": 0.51,
-      "total": 1.02
-    },
-    {
-      "name": "Plátano (por unidad)",
-      "quantity": 10,
-      "unitPrice": 0.31,
-      "total": 3.1
-    },
-    {
-      "name": "Limón (por libra)",
-      "quantity": 1,
-      "unitPrice": 1.5,
-      "total": 1.5
-    },
-    {
-      "name": "Bolsa de pan 10u",
-      "quantity": 2,
-      "unitPrice": 1.8,
-      "total": 3.6
-    },
-    {
-      "name": "Pimiento x lb",
-      "quantity": 1,
-      "unitPrice": 2.97,
-      "total": 2.97
-    },
-    {
-      "name": "Cebolla morada x lb",
-      "quantity": 1,
-      "unitPrice": 3.37,
-      "total": 3.37
-    },
-    {
-      "name": "Cebolla blanca x lb",
-      "quantity": 1,
-      "unitPrice": 3.37,
-      "total": 3.37
-    },
-    {
-      "name": "Chuleta de cerdo x lb",
-      "quantity": 5,
-      "unitPrice": 3.31,
-      "total": 16.55
-    },
-    {
-      "name": "Paquete de papas Idaho (5lbs)",
-      "quantity": 1,
-      "unitPrice": 9.97,
-      "total": 9.97
-    }
-  ],
-  "precio_compra_total": "158.62",
-  "navegador": "Safari",
-  "sistema_operativo": "MacOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-}, 
-{
-  "ip": null,
-  "pais": "CU",
-  "fecha_hora_entrada": "2026-01-20 23:45:54",
-  "origen": "https://www.buquenqe.com/#",
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 0,
-  "tiempo_carga_pagina_ms": 0,
-  "nombre_comprador": "Nayelis Nagarian Escobar",
-  "telefono_comprador": "56252973",
-  "correo_comprador": "nayelis@nauta.cu",
-  "direccion_envio": "Eddy martines edificio 53 apto A9, entre Agustín Cebreco y Israel Santo",
-  "compras": [
-    {
-      "id": null,
-      "name": "Pack de 12 Estropajos",
-      "quantity": 1,
-      "unitPrice": 3.35,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Paquete de mollejas de pollo (5lbs)",
-      "quantity": 1,
-      "unitPrice": 5.50,
-      "discount": 0
-    }
-  ],
-  "precio_compra_total": "8.85",
-  "navegador": "Chrome",
-  "sistema_operativo": "Linux",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-}, 
-{
-  "ip": "Desconocida",
-  "pais": "US",
-  "fecha_hora_entrada": "2026-01-23 00:52:11",
-  "origen": "https://www.buquenqe.com/#",
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 0,
-  "tiempo_carga_pagina_ms": 0,
-  "nombre_comprador": "Fabio Roman Moreno",
-  "telefono_comprador": "+17862299155",
-  "correo_comprador": "fabiogrm2024@gmail.com",
-  "direccion_envio": "Ave. Frank País Edificio 1 apto 13. Entre ave. 2 de diciembre y R naranjo. Rpto Velazquez",
-  "compras": [
-    {
-      "id": null,
-      "name": "Papel Sanitario",
-      "quantity": 1,
-      "unitPrice": 2.4,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Mayonesa Victoria (250ml)",
-      "quantity": 1,
-      "unitPrice": 2.47,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Refresco Gaseado Mate (1.5Lt)",
-      "quantity": 1,
-      "unitPrice": 2.5,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Paquete de salchichas (340g)",
-      "quantity": 2,
-      "unitPrice": 1.5,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Arroz (1Kg)",
-      "quantity": 4,
-      "unitPrice": 2.4,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Frijol Negro (500g)",
-      "quantity": 1,
-      "unitPrice": 1.99,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Leche Condensada Azucarada Castellum (390g)",
-      "quantity": 2,
-      "unitPrice": 1.42,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Paquete de azúcar 1kg",
-      "quantity": 2,
-      "unitPrice": 1.95,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Paquete de café Dufiltro (250g)",
-      "quantity": 2,
-      "unitPrice": 3.9,
-      "discount": 0
-    }
-  ],
-  "precio_compra_total": "36.50",
-  "navegador": "Samsung Browser",
-  "sistema_operativo": "Linux",
-  "tipo_usuario": "No especificado",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo",
-  "numero_pedido": "ORD-MKQ3WIMY"
-}, 
-{
-  "ip": "Desconocida",
-  "pais": "CU",
-  "fecha_hora_entrada": "2026-01-23 17:01:13",
-  "origen": "https://www.buquenqe.com/#",
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 0,
-  "tiempo_carga_pagina_ms": 0,
-  "nombre_comprador": "Yudith Vázquez Nuñez",
-  "telefono_comprador": "53192532",
-  "correo_comprador": "bellyu0529@gmail.com",
-  "direccion_envio": "Calle José Fernández Peña #56 /Eddy Chibás y Cristino Naranjo. Sosa",
-  "compras": [
-    {
-      "id": null,
-      "name": "Paquete de muslo de pollo (2kg)",
-      "quantity": 1,
-      "unitPrice": 5.5,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Leche en polvo (1kg)",
-      "quantity": 2,
-      "unitPrice": 8.0,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Mortadella de Pollo",
-      "quantity": 1,
-      "unitPrice": 2.49,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Chorizo",
-      "quantity": 1,
-      "unitPrice": 4.5,
-      "discount": 0
-    },
-    {
-      "id": null,
-      "name": "Pasta de tomate",
-      "quantity": 1,
-      "unitPrice": 1.7,
-      "discount": 0
-    }
-  ],
-  "precio_compra_total": "30.19",
-  "navegador": "Samsung Browser",
-  "sistema_operativo": "Linux",
-  "tipo_usuario": "No especificado",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo",
-  "numero_pedido": "ORD-MKR2IPNC"
-}
-
+    "ip": null,
+    "pais": "US",
+    "fecha_hora_entrada": "2026-01-18 00:40:05",
+    "origen": "https://www.buquenqe.com/#Paquete%20de%20papas%20Idaho%20(5lbs)",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Gabriela Amat",
+    "telefono_comprador": "15313101671",
+    "correo_comprador": "gabrielamtley1506@gmail.com",
+    "direccion_envio": "Calle AgustÃ­n Cebereco. Edificio 34 Apto D1 Reparto Santos Las tunas",
+    "compras": [
+      {
+        "name": "CartÃ³n de Huevos",
+        "quantity": 1,
+        "unitPrice": 9,
+        "total": 9
+      },
+      {
+        "name": "Paquete de cuartos de pollo 10 lbs",
+        "quantity": 1,
+        "unitPrice": 12,
+        "total": 12
+      },
+      {
+        "name": "Aceite (900ml)",
+        "quantity": 1,
+        "unitPrice": 3.65,
+        "total": 3.65
+      },
+      {
+        "name": "Arroz (1Kg)",
+        "quantity": 2,
+        "unitPrice": 2.4,
+        "total": 4.8
+      },
+      {
+        "name": "Mortadella de Pollo",
+        "quantity": 2,
+        "unitPrice": 2.49,
+        "total": 4.98
+      },
+      {
+        "name": "Caja de Malta",
+        "quantity": 1,
+        "unitPrice": 25,
+        "total": 25
+      },
+      {
+        "name": "AzÃºcar Blanca (1Kg)",
+        "quantity": 1,
+        "unitPrice": 2.05,
+        "total": 2.05
+      },
+      {
+        "name": "Codito (500g)",
+        "quantity": 2,
+        "unitPrice": 1.07,
+        "total": 2.14
+      },
+      {
+        "name": "Leche en polvo (1kg)",
+        "quantity": 2,
+        "unitPrice": 8,
+        "total": 16
+      },
+      {
+        "name": "Frijol Negro (500g)",
+        "quantity": 2,
+        "unitPrice": 1.99,
+        "total": 3.98
+      },
+      {
+        "name": "Leche Condensada Azucarada Castellum (390g)",
+        "quantity": 2,
+        "unitPrice": 1.42,
+        "total": 2.84
+      },
+      {
+        "name": "Detergente (500g)",
+        "quantity": 2,
+        "unitPrice": 1.75,
+        "total": 3.5
+      },
+      {
+        "name": "Paquete de salchichas (340g)",
+        "quantity": 2,
+        "unitPrice": 1.5,
+        "total": 3
+      },
+      {
+        "name": "Alubia Pinta (500g)",
+        "quantity": 2,
+        "unitPrice": 1.99,
+        "total": 3.98
+      },
+      {
+        "name": "CafÃ© Purasangre (250g)",
+        "quantity": 1,
+        "unitPrice": 5.99,
+        "total": 5.99
+      },
+      {
+        "name": "Mayonesa Victoria (250ml)",
+        "quantity": 1,
+        "unitPrice": 2.47,
+        "total": 2.47
+      },
+      {
+        "name": "Comino Molido (171.1g)",
+        "quantity": 1,
+        "unitPrice": 4.39,
+        "total": 4.39
+      },
+      {
+        "name": "Pasta de Tomate Oderich (350g)",
+        "quantity": 2,
+        "unitPrice": 1.7,
+        "total": 3.4
+      },
+      {
+        "name": "Cabeza de Ajo",
+        "quantity": 2,
+        "unitPrice": 0.51,
+        "total": 1.02
+      },
+      {
+        "name": "PlÃ¡tano (por unidad)",
+        "quantity": 10,
+        "unitPrice": 0.31,
+        "total": 3.1
+      },
+      {
+        "name": "LimÃ³n (por libra)",
+        "quantity": 1,
+        "unitPrice": 1.5,
+        "total": 1.5
+      },
+      {
+        "name": "Bolsa de pan 10u",
+        "quantity": 2,
+        "unitPrice": 1.8,
+        "total": 3.6
+      },
+      {
+        "name": "Pimiento x lb",
+        "quantity": 1,
+        "unitPrice": 2.97,
+        "total": 2.97
+      },
+      {
+        "name": "Cebolla morada x lb",
+        "quantity": 1,
+        "unitPrice": 3.37,
+        "total": 3.37
+      },
+      {
+        "name": "Cebolla blanca x lb",
+        "quantity": 1,
+        "unitPrice": 3.37,
+        "total": 3.37
+      },
+      {
+        "name": "Chuleta de cerdo x lb",
+        "quantity": 5,
+        "unitPrice": 3.31,
+        "total": 16.55
+      },
+      {
+        "name": "Paquete de papas Idaho (5lbs)",
+        "quantity": 1,
+        "unitPrice": 9.97,
+        "total": 9.97
+      }
+    ],
+    "precio_compra_total": "158.62",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": null,
+    "pais": "CU",
+    "fecha_hora_entrada": "2026-01-20 23:45:54",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Nayelis Nagarian Escobar",
+    "telefono_comprador": "56252973",
+    "correo_comprador": "nayelis@nauta.cu",
+    "direccion_envio": "Eddy martines edificio 53 apto A9, entre AgustÃ­n Cebreco y Israel Santo",
+    "compras": [
+      {
+        "id": null,
+        "name": "Pack de 12 Estropajos",
+        "quantity": 1,
+        "unitPrice": 3.35,
+        "discount": 0
+      },
+      {
+        "id": null,
+        "name": "Paquete de mollejas de pollo (5lbs)",
+        "quantity": 1,
+        "unitPrice": 5.5,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "8.85",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "Desconocida",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-01-23 00:52:11",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Fabio Roman Moreno",
+    "telefono_comprador": "+17862299155",
+    "correo_comprador": "fabiogrm2024@gmail.com",
+    "direccion_envio": "Ave. Frank PaÃ­s Edificio 1 apto 13. Entre ave. 2 de diciembre y R naranjo. Rpto Velazquez",
+    "compras": [
+      {
+        "id": null,
+        "name": "Papel Sanitario",
+        "quantity": 1,
+        "unitPrice": 2.4,
+        "discount": 0
+      },
+      {
+        "id": null,
+        "name": "Mayonesa Victoria (250ml)",
+        "quantity": 1,
+        "unitPrice": 2.47,
+        "discount": 0
+      },
+      {
+        "id": null,
+        "name": "Refresco Gaseado Mate (1.5Lt)",
+        "quantity": 1,
+        "unitPrice": 2.5,
+        "discount": 0
+      },
+      {
+        "id": null,
+        "name": "Paquete de salchichas (340g)",
+        "quantity": 2,
+        "unitPrice": 1.5,
+        "discount": 0
+      },
+      {
+        "id": null,
+        "name": "Arroz (1Kg)",
+        "quantity": 4,
+        "unitPrice": 2.4,
+        "discount": 0
+      },
+      {
+        "id": null,
+        "name": "Frijol Negro (500g)",
+        "quantity": 1,
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": null,
+        "name": "Leche Condensada Azucarada Castellum (390g)",
+        "quantity": 2,
+        "unitPrice": 1.42,
+        "discount": 0
+      },
+      {
+        "id": null,
+        "name": "Paquete de azÃºcar 1kg",
+        "quantity": 2,
+        "unitPrice": 1.95,
+        "discount": 0
+      },
+      {
+        "id": null,
+        "name": "Paquete de cafÃ© Dufiltro (250g)",
+        "quantity": 2,
+        "unitPrice": 3.9,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "36.50",
+    "navegador": "Samsung Browser",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "No especificado",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo",
+    "numero_pedido": "ORD-MKQ3WIMY"
+  },
+  {
+    "ip": "Desconocida",
+    "pais": "CU",
+    "fecha_hora_entrada": "2026-01-23 17:01:13",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yudith VÃ¡zquez NuÃ±ez",
+    "telefono_comprador": "53192532",
+    "correo_comprador": "bellyu0529@gmail.com",
+    "direccion_envio": "Calle JosÃ© FernÃ¡ndez PeÃ±a #56 /Eddy ChibÃ¡s y Cristino Naranjo. Sosa",
+    "compras": [
+      {
+        "id": null,
+        "name": "Paquete de muslo de pollo (2kg)",
+        "quantity": 1,
+        "unitPrice": 5.5,
+        "discount": 0
+      },
+      {
+        "id": null,
+        "name": "Leche en polvo (1kg)",
+        "quantity": 2,
+        "unitPrice": 8,
+        "discount": 0
+      },
+      {
+        "id": null,
+        "name": "Mortadella de Pollo",
+        "quantity": 1,
+        "unitPrice": 2.49,
+        "discount": 0
+      },
+      {
+        "id": null,
+        "name": "Chorizo",
+        "quantity": 1,
+        "unitPrice": 4.5,
+        "discount": 0
+      },
+      {
+        "id": null,
+        "name": "Pasta de tomate",
+        "quantity": 1,
+        "unitPrice": 1.7,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "30.19",
+    "navegador": "Samsung Browser",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "No especificado",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo",
+    "numero_pedido": "ORD-MKR2IPNC"
+  },
+  {
+    "ip": "2607:fb91:1919:8459:4983:4fbb:e73e:f0c6",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-01-24 09:45:21",
+    "origen": "https://www.buquenqe.com/?fbclid=IwZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQKNjYyODU2ODM3OQABHuyXEzPxxnOtmyRYCu6hHlaBbqtcPd988Fqi51TebeCQ3zfVDQZB6moSzwN-_aem_dpsytIV5Wz-EdCwB0tf94w",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Guillermo Zayas",
+    "telefono_comprador": "5613319787",
+    "correo_comprador": "zayas07guillermo@gmail.com",
+    "direccion_envio": "Lico cruz 86 Altos / Juan Gualberto Gómez y Villalon",
+    "compras": [
+      {
+        "id": "group_Caja de Helados Nestlé sabor",
+        "name": "Caja de Helados Nestlé sabor (Chocolate)",
+        "quantity": 1,
+        "unitPrice": 20,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_1kvuqw0v5",
+        "name": "Queso Gouda (3Kg)",
+        "quantity": 1,
+        "unitPrice": 38,
+        "discount": 0
+      },
+      {
+        "id": "group_Jamón bravo",
+        "name": "Jamón bravo(1kg)",
+        "quantity": 1,
+        "unitPrice": 11,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "69.00",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "http://m.facebook.com/"
+  }
 ]
