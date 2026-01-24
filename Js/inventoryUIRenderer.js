@@ -169,6 +169,9 @@ export class InventoryUIRenderer {
                 }
             });
         });
+
+        // Aplicar previews de imágenes almacenadas en staging (si existen)
+        this.applyStagedImagesToGrid();
     }
 
     /**
@@ -179,7 +182,7 @@ export class InventoryUIRenderer {
         const isModified = this.productManager.getStagedChanges().some(c => c.productId === product.id && c.type === 'modify');
 
         return `
-            <div class="product-card ${isModified ? 'modified' : ''}">
+            <div class="product-card ${isModified ? 'modified' : ''}" data-product-id="${product.id}">
                 <div class="product-image">
                     <img src="${product.imagenUrl}" alt="${product.nombre}" onerror="this.src='Img/no_image.jpg'">
                     ${product.nuevo ? '<span class="product-badge new">Nuevo</span>' : ''}
@@ -808,6 +811,44 @@ export class InventoryUIRenderer {
 
         categoryFilter.innerHTML = options;
         categoryFilter.value = currentValue;
+    }
+
+    /**
+     * Aplica previews de imágenes almacenadas en staging a las tarjetas de productos
+     * Esto permite que al marcar un cambio con nueva imagen la vista muestre
+     * inmediatamente la imagen seleccionada desde IndexedDB (Base64).
+     */
+    async applyStagedImagesToGrid() {
+        if (!this.productManager) return;
+        const changesWithImages = this.productManager.getStagedChanges().filter(c => c.hasNewImage && c.imageKey);
+        if (!changesWithImages || changesWithImages.length === 0) return;
+
+        for (const change of changesWithImages) {
+            try {
+                const imgData = await this.productManager.stagingDB.getImageFromIDB(change.imageKey);
+                if (!imgData || !imgData.base64) continue;
+
+                const src = base64ToDataURL(imgData.base64, imgData.mimeType || 'image/jpeg');
+                const card = document.querySelector(`.product-card[data-product-id="${change.productId}"]`);
+                if (!card) continue;
+
+                const imgEl = card.querySelector('.product-image img');
+                if (imgEl) imgEl.src = src;
+
+                // Asegurar que la etiqueta 'Modificado' se muestre
+                if (!card.querySelector('.product-badge.modified')) {
+                    const imgWrap = card.querySelector('.product-image');
+                    if (imgWrap) {
+                        const badge = document.createElement('span');
+                        badge.className = 'product-badge modified';
+                        badge.textContent = 'Modificado';
+                        imgWrap.appendChild(badge);
+                    }
+                }
+            } catch (err) {
+                console.warn('applyStagedImagesToGrid error', err);
+            }
+        }
     }
 
     /**

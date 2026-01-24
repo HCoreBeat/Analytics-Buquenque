@@ -1,0 +1,108 @@
+/* Styles for Globe component */
+:root {
+  --globe-height-desktop: 420px;
+  --globe-height-mobile: 250px;
+  --globe-marker-color: #e63e3e;
+  --globe-marker-sphere-radius: 0.14; /* in world units, used by JS */
+  --globe-marker-cone-height: 1.2; /* in world units, used by JS */
+  --globe-marker-cone-radius: 0.12; /* in world units, used by JS */
+  /* Additional styling variables */
+  --globe-canvas-bg: transparent;
+  --globe-marker-opacity: 0.95;
+}
+
+#globe-container {
+  width: 100%;
+  height: var(--globe-height-desktop);
+  border-radius: 8px;
+  overflow: hidden;
+  background: radial-gradient(circle at 20% 30%, #081226, #000814 50%);
+}
+
+/* Tooltip styling (positioned via JS) */
+#globe-tooltip {
+  position: fixed;
+  pointer-events: none;
+  padding: 6px 8px;
+  background: rgba(0, 0, 0, 0.78);
+  color: #fff;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 1;
+  z-index: 9999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  :root {
+    --globe-height-desktop: 360px;
+  }
+}
+@media (max-width: 600px) {
+  #globe-container {
+    height: var(--globe-height-mobile);
+  }
+}
+
+/* Utility class to visually expose CSS variable for editor */
+.globe-settings {
+  display: none;
+}
+
+/* Example: allow user to change marker color via class on body */
+body.globe-blue {
+  --globe-marker-color: #33aaff;
+}
+body.globe-green {
+  --globe-marker-color: #22cc66;
+}
+
+/* Canvas produced by three.js renderer - give it a class so it can be styled */
+.globe-canvas {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  touch-action: none;
+  background: var(--globe-canvas-bg);
+}
+
+/* Example editable marker preset classes (change body class to apply) */
+body.globe-neon {
+  --globe-marker-color: #33ffdd;
+  --globe-marker-cone-height: 1.6;
+}
+body.globe-warm {
+  --globe-marker-color: #ff8844;
+  --globe-marker-cone-height: 1;
+}
+
+
+#globe-card{
+    background: var(--secondary-dark);
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius-sm);
+    padding: 1rem;
+    box-shadow: var(--shadow-md);
+    min-height: 530px;
+}
+
+#globe-card .chart-container {
+    position: relative;
+    height: 450px;
+    background: var(--secondary-dark);
+    border-radius: var(--border-radius-sm);
+    padding: 1rem;
+    border: 1px solid var(--border-light);
+}
+
+@media (max-width: 720px) {
+ 
+    #globe-card{
+        min-height: 330px;
+    }
+
+    #globe-card .chart-container {
+        height: 280px;
+    }
+}

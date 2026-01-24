@@ -260,7 +260,7 @@
 }
 
 .filters-modal .filters {
-    padding: 0; /* inner padding handled by modal-body */
+    padding: 15px; /* inner padding handled by modal-body */
 }
 
 .filters-modal .modal-footer {
@@ -559,12 +559,6 @@
     align-items: center;
     gap: 1rem;
     text-align: right;
-}
-
-.progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #4A90E2, #5BA3F5);
-    border-radius: 3px;
 }
 
 /* Conversion metrics */

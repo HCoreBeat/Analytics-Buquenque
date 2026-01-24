@@ -538,8 +538,8 @@
   display: inline-block;
   height: 4px;
   background: var(--border-light);
-  border-radius: 2px;
-  min-width: 60px;
+  border-radius: 3px;
+  min-width: 250px;
 }
 
 .progress-fill {
@@ -1139,8 +1139,8 @@
   }
 
   .progress-bar {
-    min-width: 35px;
-    height: 3px;
+    min-width: 250px;
+    height: 4px;
   }
 
   .filter-logs {

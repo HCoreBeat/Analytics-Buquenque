@@ -16,7 +16,15 @@
     <link rel="stylesheet" href="Css/inventory.css">
     <link rel="stylesheet" href="Css/notifications-editor.css">
     <link rel="stylesheet" href="Css/notifications.css">
+    <link rel="stylesheet" href="Css/globe.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.154.0/build/three.module.js"
+            }
+        }
+        </script>
 </head>
 <body>
     <header class="app-header">
@@ -132,7 +140,7 @@
                             <button class="modal-close" id="filters-modal-close" aria-label="Cerrar filtros">&times;</button>
                         </div>
                         <div class="modal-body" style="align-items:flex-start;">
-                            <div class="filters" style="display:block; width:100%;">
+                            <div class="filters" style="display:flex; width:100%;">
                                 <div class="filter-group">
                                     <label><i class="fas fa-calendar-alt"></i> Periodo</label>
                                     <select id="filter-period" class="select-light">
@@ -231,6 +239,13 @@
                         <h3 class="card-title"><i class="fas fa-chart-line"></i> Tendencias de Ventas</h3>
                         <div class="chart-container">
                             <canvas id="sales-trend-chart" width="300" height="200"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="card full-width" id="globe-card">
+                        <h3 class="card-title"><i class="fas fa-globe"></i> Globo Interactivo de pedidos</h3>
+                            <div class="chart-container" style="padding:0.5rem 1rem;">
+                            <div id="globe-container"></div>
                         </div>
                     </div>
                 </div>
@@ -777,7 +792,7 @@
     <footer class="app-footer">
         <div class="footer-content">
             <span>&copy; 2026 Buquenque Dashboard. Todos los derechos reservados HLab</span>
-            <span class="footer-version">Versión 1.9.4</span>
+            <span class="footer-version">Versión 2.1.1</span>
         </div>
     </footer>
 
@@ -822,5 +837,6 @@
     <script type="module" src="Js/script-new.js" defer></script>
     <script type="module" src="Js/server-panel.js" defer></script>
     <script type="module" src="Js/pedidos.js" defer></script>
+    <script type="module" src="Js/globe.js" defer></script>
 </body>
 </html>

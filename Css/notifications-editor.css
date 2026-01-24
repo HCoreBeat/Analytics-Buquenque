@@ -35,7 +35,7 @@
 .notifications-header h2 {
     font-size: 1.75rem;
     margin: 0 0 0.5rem 0;
-    color: #333;
+    color: var(--bg-light);
     font-weight: 700;
     display: flex;
     align-items: center;
