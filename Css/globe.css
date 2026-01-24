@@ -77,32 +77,45 @@ body.globe-warm {
   --globe-marker-cone-height: 1;
 }
 
-
-#globe-card{
-    background: var(--secondary-dark);
-    border: 1px solid var(--border-light);
-    border-radius: var(--border-radius-sm);
-    padding: 1rem;
-    box-shadow: var(--shadow-md);
-    min-height: 530px;
+#globe-card {
+  background: var(--secondary-dark);
+  border: 1px solid var(--border-light);
+  border-radius: var(--border-radius-sm);
+  padding: 1rem;
+  box-shadow: var(--shadow-md);
+  min-height: 530px;
 }
 
 #globe-card .chart-container {
-    position: relative;
-    height: 450px;
-    background: var(--secondary-dark);
-    border-radius: var(--border-radius-sm);
-    padding: 1rem;
-    border: 1px solid var(--border-light);
+  position: relative;
+  height: 450px;
+  background: var(--secondary-dark);
+  border-radius: var(--border-radius-sm);
+  padding: 1rem;
+  border: 1px solid var(--border-light);
+}
+
+.HLab {
+  position: absolute;
+  bottom: 8px;
+  right: 30px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.2);
+  z-index: 10;
 }
 
 @media (max-width: 720px) {
- 
-    #globe-card{
-        min-height: 330px;
-    }
+  #globe-card {
+    min-height: 330px;
+  }
 
-    #globe-card .chart-container {
-        height: 280px;
-    }
+  #globe-card .chart-container {
+    height: 250px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .HLab{
+    right: 12px;
+  }
 }
