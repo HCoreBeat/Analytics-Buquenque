@@ -14,10 +14,11 @@
     <link rel="stylesheet" href="Css/settings.css">
     <link rel="stylesheet" href="Css/modal-github.css">
     <link rel="stylesheet" href="Css/inventory.css">
+    <link rel="stylesheet" href="Css/tools.css">
     <link rel="stylesheet" href="Css/notifications-editor.css">
     <link rel="stylesheet" href="Css/notifications.css">
     <link rel="stylesheet" href="Css/globe.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
         <script type="importmap">
         {
             "imports": {
@@ -35,8 +36,8 @@
                 <span></span>
             </button>
             <div class="app-logo">
-                <i class="fas fa-chart-line"></i>
-                <h1>Buquenque Dashboard</h1>
+                <img src="Img/LOGO.png" alt="Buquenque" class="app-logo-img">
+                <h1>Dashboard</h1>
             </div>
             <span class="header-status"><i class="fas fa-circle status-indicator"></i> Conectado</span>
         </div>
@@ -53,12 +54,13 @@
                 <button class="close-menu" id="close-menu" aria-label="Cerrar menú">&times;</button>
             </div>
             <ul class="menu-list">
-                <li><a href="#" class="menu-item active" data-view="dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="#" class="menu-item active" data-view="dashboard"><i class="fa-solid fa-table-cells-large"></i> Overview</a></li>
                 <li><a href="#" class="menu-item" data-view="pedidos"><i class="fas fa-shopping-cart"></i> Pedidos <span class="pedidos-badge" id="pedidos-menu-badge" style="display: none;"></span></a></li>
                 <li><a href="#" class="menu-item" data-view="inventory"><i class="fas fa-boxes"></i> Inventario</a></li>
                 <li><a href="#" class="menu-item" data-view="notifications"><i class="fas fa-bell"></i> Notificaciones</a></li>
                 <li class="menu-separator"></li>
                 <li><a href="#" class="menu-item" data-view="server"><i class="fas fa-server"></i> Server</a></li>
+                <li><a href="#" class="menu-item" data-view="tools"><i class="fas fa-wrench"></i> Herramientas</a></li>
                 <li class="menu-separator"></li>
                 <li><a href="#" class="menu-item" data-view="settings"><i class="fas fa-cog"></i> Ajustes</a></li>
             </ul>
@@ -142,7 +144,7 @@
                         <div class="modal-body" style="align-items:flex-start;">
                             <div class="filters" style="display:flex; width:100%;">
                                 <div class="filter-group">
-                                    <label><i class="fas fa-calendar-alt"></i> Periodo</label>
+                                    <label for="filter-period"><i class="fas fa-calendar-alt"></i> Periodo</label>
                                     <select id="filter-period" class="select-light">
                                         <option value="month">Este Mes</option>
                                         <option value="last-month">Mes Pasado</option>
@@ -151,27 +153,29 @@
                                     </select>
                                 </div>
                                 <div class="filter-group">
-                                    <label><i class="fas fa-calendar-week"></i> Rango de Fechas</label>
+                                    <div class="form-label"><i class="fas fa-calendar-week"></i> Rango de Fechas</div>
                                     <div class="date-range">
+                                        <label for="filter-date-start" class="sr-only">Fecha inicio</label>
                                         <input type="date" id="filter-date-start" class="input-light">
-                                        <span>a</span>
+                                        <span aria-hidden="true">a</span>
+                                        <label for="filter-date-end" class="sr-only">Fecha fin</label>
                                         <input type="date" id="filter-date-end" class="input-light">
                                     </div>
                                 </div>
                                     <div class="filter-group">
-                                        <label><i class="fas fa-globe"></i> País</label>
+                                        <label for="filter-country"><i class="fas fa-globe"></i> País</label>
                                         <select id="filter-country" class="select-light">
                                             <option value="all">Todos</option>
                                         </select>
                                     </div>
                                     <div class="filter-group">
-                                        <label><i class="fas fa-link"></i> Afiliado</label>
+                                        <label for="filter-affiliate"><i class="fas fa-link"></i> Afiliado</label>
                                         <select id="filter-affiliate" class="select-light">
                                             <option value="all">Todos</option>
                                         </select>
                                     </div>
                                     <div class="filter-group">
-                                        <label><i class="fas fa-user-tag"></i> Tipo de Usuario</label>
+                                        <label for="filter-user-type"><i class="fas fa-user-tag"></i> Tipo de Usuario</label>
                                         <select id="filter-user-type" class="select-light">
                                             <option value="all">Todos</option>
                                             <option value="Único">Único</option>
@@ -179,26 +183,28 @@
                                         </select>
                                     </div>
                                     <div class="filter-group">
-                                        <label><i class="fas fa-desktop"></i> Navegador</label>
+                                        <label for="filter-browser"><i class="fas fa-desktop"></i> Navegador</label>
                                         <select id="filter-browser" class="select-light">
                                             <option value="all">Todos</option>
                                         </select>
                                     </div>
                                     <div class="filter-group">
-                                        <label><i class="fas fa-hdd"></i> Sistema Operativo</label>
+                                        <label for="filter-os"><i class="fas fa-hdd"></i> Sistema Operativo</label>
                                         <select id="filter-os" class="select-light">
                                             <option value="all">Todos</option>
                                         </select>
                                     </div>
                                     <div class="filter-group">
-                                        <label><i class="fas fa-dollar-sign"></i> Precio Total</label>
+                                        <div class="form-label"><i class="fas fa-dollar-sign"></i> Precio Total</div>
                                         <div style="display:flex;gap:0.5rem;">
+                                            <label for="filter-min-total" class="sr-only">Precio mínimo</label>
                                             <input type="number" id="filter-min-total" class="input-light" placeholder="Min">
+                                            <label for="filter-max-total" class="sr-only">Precio máximo</label>
                                             <input type="number" id="filter-max-total" class="input-light" placeholder="Max">
                                         </div>
                                     </div>
                                     <div class="filter-group">
-                                        <label><i class="fas fa-shopping-bag"></i> Contiene Pedido</label>
+                                        <label for="filter-has-purchase"><i class="fas fa-shopping-bag"></i> Contiene Pedido</label>
                                         <select id="filter-has-purchase" class="select-light">
                                             <option value="all">Todos</option>
                                             <option value="with">Con Compra</option>
@@ -233,6 +239,24 @@
                     <div class="card">
                         <h3 class="card-title"><i class="fas fa-calendar-alt"></i> Resumen Diario</h3>
                         <div class="summary-grid" id="daily-summary"></div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title"><i class="fas fa-clock"></i> Horas de Entrada (Usuarios)</h3>
+                        <div class="card-body" id="entry-hours-card">
+                            <div id="entry-hours-container">
+                                <div class="metric-card">
+                                    <div class="metric-label">Hora Promedio</div>
+                                    <div class="metric-value" id="avg-entry-time">—</div>
+                                </div>
+                                <div id="peak-hours-list">Cargando...</div>
+                                <div>
+                                    <canvas id="entry-hours-canvas"></canvas>
+                                    <div id="entry-hours-legend"></div>
+                                    <div id="entry-hours-histogram"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
                     <div class="card full-width">
@@ -445,6 +469,40 @@
         <!-- Vista Inventario -->
         <div id="inventory-view" class="view-content"></div>
 
+        <!-- Vista Herramientas (Compresor de Imágenes) -->
+        <div id="tools-view" class="view-content">
+            <div class="tools-header">
+                <h2><i class="fas fa-wrench"></i> Herramientas</h2>
+                <p class="tools-subtitle">Compresor de imágenes — subir varias imágenes y comprimir a JPG</p>
+            </div>
+
+            <div class="tools-container">
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-file-image"></i> Compresor de Imágenes</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="compressor-controls">
+                            <input id="compressor-input" type="file" accept="image/*" multiple>
+                            <div id="compressor-drop" class="compressor-drop">Arrastra imágenes aquí o haz clic para seleccionar</div>
+                            <div class="compressor-options">
+                                <label>Max ancho: <input id="compress-max-width" type="number" value="600" min="1" max="600"></label>
+                                <label>Max alto: <input id="compress-max-height" type="number" value="600" min="1" max="600"></label>
+                                <label>Calidad (0.1-1): <input id="compress-quality" type="range" min="0.1" max="1" step="0.05" value="0.8"></label>
+                                <label><input id="compress-convert-jpg" type="checkbox" checked> Forzar conversión a JPG</label>
+                                <div class="compressor-buttons">
+                                    <button id="compress-btn" class="btn btn-primary"> <i class="fas fa-compress-alt"></i> Comprimir</button>
+                                    <button id="clear-compressed-btn" class="btn btn-secondary"> <i class="fas fa-trash"></i> Limpiar convertidos</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="compressor-list" class="compressor-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Vista Pedidos -->
         <div id="pedidos-view" class="view-content">
             <div class="pedidos-header">
@@ -527,7 +585,7 @@
                             <form class="editor-form" id="notification-editor-form">
                                 <!-- ID Display -->
                                 <div class="form-group id-group">
-                                    <label>ID de Notificación</label>
+                                    <div class="form-label">ID de Notificación</div>
                                     <div class="id-display-wrapper">
                                         <div class="id-badge" id="notification-id-display">1</div>
                                         <button type="button" class="btn btn-secondary" id="generate-notification-id">
@@ -600,9 +658,9 @@
 
                                 <!-- Icono -->
                                 <div class="form-group">
-                                    <label>
+                                    <div class="form-label">
                                         <i class="fas fa-icons"></i> Icono de Notificación
-                                    </label>
+                                    </div>
                                     <div class="icon-display-wrapper">
                                         <div class="icon-display" id="current-icon-display">
                                             <i class="fas fa-bell"></i>
@@ -794,6 +852,9 @@
         <div class="footer-content">
             <span>&copy; 2026 Buquenque Dashboard. Todos los derechos reservados HLab</span>
             <span class="footer-version">Versión 2.1.1</span>
+            <div id="reloj">
+                
+            </div>
         </div>
     </footer>
 
@@ -802,7 +863,7 @@
         <div class="modal-overlay" id="modal-overlay"></div>
         <div class="modal-content">
             <div class="modal-header">
-                <h3 id="modal-title">Guardando pedidos...</h3>
+                <h3 id="modal-title">Guardando Datos...</h3>
                 <button class="modal-close" id="modal-close-btn" aria-label="Cerrar">
                     <i class="fas fa-times"></i>
                 </button>
@@ -839,5 +900,6 @@
     <script type="module" src="Js/server-panel.js" defer></script>
     <script type="module" src="Js/pedidos.js" defer></script>
     <script type="module" src="Js/globe.js" defer></script>
+    <script type="module" src="Js/imageCompressor.js" defer></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { OrbitControls } from 'https://unpkg.com/three@0.154.0/examples/jsm/controls/OrbitControls.js';
+import { OrbitControls } from './OrbitControls.js';
 
 // Config
 const EARTH_RADIUS = 10;
@@ -58,7 +58,13 @@ async function createGlobe() {
         const tex = await new Promise((res, rej) => loader.load(TEXTURE_URL, res, undefined, rej));
         // Ensure correct color space and filtering for better visual results
         try {
-            tex.encoding = THREE.sRGBEncoding;
+            // three.js newer versions replaced .encoding with .colorSpace
+            if ('colorSpace' in tex) {
+                // prefer SRGB color space constant if available, otherwise fall back
+                tex.colorSpace = (THREE.SRGBColorSpace !== undefined) ? THREE.SRGBColorSpace : THREE.sRGBEncoding;
+            } else {
+                tex.encoding = THREE.sRGBEncoding;
+            }
         } catch (e) { /* ignore if property missing */ }
         try {
             tex.anisotropy = renderer.capabilities.getMaxAnisotropy();

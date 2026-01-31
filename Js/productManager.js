@@ -119,6 +119,9 @@ export class ProductManager {
             
             // Crear campo de búsqueda
             product.searchText = `${product.nombre} ${product.categoria} ${product.descripcion || ''}`.toLowerCase();
+            // Normalizar timestamps si existen o mapear campo legacy 'hora'
+            product.created_at = product.created_at || product.hora || null;
+            product.modified_at = product.modified_at || product.created_at || null;
         });
     }
 
@@ -324,6 +327,10 @@ export class ProductManager {
                     const exists = processedProducts.some(p => p.nombre === change.productData.nombre);
                     if (!exists) {
                         const productToAdd = this.prepareProductForExport(change.productData);
+                        // Asignar timestamps de creación/modificación al agregar nuevo
+                        const nowIso = new Date().toISOString();
+                        productToAdd.created_at = productToAdd.created_at || nowIso;
+                        productToAdd.modified_at = productToAdd.modified_at || nowIso;
                         processedProducts.push(productToAdd);
                         console.log(`Producto nuevo agregado: ${change.productData.nombre}`);
                     } else {
@@ -336,6 +343,11 @@ export class ProductManager {
                     
                     if (index !== -1) {
                         const productToUpdate = this.prepareProductForExport(change.productData);
+                        // Conservar fecha de creación existente si la tiene
+                        const existing = processedProducts[index] || {};
+                        productToUpdate.created_at = productToUpdate.created_at || existing.created_at || existing.hora || null;
+                        // Actualizar modified_at
+                        productToUpdate.modified_at = new Date().toISOString();
                         processedProducts[index] = productToUpdate;
                         console.log(`Producto modificado: ${change.productData.nombre}`);
                     } else {
@@ -552,6 +564,10 @@ export class ProductManager {
             imagenes: Array.isArray(productData.imagenes) ? productData.imagenes : [],
             descripcion: String(productData.descripcion || '').trim(),
             disponibilidad: productData.disponibilidad !== false
+        ,
+            // Mantener timestamps si vienen en los datos. Si no, quedarán null
+            created_at: productData.created_at || productData.hora || null,
+            modified_at: productData.modified_at || productData.hora || null
         };
     }
 }

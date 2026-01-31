@@ -541,12 +541,20 @@
   border-radius: 3px;
   min-width: 250px;
 }
+.progress-bar-server {
+  display: inline-block;
+  height: 4px;
+  background: var(--border-light);
+  border-radius: 3px;
+  min-width: 80px;
+}
 
 .progress-fill {
   height: 100%;
   background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2));
   border-radius: 2px;
   transition: width 0.3s ease;
+  width: var(--pct, 0%);
 }
 
 /* Performance Metrics */
@@ -1143,6 +1151,11 @@
     height: 4px;
   }
 
+  .progress-bar-server {
+    min-width: 70px;
+    height: 4px;
+  }
+
   .filter-logs {
     display: flex;
     flex-direction: column;
@@ -1351,11 +1364,154 @@
   }
 }
 
-#new-orders-count{
-    display: inline-block;
-    padding: 0.75rem 0.75rem;
-    border-radius: 50%;
-    font-size: 0.85rem;
-    font-weight: 600;
-    width: 45px;
+#new-orders-count {
+  display: inline-block;
+  padding: 0.75rem 0.75rem;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 600;
+  width: 45px;
+}
+
+/* Peak hours / entry histogram styles */
+.peak-hours {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.peak-hours-title {
+  font-weight: 700;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+.peak-hours-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.peak-hours-list.low {
+  opacity: 0.9;
+}
+.peak-hour-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.25rem;
+  background: var(--hover-bg);
+  border-radius: 6px;
+}
+.peak-hour-hour {
+  width: 48px;
+  text-align: right;
+  color: var(--text-secondary);
+  font-weight: 700;
+}
+.peak-hour-count {
+  margin-left: 0.5rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+.peak-hour-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 6px;
+}
+.peak-hour-label {
+  width: 46px;
+  text-align: right;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+.peak-hour-bar {
+  flex: 1 1 auto;
+  height: 10px;
+  background: #e6f2ff;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.peak-hour-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2));
+  border-radius: 6px;
+  transition: width 0.35s ease;
+  width: var(--pct, 0%);
+}
+.peak-hour-number {
+  width: 44px;
+  text-align: left;
+  color: var(--text);
+  font-size: 0.85rem;
+}
+
+/* Canvas / legend responsive */
+#entry-hours-canvas {
+  width: 100% !important;
+  height: 160px !important;
+  display: block;
+}
+#entry-hours-legend {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  min-height: 20px;
+}
+
+#entry-hours-histogram {
+  display: none;
+  margin-top: 0.75rem;
+}
+
+/* Pager for traffic sources */
+.traffic-pager {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.traffic-pager .pager-info {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin: 0 0.5rem;
+}
+.pager-btn {
+  background: transparent;
+  border: 1px solid var(--border-light);
+  color: var(--accent);
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.pager-btn[disabled] {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* Limit visual overflow for traffic list */
+.traffic-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .peak-hour-item,
+  .peak-hour-row {
+    gap: 0.4rem;
+  }
+  .peak-hour-hour,
+  .peak-hour-label {
+    width: 40px;
+    font-size: 0.8rem;
+  }
+  .peak-hour-number {
+    width: 36px;
+    font-size: 0.8rem;
+  }
+  #entry-hours-canvas {
+    height: 180px !important;
+  }
 }

@@ -4,6 +4,7 @@
  */
 
 import { createObjectURL, revokeObjectURL, base64ToDataURL } from './inventoryUtils.js';
+import { formatDate } from './utils.js';
 import { GitHubSaveModal } from './githubSaveModal.js';
 import { GitHubImagesModal } from './githubImagesModal.js';
 
@@ -111,6 +112,30 @@ export class InventoryUIRenderer {
                     <select class="filter-select" id="filter-category">
                         <option value="">Todas las categorías</option>
                     </select>
+
+                    <select class="filter-select" id="filter-modified">
+                        <option value="all">Todos</option>
+                        <option value="modified">Solo Modificados</option>
+                        <option value="new">Solo Nuevos</option>
+                    </select>
+
+                    <select class="filter-select" id="sort-products">
+                        <option value="default">Orden: Predeterminado</option>
+                        <option value="price_desc">Precio ↓</option>
+                        <option value="price_asc">Precio ↑</option>
+                        <option value="date_modified">Últ. Modificación</option>
+                        <option value="date_created">Fecha Creación</option>
+                    </select>
+
+                    <button class="btn btn-outline" id="btn-export-csv">Exportar CSV</button>
+                    <button class="btn btn-outline" id="btn-clear-filters">Limpiar filtros</button>
+                </div>
+
+                <div class="toolbar-stats" id="toolbar-stats">
+                    <div class="stat small" id="stat-total">Total: 0</div>
+                    <div class="stat small" id="stat-available">Disponibles: 0</div>
+                    <div class="stat small" id="stat-unavailable">No disponibles: 0</div>
+                    <div class="stat small" id="stat-modified-count">Modificados: 0</div>
                 </div>
             </div>
 
@@ -172,6 +197,12 @@ export class InventoryUIRenderer {
 
         // Aplicar previews de imágenes almacenadas en staging (si existen)
         this.applyStagedImagesToGrid();
+
+        // Completar tamaños de imagen (no bloqueante)
+        try { this.populateProductImageSizes(); } catch (e) { console.warn('populateProductImageSizes call error', e); }
+
+        // Actualizar estadísticas del toolbar
+        try { this.updateToolbarStats(); } catch (e) { console.warn('updateToolbarStats error', e); }
     }
 
     /**
@@ -180,10 +211,24 @@ export class InventoryUIRenderer {
     createProductCard(product) {
         const discount = product.descuento ? `<span class="product-price-original">$${product.precio.toFixed(2)}</span>` : '';
         const isModified = this.productManager.getStagedChanges().some(c => c.productId === product.id && c.type === 'modify');
-
+        // Mostrar both created_at y modified_at si existen (o marcador si null)
+        let dateHtml = '';
+        try {
+            const createdStr = product.created_at ? formatDate(new Date(product.created_at)) : '—';
+            const modifiedStr = product.modified_at ? formatDate(new Date(product.modified_at)) : '—';
+            dateHtml = `
+                <div class="product-meta">
+                    <small>Creado: ${createdStr}</small><br>
+                    <small>Última modificación: ${modifiedStr}</small>
+                </div>
+            `;
+        } catch (e) {
+            dateHtml = '';
+        }
         return `
             <div class="product-card ${isModified ? 'modified' : ''}" data-product-id="${product.id}">
                 <div class="product-image">
+                    <div class="product-image-size" data-src="${product.imagenUrl}"></div>
                     <img src="${product.imagenUrl}" alt="${product.nombre}" onerror="this.src='Img/no_image.jpg'">
                     ${product.nuevo ? '<span class="product-badge new">Nuevo</span>' : ''}
                     ${product.oferta ? '<span class="product-badge sale">Oferta</span>' : ''}
@@ -193,6 +238,7 @@ export class InventoryUIRenderer {
                     <div class="product-name">${product.nombre}</div>
                     <div class="product-category">${product.categoria}</div>
                     <div class="product-description">${product.descripcion || 'Sin descripción'}</div>
+                    ${dateHtml}
                     <div class="product-footer">
                         <div class="product-price">
                             <div class="product-price-final">$${product.precioFinal.toFixed(2)}</div>
@@ -310,13 +356,16 @@ export class InventoryUIRenderer {
 
         // Construir HTML de cambios
         const changesHTML = changes.map(change => `
-            <div class="change-item ${change.type}" data-change-id="${change.id}">
+            <div class="change-item ${change.type} " data-change-id="${change.id}">
                 <div style="display: flex; align-items: center; gap: 0.75rem;">
                     <span class="change-type ${change.type}">
                         <i class="fas ${this.getChangeIcon(change.type)}"></i>
                         ${change.type.charAt(0).toUpperCase() + change.type.slice(1)}
                     </span>
                     <div class="change-product-name">${change.productData.nombre}</div>
+                    <div style="margin-left:auto; color:#7f8c8d; font-size:0.85rem;">
+                        ${change.timestamp ? formatDate(new Date(change.timestamp)) : ''}
+                    </div>
                     ${change.hasNewImage ? '<i class="fas fa-image" style="color: #3498db; font-size: 0.9rem;"></i>' : ''}
                 </div>
                 <div class="change-actions">
@@ -438,13 +487,13 @@ export class InventoryUIRenderer {
                     <div class="modal-content">
                         <form id="product-form">
                             <div class="form-group">
-                                <label>Nombre del Producto *</label>
-                                <input type="text" name="nombre" value="${product?.nombre || ''}" required>
+                                <label for="product-name-input">Nombre del Producto *</label>
+                                <input id="product-name-input" type="text" name="nombre" value="${product?.nombre || ''}" required>
                             </div>
 
                             <div class="form-group">
-                                <label>Categoría *</label>
-                                <select name="categoria" required>
+                                <label for="product-category-select">Categoría *</label>
+                                <select id="product-category-select" name="categoria" required>
                                     <option value="">Seleccionar categoría</option>
                                     ${categoryOptions}
                                 </select>
@@ -452,13 +501,13 @@ export class InventoryUIRenderer {
 
                             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                                 <div class="form-group">
-                                    <label>Precio Original *</label>
-                                    <input type="number" name="precio" value="${product?.precio || ''}" step="0.01" min="0" required id="input-precio-original">
+                                    <label for="input-precio-original">Precio Original *</label>
+                                    <input type="number" id="input-precio-original" name="precio" value="${product?.precio || ''}" step="0.01" min="0" required>
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Precio Final Deseado</label>
-                                    <input type="number" name="precio_final_deseado" value="${product?.precioFinal || ''}" step="0.01" min="0" id="input-precio-final" placeholder="Ingresa el precio final deseado">
+                                    <label for="input-precio-final">Precio Final Deseado</label>
+                                    <input id="input-precio-final" type="number" name="precio_final_deseado" value="${product?.precioFinal || ''}" step="0.01" min="0" placeholder="Ingresa el precio final deseado">
                                 </div>
                             </div>
 
@@ -467,8 +516,8 @@ export class InventoryUIRenderer {
                             </div>
 
                             <div class="form-group">
-                                <label>Descripción</label>
-                                <textarea name="descripcion" maxlength="500">${product?.descripcion || ''}</textarea>
+                                <label for="input-descripcion">Descripción</label>
+                                <textarea id="input-descripcion" name="descripcion" maxlength="500">${product?.descripcion || ''}</textarea>
                             </div>
 
                             <div class="form-group">
@@ -500,7 +549,7 @@ export class InventoryUIRenderer {
                             </div>
 
                             <div class="image-upload-group">
-                                <label class="image-upload-label">Imagen del Producto</label>
+                                <label for="image-upload-input" class="image-upload-label">Imagen del Producto</label>
                                 <div class="image-upload-area" id="image-upload-area">
                                     <i class="fas fa-cloud-upload-alt"></i>
                                     <div class="image-upload-text">
@@ -513,7 +562,7 @@ export class InventoryUIRenderer {
 
                             ${product?.imagenUrl && product.imagenUrl !== 'Img/no_image.jpg' ? `
                                 <div class="form-group">
-                                    <label>Imagen actual</label>
+                                    <div class="form-label">Imagen actual</div>
                                     <div style="margin-top: 0.5rem;">
                                         <img src="${product.imagenUrl}" alt="Imagen actual" style="max-width: 150px; max-height: 150px; border-radius: 0.3rem; border: 1px solid #ddd;">
                                     </div>
@@ -749,6 +798,67 @@ export class InventoryUIRenderer {
             });
         }
 
+        // Filtro por modificado / nuevos
+        const modifiedFilter = document.getElementById('filter-modified');
+        if (modifiedFilter) {
+            modifiedFilter.addEventListener('change', (e) => {
+                const v = e.target.value;
+                let results = this.productManager.products;
+                if (v === 'modified') {
+                    const modifiedIds = new Set(this.productManager.getStagedChanges().filter(c=>c.type==='modify').map(c=>c.productId));
+                    results = results.filter(p => modifiedIds.has(p.id));
+                } else if (v === 'new') {
+                    const newIds = new Set(this.productManager.getStagedChanges().filter(c=>c.type==='new').map(c=>c.productId));
+                    results = results.filter(p => newIds.has(p.id));
+                }
+                this.renderProductsGrid(results);
+            });
+        }
+
+        // Sort
+        const sortSelect = document.getElementById('sort-products');
+        if (sortSelect) {
+            sortSelect.addEventListener('change', (e) => {
+                const v = e.target.value;
+                let results = [...this.productManager.products];
+                if (v === 'price_desc') results.sort((a,b)=>b.precioFinal - a.precioFinal);
+                else if (v === 'price_asc') results.sort((a,b)=>a.precioFinal - b.precioFinal);
+                else if (v === 'date_modified') results.sort((a,b)=>new Date(b.modified_at || 0) - new Date(a.modified_at || 0));
+                else if (v === 'date_created') results.sort((a,b)=>new Date(b.created_at || 0) - new Date(a.created_at || 0));
+                this.renderProductsGrid(results);
+            });
+        }
+
+        // Export CSV
+        const exportBtn = document.getElementById('btn-export-csv');
+        if (exportBtn) {
+            exportBtn.addEventListener('click', () => {
+                try {
+                    const products = this.productManager.products || [];
+                    const headers = ['nombre','categoria','precio','descuento','disponibilidad','created_at','modified_at'];
+                    const rows = products.map(p => headers.map(h => (p[h]===null?"": String(p[h] || ''))).join(','));
+                    const csv = [headers.join(','), ...rows].join('\n');
+                    const dataUrl = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
+                    const a = document.createElement('a');
+                    a.href = dataUrl;
+                    a.download = 'products_export.csv';
+                    a.click();
+                } catch (err) { console.error('export csv error', err); alert('Error exportando CSV: '+err.message); }
+            });
+        }
+
+        // Clear filters
+        const clearFiltersBtn = document.getElementById('btn-clear-filters');
+        if (clearFiltersBtn) {
+            clearFiltersBtn.addEventListener('click', () => {
+                const search = document.getElementById('search-products'); if (search) search.value = '';
+                const cat = document.getElementById('filter-category'); if (cat) cat.value = '';
+                const mod = document.getElementById('filter-modified'); if (mod) mod.value = 'all';
+                const sort = document.getElementById('sort-products'); if (sort) sort.value = 'default';
+                this.renderProductsGrid();
+            });
+        }
+
         // Botones de staging
         const discardAllBtn = document.getElementById('btn-discard-all');
         if (discardAllBtn) {
@@ -835,6 +945,21 @@ export class InventoryUIRenderer {
                 const imgEl = card.querySelector('.product-image img');
                 if (imgEl) imgEl.src = src;
 
+                // If we have base64 stored, compute approximate byte size and set label
+                try {
+                    const sizeLabelEl = card.querySelector('.product-image-size');
+                    if (sizeLabelEl && imgData.base64) {
+                        // base64 length -> bytes estimate
+                        const b64 = imgData.base64;
+                        let padding = 0;
+                        if (b64.endsWith('==')) padding = 2;
+                        else if (b64.endsWith('=')) padding = 1;
+                        const bytes = Math.max(0, Math.floor((b64.length * 3) / 4) - padding);
+                        sizeLabelEl.textContent = this.formatBytes(bytes);
+                        sizeLabelEl.title = `${bytes} bytes`;
+                    }
+                } catch (e) { /* ignore */ }
+
                 // Asegurar que la etiqueta 'Modificado' se muestre
                 if (!card.querySelector('.product-badge.modified')) {
                     const imgWrap = card.querySelector('.product-image');
@@ -848,6 +973,67 @@ export class InventoryUIRenderer {
             } catch (err) {
                 console.warn('applyStagedImagesToGrid error', err);
             }
+        }
+    }
+
+    /**
+     * Formatea bytes a cadena legible (B, KB, MB)
+     */
+    formatBytes(bytes) {
+        if (!bytes && bytes !== 0) return '';
+        const sizes = ['B', 'KB', 'MB', 'GB'];
+        if (bytes === 0) return '0 B';
+        const i = Math.floor(Math.log(bytes) / Math.log(1024));
+        return `${(bytes / Math.pow(1024, i)).toFixed(i ? 1 : 0)} ${sizes[i]}`;
+    }
+
+    /**
+     * Intenta obtener el tamaño de las imágenes (HEAD) y completar las etiquetas
+     */
+    async populateProductImageSizes() {
+        try {
+            const els = Array.from(document.querySelectorAll('.product-image-size'));
+            if (!els || els.length === 0) return;
+
+            const tasks = els.map(async (el) => {
+                try {
+                    const src = el.dataset.src;
+                    if (!src) return;
+
+                    // Skip local placeholder
+                    if (src.includes('no_image.jpg')) {
+                        el.textContent = '';
+                        return;
+                    }
+
+                    // Try HEAD first
+                    let size = null;
+                    try {
+                        const resp = await fetch(src, { method: 'HEAD' });
+                        if (resp && resp.ok) {
+                            const cl = resp.headers.get('content-length');
+                            if (cl) size = parseInt(cl, 10);
+                        }
+                    } catch (headErr) {
+                        // ignore
+                    }
+
+                    // If HEAD didn't return size, avoid heavy GET; leave blank
+                    if (size != null && !isNaN(size)) {
+                        el.textContent = this.formatBytes(size);
+                        el.title = `${size} bytes`;
+                    } else {
+                        el.textContent = '';
+                    }
+                } catch (err) {
+                    // avoid bubbling errors
+                    console.warn('populateProductImageSizes error', err);
+                }
+            });
+
+            await Promise.allSettled(tasks);
+        } catch (err) {
+            console.warn('populateProductImageSizes outer error', err);
         }
     }
 
@@ -985,6 +1171,28 @@ export class InventoryUIRenderer {
             refreshBtn.disabled = false;
             refreshBtn.innerHTML = '<i class="fas fa-sync-alt"></i> Recargar';
         }
+    }
+
+    /**
+     * Actualiza los badges y números del toolbar (counts)
+     */
+    updateToolbarStats() {
+        const products = this.productManager.products || [];
+        const total = products.length;
+        const available = products.filter(p => p.disponibilidad).length;
+        const unavailable = total - available;
+        const staged = this.productManager.getStagedChanges() || [];
+        const modifiedCount = staged.filter(c => c.type === 'modify').length;
+
+        const elTotal = document.getElementById('stat-total');
+        const elAvailable = document.getElementById('stat-available');
+        const elUnavailable = document.getElementById('stat-unavailable');
+        const elModified = document.getElementById('stat-modified-count');
+
+        if (elTotal) elTotal.textContent = `Total: ${total}`;
+        if (elAvailable) elAvailable.textContent = `Disponibles: ${available}`;
+        if (elUnavailable) elUnavailable.textContent = `No disponibles: ${unavailable}`;
+        if (elModified) elModified.textContent = `Modificados: ${modifiedCount}`;
     }
 
     /**

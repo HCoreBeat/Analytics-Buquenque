@@ -1,0 +1,197 @@
+/* Full styling for the tools / image compressor */
+.tools-container {
+  padding: 0.75rem 0;
+}
+.tools-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #ffffff, #fbfdff);
+  box-shadow: 0 1px 3px rgba(2, 6, 23, 0.04);
+  border: 1px solid #eef2f7;
+  margin-bottom: 0.75rem;
+}
+.tools-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.tools-subtitle {
+  color: #475569;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.compressor-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.compressor-controls input[type="file"] {
+  display: none;
+}
+
+.compressor-drop {
+  flex: 2 1 360px;
+  min-height: 160px;
+  border: 2px dashed rgba(34, 47, 62, 0.12);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.6),
+    rgba(250, 250, 250, 0.4)
+  );
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.02);
+  cursor: pointer;
+}
+.compressor-drop.dragover {
+  border-color: #60a5fa;
+  background: rgba(96, 165, 250, 0.04);
+}
+
+.compressor-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 0 0 260px;
+}
+.compressor-options label {
+  font-size: 0.9rem;
+  color: #334155;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.compressor-options input[type="number"] {
+  width: 80px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  border: 1px solid #e6e9ee;
+}
+.compressor-options input[type="range"] {
+  width: 140px;
+}
+
+.compressor-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+.btn {
+  padding: 0.45rem 0.75rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary {
+  background: #2563eb;
+  color: white;
+}
+.btn-secondary {
+  background: #f3f4f6;
+  color: #111827;
+  border: 1px solid #e6e9ee;
+}
+
+.compressor-list {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 1fr;
+}
+.compressor-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.6rem;
+  border: 1px solid #eef2f7;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.02);
+}
+.compressor-item img.preview-thumb {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #e6e9ee;
+}
+.compressor-item .item-info {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.compressor-item .item-info .name {
+  font-weight: 600;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.compressor-item .item-info .meta {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+.compressor-item .item-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: flex-end;
+}
+.compressor-item .item-actions a {
+  text-decoration: none;
+  color: #0369a1;
+  font-weight: 600;
+}
+.compressor-item.converted {
+  border-color: #c7f0d4;
+  background: linear-gradient(180deg, #f7fffa, #ffffff);
+}
+
+.small-muted {
+  color: #6b7280;
+  font-size: 0.85rem;
+}
+
+.compressor-buttons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+@media (max-width: 800px) {
+  .compressor-controls {
+    flex-direction: column;
+  }
+  .compressor-options {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media (min-width: 900px) {
+  .compressor-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 420px) {
+  .compressor-item img.preview-thumb {
+    width: 72px;
+    height: 72px;
+  }
+  .compressor-options {
+    flex: 1 1 100%;
+  }
+}

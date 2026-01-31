@@ -3,6 +3,7 @@
  * Carga productos desde GitHub y renderiza la tienda
  */
 
+
 export class InventoryManager {
     constructor(githubManager = null) {
         this.products = [];
@@ -125,6 +126,9 @@ export class InventoryManager {
             
             // Crear campo de búsqueda
             product.searchText = `${product.nombre} ${product.categoria} ${product.descripcion}`.toLowerCase();
+            // Normalizar timestamps si existen o mapear campo legacy 'hora'
+            product.created_at = product.created_at || product.hora || null;
+            product.modified_at = product.modified_at || product.created_at || null;
         });
     }
 
@@ -234,7 +238,10 @@ export class InventoryManager {
             this.modifiedProducts[existingIndex] = { ...product, modified_at: new Date().toISOString() };
         } else {
             // Agregar nuevo
-            this.modifiedProducts.push({ ...product, modified_at: new Date().toISOString() });
+            const nowIso = new Date().toISOString();
+            // Si no tiene created_at, asignarla al crear por primera vez en staging
+            const created = product.created_at || nowIso;
+            this.modifiedProducts.push({ ...product, created_at: created, modified_at: nowIso });
         }
         
         // NO guardar en localStorage - solo en memoria por requisito del usuario
@@ -363,7 +370,11 @@ export class InventoryManager {
                 oferta: p.oferta || false,
                 imagenes: Array.isArray(p.imagenes) ? p.imagenes : [],
                 descripcion: p.descripcion || '',
-                disponibilidad: p.disponibilidad !== false
+                disponibilidad: p.disponibilidad !== false,
+                // Mantener timestamps ISO para sincronización
+                created_at: p.created_at || new Date().toISOString(),
+                modified_at: p.modified_at || new Date().toISOString(),
+                // Campo legacy de visualización local (formato legible)
             };
 
             // ⭐ Agregar _previousNombre si existe (necesario para identificar renombramientos)
@@ -373,9 +384,6 @@ export class InventoryManager {
 
             return cleanProduct;
         });
-        
-        console.log(`📋 getPendingChangesAsJSON: ${changes.length} cambios listos (sin campos internos)`);
-        
         return changes;
     }
 
@@ -456,9 +464,6 @@ export class InventoryManager {
                 result.newProducts.push(product);
             }
         }
-
-        console.log(`📊 Clasificación: ${result.newProducts.length} nuevos + ${result.modifiedProducts.length} modificados + ${result.errors.length} errores`);
-
         return result;
     }
 

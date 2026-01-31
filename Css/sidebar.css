@@ -104,13 +104,10 @@
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 1.5rem;
-    border-bottom: 1px solid rgba(74, 144, 226, 0.15);
-    background: linear-gradient(135deg, #2a3f5f 0%, #354a6b 100%);
     background-clip: padding-box;
     flex-shrink: 0;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .menu-header::before {
@@ -126,7 +123,7 @@
 .menu-header h2 {
     margin: 0;
     font-size: 0.95rem;
-    color: white;
+    color: var(--primary-light);
     font-weight: 600;
     display: flex;
     align-items: center;
@@ -152,7 +149,7 @@
     border: none;
     font-size: 1.8rem;
     cursor: pointer;
-    color: white;
+    color: var(--error);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     padding: 0.3rem 0.5rem;
     display: flex;
@@ -631,15 +628,15 @@
         display: flex;
         padding: 0.4rem 0.3rem;
         gap: 0.25rem;
-        background: var(--color-primary);
-        width: 100px;
-        height: 25px;
+        width: 50px;
+        height: 40px;
         align-items: center;
+        justify-content: center;
     }
 
     .hamburger-menu span {
-        width: 18px;
-        height: 2px;
+        width: 25px;
+        height: 4px;
     }
 
     .hamburger-menu:hover {
@@ -698,12 +695,16 @@
     }
 
     .header-content {
-        gap: 0.4rem;
-        padding: 0 0.25rem;
+        display: flex;
+        margin: 0 auto;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
     }
 
     .app-logo {
         gap: 0.4rem;
+        flex: none;
         min-width: 0;
     }
 

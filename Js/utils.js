@@ -36,14 +36,18 @@ export function formatNumber(value) {
 
 // Formatear fecha
 export function formatDate(date, options = {}) {
+    if (!date) return '';
+    const d = (date instanceof Date) ? date : new Date(date);
+    if (isNaN(d.getTime())) return '';
     const defaultOptions = {
         day: '2-digit',
         month: '2-digit',
         year: 'numeric',
         hour: '2-digit',
-        minute: '2-digit'
+        minute: '2-digit',
+        second: '2-digit'
     };
-    return date.toLocaleDateString('es-ES', { ...defaultOptions, ...options });
+    return d.toLocaleString('es-ES', { ...defaultOptions, ...options });
 }
 
 // Validar rango de fechas
@@ -61,7 +65,7 @@ export function calculatePercentageChange(current, previous) {
 }
 
 // Mostrar notificaciones
-export function showAlert(message, type = 'success', duration = 3000) {
+export function showAlert(message, type = 'success', duration = 4000) {
     const alert = document.createElement('div');
     alert.className = `alert ${type}`;
     alert.innerHTML = `

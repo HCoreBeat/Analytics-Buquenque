@@ -56,7 +56,7 @@ export class GitHubImagesModal {
                 <div id="github-images-body" class="gim-body"></div>
                 <div id="github-images-footer" class="gim-footer">
                     <div id="github-images-status" class="gim-status"></div>
-                    <div class="gim-progress"><div id="github-images-progress-fill" class="gim-progress-fill" style="width:0%"></div></div>
+                    <div class="gim-progress"><div id="github-images-progress-fill" class="gim-progress-fill" style="--pct:0%"></div></div>
                 </div>
             </div>
         `;

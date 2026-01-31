@@ -4,6 +4,172 @@
 
 import { getCurrencySymbol, formatCurrency, formatNumber, getMonthName, getMonthIndex } from './utils.js';
 
+// --- Avatar helpers: MD5 (for Gravatar), gravatar URL, deterministic gradient, modal preview ---
+/* Minimal MD5 implementation (self-contained) */
+function md5(s){
+    function L(k,d){return (k<<d)|(k>>>(32-d));}
+    function K(a,b,c,d,x,s,t){a=a+((b&c)|(~b&d))+x+t|0;a=L(a,s);return (a+b)|0}
+    var bytes = unescape(encodeURIComponent(s));
+    var i, length = bytes.length, wordArray = [];
+    for(i=0;i<length;i+=4) wordArray[i>>2] = bytes.charCodeAt(i) + ((bytes.charCodeAt(i+1)||0)<<8) + ((bytes.charCodeAt(i+2)||0)<<16) + ((bytes.charCodeAt(i+3)||0)<<24);
+    wordArray[length>>2] |= 0x80 << ((length)%4)*8;
+    wordArray[(((length+8)>>6)<<4)+14] = length*8;
+    var a=1732584193,b=-271733879,c=-1732584194,d=271733878;
+    function F(a,b,c,d,x,s,t){a=a+((b&c)|(~b&d))+x+t|0;a=L(a,s);return (a+b)|0}
+    function G(a,b,c,d,x,s,t){a=a+((b&d)|(c&~d))+x+t|0;a=L(a,s);return (a+b)|0}
+    function H(a,b,c,d,x,s,t){a=a+(b^c^d)+x+t|0;a=L(a,s);return (a+b)|0}
+    function I(a,b,c,d,x,s,t){a=a+(c^(b|~d))+x+t|0;a=L(a,s);return (a+b)|0}
+    for(i=0;i<wordArray.length;i+=16){
+        var olda=a, oldb=b, oldc=c, oldd=d;
+        a=F(a,b,c,d,wordArray[i+0],7,-680876936);
+        d=F(d,a,b,c,wordArray[i+1],12,-389564586);
+        c=F(c,d,a,b,wordArray[i+2],17,606105819);
+        b=F(b,c,d,a,wordArray[i+3],22,-1044525330);
+        a=F(a,b,c,d,wordArray[i+4],7,-176418897);
+        d=F(d,a,b,c,wordArray[i+5],12,1200080426);
+        c=F(c,d,a,b,wordArray[i+6],17,-1473231341);
+        b=F(b,c,d,a,wordArray[i+7],22,-45705983);
+        a=F(a,b,c,d,wordArray[i+8],7,1770035416);
+        d=F(d,a,b,c,wordArray[i+9],12,-1958414417);
+        c=F(c,d,a,b,wordArray[i+10],17,-42063);
+        b=F(b,c,d,a,wordArray[i+11],22,-1990404162);
+        a=F(a,b,c,d,wordArray[i+12],7,1804603682);
+        d=F(d,a,b,c,wordArray[i+13],12,-40341101);
+        c=F(c,d,a,b,wordArray[i+14],17,-1502002290);
+        b=F(b,c,d,a,wordArray[i+15],22,1236535329);
+        a=G(a,b,c,d,wordArray[i+1],5,-165796510);
+        d=G(d,a,b,c,wordArray[i+6],9,-1069501632);
+        c=G(c,d,a,b,wordArray[i+11],14,643717713);
+        b=G(b,c,d,a,wordArray[i+0],20,-373897302);
+        a=G(a,b,c,d,wordArray[i+5],5,-701558691);
+        d=G(d,a,b,c,wordArray[i+10],9,38016083);
+        c=G(c,d,a,b,wordArray[i+15],14,-660478335);
+        b=G(b,c,d,a,wordArray[i+4],20,-405537848);
+        a=G(a,b,c,d,wordArray[i+9],5,568446438);
+        d=G(d,a,b,c,wordArray[i+14],9,-1019803690);
+        c=G(c,d,a,b,wordArray[i+3],14,-187363961);
+        b=G(b,c,d,a,wordArray[i+8],20,1163531501);
+        a=G(a,b,c,d,wordArray[i+13],5,-1444681467);
+        d=G(d,a,b,c,wordArray[i+2],9,-51403784);
+        c=G(c,d,a,b,wordArray[i+7],14,1735328473);
+        b=G(b,c,d,a,wordArray[i+12],20,-1926607734);
+        a=H(a,b,c,d,wordArray[i+5],4,-378558);
+        d=H(d,a,b,c,wordArray[i+8],11,-2022574463);
+        c=H(c,d,a,b,wordArray[i+11],16,1839030562);
+        b=H(b,c,d,a,wordArray[i+14],23,-35309556);
+        a=H(a,b,c,d,wordArray[i+1],4,-1530992060);
+        d=H(d,a,b,c,wordArray[i+4],11,1272893353);
+        c=H(c,d,a,b,wordArray[i+7],16,-155497632);
+        b=H(b,c,d,a,wordArray[i+10],23,-1094730640);
+        a=H(a,b,c,d,wordArray[i+13],4,681279174);
+        d=H(d,a,b,c,wordArray[i+0],11,-358537222);
+        c=H(c,d,a,b,wordArray[i+3],16,-722521979);
+        b=H(b,c,d,a,wordArray[i+6],23,76029189);
+        a=H(a,b,c,d,wordArray[i+9],4,-640364487);
+        d=H(d,a,b,c,wordArray[i+12],11,-421815835);
+        c=H(c,d,a,b,wordArray[i+15],16,530742520);
+        b=H(b,c,d,a,wordArray[i+2],23,-995338651);
+        a=I(a,b,c,d,wordArray[i+0],6,-198630844);
+        d=I(d,a,b,c,wordArray[i+7],10,1126891415);
+        c=I(c,d,a,b,wordArray[i+14],15,-1416354905);
+        b=I(b,c,d,a,wordArray[i+5],21,-57434055);
+        a=I(a,b,c,d,wordArray[i+12],6,1700485571);
+        d=I(d,a,b,c,wordArray[i+3],10,-1894986606);
+        c=I(c,d,a,b,wordArray[i+10],15,-1051523);
+        b=I(b,c,d,a,wordArray[i+1],21,-2054922799);
+        a=I(a,b,c,d,wordArray[i+8],6,1873313359);
+        d=I(d,a,b,c,wordArray[i+15],10,-30611744);
+        c=I(c,d,a,b,wordArray[i+6],15,-1560198380);
+        b=I(b,c,d,a,wordArray[i+13],21,1309151649);
+        a=I(a,b,c,d,wordArray[i+4],6,-145523070);
+        d=I(d,a,b,c,wordArray[i+11],10,-1120210379);
+        c=I(c,d,a,b,wordArray[i+2],15,718787259);
+        b=I(b,c,d,a,wordArray[i+9],21,-343485551);
+        a=(a+olda)|0;b=(b+oldb)|0;c=(c+oldc)|0;d=(d+oldd)|0;
+    }
+    function toHex(n){
+        var s='';for(var j=0;j<4;j++) s+=('0'+((n>>>(j*8))&255).toString(16)).slice(-2);return s;
+    }
+    return toHex(a)+toHex(b)+toHex(c)+toHex(d);
+}
+
+function getGravatarUrl(email, size=128) {
+    if (!email) return null;
+    const clean = String(email).trim().toLowerCase();
+    const hash = md5(clean);
+    // Use 'identicon' as default to avoid 404 responses (prevents console errors)
+    return `https://www.gravatar.com/avatar/${hash}?s=${size}&d=identicon`;
+}
+
+function generateGradient(seed) {
+    let h = 0;
+    for (let i=0;i<seed.length;i++) h = (h*31 + seed.charCodeAt(i)) % 360;
+    const h2 = (h + 40) % 360;
+    const c1 = `hsl(${h} 70% 50%)`;
+    const c2 = `hsl(${h2} 65% 45%)`;
+    return `linear-gradient(135deg, ${c1}, ${c2})`;
+}
+
+function getInitials(name) {
+    if (!name) return '';
+    const parts = String(name).trim().split(/\s+/).filter(Boolean);
+    if (parts.length === 1) return parts[0].slice(0,2).toUpperCase();
+    return (parts[0].charAt(0) + parts[parts.length-1].charAt(0)).toUpperCase();
+}
+
+function ensureAvatarFallbacks(container){
+    container.querySelectorAll('.customer-avatar').forEach(el => {
+        if (el.querySelector('.avatar-img')) return;
+        const email = el.getAttribute('data-email') || el.getAttribute('data-tooltip') || '';
+        const gravUrl = getGravatarUrl(email, 200);
+        if (!gravUrl) { el.style.background = generateGradient(el.textContent || email); return; }
+        const img = new Image();
+        img.onload = () => {
+            img.className = 'avatar-img';
+            img.alt = el.getAttribute('data-tooltip') || '';
+            el.innerHTML = '';
+            el.appendChild(img);
+        };
+        img.onerror = () => {
+            el.style.background = generateGradient(email || (el.textContent||'user'));
+        };
+        img.src = gravUrl;
+    });
+}
+
+function createAvatarModal(){
+    if (document.getElementById('avatar-preview-modal')) return;
+    const modal = document.createElement('div'); modal.id = 'avatar-preview-modal'; modal.className='avatar-modal';
+    modal.innerHTML = `
+        <div class="avatar-modal-overlay"></div>
+        <div class="avatar-modal-content">
+            <button class="avatar-modal-close">&times;</button>
+            <div class="avatar-modal-body"></div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+    modal.querySelector('.avatar-modal-close').addEventListener('click', ()=> modal.classList.remove('open'));
+    modal.querySelector('.avatar-modal-overlay').addEventListener('click', ()=> modal.classList.remove('open'));
+}
+
+function showAvatarPreview(el){
+    createAvatarModal();
+    const modal = document.getElementById('avatar-preview-modal');
+    const body = modal.querySelector('.avatar-modal-body');
+    body.innerHTML = '';
+    const img = el.querySelector('.avatar-img');
+    if (img) {
+        const big = document.createElement('img'); big.src = img.src; big.alt = img.alt || ''; big.className = 'avatar-modal-image';
+        body.appendChild(big);
+    } else {
+        const tile = document.createElement('div'); tile.className = 'avatar-modal-tile';
+        tile.innerText = (el.querySelector('.avatar-initials')?.innerText) || el.textContent.trim().slice(0,2).toUpperCase();
+        tile.style.background = el.style.background || generateGradient(el.getAttribute('data-email')|| el.textContent);
+        body.appendChild(tile);
+    }
+    modal.classList.add('open');
+}
+
 export class UIRenderer {
     /**
      * Renderiza resumen general
@@ -161,8 +327,12 @@ export class UIRenderer {
                     <div class="order-header">
                         <div class="order-main-info">
                             <div class="customer-header">
-                                <div class="customer-avatar">
-                                    <span>${order.nombre_comprador.charAt(0).toUpperCase()}</span>
+                                <div class="customer-avatar" aria-label="${order.nombre_comprador || ''}" data-tooltip="${order.nombre_comprador}" data-email="${order.correo_comprador || ''}">
+                                    ${order.avatarUrl ? `
+                                        <img src="${order.avatarUrl}" alt="${order.nombre_comprador}" class="avatar-img" />
+                                    ` : `
+                                        <span class="avatar-initials">${getInitials(order.nombre_comprador)}</span>
+                                    `}
                                 </div>
                                 <h4>${order.nombre_comprador}</h4>
                             </div>
@@ -242,6 +412,13 @@ export class UIRenderer {
                 details.classList.toggle('active');
             });
         });
+
+                // Avatar fallbacks (Gravatar or generated gradient) and preview modal
+                ensureAvatarFallbacks(container);
+                container.querySelectorAll('.customer-avatar').forEach(av => {
+                    av.style.cursor = 'pointer';
+                    av.addEventListener('click', (e) => { e.stopPropagation(); showAvatarPreview(av); });
+                });
     }
 
     /**

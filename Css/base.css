@@ -170,6 +170,13 @@ img {
     outline-offset: 2px;
 }
 
+/* Form labels used when there is no direct <label for=> association */
+.form-label {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95rem;
+}
+
 /* Utilidades básicas */
 .hidden {
     display: none !important;
