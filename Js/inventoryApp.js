@@ -4,6 +4,7 @@
  */
 
 import { ProductManager } from './productManager.js';
+import { PackManager } from './packManager.js';
 import { InventoryUIRenderer } from './inventoryUIRenderer.js';
 import { GitHubManager } from './githubManager.js';
 
@@ -26,6 +27,10 @@ export class InventoryApp {
             this.productManager = new ProductManager(this.githubManager);
             await this.productManager.init();
 
+            // Crear gestor de packs
+            this.packManager = new PackManager(this.githubManager);
+            await this.packManager.init();
+
             this.initialized = true;
             console.log('✓ ProductManager listo (llame a showInventory() para inicializar la UI)');
         } catch (error) {
@@ -43,14 +48,19 @@ export class InventoryApp {
                 this.productManager = new ProductManager(this.githubManager);
                 await this.productManager.init();
             }
+            if (!this.packManager) {
+                this.packManager = new PackManager(this.githubManager);
+                await this.packManager.init();
+            }
 
             if (!this.uiRenderer) {
                 this.uiRenderer = new InventoryUIRenderer('#inventory-view');
-                await this.uiRenderer.initInventoryUI(this.productManager);
+                await this.uiRenderer.initInventoryUI(this.productManager, this.packManager);
             }
 
             // Cargar productos y actualizar UI
             await this.productManager.loadProducts();
+            await this.packManager.loadPacks();
             this.uiRenderer.renderProductsGrid();
             this.uiRenderer.updateCategoryFilter();
             this.uiRenderer.updateStagingPanel();

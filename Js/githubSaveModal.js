@@ -3,6 +3,8 @@
  * Muestra el estado de la operación: Cargando, Éxito o Error
  */
 
+import { disableBodyScroll, enableBodyScroll } from './modalUtils.js';
+
 export class GitHubSaveModal {
     constructor() {
         this.modal = document.getElementById('github-save-modal');
@@ -119,6 +121,7 @@ export class GitHubSaveModal {
      */
     show() {
         this.modal?.classList.add('active');
+        disableBodyScroll();
     }
 
     /**
@@ -127,6 +130,7 @@ export class GitHubSaveModal {
     close() {
         this.modal?.classList.remove('active');
         this.setModalState(null);
+        enableBodyScroll();
     }
 
     /**

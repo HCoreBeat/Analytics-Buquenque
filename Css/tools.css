@@ -30,7 +30,7 @@
 .compressor-controls {
   display: flex;
   gap: 1rem;
-  align-items: flex-start;
+  align-items: center;
   flex-wrap: wrap;
 }
 .compressor-controls input[type="file"] {
@@ -38,8 +38,8 @@
 }
 
 .compressor-drop {
-  flex: 2 1 360px;
-  min-height: 160px;
+  flex: 2 1 100px;
+  min-height: 100px;
   border: 2px dashed rgba(34, 47, 62, 0.12);
   background: linear-gradient(
     180deg,

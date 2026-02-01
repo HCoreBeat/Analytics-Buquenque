@@ -2,6 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <!-- Compatibilidad adicional: asegurar que navegadores/servidores detecten UTF-8 -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard de Datos</title>
 
@@ -54,7 +56,15 @@
                 <button class="close-menu" id="close-menu" aria-label="Cerrar menú">&times;</button>
             </div>
             <ul class="menu-list">
-                <li><a href="#" class="menu-item active" data-view="dashboard"><i class="fa-solid fa-table-cells-large"></i> Overview</a></li>
+                <li><a href="#" class="menu-item active" data-view="dashboard">
+                    <svg class="menu-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="3" y="3" width="8" height="8" rx="2"/>
+                        <rect x="13" y="3" width="8" height="8" rx="5"/>
+                        <rect x="3" y="13" width="8" height="8" rx="2"/>
+                        <rect x="13" y="13" width="8" height="8" rx="2"/>
+                    </svg>
+                    Overview
+                </a></li>
                 <li><a href="#" class="menu-item" data-view="pedidos"><i class="fas fa-shopping-cart"></i> Pedidos <span class="pedidos-badge" id="pedidos-menu-badge" style="display: none;"></span></a></li>
                 <li><a href="#" class="menu-item" data-view="inventory"><i class="fas fa-boxes"></i> Inventario</a></li>
                 <li><a href="#" class="menu-item" data-view="notifications"><i class="fas fa-bell"></i> Notificaciones</a></li>
@@ -851,7 +861,7 @@
     <footer class="app-footer">
         <div class="footer-content">
             <span>&copy; 2026 Buquenque Dashboard. Todos los derechos reservados HLab</span>
-            <span class="footer-version">Versión 2.1.1</span>
+            <span class="footer-version">Versión 2.5.1</span>
             <div id="reloj">
                 
             </div>

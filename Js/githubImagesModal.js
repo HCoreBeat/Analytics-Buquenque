@@ -2,6 +2,9 @@
  * Modal para listar imágenes en el repositorio HCoreBeat/Buquenque (carpeta Images)
  * Agrupa por subcarpeta, marca si están en uso según productos y permite eliminar seleccionadas.
  */
+import { disableBodyScroll, enableBodyScroll, confirm } from './modalUtils.js';
+import { showAlert } from './utils.js';
+
 export class GitHubImagesModal {
     constructor(githubManager, productManager) {
         this.githubManager = githubManager;
@@ -76,16 +79,18 @@ export class GitHubImagesModal {
 
     show() {
         if (!this.githubManager || !this.githubManager.isConfigured()) {
-            alert('Token de GitHub no configurado. Ve a ajustes y configura tu token.');
+            showAlert('Token de GitHub no configurado. Ve a ajustes y configura tu token.', 'error');
             return;
         }
 
         this.container.classList.remove('hidden');
+        disableBodyScroll();
         this.loadAndRender();
     }
 
     hide() {
         if (this.container) this.container.classList.add('hidden');
+        enableBodyScroll();
     }
 
     formatBytes(bytes) {
@@ -242,7 +247,8 @@ export class GitHubImagesModal {
 
     async deleteSelected() {
         if (this.selected.size === 0) return;
-        if (!confirm(`¿Eliminar ${this.selected.size} archivo(s) del repositorio? Esta acción es irreversible.`)) return;
+        const ok = await confirm(`¿Eliminar ${this.selected.size} archivo(s) del repositorio? Esta acción es irreversible.`);
+        if (!ok) return;
 
         const status = this.container.querySelector('#github-images-status');
         const progressFill = this.container.querySelector('#github-images-progress-fill');

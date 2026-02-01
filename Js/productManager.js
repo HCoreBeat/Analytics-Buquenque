@@ -350,6 +350,23 @@ export class ProductManager {
                         productToUpdate.modified_at = new Date().toISOString();
                         processedProducts[index] = productToUpdate;
                         console.log(`Producto modificado: ${change.productData.nombre}`);
+                        // Si se subió una nueva imagen, intentar eliminar la imagen anterior del repo
+                        try {
+                            if (change.hasNewImage && existing && Array.isArray(existing.imagenes) && existing.imagenes.length > 0) {
+                                const oldImages = existing.imagenes.filter(n => !!n && n !== change.imageKey);
+                                for (const oldImg of oldImages) {
+                                    const oldPath = `${CONFIG.GITHUB_API.IMAGE_PATH_PREFIX}${oldImg}`;
+                                    try {
+                                        await this.githubManager.deleteFileFromRepo(oldPath, `Eliminar imagen antigua ${oldImg} al modificar producto ${change.productData.nombre}`);
+                                        console.log(`Imagen antigua eliminada: ${oldPath}`);
+                                    } catch (err) {
+                                        console.warn(`No se pudo eliminar imagen antigua ${oldImg}:`, err.message || err);
+                                    }
+                                }
+                            }
+                        } catch (err) {
+                            console.warn('Error al intentar eliminar imagen anterior durante modify:', err);
+                        }
                     } else {
                         console.error(`Producto no encontrado para modificar: ${searchName}`);
                         throw new Error(`No se pudo encontrar el producto "${searchName}" para modificar`);
@@ -360,6 +377,25 @@ export class ProductManager {
                     const index = processedProducts.findIndex(p => p.nombre === searchName);
                     
                     if (index !== -1) {
+                        // Antes de eliminar del array, intentar eliminar las imágenes asociadas en el repo
+                        try {
+                            const prod = processedProducts[index];
+                            if (prod && Array.isArray(prod.imagenes) && prod.imagenes.length > 0) {
+                                for (const imgName of prod.imagenes) {
+                                    if (!imgName) continue;
+                                    const imgPath = `${CONFIG.GITHUB_API.IMAGE_PATH_PREFIX}${imgName}`;
+                                    try {
+                                        await this.githubManager.deleteFileFromRepo(imgPath, `Eliminar imagen ${imgName} al borrar producto ${searchName}`);
+                                        console.log(`Imagen eliminada: ${imgPath}`);
+                                    } catch (err) {
+                                        console.warn(`No se pudo eliminar imagen ${imgName}:`, err.message || err);
+                                    }
+                                }
+                            }
+                        } catch (err) {
+                            console.warn('Error al intentar eliminar imágenes asociadas durante delete:', err);
+                        }
+
                         processedProducts.splice(index, 1);
                         console.log(`Producto eliminado: ${searchName}`);
                     } else {
@@ -477,7 +513,7 @@ export class ProductManager {
      * @returns {string}
      */
     getProductsFileUrl() {
-        return `https://raw.githubusercontent.com/${CONFIG.GITHUB_API.REPO_OWNER}/${CONFIG.GITHUB_API.REPO_NAME}/refs/heads/${CONFIG.GITHUB_API.BRANCH}/${CONFIG.GITHUB_API.PRODUCTS_FILE_PATH}`;
+        return `https://raw.githubusercontent.com/${CONFIG.GITHUB_API.REPO_OWNER}/${CONFIG.GITHUB_API.REPO_NAME}/${CONFIG.GITHUB_API.BRANCH}/${CONFIG.GITHUB_API.PRODUCTS_FILE_PATH}`;
     }
 
     /**
@@ -486,7 +522,7 @@ export class ProductManager {
      * @returns {string}
      */
     getImageUrl(imageName) {
-        return `https://raw.githubusercontent.com/${CONFIG.GITHUB_API.REPO_OWNER}/${CONFIG.GITHUB_API.REPO_NAME}/refs/heads/${CONFIG.GITHUB_API.BRANCH}/${CONFIG.GITHUB_API.IMAGE_PATH_PREFIX}${imageName}`;
+        return `https://raw.githubusercontent.com/${CONFIG.GITHUB_API.REPO_OWNER}/${CONFIG.GITHUB_API.REPO_NAME}/${CONFIG.GITHUB_API.BRANCH}/${CONFIG.GITHUB_API.IMAGE_PATH_PREFIX}${imageName}`;
     }
 
     /**
