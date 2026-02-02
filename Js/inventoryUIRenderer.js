@@ -7,6 +7,7 @@ import { createObjectURL, revokeObjectURL, base64ToDataURL } from './inventoryUt
 import { formatDate } from './utils.js';
 import { GitHubSaveModal } from './githubSaveModal.js';
 import { GitHubImagesModal } from './githubImagesModal.js';
+import { InventoryApiClient } from './inventoryApiClient.js';
 
 export class InventoryUIRenderer {
     constructor(containerSelector = '#inventory-view') {
@@ -14,6 +15,40 @@ export class InventoryUIRenderer {
         this.productManager = null;
         this.packManager = null;
         this.currentView = 'products'; // 'products' or 'packs' or 'changes'
+        this.inventoryApiClient = new InventoryApiClient();
+        this._backgroundInventoryFetches = new Set(); // evitar fetchs concurrentes por producto
+    }
+
+    /**
+     * Normaliza valores de inventario para visualización (maneja objetos y strings JSON)
+     * @private
+     */
+    _normalizeInventoryField(value) {
+        // Reusar lógica del client si está disponible (si se exporta)
+        try {
+            // Si es objeto o número o booleano, extraer primitivo razonable
+            if (value === null || value === undefined) return null;
+            if (typeof value === 'number' || typeof value === 'boolean') return value;
+            if (typeof value === 'object') {
+                // buscar campos comunes
+                const keys = ['value','valor','cantidad','stock','amount','precio','precio_compra','proveedor','notes','notas'];
+                for (const k of keys) if (value[k] !== undefined) return this._normalizeInventoryField(value[k]);
+                // si no, intentar stringify para mostrar algo útil
+                try { return JSON.stringify(value); } catch (e) { return null; }
+            }
+            // Si es string, intentar parsear JSON
+            if (typeof value === 'string') {
+                const trimmed = value.trim();
+                if (trimmed.startsWith('{') || trimmed.startsWith('[')) {
+                    try { const parsed = JSON.parse(trimmed); return this._normalizeInventoryField(parsed); } catch (e) { /* not JSON */ }
+                }
+                // Si es número en string, devolver número
+                const n = Number(value);
+                if (!isNaN(n)) return n;
+                return value;
+            }
+            return null;
+        } catch (e) { return null; }
     }
 
     /**
@@ -51,11 +86,55 @@ export class InventoryUIRenderer {
         if (productsGrid) productsGrid.classList.remove('hidden');
         if (stagingPanel) stagingPanel.classList.add('hidden'); // FUERZA: panel siempre inicia oculto
 
-        // Cargar productos y packs inicialmente
-        await this.productManager.loadProducts();
-        if (this.packManager) await this.packManager.loadPacks();
+        // Notar: NO cargamos productos aquí para evitar doble-fetch. La carga se realiza desde InventoryApp.showInventory()
+        // Sólo actualizamos UI básica y escuchamos actualizaciones parciales de inventario
         this.updateCategoryFilter();
         this.renderProductsGrid();
+
+        // Escuchar actualizaciones parciales de inventarios y actualizar solo tarjetas afectadas
+        document.addEventListener('inventories:updated', (e) => {
+            try {
+                const ids = (e && e.detail && Array.isArray(e.detail.ids)) ? e.detail.ids : [];
+                console.log('📣 Inventories updated:', ids.length ? `${ids.length} ids` : 'ids not provided');
+                if (!ids || ids.length === 0) {
+                    // Si no hay ids, re-renderizar por seguridad
+                    return this.renderProductsGrid();
+                }
+
+                // Actualizar solo las tarjetas correspondientes
+                ids.forEach(id => {
+                    try {
+                        const product = this.productManager.getProductById ? this.productManager.getProductById(id) : null;
+                        const card = document.querySelector(`.product-card[data-product-id="${id}"]`);
+                        if (!card) return;
+
+                        const stockEl = card.querySelector('.product-inventory-stock');
+                        const precioEl = card.querySelector('.product-inventory-precio');
+
+                        if (product) {
+                            const stockText = (product.stock !== null && product.stock !== undefined) ? product.stock : '—';
+                            const precioText = (product.precio_compra !== null && product.precio_compra !== undefined) ? `$${(parseFloat(product.precio_compra)||0).toFixed(2)}` : '—';
+
+                            if (stockEl) stockEl.textContent = `Stock: ${stockText}`;
+                            if (precioEl) precioEl.textContent = `Costo: ${precioText}`;
+
+                            // Visual hint when the product has inventory
+                            if (product.inventory && product.inventory.hasData) {
+                                card.classList.add('has-inventory-data');
+                            } else {
+                                card.classList.remove('has-inventory-data');
+                            }
+                        } else {
+                            // If product not found in manager, attempt to fetch card updates from dataset if raw payload included
+                            if (stockEl) stockEl.textContent = 'Stock: —';
+                            if (precioEl) precioEl.textContent = 'Costo: —';
+                        }
+                    } catch (err) { /* ignore individual card failures */ }
+                });
+            } catch (err) {
+                console.warn('Error al procesar evento inventories:updated', err);
+            }
+        });
 
         // Actualizar contenido y badge del panel de staging (SIN cambiar su visibilidad)
         this.updateStagingPanel();
@@ -69,7 +148,7 @@ export class InventoryUIRenderer {
             <div class="inventory-header">
                 <h2><i class="fas fa-boxes"></i> Gestión de Inventario</h2>
                 <div class="inventory-actions">
-                    <div class="inventory-view-toggle" style="display:flex; gap:0.5rem; align-items:center;">
+                    <div class="inventory-view-toggle">
                         <button class="btn btn-outline active" id="btn-view-products">Productos</button>
                         <button class="btn btn-outline" id="btn-view-packs">Packs</button>
                         <button class="btn btn-outline" id="btn-view-changes">Cambios</button>
@@ -211,10 +290,22 @@ export class InventoryUIRenderer {
             });
         });
 
+        grid.querySelectorAll('.btn-product-inventory').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const productId = btn.dataset.productId;
+                const productName = btn.dataset.productName;
+                this.openInventoryModal(productId, productName);
+            });
+        });
+
         grid.querySelectorAll('.btn-product-delete').forEach(btn => {
             btn.addEventListener('click', async (e) => {
                 const productId = btn.dataset.productId;
-                const ok = await this.showConfirmDialog('¿Estás seguro de que deseas eliminar este producto?');
+                const product = this.productManager.getProductById(productId);
+                if (!product) return;
+                
+                // Mostrar previsualización del producto a eliminar
+                const ok = await this.showDeleteProductPreview(product);
                 if (ok) this.handleDeleteProduct(productId);
             });
         });
@@ -238,6 +329,7 @@ export class InventoryUIRenderer {
     createProductCard(product) {
         const discount = product.descuento ? `<span class="product-price-original">$${product.precio.toFixed(2)}</span>` : '';
         const isModified = this.productManager.getStagedChanges().some(c => c.productId === product.id && c.type === 'modify');
+        const isDeleted = this.productManager.getStagedChanges().some(c => c.productId === product.id && c.type === 'delete');
         // Mostrar both created_at y modified_at si existen (o marcador si null)
         let dateHtml = '';
         try {
@@ -248,18 +340,28 @@ export class InventoryUIRenderer {
                     <small>Creado: ${createdStr}</small><br>
                     <small>Última modificación: ${modifiedStr}</small>
                 </div>
+                <div class="product-inventory" ${product.inventory && product.inventory.last_updated ? `title="Última actualización: ${product.inventory.last_updated}"` : ''}>
+                            ${ (this.productManager && this.productManager._loadingInventories && (product.stock === null || product.stock === undefined)) ? `
+                                <small class="product-inventory-loading">Cargando...</small>
+                            ` : `
+                                <small class="product-inventory-stock">Stock: ${product.stock !== null && product.stock !== undefined ? product.stock : '—'}</small>
+                                <small class="product-inventory-precio">Costo: ${product.precio_compra !== null && product.precio_compra !== undefined ? `$${(parseFloat(product.precio_compra) || 0).toFixed(2)}` : '—'}</small>
+                                ${ product.inventory && product.inventory.proveedor ? `<small class="product-inventory-proveedor">Proveedor: ${product.inventory.proveedor}</small>` : '' }
+                            ` }
+                        </div>
             `;
         } catch (e) {
             dateHtml = '';
         }
         return `
-            <div class="product-card ${isModified ? 'modified' : ''}" data-product-id="${product.id}">
+            <div class="product-card ${isModified ? 'modified' : ''} ${isDeleted ? 'deleted' : ''}" data-product-id="${product.id}">
                 <div class="product-image">
                     <div class="product-image-size" data-src="${product.imagenUrl}"></div>
                     <img src="${product.imagenUrl}" alt="${product.nombre}" onerror="this.src='Img/no_image.jpg'">
                     ${product.nuevo ? '<span class="product-badge new">Nuevo</span>' : ''}
                     ${product.oferta ? '<span class="product-badge sale">Oferta</span>' : ''}
                     ${isModified ? '<span class="product-badge modified">Modificado</span>' : ''}
+                    ${isDeleted ? '<span class="product-badge deleted">Eliminado</span>' : ''}
                 </div>
                 <div class="product-info">
                     <div class="product-name">${product.nombre}</div>
@@ -271,7 +373,11 @@ export class InventoryUIRenderer {
                             <div class="product-price-final">$${product.precioFinal.toFixed(2)}</div>
                             ${discount}
                         </div>
+                        
                         <div class="product-actions">
+                            <button class="btn-product-inventory" data-product-id="${product.id}" data-product-name="${product.nombre}" title="Gestionar Inventario">
+                                <i class="fas fa-warehouse"></i>
+                            </button>
                             <button class="btn-product-edit" data-product-id="${product.id}">
                                 <i class="fas fa-edit"></i>
                             </button>
@@ -718,6 +824,41 @@ export class InventoryUIRenderer {
                                     </div>
                                 </div>
                             ` : ''}
+
+                            <!-- INVENTARIO INTERNO - Solo para crear productos nuevos -->
+                            ${mode === 'create' ? `
+                            <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #e6eef6;">
+                                <h4 style="margin: 0 0 1rem 0; font-size: 1rem; color: #333; display: flex; align-items: center;">
+                                    <i class="fas fa-warehouse" style="margin-right: 0.5rem; color: #4a90e2;"></i>
+                                    Inventario Interno
+                                </h4>
+                                <p style="margin: 0 0 1rem 0; font-size: 0.85rem; color: #666;">
+                                    Datos privados almacenados en Google Sheets (no se sincronizan con GitHub)
+                                </p>
+
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                    <div class="form-group">
+                                        <label for="inventory-stock">Stock</label>
+                                        <input type="number" id="inventory-stock" name="inventory_stock" min="0" placeholder="Cantidad en stock">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="inventory-precio-compra">Precio de Compra</label>
+                                        <input type="number" id="inventory-precio-compra" name="inventory_precio_compra" step="0.01" min="0" placeholder="Costo unitario">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inventory-proveedor">Proveedor</label>
+                                    <input type="text" id="inventory-proveedor" name="inventory_proveedor" placeholder="Nombre del proveedor">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inventory-notas">Notas Internas</label>
+                                    <textarea id="inventory-notas" name="inventory_notas" maxlength="500" placeholder="Información adicional sobre el inventario..." style="min-height: 80px;"></textarea>
+                                </div>
+                            </div>
+                            ` : ''}
                         </form>
                     </div>
 
@@ -1071,6 +1212,518 @@ export class InventoryUIRenderer {
             });
         };
         reader.readAsDataURL(fileOrUrl);
+    }
+
+    /**
+     * Abre modal separado para gestionar inventario interno de un producto existente
+     * @param {string} productId - ID del producto
+     * @param {string} productName - Nombre del producto (para el título)
+     */
+    openInventoryModal(productId, productName) {
+        const modalHTML = `
+            <div class="modal-overlay active" id="inventory-modal-overlay">
+                <div class="product-modal" id="inventory-modal">
+                    <div class="modal-header">
+                        <h3 class="modal-title">
+                            <i class="fas fa-warehouse"></i> Gestionar Inventario: ${productName}
+                        </h3>
+                    </div>
+
+                    <div class="modal-content">
+                        <form id="inventory-form">
+
+                            <div id="inv-modal-loading" style="display: none; text-align: center; color: #4a90e2; font-size: 0.9rem;">
+                                <i class="fas fa-spinner fa-spin"></i> Cargando datos...
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                <div class="form-group">
+                                    <label for="inv-modal-stock">Stock</label>
+                                    <input type="number" id="inv-modal-stock" name="stock" min="0" placeholder="Cantidad en stock">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inv-modal-precio-compra">Precio de Compra</label>
+                                    <input type="number" id="inv-modal-precio-compra" name="precio_compra" step="0.01" min="0" placeholder="Costo unitario">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inv-modal-proveedor">Proveedor</label>
+                                <input type="text" id="inv-modal-proveedor" name="proveedor" placeholder="Nombre del proveedor">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inv-modal-notas">Notas Internas</label>
+                                <textarea id="inv-modal-notas" name="notas" maxlength="500" placeholder="Información adicional sobre el inventario..." style="min-height: 100px;"></textarea>
+                            </div>
+
+                            <div id="inv-modal-last-updated" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e6eef6; font-size: 0.8rem; color: #999;">
+                                <!-- Se llena dinámicamente con la fecha de última actualización -->
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="form-actions">
+                        <button class="btn-form-cancel" id="btn-inv-modal-cancel">Cancelar</button>
+                        <button class="btn-form-submit" id="btn-inv-modal-submit">
+                            <i class="fas fa-save"></i> Guardar Datos de Inventario
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Remover modal anterior si existe
+        const oldModal = document.getElementById('inventory-modal-overlay');
+        if (oldModal) oldModal.remove();
+
+        // Agregar modal al DOM
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+        // Evitar scroll del fondo mientras el modal está abierto
+        this.disableBodyScroll();
+
+        // Setup event listeners
+        this.setupInventoryModalListeners(productId);
+    }
+
+    /**
+     * Setup de event listeners del modal de inventario
+     */
+    setupInventoryModalListeners(productId) {
+        const overlay = document.getElementById('inventory-modal-overlay');
+        const form = document.getElementById('inventory-form');
+        const cancelBtn = document.getElementById('btn-inv-modal-cancel');
+        const submitBtn = document.getElementById('btn-inv-modal-submit');
+
+        const closeModal = () => {
+            const o = document.getElementById('inventory-modal-overlay');
+            if (o) o.remove();
+            this.enableBodyScroll();
+        };
+
+        cancelBtn.addEventListener('click', closeModal);
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) closeModal();
+        });
+
+        submitBtn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const success = await this.handleInventoryModalSubmit(productId, form);
+            // Solo cerrar si fue exitoso y se completó el guardado
+            if (success) {
+                // Esperar un poco después de que se complete el guardado
+                setTimeout(() => {
+                    closeModal();
+                }, 1600);
+            }
+        });
+
+        // Cargar datos de inventario
+        this.loadInventoryInModal(productId);
+    }
+
+    /**
+     * Carga datos de inventario en el modal de inventario
+     * Ahora es consciente de los datos desde el backend
+     */
+    async loadInventoryInModal(productId) {
+        const stockInput = document.getElementById('inv-modal-stock');
+        const precioInput = document.getElementById('inv-modal-precio-compra');
+        const proveedorInput = document.getElementById('inv-modal-proveedor');
+        const notasInput = document.getElementById('inv-modal-notas');
+        const loadingEl = document.getElementById('inv-modal-loading');
+        const lastUpdatedEl = document.getElementById('inv-modal-last-updated');
+        
+        // Si los datos ya están precargados en productManager, rellenar inmediatamente (apertura instantánea)
+        try {
+            const product = this.productManager ? this.productManager.getProductById(productId) : null;
+            const cached = product ? product.inventory : null;
+            if (cached) {
+                const stockVal = this._normalizeInventoryField(cached.stock);
+                const precioVal = this._normalizeInventoryField(cached.precio_compra);
+                const provVal = this._normalizeInventoryField(cached.proveedor);
+                const notasVal = this._normalizeInventoryField(cached.notas);
+                const lastVal = this._normalizeInventoryField(cached.last_updated);
+
+                if (stockInput) stockInput.value = stockVal !== null && stockVal !== undefined ? stockVal : '';
+                if (precioInput) precioInput.value = precioVal !== null && precioVal !== undefined ? precioVal : '';
+                if (proveedorInput) proveedorInput.value = provVal !== null && provVal !== undefined ? provVal : '';
+                if (notasInput) notasInput.value = notasVal !== null && notasVal !== undefined ? notasVal : '';
+
+                if (lastUpdatedEl) {
+                    if (lastVal) {
+                        lastUpdatedEl.textContent = `📅 Última actualización: ${lastVal}`;
+                        lastUpdatedEl.style.display = 'block';
+                    } else {
+                        lastUpdatedEl.style.display = 'block';
+                        lastUpdatedEl.textContent = `➕ Sin datos de inventario - Puedes agregar información ahora`;
+                    }
+                }
+
+                if (stockInput) stockInput.disabled = false;
+                if (precioInput) precioInput.disabled = false;
+                if (proveedorInput) proveedorInput.disabled = false;
+                if (notasInput) notasInput.disabled = false;
+                if (loadingEl) loadingEl.style.display = 'none';
+
+                // Background refresh (evitar duplicados)
+                if (!this._backgroundInventoryFetches.has(productId)) {
+                    this._backgroundInventoryFetches.add(productId);
+                    (async () => {
+                        try {
+                            const fresh = await this.inventoryApiClient.getInventory(productId, { useCache: false, retries: 1 });
+                            const freshStr = JSON.stringify(fresh || {});
+                            const cachedStr = JSON.stringify(cached || {});
+                            if (freshStr !== cachedStr) {
+                                if (product) {
+                                    if (fresh && fresh.hasData) {
+                                        product.inventory = fresh;
+                                        product.stock = fresh.stock !== undefined ? fresh.stock : null;
+                                        product.precio_compra = fresh.precio_compra !== undefined ? fresh.precio_compra : null;
+                                    }
+                                }
+                                const currentOverlay = document.getElementById('inventory-modal-overlay');
+                                if (currentOverlay) {
+                                    const sVal = this._normalizeInventoryField(fresh.stock);
+                                    const pVal = this._normalizeInventoryField(fresh.precio_compra);
+                                    const provVal2 = this._normalizeInventoryField(fresh.proveedor);
+                                    const notasVal2 = this._normalizeInventoryField(fresh.notas);
+                                    if (stockInput) stockInput.value = sVal !== null && sVal !== undefined ? sVal : '';
+                                    if (precioInput) precioInput.value = pVal !== null && pVal !== undefined ? pVal : '';
+                                    if (proveedorInput) proveedorInput.value = provVal2 !== null && provVal2 !== undefined ? provVal2 : '';
+                                    if (notasInput) notasInput.value = notasVal2 !== null && notasVal2 !== undefined ? notasVal2 : '';
+                                    if (lastUpdatedEl && fresh.last_updated) lastUpdatedEl.textContent = `📅 Última actualización: ${fresh.last_updated}`;
+                                }
+                                document.dispatchEvent(new CustomEvent('inventories:updated', { detail: { ids: [productId] } }));
+                            }
+                        } catch (err) {
+                            console.warn('Background inventory refresh failed for', productId, err && err.message ? err.message : err);
+                        } finally {
+                            this._backgroundInventoryFetches.delete(productId);
+                        }
+                    })();
+                }
+
+                return; // ya rellenamos instantáneamente
+            }
+        } catch (err) { console.warn('Error leyendo caché de producto para modal:', err); }
+
+        try {
+            // Mostrar loading y deshabilitar todos los inputs
+            if (loadingEl) {
+                loadingEl.style.display = 'block';
+                loadingEl.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Cargando datos...';
+                loadingEl.style.color = '#4a90e2';
+            }
+            
+            if (stockInput) stockInput.disabled = true;
+            if (precioInput) precioInput.disabled = true;
+            if (proveedorInput) proveedorInput.disabled = true;
+            if (notasInput) notasInput.disabled = true;
+
+            console.log(`📂 Cargando inventario para producto: ${productId}`);
+            const inventoryData = await this.inventoryApiClient.getInventory(productId);
+
+            console.log(`📊 Datos de inventario cargados:`, inventoryData);
+            console.log(`✔️ ¿Tiene datos? ${inventoryData ? inventoryData.hasData : 'null'}`);
+
+            // Llenar stock (normalizar valores complejos)
+            if (stockInput) {
+                const stockVal = inventoryData ? this._normalizeInventoryField(inventoryData.stock) : null;
+                stockInput.value = (stockVal !== null && stockVal !== undefined) ? stockVal : '';
+                console.log(`📦 Stock input value: "${stockInput.value}"`);
+            }
+
+            // Llenar precio (normalizar)
+            if (precioInput) {
+                const precioVal = inventoryData ? this._normalizeInventoryField(inventoryData.precio_compra) : null;
+                precioInput.value = (precioVal !== null && precioVal !== undefined) ? precioVal : '';
+                console.log(`💰 Precio input value: "${precioInput.value}"`);
+            }
+
+            // Llenar proveedor (normalizar)
+            if (proveedorInput) {
+                const provVal = inventoryData ? this._normalizeInventoryField(inventoryData.proveedor) : null;
+                proveedorInput.value = (provVal !== null && provVal !== undefined) ? provVal : '';
+                console.log(`🏢 Proveedor input value: "${proveedorInput.value}"`);
+            }
+
+            // Llenar notas (normalizar)
+            if (notasInput) {
+                const notasVal = inventoryData ? this._normalizeInventoryField(inventoryData.notas) : null;
+                notasInput.value = (notasVal !== null && notasVal !== undefined) ? notasVal : '';
+                console.log(`📝 Notas input value: "${notasInput.value}"`);
+            }
+
+            // 🎯 ACTUALIZAR LA TARJETA DEL PRODUCTO EN TIEMPO REAL (mientras carga)
+            const productCard = document.querySelector(`.product-card[data-product-id="${productId}"]`);
+            if (productCard && inventoryData) {
+                const stockEl = productCard.querySelector('.product-inventory-stock');
+                const precioEl = productCard.querySelector('.product-inventory-precio');
+                const provEl = productCard.querySelector('.product-inventory-proveedor');
+                
+                const stockVal = this._normalizeInventoryField(inventoryData.stock);
+                const precioVal = this._normalizeInventoryField(inventoryData.precio_compra);
+                const provVal = this._normalizeInventoryField(inventoryData.proveedor);
+
+                if (stockEl && stockVal !== null && stockVal !== undefined && stockVal !== '') {
+                    stockEl.textContent = `Stock: ${stockVal}`;
+                    console.log(`✅ Stock actualizado en tarjeta: ${stockVal}`);
+                }
+                
+                if (precioEl && precioVal !== null && precioVal !== undefined && precioVal !== '') {
+                    precioEl.textContent = `Costo: $${parseFloat(precioVal).toFixed(2)}`;
+                    console.log(`✅ Precio actualizado en tarjeta: $${precioVal}`);
+                }
+
+                if (provEl) {
+                    if (provVal) provEl.textContent = `Proveedor: ${provVal}`;
+                    else provEl.textContent = '';
+                }
+            }
+
+            // Actualizar producto en memoria (productManager) para consistencia global y notificar UI
+            try {
+                if (this.productManager) {
+                    const prod = this.productManager.getProductById(productId);
+                    if (prod) {
+                        if (inventoryData && inventoryData.hasData) {
+                            prod.inventory = inventoryData;
+                            prod.stock = inventoryData.stock !== undefined ? inventoryData.stock : null;
+                            prod.precio_compra = inventoryData.precio_compra !== undefined && inventoryData.precio_compra !== null ? parseFloat(inventoryData.precio_compra) : null;
+                        } else {
+                            prod.inventory = null;
+                            prod.stock = null;
+                            prod.precio_compra = null;
+                        }
+                        document.dispatchEvent(new CustomEvent('inventories:updated', { detail: { ids: [productId] } }));
+                    }
+                }
+            } catch (e) { console.warn('No se pudo actualizar productManager desde modal:', e); }
+
+            // Mostrar última actualización
+            if (lastUpdatedEl) {
+                const last = inventoryData ? this._normalizeInventoryField(inventoryData.last_updated) : null;
+                if (inventoryData && inventoryData.hasData && last) {
+                    lastUpdatedEl.textContent = `📅 Última actualización: ${last}`;
+                    lastUpdatedEl.style.display = 'block';
+                    lastUpdatedEl.style.backgroundColor = '#e8f5e9';
+                    lastUpdatedEl.style.borderLeftColor = '#4caf50';
+                    lastUpdatedEl.style.borderLeftWidth = '4px';
+                    lastUpdatedEl.style.paddingLeft = '0.75rem';
+                    console.log(`✅ Datos de inventario encontrados`);
+                } else if (inventoryData && inventoryData.hasData) {
+                    lastUpdatedEl.textContent = `📅 Registro actualizado (sin fecha exacta)`;
+                    lastUpdatedEl.style.display = 'block';
+                    lastUpdatedEl.style.backgroundColor = '#e8f5e9';
+                    lastUpdatedEl.style.borderLeftColor = '#4caf50';
+                    lastUpdatedEl.style.borderLeftWidth = '4px';
+                    lastUpdatedEl.style.paddingLeft = '0.75rem';
+                } else {
+                    lastUpdatedEl.textContent = `➕ Sin datos de inventario - Puedes agregar información ahora`;
+                    lastUpdatedEl.style.display = 'block';
+                    lastUpdatedEl.style.backgroundColor = '#fff3e0';
+                    lastUpdatedEl.style.borderLeftColor = '#ff9800';
+                    lastUpdatedEl.style.borderLeftWidth = '4px';
+                    lastUpdatedEl.style.paddingLeft = '0.75rem';
+                    console.log(`⚠️ Sin datos de inventario previos`);
+                }
+            }
+
+            // RE-HABILITAR TODOS LOS INPUTS EXPLÍCITAMENTE
+            if (stockInput) stockInput.disabled = false;
+            if (precioInput) precioInput.disabled = false;
+            if (proveedorInput) proveedorInput.disabled = false;
+            if (notasInput) notasInput.disabled = false;
+            
+            if (loadingEl) loadingEl.style.display = 'none';
+            console.log('✅ Modal de inventario listo para editar');
+            
+        } catch (error) {
+            console.error('❌ Error al cargar inventario:', error);
+            if (loadingEl) {
+                loadingEl.style.display = 'block';
+                loadingEl.innerHTML = '<span style="color: #e74c3c;"><i class="fas fa-exclamation-triangle"></i> Error: ' + (error.message || 'desconocido') + '</span>';
+            }
+            // RE-HABILITAR INCLUSO CON ERROR
+            if (stockInput) stockInput.disabled = false;
+            if (precioInput) precioInput.disabled = false;
+            if (proveedorInput) proveedorInput.disabled = false;
+            if (notasInput) notasInput.disabled = false;
+        }
+    }
+
+    /**
+     * Guarda datos de inventario desde el modal separado
+     */
+    async handleInventoryModalSubmit(productId, form) {
+        try {
+            const submitBtn = document.getElementById('btn-inv-modal-submit');
+            const formInputs = document.querySelectorAll('#inventory-form input, #inventory-form textarea');
+            const savingIndicator = document.getElementById('inv-modal-loading');
+            
+            // Deshabilitar inputs y botón
+            formInputs.forEach(input => input.disabled = true);
+            if (submitBtn) submitBtn.disabled = true;
+            
+            // Mostrar panel "Guardando"
+            if (savingIndicator) {
+                savingIndicator.style.display = 'block';
+                savingIndicator.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Guardando datos...';
+                savingIndicator.style.color = '#4a90e2';
+            }
+            
+            // Capturar valores DIRECTAMENTE de los inputs por ID (más confiable que FormData)
+            const stockInput = document.getElementById('inv-modal-stock');
+            const precioInput = document.getElementById('inv-modal-precio-compra');
+            const proveedorInput = document.getElementById('inv-modal-proveedor');
+            const notasInput = document.getElementById('inv-modal-notas');
+            
+            const inventoryData = {
+                stock: (stockInput ? stockInput.value : '') || '',
+                precio_compra: (precioInput ? precioInput.value : '') || '',
+                proveedor: (proveedorInput ? proveedorInput.value : '') || '',
+                notas: (notasInput ? notasInput.value : '') || ''
+            };
+
+            console.log(`📝 Datos capturados del formulario:`, inventoryData);
+
+            // Validar que hay al menos un campo lleno
+            const hasData = Object.values(inventoryData).some(value => value !== '' && value !== null);
+            if (!hasData) {
+                console.warn('⚠️ No hay datos para guardar');
+                this.showNotification('Debes llenar al menos un campo', 'warning');
+                if (savingIndicator) savingIndicator.style.display = 'none';
+                formInputs.forEach(input => input.disabled = false);
+                if (submitBtn) submitBtn.disabled = false;
+                return false; // No fue exitoso
+            }
+
+            console.log(`💾 Guardando inventario para producto ${productId}:`, inventoryData);
+            
+            // Guardar datos en el backend (usar la respuesta normalizada si está disponible)
+            const saved = await this.inventoryApiClient.saveInventory(productId, inventoryData);
+            console.log(`🔄 Datos guardados en backend para ${productId}`, saved);
+
+            // Actualizar el producto en memoria con los datos guardados (preferir respuesta del servidor)
+            const product = this.productManager.getProductById(productId);
+            if (product) {
+                const s = (saved && saved.stock !== undefined && saved.stock !== null) ? saved.stock : (inventoryData.stock ? parseInt(inventoryData.stock) : null);
+                const p = (saved && saved.precio_compra !== undefined && saved.precio_compra !== null) ? saved.precio_compra : (inventoryData.precio_compra ? parseFloat(inventoryData.precio_compra) : null);
+                product.stock = s !== null ? s : null;
+                product.precio_compra = p !== null ? p : null;
+                product.inventory = (saved && saved.hasData) ? saved : {
+                    product_id: productId,
+                    stock: product.stock,
+                    precio_compra: product.precio_compra,
+                    proveedor: inventoryData.proveedor || null,
+                    notas: inventoryData.notas || null,
+                    last_updated: (saved && saved.last_updated) ? saved.last_updated : (new Date()).toISOString(),
+                    hasData: true
+                };
+                // Notificar al resto de la UI que los datos cambiaron (tarjetas, contadores...)
+                document.dispatchEvent(new CustomEvent('inventories:updated', { detail: { ids: [productId] } }));
+            }
+
+            // Actualizar la tarjeta del producto en la grid
+            const productCard = document.querySelector(`.product-card[data-product-id="${productId}"]`);
+            if (productCard) {
+                const stockEl = productCard.querySelector('.product-inventory-stock');
+                const precioEl = productCard.querySelector('.product-inventory-precio');
+                if (stockEl) {
+                    stockEl.textContent = `Stock: ${inventoryData.stock || '—'}`;
+                }
+                if (precioEl) {
+                    precioEl.textContent = `Costo: ${inventoryData.precio_compra ? `$${parseFloat(inventoryData.precio_compra).toFixed(2)}` : '—'}`;
+                }
+                console.log(`🔄 Tarjeta de producto ${productId} actualizada en UI`);
+            }
+
+            // Mostrar éxito
+            if (savingIndicator) {
+                savingIndicator.style.display = 'block';
+                savingIndicator.innerHTML = '<span style="color: #27ae60;"><i class="fas fa-check-circle"></i> ¡Guardado exitosamente!</span>';
+            }
+
+            console.log('✅ Inventario guardado correctamente para:', productId);
+            this.showNotification('Datos de inventario guardados exitosamente', 'success');
+
+            // Re-habilitar después de mostrar éxito
+            setTimeout(() => {
+                formInputs.forEach(input => input.disabled = false);
+                if (submitBtn) submitBtn.disabled = false;
+                if (savingIndicator) savingIndicator.style.display = 'none';
+            }, 1500);
+            
+            return true; // Fue exitoso
+        } catch (error) {
+            console.error('❌ Error al guardar inventario:', error);
+            
+            const submitBtn = document.getElementById('btn-inv-modal-submit');
+            const formInputs = document.querySelectorAll('#inventory-form input, #inventory-form textarea');
+            const savingIndicator = document.getElementById('inv-modal-loading');
+            
+            // Re-habilitar en caso de error
+            formInputs.forEach(input => input.disabled = false);
+            if (submitBtn) submitBtn.disabled = false;
+            if (savingIndicator) {
+                savingIndicator.style.display = 'block';
+                savingIndicator.innerHTML = '<span style="color: #e74c3c;"><i class="fas fa-exclamation-circle"></i> Error al guardar</span>';
+            }
+            this.showNotification(`Error: ${error.message}`, 'error');
+            
+            return false; // No fue exitoso
+        }
+    }
+
+    /**
+     * Carga datos de inventario interno en el modal de creación
+     */
+    async loadInventoryDataInModal(productId) {
+        try {
+            const loadingEl = document.getElementById('inventory-loading');
+            if (loadingEl) loadingEl.style.display = 'block';
+
+            const inventoryData = await this.inventoryApiClient.getInventory(productId);
+
+            // Llenar campos del formulario con los datos obtenidos
+            const stockInput = document.getElementById('inventory-stock');
+            const precioCompraInput = document.getElementById('inventory-precio-compra');
+            const proveedorInput = document.getElementById('inventory-proveedor');
+            const notasInput = document.getElementById('inventory-notas');
+            const lastUpdatedEl = document.getElementById('inventory-last-updated');
+
+            if (stockInput && inventoryData.stock !== null && inventoryData.stock !== undefined) {
+                stockInput.value = inventoryData.stock;
+            }
+
+            if (precioCompraInput && inventoryData.precio_compra !== null && inventoryData.precio_compra !== undefined) {
+                precioCompraInput.value = inventoryData.precio_compra;
+            }
+
+            if (proveedorInput && inventoryData.proveedor) {
+                proveedorInput.value = inventoryData.proveedor;
+            }
+
+            if (notasInput && inventoryData.notas) {
+                notasInput.value = inventoryData.notas;
+            }
+
+            if (lastUpdatedEl && inventoryData.last_updated) {
+                lastUpdatedEl.textContent = `Última actualización: ${inventoryData.last_updated}`;
+            }
+
+            if (loadingEl) loadingEl.style.display = 'none';
+        } catch (error) {
+            console.error('Error al cargar datos de inventario:', error);
+            const loadingEl = document.getElementById('inventory-loading');
+            if (loadingEl) {
+                loadingEl.style.display = 'block';
+                loadingEl.innerHTML = '<span style="color: #e74c3c;"><i class="fas fa-exclamation-triangle"></i> Error al cargar inventario</span>';
+            }
+        }
     }
 
     /**
@@ -1480,8 +2133,22 @@ export class InventoryUIRenderer {
     async handleProductFormSubmit(mode, productId, form, imageFile) {
         const formData = new FormData(form);
         const descuentoCalculado = parseFloat(formData.get('descuento')) || 0;
+        
+        // Si es un producto NUEVO, generar el ID temprano para poder asociar el inventario después
+        let workingProductId = productId;
+        if (mode === 'new') {
+            if (typeof generateProductId === 'function') {
+                workingProductId = generateProductId();
+            } else {
+                workingProductId = `${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+            }
+        }
+        
+        // SEGURIDAD: Construcción explícita de productData (whitelist de campos)
+        // Los campos de inventario (inventory_*) se incluyen TEMPORALMENTE para pasarlos al staging,
+        // pero se eliminarán durante prepareProductForExport
         const productData = {
-            id: mode === 'edit' ? productId : undefined,
+            id: workingProductId,
             nombre: formData.get('nombre'),
             categoria: formData.get('categoria'),
             precio: parseFloat(formData.get('precio')),
@@ -1490,7 +2157,13 @@ export class InventoryUIRenderer {
             disponibilidad: formData.get('disponibilidad') === 'on',
             nuevo: formData.get('nuevo') === 'on',
             oferta: formData.get('oferta') === 'on',
-            mas_vendido: formData.get('mas_vendido') === 'on'
+            mas_vendido: formData.get('mas_vendido') === 'on',
+            // Incluir campos de inventario temporalmente (se descartarán en prepareProductForExport)
+            // para que estén disponibles cuando se guarde el inventario
+            inventory_stock: formData.get('inventory_stock'),
+            inventory_precio_compra: formData.get('inventory_precio_compra'),
+            inventory_proveedor: formData.get('inventory_proveedor'),
+            inventory_notas: formData.get('inventory_notas')
         };
 
         // Si estamos editando, mantener las imagenes actuales si no se selecciona una nueva
@@ -1503,12 +2176,128 @@ export class InventoryUIRenderer {
             const changeType = mode === 'edit' ? 'modify' : 'new';
             await this.productManager.stageChange(changeType, productData, imageFile);
             
+            // Guardar datos privados de inventario si existen (SEPARADAMENTE)
+            // Ahora también para productos nuevos (con el ID que se acaba de asignar)
+            if (workingProductId) {
+                await this.saveInventoryData(workingProductId, formData);
+            }
+            
             this.updateStagingPanel();
             this.renderProductsGrid();
             
             this.showNotification('Producto guardado en staging', 'success');
         } catch (error) {
             this.showNotification(`Error: ${error.message}`, 'error');
+        }
+    }
+
+    /**
+     * Guarda datos privados del inventario interno (SEPARADOS del producto)
+     * IMPORTANTE: Los datos de inventario se guardan en Google Apps Script backend, NOT en GitHub
+     * Si el backend no está disponible, se guardan en localStorage como respaldo
+     * @param {string} productId - ID del producto
+     * @param {FormData} formData - Datos del formulario (contiene campos con prefijo inventory_*)
+     */
+    async saveInventoryData(productId, formData) {
+        try {
+            // SEGURIDAD: Solo extraer campos de inventario (con prefijo inventory_)
+            // Aplicar valores por defecto si están vacíos
+            const inventoryData = {
+                stock: formData.get('inventory_stock') !== '' && formData.get('inventory_stock') !== null ? formData.get('inventory_stock') : 0,
+                precio_compra: formData.get('inventory_precio_compra') !== '' && formData.get('inventory_precio_compra') !== null ? formData.get('inventory_precio_compra') : 0,
+                proveedor: (formData.get('inventory_proveedor') !== '' && formData.get('inventory_proveedor') !== null) ? formData.get('inventory_proveedor') : null,
+                notas: (formData.get('inventory_notas') !== '' && formData.get('inventory_notas') !== null) ? formData.get('inventory_notas') : 'nota'
+                // ❌ NUNCA incluir campos de producto: nombre, categoria, precio, etc.
+            };
+
+            // Solo guardar si hay al menos un campo con datos (siempre guardar si hay algo rellenado)
+            const stockFilled = formData.get('inventory_stock') !== '' && formData.get('inventory_stock') !== null;
+            const precioFilled = formData.get('inventory_precio_compra') !== '' && formData.get('inventory_precio_compra') !== null;
+            const proveedorFilled = formData.get('inventory_proveedor') !== '' && formData.get('inventory_proveedor') !== null;
+            const notasFilled = formData.get('inventory_notas') !== '' && formData.get('inventory_notas') !== null;
+            
+            const hasData = stockFilled || precioFilled || proveedorFilled || notasFilled;
+            if (!hasData) {
+                console.log(`ℹ️ No hay datos de inventario para guardar para producto ${productId}`);
+                return;
+            }
+
+            console.log(`🔄 Intentando guardar inventario para ${productId} en backend...`, inventoryData);
+
+            try {
+                // Intentar guardar en BACKEND (Google Apps Script)
+                await this.inventoryApiClient.saveInventory(productId, inventoryData);
+                console.log(`✅ Datos de inventario guardados para producto ${productId} en backend`);
+                
+                // Si se guardó exitosamente en backend, limpiar cualquier respaldo en localStorage
+                this._removeInventoryFromLocalStorage(productId);
+            } catch (backendError) {
+                console.warn(`⚠️ Backend no disponible (${backendError && backendError.message}). Guardando inventario en localStorage como respaldo...`);
+                
+                // Guardar en localStorage como respaldo temporal
+                this._saveInventoryToLocalStorage(productId, inventoryData);
+                
+                console.log(`💾 Datos de inventario guardados en localStorage para ${productId}. Se sincronizarán al guardar en GitHub.`);
+            }
+        } catch (error) {
+            console.error(`❌ Error procesando datos de inventario para ${productId}:`, error);
+            // No lanzamos el error para que no bloquee el guardado del producto
+        }
+    }
+
+    /**
+     * Guarda datos de inventario en localStorage como respaldo
+     * @private
+     */
+    _saveInventoryToLocalStorage(productId, inventoryData) {
+        try {
+            const storageKey = `buquenque_inventory_${productId}`;
+            const dataToStore = {
+                productId,
+                inventoryData,
+                timestamp: new Date().toISOString(),
+                synced: false
+            };
+            localStorage.setItem(storageKey, JSON.stringify(dataToStore));
+            console.log(`Datos guardados en localStorage: ${storageKey}`);
+        } catch (err) {
+            console.error('Error guardando en localStorage:', err);
+        }
+    }
+
+    /**
+     * Elimina datos de inventario del localStorage
+     * @private
+     */
+    _removeInventoryFromLocalStorage(productId) {
+        try {
+            const storageKey = `buquenque_inventory_${productId}`;
+            localStorage.removeItem(storageKey);
+        } catch (err) {
+            console.warn('Error eliminando del localStorage:', err);
+        }
+    }
+
+    /**
+     * Recupera todos los datos de inventario del localStorage (respaldos pendientes)
+     * @private
+     */
+    _getPendingInventoryFromLocalStorage() {
+        try {
+            const pending = {};
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key && key.startsWith('buquenque_inventory_')) {
+                    const stored = JSON.parse(localStorage.getItem(key));
+                    if (stored && !stored.synced) {
+                        pending[stored.productId] = stored.inventoryData;
+                    }
+                }
+            }
+            return pending;
+        } catch (err) {
+            console.warn('Error recuperando inventario de localStorage:', err);
+            return {};
         }
     }
 
@@ -1825,7 +2614,7 @@ export class InventoryUIRenderer {
             // Mostrar modal de recarga
             this.showLoadingModal('Recargando datos desde el servidor...');
 
-            if (this.productManager) await this.productManager.loadProducts();
+            if (this.productManager) await this.productManager.loadProducts(true); // force reload from server
             if (this.packManager) await this.packManager.loadPacks();
 
             // Actualizar filtros y UI con los datos recargados
@@ -1956,6 +2745,79 @@ export class InventoryUIRenderer {
                 document.body.classList.remove('modal-open');
             }
         } catch (e) { console.warn('enableBodyScroll error', e); }
+    }
+
+    /**
+     * Muestra una previsualización del producto a eliminar con diálogo de confirmación
+     * @param {Object} product - Producto a eliminar
+     * @returns {Promise<boolean>}
+     */
+    showDeleteProductPreview(product) {
+        return new Promise((resolve) => {
+            const overlay = document.createElement('div');
+            overlay.className = 'delete-preview-overlay';
+            
+            const discountText = product.descuento > 0 
+                ? `<div class="product-discount-info">Descuento: ${product.descuento}%</div>` 
+                : '';
+            
+            const badges = `
+                ${product.nuevo ? '<span class="product-badge new">Nuevo</span>' : ''}
+                ${product.oferta ? '<span class="product-badge sale">Oferta</span>' : ''}
+            `;
+            
+            overlay.innerHTML = `
+                <div class="delete-preview-box">
+                    <div class="delete-preview-header">
+                        <h3>Confirmar Eliminación de Producto</h3>
+                    </div>
+                    <div class="delete-preview-content">
+                        <div class="delete-preview-image-container">
+                            <img src="${product.imagenUrl}" alt="${product.nombre}" class="delete-preview-image" onerror="this.src='Img/no_image.jpg'">
+                            <div class="delete-preview-badges">${badges}</div>
+                        </div>
+                        <div class="delete-preview-info">
+                            <div class="delete-preview-name">${product.nombre}</div>
+                            <div class="delete-preview-category">${product.categoria}</div>
+                            <div class="delete-preview-description">${product.descripcion || 'Sin descripción'}</div>
+                            <div class="delete-preview-price">
+                                <span class="price-label">Precio:</span>
+                                <span class="price-value">$${product.precioFinal.toFixed(2)}</span>
+                            </div>
+                            ${discountText}
+                            <div class="delete-preview-warning">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <span>Esta acción eliminará el producto y sus datos de inventario</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="delete-preview-actions">
+                        <button class="btn-delete-confirm">
+                            <i class="fas fa-trash"></i> Eliminar Producto
+                        </button>
+                        <button class="btn-delete-cancel">Cancelar</button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(overlay);
+            this.disableBodyScroll();
+            
+            const confirmBtn = overlay.querySelector('.btn-delete-confirm');
+            const cancelBtn = overlay.querySelector('.btn-delete-cancel');
+            
+            const cleanup = (val) => { 
+                overlay.remove(); 
+                this.enableBodyScroll(); 
+                resolve(val); 
+            };
+            
+            confirmBtn.addEventListener('click', () => cleanup(true));
+            cancelBtn.addEventListener('click', () => cleanup(false));
+            overlay.addEventListener('click', (e) => { 
+                if (e.target === overlay) cleanup(false); 
+            });
+        });
     }
 
     /**

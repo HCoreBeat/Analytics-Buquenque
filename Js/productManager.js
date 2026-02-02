@@ -17,6 +17,7 @@ import {
     createObjectURL,
     revokeObjectURL
 } from './inventoryUtils.js';
+import { inventoryApiClient } from './inventoryApiClient.js';
 
 const CONFIG = {
     GITHUB_API: {
@@ -36,7 +37,10 @@ export class ProductManager {
         this.stagedChanges = []; // Array de cambios en staging
         this.isLoading = false;
         this.lastSync = null;
-        
+        this._lastLoadTs = null; // timestamp de última carga de productos
+        this._loadingInventories = false; // indicador para mostrar 'Cargando...' en tarjetas
+        this._lastInventoryLoadTs = null; // timestamp de última carga de inventarios
+
         this.loadStagedChanges();
     }
 
@@ -49,32 +53,51 @@ export class ProductManager {
     }
 
     /**
-     * Carga productos desde GitHub con anti-caché
+     * Carga productos desde GitHub con anti-caché y throttling
+     * @param {boolean} force - Forzar recarga desde el servidor ignorando cache TTL
      * @returns {Promise<Array>}
      */
-    async loadProducts() {
+    async loadProducts(force = false) {
         if (this.isLoading) return this.products;
-        
+
+        // TTL para evitar recargas constantes
+        const TTL = 60 * 1000; // 60s
+        if (!force && this._lastLoadTs && (Date.now() - this._lastLoadTs) < TTL) {
+            console.log('📌 loadProducts: usando cache local (TTL no expirado)');
+            return this.products;
+        }
+
         this.isLoading = true;
         try {
             // URL con timestamp para evitar caché
             const url = `${this.getProductsFileUrl()}?t=${Date.now()}`;
             const response = await fetch(url);
-            
+
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-            
+
             const data = await response.json();
-            
+
             // Validar estructura
             if (data.products && Array.isArray(data.products)) {
                 this.products = data.products;
                 this.normalizeProducts();
+                // Enriquecer productos con datos de inventario (stock, precio_compra)
+                // Hacer en background para no bloquear render inicial. Evitar iniciar si ya está corriendo o si se cargó recientemente.
+                const INV_TTL = 60 * 1000; // 60s
+                if (!this._loadingInventories && (!this._lastInventoryLoadTs || (Date.now() - this._lastInventoryLoadTs) > INV_TTL)) {
+                    this._loadInventoriesForProducts()
+                        .then(() => { this._lastInventoryLoadTs = Date.now(); console.log('Carga de inventarios finalizada'); })
+                        .catch(e => console.warn('Error al cargar inventarios de productos:', e));
+                } else {
+                    console.log('Carga de inventarios ya en progreso o se cargó recientemente, no iniciar otra');
+                }
             } else {
                 throw new Error('Estructura JSON inválida: se esperaba { products: [...] }');
             }
-            
+
+            this._lastLoadTs = Date.now();
             this.isLoading = false;
             console.log(`${this.products.length} productos cargados desde GitHub`);
             return this.products;
@@ -122,7 +145,121 @@ export class ProductManager {
             // Normalizar timestamps si existen o mapear campo legacy 'hora'
             product.created_at = product.created_at || product.hora || null;
             product.modified_at = product.modified_at || product.created_at || null;
+            // Inicializar datos de inventario por defecto (se llenarán al cargar productos)
+            product.inventory = null;
+            product.stock = null;
+            product.precio_compra = null;
         });
+    }
+
+    /**
+     * Carga datos de inventario para cada producto (no bloquea si algunos fallan)
+     * @param {number} concurrency - Número de peticiones paralelas por lote
+     */
+    async _loadInventoriesForProducts(concurrency = 10) {
+        const prods = this.products || [];
+        if (!prods.length) return;
+
+        this._loadingInventories = true;
+
+        try {
+            // Intentar bulk primero (si el backend soporta devolver todo)
+            const ids = prods.map(p => p.id);
+            try {
+                const bulk = await inventoryApiClient.getInventoriesBulk(ids);
+                let enrichedCount = 0;
+                prods.forEach(p => {
+                    const inv = bulk[p.id];
+                    if (inv && inv.hasData) {
+                        p.inventory = inv;
+                        p.stock = inv.stock !== undefined ? inv.stock : null;
+                        p.precio_compra = inv.precio_compra !== undefined ? inv.precio_compra : null;
+                        enrichedCount++;
+                    } else {
+                        p.inventory = null;
+                        p.stock = null;
+                        p.precio_compra = null;
+                    }
+                });
+                console.log(`📦 Inventario (bulk): ${enrichedCount}/${prods.length} productos enriquecidos con datos`);
+                // Notificar UI que hay actualizaciones (todos a la vez)
+                document.dispatchEvent(new CustomEvent('inventories:updated', { detail: { ids } }));
+                return;
+            } catch (err) {
+                console.warn('Bulk inventories no disponible, usando fallback individual por chunks', err.message || err);
+            }
+
+            // Fallback individual con concurrencia por chunks (con soft-timeout por producto y actualizaciones progresivas)
+            let enrichedCount = 0;
+            const SOFT_TIMEOUT_MS = 3000; // si una petición individual tarda más, actualizamos UI con placeholder y esperamos la respuesta en background
+            for (let i = 0; i < prods.length; i += concurrency) {
+                const chunk = prods.slice(i, i + concurrency);
+                await Promise.all(chunk.map((product) => {
+                    const invPromise = inventoryApiClient.getInventory(product.id, { retries: 1, useCache: true }).catch(err => {
+                        console.warn(`getInventory falló (se devolverá placeholder) para ${product.id}:`, err && err.message ? err.message : err);
+                        // Devolver placeholder normalizado para no romper el flujo
+                        return { product_id: product.id, stock: null, precio_compra: null, proveedor: null, notas: null, last_updated: null, hasData: false };
+                    });
+
+                    const softTimeout = new Promise(res => setTimeout(() => res('__INVENTORY_SOFT_TIMEOUT__'), SOFT_TIMEOUT_MS));
+
+                    return Promise.race([invPromise, softTimeout]).then(async (result) => {
+                        if (result === '__INVENTORY_SOFT_TIMEOUT__') {
+                            // Mostrar placeholder inmediatamente para no dejar la tarjeta bloqueada
+                            product.inventory = product.inventory || null;
+                            product.stock = (product.stock !== undefined && product.stock !== null) ? product.stock : null;
+                            product.precio_compra = (product.precio_compra !== undefined && product.precio_compra !== null) ? product.precio_compra : null;
+                            // Notificar UI que este producto tiene una actualización (placeholder)
+                            document.dispatchEvent(new CustomEvent('inventories:updated', { detail: { ids: [product.id] } }));
+
+                            // Esperar el invPromise en background y actualizar cuando llegue
+                            try {
+                                const invFinal = await invPromise;
+                                if (invFinal && invFinal.hasData) {
+                                    product.inventory = invFinal;
+                                    product.stock = invFinal.stock !== undefined ? invFinal.stock : null;
+                                    product.precio_compra = invFinal.precio_compra !== undefined ? invFinal.precio_compra : null;
+                                    enrichedCount++;
+                                } else {
+                                    product.inventory = null;
+                                    product.stock = null;
+                                    product.precio_compra = null;
+                                }
+                                // Notificar UI con los datos finales cuando estén disponibles
+                                document.dispatchEvent(new CustomEvent('inventories:updated', { detail: { ids: [product.id] } }));
+                            } catch (err) {
+                                console.warn(`Error resolviendo invPromise en background para ${product.id}:`, err && err.message ? err.message : err);
+                            }
+                        } else {
+                            // Resultado inmediato (invPromise resolvió rápido)
+                            const inv = result;
+                            if (inv && inv.hasData) {
+                                product.inventory = inv;
+                                product.stock = inv.stock !== undefined ? inv.stock : null;
+                                product.precio_compra = inv.precio_compra !== undefined ? inv.precio_compra : null;
+                                enrichedCount++;
+                            } else {
+                                product.inventory = null;
+                                product.stock = null;
+                                product.precio_compra = null;
+                            }
+                        }
+                    }).catch(err => {
+                        console.warn(`No se pudo cargar inventario para ${product.id}:`, err && err.message ? err.message : err);
+                        product.inventory = null;
+                        product.stock = null;
+                        product.precio_compra = null;
+                    });
+                }));
+                // Notificar UI tras cada chunk para render progresivo (ids del chunk)
+                const idsUpdated = chunk.map(p => p.id);
+                document.dispatchEvent(new CustomEvent('inventories:updated', { detail: { ids: idsUpdated } }));
+            }
+            console.log(`📦 Inventario (fallback): ${enrichedCount}/${prods.length} productos enriquecidos con datos`);
+        } finally {
+            this._loadingInventories = false;
+            this._lastInventoryLoadTs = Date.now();
+        }
     }
 
     /**
@@ -144,9 +281,16 @@ export class ProductManager {
             throw new Error(`Producto inválido: ${validation.errors.join(', ')}`);
         }
 
-        // Generar ID si es nuevo
+        // Generar ID si es nuevo (asegurar unicidad respecto a productos actuales y cambios staged)
         if (type === 'new' && !productData.id) {
-            productData.id = generateProductId();
+            let newId;
+            const exists = (id) => {
+                return this.products.some(p => p.id === id) || this.stagedChanges.some(c => c.productId === id) || this.stagedChanges.some(c => c.productData && c.productData.id === id);
+            };
+            do {
+                newId = generateProductId();
+            } while (exists(newId));
+            productData.id = newId;
         }
 
         // Si es modificación, guardar el nombre original para referencia
@@ -301,6 +445,10 @@ export class ProductManager {
             report(5, 'Iniciando procesamiento de cambios...');
 
             let processedCount = 0;
+            // Acumulador de guardados de inventario que se ejecutarán tras subir el archivo de productos a GitHub
+            const pendingInventorySaves = [];
+            // Resumen de resultados de guardado de inventario (disponible al final del método)
+            let inventorySaveSummary = { succeeded: [], failed: [] };
             for (const change of this.stagedChanges) {
                 console.log(`Procesando cambio: ${change.type} - ${change.productId}`);
 
@@ -332,6 +480,55 @@ export class ProductManager {
                         productToAdd.created_at = productToAdd.created_at || nowIso;
                         productToAdd.modified_at = productToAdd.modified_at || nowIso;
                         processedProducts.push(productToAdd);
+                        
+                        // Si el producto nuevo incluye datos del bloque "Inventario Interno" en el modal,
+                        // acumular la petición de guardado para ejecutarla DESPUÉS de subir el archivo de productos.
+                        try {
+                            const invCandidates = {
+                                stock: ['stock', 'inventory_stock', 'inventory-stock', 'inventoryStock'],
+                                precio_compra: ['precio_compra', 'inventory_precio_compra', 'inventory-precio-compra', 'inventoryPrecioCompra'],
+                                proveedor: ['proveedor', 'inventory_proveedor', 'inventory-proveedor', 'inventoryProveedor'],
+                                notas: ['notas', 'inventory_notas', 'inventory-notas', 'inventoryNotas']
+                            };
+                            const getFirst = (obj, keys) => {
+                                for (const k of keys) {
+                                    if (obj && obj.hasOwnProperty(k) && obj[k] !== undefined && obj[k] !== null && String(obj[k]).trim() !== '') return obj[k];
+                                }
+                                return null;
+                            };
+
+                            const hasInv = Object.values(invCandidates).some(keys => getFirst(change.productData, keys) !== null);
+                            if (hasInv) {
+                                // Asegurar que el producto tenga ID (generar si por alguna razón faltara)
+                                let productId = productToAdd.id || change.productData.id;
+                                if (!productId) {
+                                    if (typeof generateProductId === 'function') {
+                                        productId = generateProductId();
+                                    } else {
+                                        productId = `${Date.now()}_${Math.random().toString(36).substr(2,9)}`;
+                                    }
+                                    // Actualizar referencias
+                                    productToAdd.id = productId;
+                                    change.productData.id = productId;
+                                    change.productId = productId;
+                                    // Actualizar el producto en processedProducts si fue añadido sin id
+                                    const idxNoId = processedProducts.findIndex(p => p.nombre === productToAdd.nombre && (!p.id || p.id === undefined));
+                                    if (idxNoId !== -1) processedProducts[idxNoId].id = productId;
+                                }
+
+                                const invPayload = {
+                                    stock: getFirst(change.productData, invCandidates.stock),
+                                    precio_compra: getFirst(change.productData, invCandidates.precio_compra),
+                                    proveedor: getFirst(change.productData, invCandidates.proveedor),
+                                    notas: getFirst(change.productData, invCandidates.notas)
+                                };
+
+                                pendingInventorySaves.push({ productId, invPayload, name: productToAdd.nombre, changeId: change.id });
+                                console.log(`Inventario pendiente para producto nuevo ${productToAdd.nombre} (${productId})`);
+                            }
+                        } catch (err) {
+                            console.warn(`Error detectando inventario en producto nuevo ${change.productData && change.productData.nombre}:`, err && err.message ? err.message : err);
+                        }
                         console.log(`Producto nuevo agregado: ${change.productData.nombre}`);
                     } else {
                         console.warn(`Producto duplicado detectado, saltando: ${change.productData.nombre}`);
@@ -350,6 +547,43 @@ export class ProductManager {
                         productToUpdate.modified_at = new Date().toISOString();
                         processedProducts[index] = productToUpdate;
                         console.log(`Producto modificado: ${change.productData.nombre}`);
+
+                        // Si el cambio contiene datos del bloque "Inventario Interno", acumularlos para guardarlos tras la subida
+                        try {
+                            const invCandidates = {
+                                stock: ['stock', 'inventory_stock', 'inventory-stock', 'inventoryStock'],
+                                precio_compra: ['precio_compra', 'inventory_precio_compra', 'inventory-precio-compra', 'inventoryPrecioCompra'],
+                                proveedor: ['proveedor', 'inventory_proveedor', 'inventory-proveedor', 'inventoryProveedor'],
+                                notas: ['notas', 'inventory_notas', 'inventory-notas', 'inventoryNotas']
+                            };
+                            const getFirst = (obj, keys) => {
+                                for (const k of keys) {
+                                    if (obj && obj.hasOwnProperty(k) && obj[k] !== undefined && obj[k] !== null && String(obj[k]).trim() !== '') return obj[k];
+                                }
+                                return null;
+                            };
+
+                            const hasInv = Object.values(invCandidates).some(keys => getFirst(change.productData, keys) !== null);
+                            if (hasInv) {
+                                const productId = productToUpdate.id || change.productData.id;
+                                if (!productId) {
+                                    console.warn('No se encontró ID para producto modificado; no se guardará inventario');
+                                } else {
+                                    const invPayload = {
+                                        stock: getFirst(change.productData, invCandidates.stock),
+                                        precio_compra: getFirst(change.productData, invCandidates.precio_compra),
+                                        proveedor: getFirst(change.productData, invCandidates.proveedor),
+                                        notas: getFirst(change.productData, invCandidates.notas)
+                                    };
+
+                                    pendingInventorySaves.push({ productId, invPayload, name: productToUpdate.nombre, changeId: change.id });
+                                    console.log(`Inventario pendiente para producto modificado ${productToUpdate.nombre} (${productId})`);
+                                }
+                            }
+                        } catch (err) {
+                            console.warn(`Error detectando inventario en producto modificado ${change.productData && change.productData.nombre}:`, err && err.message ? err.message : err);
+                        }
+
                         // Si se subió una nueva imagen, intentar eliminar la imagen anterior del repo
                         try {
                             if (change.hasNewImage && existing && Array.isArray(existing.imagenes) && existing.imagenes.length > 0) {
@@ -377,9 +611,11 @@ export class ProductManager {
                     const index = processedProducts.findIndex(p => p.nombre === searchName);
                     
                     if (index !== -1) {
+                        const prod = processedProducts[index];
+                        const productId = prod.id || change.productData.id;
+                        
                         // Antes de eliminar del array, intentar eliminar las imágenes asociadas en el repo
                         try {
-                            const prod = processedProducts[index];
                             if (prod && Array.isArray(prod.imagenes) && prod.imagenes.length > 0) {
                                 for (const imgName of prod.imagenes) {
                                     if (!imgName) continue;
@@ -396,6 +632,18 @@ export class ProductManager {
                             console.warn('Error al intentar eliminar imágenes asociadas durante delete:', err);
                         }
 
+                        // Acumular eliminación de inventario para ejecutarla tras subir a GitHub
+                        if (productId) {
+                            pendingInventorySaves.push({
+                                productId,
+                                invPayload: null, // null indica que es una eliminación
+                                name: searchName,
+                                changeId: change.id,
+                                isDelete: true
+                            });
+                            console.log(`Eliminación de inventario pendiente para ${searchName} (${productId})`);
+                        }
+
                         processedProducts.splice(index, 1);
                         console.log(`Producto eliminado: ${searchName}`);
                     } else {
@@ -407,8 +655,42 @@ export class ProductManager {
 
             // 4. Convertir array final a JSON Base64
             // IMPORTANTE: Mantener la estructura exacta original { "products": [...] }
+            // SANITIZAR: Asegurarse de que ningún producto contenga campos de inventario antes de exportar
+            const sanitizedProducts = processedProducts.map(p => {
+                try {
+                    // prepareProductForExport filtra campos no permitidos y preserva id si existe
+                    return this.prepareProductForExport(p);
+                } catch (err) {
+                    console.warn('prepareProductForExport falló para producto', p && p.id, err && err.message ? err.message : err);
+                    // Fallback seguro: construir un objeto mínimo y limpio
+                    return {
+                        id: p && p.id ? String(p.id) : (typeof generateProductId === 'function' ? generateProductId() : undefined),
+                        nombre: p && p.nombre ? String(p.nombre) : 'Sin nombre',
+                        categoria: p && p.categoria ? String(p.categoria) : '',
+                        precio: p && (p.precio !== undefined) ? parseFloat(p.precio) || 0 : 0,
+                        descuento: p && (p.descuento !== undefined) ? parseFloat(p.descuento) || 0 : 0,
+                        mas_vendido: Boolean(p && p.mas_vendido),
+                        nuevo: Boolean(p && p.nuevo),
+                        oferta: Boolean(p && p.oferta),
+                        imagenes: Array.isArray(p && p.imagenes) ? p.imagenes : [],
+                        descripcion: String((p && p.descripcion) || '').trim(),
+                        disponibilidad: p && p.disponibilidad !== false,
+                        created_at: p && (p.created_at || p.hora) ? (p.created_at || p.hora) : null,
+                        modified_at: p && (p.modified_at || p.hora) ? (p.modified_at || p.hora) : null
+                    };
+                }
+            });
+
+            // Última defensa: eliminar cualquier campo 'inventory' inesperado que pueda quedar
+            sanitizedProducts.forEach(p => {
+                if (p && p.inventory !== undefined) {
+                    console.warn('⚠️ Se eliminó campo inesperado `inventory` antes de exportar para product', p.id);
+                    delete p.inventory;
+                }
+            });
+
             const fileContent = {
-                products: processedProducts
+                products: sanitizedProducts
             };
 
             // Validar que la estructura es correcta antes de guardar
@@ -448,6 +730,56 @@ export class ProductManager {
                 
                 console.log(`✓ Archivo subido a la base de datos correctamente`);
                 report(95, 'Archivo de productos subido. Finalizando...');
+
+                // 5.b Guardar inventarios pendientes (si los hay) AHORA que el archivo ya está en GitHub
+                const inventorySaveSummary = { succeeded: [], failed: [], localStorageRecovered: [] };
+                
+                // Recuperar respaldos de inventario del localStorage (si backend no estaba disponible al crear)
+                const localStorageInventories = this._getPendingInventoryFromLocalStorage();
+                console.log(`📦 Recuperados ${Object.keys(localStorageInventories).length} respaldos de inventario del localStorage`);
+                
+                // Combinar: pendientes del staging + recuperados del localStorage
+                const allInventorySaves = [
+                    ...pendingInventorySaves,
+                    ...Object.entries(localStorageInventories).map(([productId, invPayload]) => ({
+                        productId,
+                        invPayload,
+                        name: processedProducts.find(p => p.id === productId)?.nombre || productId,
+                        fromLocalStorage: true
+                    }))
+                ];
+                
+                if (allInventorySaves.length > 0) {
+                    for (const item of allInventorySaves) {
+                        try {
+                            // Si invPayload es null, es una eliminación
+                            if (item.isDelete) {
+                                await inventoryApiClient.deleteInventory(item.productId);
+                                inventorySaveSummary.succeeded.push({ productId: item.productId, name: item.name, action: 'delete' });
+                                console.log(`✅ Inventario eliminado para producto ${item.name} (${item.productId})`);
+                            } else {
+                                const saved = await inventoryApiClient.saveInventory(item.productId, item.invPayload);
+                                // Adjuntar inventario normalizado al producto en memoria
+                                const idx = processedProducts.findIndex(p => p.id === item.productId);
+                                if (idx !== -1) processedProducts[idx].inventory = saved;
+                                
+                                if (item.fromLocalStorage) {
+                                    inventorySaveSummary.localStorageRecovered.push({ productId: item.productId, name: item.name });
+                                    this._removeInventoryFromLocalStorage(item.productId);
+                                    console.log(`✅ Inventario recuperado del localStorage y guardado para ${item.name} (${item.productId})`);
+                                } else {
+                                    inventorySaveSummary.succeeded.push({ productId: item.productId, name: item.name });
+                                    console.log(`Inventario guardado post-upload para ${item.name} (${item.productId})`);
+                                }
+                            }
+                        } catch (err) {
+                            inventorySaveSummary.failed.push({ productId: item.productId, name: item.name, error: err && err.message ? err.message : String(err) });
+                            console.warn(`No se pudo procesar inventario para ${item.name} (${item.productId}):`, err && err.message ? err.message : err);
+                            // No limpiar del localStorage si falla, para reintentar después
+                        }
+                    }
+                    console.log(`📊 Resumen inventario - Exitosos: ${inventorySaveSummary.succeeded.length} | Recuperados: ${inventorySaveSummary.localStorageRecovered.length} | Fallidos: ${inventorySaveSummary.failed.length}`);
+                }
             } catch (error) {
                 console.error('Error validando o serializando JSON:', error);
                 throw error;
@@ -462,7 +794,8 @@ export class ProductManager {
                 success: true,
                 message: 'Todos los cambios han sido sincronizados con la base de datos',
                 filesUpdated: this.stagedChanges.length + 1, // +1 por el archivo de productos
-                commitSha: uploadResult?.commit?.sha || null
+                commitSha: uploadResult?.commit?.sha || null,
+                inventorySaveSummary
             };
         } catch (error) {
             console.error('Error sincronizando cambios:', error);
@@ -572,6 +905,7 @@ export class ProductManager {
      */
     /**
      * Prepara un producto para exportar a JSON (limpia campos internos, valida tipos)
+     * IMPORTANTE: Esta función SOLO exporta campos de PRODUCTO, NUNCA campos de INVENTARIO
      * @param {Object} productData - Datos del producto
      * @returns {Object} - Producto listo para guardar en JSON
      */
@@ -589,7 +923,17 @@ export class ProductManager {
             throw new Error('El campo "precio" es requerido');
         }
 
+        // SEGURIDAD: Verificar que NO hay campos de inventario siendo incluidos
+        const forbiddenFields = ['stock', 'precio_compra', 'proveedor', 'notas', 'last_updated', 'inventory', 'inventory_stock', 'inventory_precio_compra', 'inventory_proveedor', 'inventory_notas'];
+        const hasInventoryFields = forbiddenFields.some(field => productData.hasOwnProperty(field) && productData[field] !== undefined && productData[field] !== null);
+        
+        if (hasInventoryFields) {
+            // Campos de inventario detectados: serán descartados automáticamente por la whitelist.
+        }
+
+        // WHITELIST: Solo estos campos se exportan a GitHub
         return {
+            id: productData.id ? String(productData.id) : undefined,
             nombre: String(productData.nombre).trim(),
             categoria: String(productData.categoria).trim(),
             precio: parseFloat(productData.precio),
@@ -599,11 +943,46 @@ export class ProductManager {
             oferta: Boolean(productData.oferta || false),
             imagenes: Array.isArray(productData.imagenes) ? productData.imagenes : [],
             descripcion: String(productData.descripcion || '').trim(),
-            disponibilidad: productData.disponibilidad !== false
-        ,
+            disponibilidad: productData.disponibilidad !== false,
             // Mantener timestamps si vienen en los datos. Si no, quedarán null
             created_at: productData.created_at || productData.hora || null,
             modified_at: productData.modified_at || productData.hora || null
         };
+    }
+
+    /**
+     * Recupera todos los datos de inventario del localStorage (respaldos pendientes)
+     * @private
+     */
+    _getPendingInventoryFromLocalStorage() {
+        try {
+            const pending = {};
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key && key.startsWith('buquenque_inventory_')) {
+                    const stored = JSON.parse(localStorage.getItem(key));
+                    if (stored && !stored.synced) {
+                        pending[stored.productId] = stored.inventoryData;
+                    }
+                }
+            }
+            return pending;
+        } catch (err) {
+            console.warn('Error recuperando inventario de localStorage:', err);
+            return {};
+        }
+    }
+
+    /**
+     * Elimina datos de inventario del localStorage
+     * @private
+     */
+    _removeInventoryFromLocalStorage(productId) {
+        try {
+            const storageKey = `buquenque_inventory_${productId}`;
+            localStorage.removeItem(storageKey);
+        } catch (err) {
+            console.warn('Error eliminando del localStorage:', err);
+        }
     }
 }

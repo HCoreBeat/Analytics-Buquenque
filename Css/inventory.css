@@ -81,6 +81,39 @@
     min-width: 110px;
 }
 
+/* Inventory view toggle layout moved from inline HTML to CSS
+   Allows responsive wrapping so buttons don't overflow the panel */
+.inventory-view-toggle {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.inventory-view-toggle .btn {
+    min-width: 96px;
+    padding: 0.45rem 0.8rem;
+}
+
+@media (max-width: 720px) {
+    .inventory-view-toggle .btn {
+        min-width: 72px;
+        padding: 0.35rem 0.6rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .inventory-view-toggle {
+        gap: 0.35rem;
+    }
+    .inventory-view-toggle .btn {
+        min-width: 60px;
+        padding: 0.3rem 0.5rem;
+        font-size: 0.85rem;
+    }
+}
+
 /* Small adjustments for very small screens */
 @media (max-width: 480px) {
     .inventory-header {
@@ -447,7 +480,7 @@
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1.25rem;
     margin-top: 1.25rem;
 }
@@ -481,7 +514,7 @@
 .product-image-size {
     position: absolute;
     left: 0.5rem;
-    top: 0.5rem;
+    bottom: 0.5rem;
     background: rgba(0,0,0,0.6);
     color: #fff;
     padding: 0.18rem 0.4rem;
@@ -525,6 +558,39 @@
 
 .product-badge.modified {
     background: #f39c12;
+}
+
+.product-badge.deleted {
+    background: #e74c3c;
+}
+
+.product-card.deleted {
+    opacity: 0.5;
+    position: relative;
+    filter: grayscale(30%);
+    border: 2px dashed #e74c3c;
+}
+
+.product-card.deleted:hover {
+    box-shadow: 0 6px 16px rgba(231, 76, 60, 0.15);
+    transform: translateY(-3px);
+}
+
+.product-card.deleted::after {
+    content: 'SERÁ ELIMINADO';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(231, 76, 60, 0.95);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
 }
 
 .product-info {
@@ -633,9 +699,21 @@
 .product-price-original {
     font-size: 1rem;
     color: #95a5a6;
-    text-decoration: line-through;
-    line-height: 1;
 }
+
+/* Inventario mostrado en la product-card */
+.product-inventory {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    align-items: flex-end;
+    font-size: 0.85rem;
+    color: #333;
+}
+.product-inventory small { color: #555; display: block; }
+.product-inventory-stock { font-weight: 700; }
+.product-inventory-precio { color: #888; }
+.product-inventory-loading { color: #666; font-style: italic; }
 
 .product-actions {
     display: flex;

@@ -31,6 +31,14 @@ export class InventoryApp {
             this.packManager = new PackManager(this.githubManager);
             await this.packManager.init();
 
+            // Pre-cargar productos e inventarios para que estén listos al abrir la UI
+            try {
+                await this.productManager.loadProducts();
+                console.log('✓ Productos e inventarios precargados');
+            } catch (preErr) {
+                console.warn('Precarga de productos/inventario falló (se cargará on-demand):', preErr && preErr.message ? preErr.message : preErr);
+            }
+
             this.initialized = true;
             console.log('✓ ProductManager listo (llame a showInventory() para inicializar la UI)');
         } catch (error) {
