@@ -224,7 +224,7 @@
       },
       {
         "id": null,
-        "name": "Manzana Ã°ÂÂÂ x unidad",
+        "name": "Manzana 🍎 x unidad",
         "quantity": 6,
         "unitPrice": 1.15,
         "discount": 0
@@ -831,43 +831,6 @@
     "precio_compra_total": "42.58",
     "navegador": "Safari",
     "sistema_operativo": "MacOS",
-    "tipo_usuario": "Recurrente",
-    "tiempo_promedio_pagina": 0,
-    "fuente_trafico": "Directo"
-  },
-  {
-    "ip": "138.199.50.129",
-    "pais": "US",
-    "fecha_hora_entrada": "2026-02-03 04:07:17",
-    "origen": "https://www.buquenqe.com/#Az%C3%BAcar%20blanca%20x%20lb",
-    "afiliado": "Ninguno",
-    "duracion_sesion_segundos": 0,
-    "tiempo_carga_pagina_ms": 0,
-    "nombre_comprador": "Testing del programador",
-    "telefono_comprador": "12341234",
-    "correo_comprador": "test@test.test",
-    "direccion_envio": "test",
-    "compras": [
-      {
-        "id": "prod_1768679794475_s112jvux0",
-        "name": "Paquete de cuartos de pollo 10 lbs",
-        "quantity": 1,
-        "type": "product",
-        "unitPrice": 12.000300000000001,
-        "discount": 7.69
-      },
-      {
-        "id": "prod_1768441690510_piqbut8gb",
-        "name": "Azúcar blanca x lb",
-        "quantity": 1,
-        "type": "product",
-        "unitPrice": 1.25,
-        "discount": 0
-      }
-    ],
-    "precio_compra_total": "13.25",
-    "navegador": "Chrome",
-    "sistema_operativo": "Windows",
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
