@@ -834,5 +834,162 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:58a:8e7c:95f0:680d:f48d:3918:c6fa",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-02-05 13:49:24",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Katery Gomez",
+    "telefono_comprador": "7868513045",
+    "correo_comprador": "katerygomez18@gmail.com",
+    "direccion_envio": "Rosendo Arteaga número 31 entre cuba y primera reparto  sosa",
+    "compras": [
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 8.9999,
+        "discount": 21.74
+      },
+      {
+        "id": "prod_1769919470708_wghwn1olf",
+        "name": "Leche en polvo (1kg)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768509219912_tvj6iq15t",
+        "name": "Mayonesa Victoria (250ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.47,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769030417838_noe5sa2wa",
+        "name": "Refresco Instantáneo (2Lt)",
+        "quantity": 20,
+        "type": "product",
+        "unitPrice": 0.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769297232608_fwssmtz8c",
+        "name": "Mortadella de Pollo",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.6000740000000002,
+        "discount": 35.74
+      },
+      {
+        "id": "prod_1769297232608_t1t8j7j86",
+        "name": "Atún en Aceite Vegetal (170g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.35,
+        "discount": 0
+      },
+      {
+        "id": "group_Spam de",
+        "name": "Spam de (Pollo) (340g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_qmortiuo4",
+        "name": "Lomitos de Atún en agua 160g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.35,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769697355677_bmk197yks",
+        "name": "Picadillo de Res Mulata Bonita(500g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_gkp20pj1x",
+        "name": "Espaguetis (500g)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 1.12,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_7gy02c75y",
+        "name": "Codito (500g)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.07,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769920633225_umws2zt0k",
+        "name": "Carne de Res enlatada Sublime",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 2.5,
+        "discount": 0
+      },
+      {
+        "id": "group_Pasta de Tomate",
+        "name": "Pasta de Tomate (Oderich)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.7,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_8ocdeke0z",
+        "name": "Pastilla de Pollo x unidad",
+        "quantity": 7,
+        "type": "product",
+        "unitPrice": 0.15,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769974779697_582345678",
+        "name": "Lomo de cerdo ahumado x (lbs)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 4,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_2ee9c6jft",
+        "name": "Paquete de salchichas (340g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.5,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "80.03",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
