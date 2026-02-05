@@ -1,44 +1,10 @@
 /* ═══════════════════════════════════════════════════════════
  * RESPONSIVE - Diseño responsivo para todos los tamaños
+ * Nota: Estructura base en layout.css, complementos aquí
  * ═══════════════════════════════════════════════════════════ */
 
-/* Extra Large Screens - 1600px+ */
-@media (min-width: 1600px) {
-  .content {
-    max-width: 1600px;
-  }
-
-  .insights-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Large Screens - 1200px+ */
-@media (min-width: 1200px) {
-  .dashboard-grid {
-    flex-direction: column;
-    display: flex;
-    gap: 2rem;
-  }
-
-  .insights-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
-  }
-}
-
-/* Desktop - 1200px */
+/* Complementos para header y estadísticas */
 @media (max-width: 1200px) {
-  .content {
-    padding: 1.5rem;
-    max-width: 1400px;
-  }
-
-  .insights-grid {
-    grid-template-columns: 1fr;
-  }
-
   .header-stats {
     grid-template-columns: repeat(2, 1fr);
   }

@@ -4,11 +4,11 @@
 
 .chart-container {
     position: relative;
-    height: 200px;
-    margin-bottom: 1.25rem;
+    height: 250px;
+    margin-bottom: 1.5rem;
     background: var(--secondary-dark);
     border-radius: var(--border-radius-sm);
-    padding: 1rem;
+    padding: 1.25rem;
     border: 1px solid var(--border-light);
 }
 
@@ -16,6 +16,7 @@
 .chart-container canvas {
     max-width: 100%;
     height: auto;
+    display: block;
 }
 
 /* Tooltips Chart.js */
@@ -43,14 +44,15 @@
 /* Responsive Charts */
 @media (max-width: 768px) {
     .chart-container {
-        height: 150px;
-        padding: 0.75rem;
+        height: 180px;
+        padding: 0.875rem;
     }
 }
 
 @media (max-width: 480px) {
     .chart-container {
-        height: 120px;
-        padding: 0.5rem;
+        height: 140px;
+        padding: 0.75rem;
+        margin-bottom: 1rem;
     }
 }

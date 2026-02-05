@@ -53,29 +53,30 @@
     flex-direction: column;
     gap: 1.5rem;
     margin-bottom: 1.5rem;
+    width: 100%;
 }
 
-/* Grid de insights */
+/* Grid de insights - Responsive flexible */
 .insights-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    grid-template-columns: 1fr;
     gap: 1.5rem;
+    width: 100%;
+    align-content: start;
 }
 
-/* Responsive Layout */
-@media (max-width: 1200px) {
+/* Responsive Layout - Optimizado para diferentes breakpoints */
+
+/* Tablet Large - 900px y menos */
+@media (max-width: 900px) {
     .content {
         padding: 1.5rem;
+        margin-left: 0;
     }
     
     .insights-grid {
         grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .content {
-        padding: 1rem;
+        gap: 1.5rem;
     }
     
     .header-top {
@@ -88,9 +89,28 @@
     }
 }
 
+/* Tablet - 768px */
+@media (max-width: 768px) {
+    .content {
+        padding: 1rem;
+        margin-left: 0;
+    }
+    
+    .header-top {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .header-actions {
+        width: 100%;
+    }
+}
+
+/* Mobile - 480px */
 @media (max-width: 480px) {
     .content {
-        padding: 0.55rem;
+        padding: 0.75rem;
+        margin-left: 0;
     }
     
     .header {
@@ -98,13 +118,24 @@
     }
     
     .dashboard-grid {
-        gap: 0.65rem;
+        gap: 0.875rem;
+    }
+    
+    .insights-grid {
+        gap: 0.875rem;
     }
 }
 
+/* Desktop Large - 1200px+ */
 @media (min-width: 1200px) {
+    .content {
+        padding: 2.5rem;
+        max-width: 1600px;
+        margin: 0 auto;
+        margin-left: 170px;
+    }
+    
     .dashboard-grid {
-        flex-direction: column;
         gap: 2rem;
     }
     
@@ -112,15 +143,27 @@
         display: grid;
         grid-template-columns: 2fr 1fr;
         gap: 2rem;
+        align-content: start;
+        grid-template-areas:
+            "summary entry"
+            "daily entry"
+            "globe globe"
+            "products products"
+            "sales sales";
     }
+    
+    /* Card positioning en desktop */
+    .summary-card { grid-area: summary; }
+    .daily-card { grid-area: daily; }
+    .entry-card { grid-area: entry; }
+    #globe-card { grid-area: globe; }
+    .products-card { grid-area: products; }
+    .sales-card { grid-area: sales; }
 }
 
+/* Extra Large - 1600px+ */
 @media (min-width: 1600px) {
     .content {
         max-width: 1600px;
-    }
-    
-    .insights-grid {
-        grid-template-columns: repeat(2, 1fr);
     }
 }

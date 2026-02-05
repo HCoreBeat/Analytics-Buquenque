@@ -2,11 +2,15 @@
  * STATS - Tarjetas de estadísticas y métricas
  * ═══════════════════════════════════════════════════════════ */
 
+/* ═══════════════════════════════════════════════════════════
+ * STATS - Tarjetas de estadísticas y métricas
+ * ═══════════════════════════════════════════════════════════ */
+
 .header-stats {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 0.875rem;
-    margin-bottom: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .stat-card {

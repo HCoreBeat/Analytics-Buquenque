@@ -12,9 +12,11 @@
 
     <!-- CSS Modularizado -->
     <link rel="stylesheet" href="Css/main.css">
+    <link rel="stylesheet" href="Css/loading.css">
     <link rel="stylesheet" href="Css/pedidos-new.css">
     <link rel="stylesheet" href="Css/settings.css">
     <link rel="stylesheet" href="Css/modal-github.css">
+    <link rel="stylesheet" href="Css/finanzas.css">
     <link rel="stylesheet" href="Css/inventory.css">
     <link rel="stylesheet" href="Css/inventory-modal.css">
     <link rel="stylesheet" href="Css/tools.css">
@@ -31,6 +33,100 @@
         </script>
 </head>
 <body>
+    <!-- Loading Panel - Ultra Moderno -->
+    <div id="loading-panel" class="loading-panel">
+        <!-- Fondo animado con partículas -->
+        <div class="loading-bg-particles">
+            <div class="loading-particle" style="--delay: 0s; --duration: 8s;"></div>
+            <div class="loading-particle" style="--delay: 1s; --duration: 10s;"></div>
+            <div class="loading-particle" style="--delay: 2s; --duration: 9s;"></div>
+            <div class="loading-particle" style="--delay: 3s; --duration: 11s;"></div>
+            <div class="loading-particle" style="--delay: 4s; --duration: 7s;"></div>
+        </div>
+        
+        <div class="loading-panel-content">
+            <!-- Logo animado -->
+            <div class="loading-panel-header">
+                <div class="loading-panel-icon">
+                    <svg class="loading-icon-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#7B68EE;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="url(#iconGradient)" stroke-width="2" opacity="0.3"/>
+                        <path d="M 30 60 L 50 30 L 70 60" fill="none" stroke="url(#iconGradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M 30 60 L 70 60" stroke="url(#iconGradient)" stroke-width="2" opacity="0.5"/>
+                    </svg>
+                </div>
+                
+                <div class="loading-panel-text">
+                    <h1 class="loading-panel-title">Dashboard Buquenque</h1>
+                    <p class="loading-panel-subtitle">Preparando tu panel de análisis...</p>
+                </div>
+            </div>
+            
+            <!-- Barra de progreso mejorada -->
+            <div class="loading-progress-container">
+                <div class="loading-progress-bar">
+                    <div class="loading-progress-fill" id="loading-progress-fill"></div>
+                    <div class="loading-progress-shimmer"></div>
+                </div>
+                <div class="loading-progress-text">
+                    <span id="loading-percent" class="loading-percent-value">0%</span>
+                </div>
+            </div>
+            
+            <!-- Panel de estado detallado -->
+            <div class="loading-status-panel">
+                <div class="loading-status-item">
+                    <span class="loading-status-icon"><i class="fas fa-server"></i></span>
+                    <div class="loading-status-content">
+                        <span class="loading-status-label">Servidor</span>
+                        <span class="loading-status-value" id="loading-status-server">Conectando...</span>
+                    </div>
+                </div>
+                
+                <div class="loading-status-item">
+                    <span class="loading-status-icon"><i class="fas fa-database"></i></span>
+                    <div class="loading-status-content">
+                        <span class="loading-status-label">Datos</span>
+                        <span class="loading-status-value" id="loading-status-data">Cargando...</span>
+                    </div>
+                </div>
+                
+                <div class="loading-status-item">
+                    <span class="loading-status-icon"><i class="fas fa-tachometer-alt"></i></span>
+                    <div class="loading-status-content">
+                        <span class="loading-status-label">Velocidad</span>
+                        <span class="loading-status-value" id="loading-status-speed">—</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Animación de carga -->
+            <div class="loading-dots-container">
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+            </div>
+            
+            <!-- Mini estadísticas -->
+            <div class="loading-mini-stats">
+                <div class="loading-mini-stat">
+                    <span class="loading-mini-label">Paso</span>
+                    <span class="loading-mini-value" id="loading-step">1/8</span>
+                </div>
+                <div class="loading-mini-stat separator"></div>
+                <div class="loading-mini-stat">
+                    <span class="loading-mini-label">Tiempo</span>
+                    <span class="loading-mini-value" id="loading-time">0s</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <header class="app-header">
         <div class="header-content">
             <button class="hamburger-menu" id="hamburger-btn" aria-label="Menú">
@@ -68,6 +164,7 @@
                 </a></li>
                 <li><a href="#" class="menu-item" data-view="pedidos"><i class="fas fa-shopping-cart"></i> Pedidos <span class="pedidos-badge" id="pedidos-menu-badge" style="display: none;"></span></a></li>
                 <li><a href="#" class="menu-item" data-view="inventory"><i class="fas fa-boxes"></i> Inventario</a></li>
+                <li><a href="#" class="menu-item" data-view="finanzas"><i class="fas fa-money-bill-wave"></i> Finanzas</a></li>
                 <li><a href="#" class="menu-item" data-view="notifications"><i class="fas fa-bell"></i> Notificaciones</a></li>
                 <li class="menu-separator"></li>
                 <li><a href="#" class="menu-item" data-view="server"><i class="fas fa-server"></i> Server</a></li>
@@ -133,6 +230,13 @@
                             </div>
                         </div>
                         <div class="stat-card">
+                            <i class="fas fa-dollar-sign"></i>
+                            <div class="stat-content">
+                                <span class="stat-value" id="finanzas-toolbar-kpi">—</span>
+                                <span class="stat-label">Valor USD</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
                             <i class="fas fa-user-check"></i>
                             <div class="stat-content" id="server-available-users-card">
                                 <div class="metric-card small">
@@ -145,7 +249,7 @@
                 </div>
 
                 <!-- Filters Modal -->
-                <div id="filters-modal" class="filters-modal github-save-modal" role="dialog" aria-modal="true" aria-hidden="true">
+                <div id="filters-modal" class="filters-modal github-save-modal" role="dialog" aria-modal="true" aria-hidden="true" inert>
                     <div class="modal-overlay" id="filters-modal-overlay"></div>
                     <div class="modal-content" role="document">
                         <div class="modal-header">
@@ -247,12 +351,12 @@
                         </div>
                     </div>
 
-                    <div class="card">
+                    <div class="card daily-card">
                         <h3 class="card-title"><i class="fas fa-calendar-alt"></i> Resumen Diario</h3>
                         <div class="summary-grid" id="daily-summary"></div>
                     </div>
 
-                    <div class="card">
+                    <div class="card entry-card">
                         <h3 class="card-title"><i class="fas fa-clock"></i> Horas de Entrada (Usuarios)</h3>
                         <div class="card-body" id="entry-hours-card">
                             <div id="entry-hours-container">
@@ -270,15 +374,15 @@
                         </div>
                     </div>
                     
-                    <div class="card full-width">
+                    <div class="card full-width products-card">
                         <h3 class="card-title"><i class="fas fa-star"></i> Top Productos</h3>
                         <div class="chart-container">
                             <canvas id="products-chart" width="300" height="200"></canvas>
-                        </div>
+                        </div>  
                         <div class="ranking-list compact" id="top-products"></div>
                     </div>
 
-                    <div class="card full-width">
+                    <div class="card full-width sales-card">
                         <h3 class="card-title"><i class="fas fa-chart-line"></i> Tendencias de Ventas</h3>
                         <div class="chart-container">
                             <canvas id="sales-trend-chart" width="300" height="200"></canvas>
@@ -476,6 +580,9 @@
                 </div>
             </div>
         </div>
+
+        <!-- Vista Finanzas -->
+        <div id="finanzas-view" class="view-content"></div>
 
         <!-- Vista Inventario -->
         <div id="inventory-view" class="view-content"></div>
@@ -907,10 +1014,10 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script type="module" src="Js/script-new.js" defer></script>
-    <script type="module" src="Js/server-panel.js" defer></script>
-    <script type="module" src="Js/pedidos.js" defer></script>
-    <script type="module" src="Js/globe.js" defer></script>
-    <script type="module" src="Js/imageCompressor.js" defer></script>
+    <script type="module" src="Js/app.js" defer></script>
+    <script type="module" src="Js/Modules/Tools/server-panel.js" defer></script>
+    <script type="module" src="Js/Modules/Orders/pedidos.js" defer></script>
+    <script type="module" src="Js/UI/globe.js" defer></script>
+    <script type="module" src="Js/Modules/Tools/imageCompressor.js" defer></script>
 </body>
 </html>

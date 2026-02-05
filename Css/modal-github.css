@@ -26,6 +26,55 @@
     animation: fadeIn 0.3s ease;
 }
 
+/* Confirm modal (replaces inline styles used en JS) */
+.confirm-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.45);
+    z-index: 3000;
+}
+
+.confirm-box {
+    background: #fff;
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    max-width: 420px;
+    width: calc(100% - 2rem);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+}
+
+.confirm-message {
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    color: #222;
+}
+
+.confirm-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+
+.btn-confirm-no, .btn-confirm-yes {
+    padding: 0.45rem 0.7rem;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background: #fff;
+    cursor: pointer;
+}
+
+.btn-confirm-yes.btn {
+    background: #4A90E2;
+    color: #fff;
+    border-color: #3d82d4;
+}
+
+.btn-confirm-no:hover { background: #f5f5f5; }
+.btn-confirm-yes:hover { filter: brightness(0.95); }
+
 .modal-content {
     position: relative;
     background: white;

@@ -361,6 +361,46 @@
     animation: rotate 2s linear infinite;
 }
 
+/* Estado procesando y entregado */
+.estado-badge.estado-procesando {
+    background: rgba(74,144,226,0.12);
+    color: #1e75bf;
+}
+
+.estado-badge.estado-entregado {
+    background: rgba(16,185,129,0.08);
+    color: var(--color-success);
+}
+
+/* Notificaciones internas por pedido */
+.pedido-notificacion {
+    margin: 0.75rem 1rem;
+    padding: 0.6rem 0.9rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 600;
+}
+
+.pedido-notificacion.procesando {
+    background: rgba(74,144,226,0.06);
+    color: #1e75bf;
+    border-left: 4px solid #4A90E2;
+}
+
+.pedido-notificacion.exito {
+    background: rgba(16,185,129,0.06);
+    color: #059669;
+    border-left: 4px solid #10B981;
+}
+
+.pedido-notificacion.error {
+    background: rgba(239,68,68,0.06);
+    color: #ef4444;
+    border-left: 4px solid #ef4444;
+}
+
 @keyframes rotate {
     from {
         transform: rotate(0deg);
