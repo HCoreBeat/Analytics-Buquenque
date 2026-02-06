@@ -994,6 +994,7 @@
   },
   {
   "nombre_comprador": "Pedido 1 de febrero",
+    "fecha_hora_entrada": "2026-02-04 13:49:24",
   "compras": [
     {
       "name": "Refresco de cola (pomo)",
@@ -1031,6 +1032,7 @@
  },
   {
   "nombre_comprador": "Pedido 2 de febrero",
+    "fecha_hora_entrada": "2026-02-04 13:40:24",
   "compras": [
     {
       "name": "Carne de res en lata",
@@ -1073,6 +1075,4 @@
   ],
   "precio_compra_total": "67.18"
 }
-
-
 ]
