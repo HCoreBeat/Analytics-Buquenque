@@ -1215,5 +1215,90 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "152.206.194.44",
+    "pais": "CU",
+    "fecha_hora_entrada": "2026-02-06 14:10:41",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yudith Vázquez Nuñez",
+    "telefono_comprador": "53192532",
+    "correo_comprador": "bellyu0529@gmail.com",
+    "direccion_envio": "Calle José Fernández Peña #56 / Eddy Chibás y Cristino Naranjo. Sosa",
+    "compras": [
+      {
+        "id": "prod_1768844669044_5f4r1k3kk",
+        "name": "1kg de queso gouda",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 12,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 8.9999,
+        "discount": 21.74
+      },
+      {
+        "id": "group_Jamón bravo",
+        "name": "Jamón bravo(1kg)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 11,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769295656223_5sbmcfw58",
+        "name": "Salchicha Sublime de Pollo – 1kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_8asugkx1n",
+        "name": "Galletas Renata Maizena (170g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ovzxwkud2",
+        "name": "Sopa instantánea sabor Pollo (80g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_hsxlkh07e",
+        "name": "Galletas Snack (30g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769357390791_h9ang5l6m",
+        "name": "Cuartos de Pierna de Pollo (10 lbs)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 12.000300000000001,
+        "discount": 7.69
+      }
+    ],
+    "precio_compra_total": "50.00",
+    "navegador": "Samsung Browser",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "android-app://com.google.android.googlequicksearchbox/"
   }
 ]
