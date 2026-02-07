@@ -1300,5 +1300,154 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "android-app://com.google.android.googlequicksearchbox/"
+  },
+  {
+    "ip": "2600:1006:b085:be3:2840:f2cc:cb90:fb1",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-02-07 12:25:27",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Adianes",
+    "telefono_comprador": "7867598545",
+    "correo_comprador": "adianesteruel@gmail.com",
+    "direccion_envio": "Eduardo de la Torrez # 9 Entre Julián Santana y fco Vega. Repito Snto Domingo.",
+    "compras": [
+      {
+        "id": "prod_1769919470708_wghwn1olf",
+        "name": "Leche en polvo (1kg)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768509219912_orvyg0rkr",
+        "name": "Galletas Marías (80g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.9,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_8asugkx1n",
+        "name": "Galletas Renata Maizena (170g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_oc7mknmxt",
+        "name": "Caja de galletas de soda Saltine 227g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.9,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_5bquahf1q",
+        "name": "Galletas Petit Biscuits de coco 80g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.8,
+        "discount": 0
+      },
+      {
+        "id": "group_Galletas Hello",
+        "name": "Galletas Hello (Fresa) (50g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.59,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_lx2ochyll",
+        "name": "Chupa Chupa x unidad",
+        "quantity": 8,
+        "type": "product",
+        "unitPrice": 0.25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_piqbut8gb",
+        "name": "Azúcar blanca x lb",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_gkp20pj1x",
+        "name": "Espaguetis (500g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.12,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ovzxwkud2",
+        "name": "Sopa instantánea sabor Pollo (80g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_x6vswdewh",
+        "name": "Arroz (1Kg)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_tf4rwuo62",
+        "name": "Frijol Negro (500g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769297232608_fwssmtz8c",
+        "name": "Mortadella de Pollo",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.6000740000000002,
+        "discount": 35.74
+      },
+      {
+        "id": "prod_1769697355677_bmk197yks",
+        "name": "Picadillo de Res Mulata Bonita(500g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768679794475_s112jvux0",
+        "name": "Paquete de cuartos de pollo 10 lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 12.000300000000001,
+        "discount": 7.69
+      },
+      {
+        "id": "prod_1769213534534_s8dqaxn10",
+        "name": "Yogurt probiótico de 1L (fresa-natural- guanábana)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 5.8002,
+        "discount": 3.33
+      }
+    ],
+    "precio_compra_total": "48.94",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
