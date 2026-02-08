@@ -1449,5 +1449,74 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:382:1048:3013:8d13:3894:2925:e9c2",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-02-07 19:18:55",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Norma Luz Silva",
+    "telefono_comprador": "4043995725",
+    "correo_comprador": "nlssglez97@gmail.com",
+    "direccion_envio": "Calle26 casa#3 % 1 y 3 aeropuerto Las tunas",
+    "compras": [
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 8.9999,
+        "discount": 21.74
+      },
+      {
+        "id": "prod_1769919470708_wghwn1olf",
+        "name": "Leche en polvo (1kg)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769030417838_noe5sa2wa",
+        "name": "Refresco Instantáneo (2Lt)",
+        "quantity": 50,
+        "type": "product",
+        "unitPrice": 0.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769299337399_whcc4wirj",
+        "name": "Paquete de café La Llave (284g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 7.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_p8q4pyl2i",
+        "name": "Pack x 6 Manzana 🍎",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 6.9,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "51.98",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
