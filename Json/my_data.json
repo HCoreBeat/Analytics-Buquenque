@@ -1520,64 +1520,165 @@
     "fuente_trafico": "Directo"
   },
   {
-  "ip": "2600:382:1048:3013:8d13:3894:2925:e9c2",
-  "pais": "US",
-  "fecha_hora_entrada": "2026-02-09 07:06:38",
-  "origen": "https://www.buquenqe.com/",
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 0,
-  "tiempo_carga_pagina_ms": 0,
-  "nombre_comprador": "Yisel Leyva",
-  "telefono_comprador": "(505) 589-2289",
-  "correo_comprador": "aismaraleyva90@gmail.com",
-  "direccion_envio": "Calle Jorge Rodriguez Napoles edificio 50 apartamento B4.detras de la secundaria Máximo Gomez Baez +5352466299",
-  "compras": [
-    {
-      "id": "prod_pack_manzana",
-      "name": "Pack x 6 Manzana",
-      "quantity": 1,
-      "type": "product",
-      "unitPrice": 6.9,
-      "discount": 0
-    },
-    {
-      "id": "prod_bolsa_pan",
-      "name": "Bolsa de pan 10u",
-      "quantity": 2,
-      "type": "product",
-      "unitPrice": 1.8,
-      "discount": 0
-    },
-    {
-      "id": "prod_galletas_soda",
-      "name": "Caja de galletas de soda Saltine 227g",
-      "quantity": 3,
-      "type": "product",
-      "unitPrice": 1.9,
-      "discount": 0
-    },
-    {
-      "id": "prod_limon_libra",
-      "name": "Limón (por libra)",
-      "quantity": 1,
-      "type": "product",
-      "unitPrice": 1.5,
-      "discount": 0
-    },
-    {
-      "id": "prod_mayonesa_hp",
-      "name": "Mayonesa HollandPark (250ml)",
-      "quantity": 1,
-      "type": "product",
-      "unitPrice": 2.42,
-      "discount": 0
-    }
-  ],
-  "precio_compra_total": "20.12",
-  "navegador": "Chrome",
-  "sistema_operativo": "Linux",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "https://www.google.com/"
-}
+    "ip": "2600:382:1048:3013:8d13:3894:2925:e9c2",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-02-09 07:06:38",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yisel Leyva",
+    "telefono_comprador": "(505) 589-2289",
+    "correo_comprador": "aismaraleyva90@gmail.com",
+    "direccion_envio": "Calle Jorge Rodriguez Napoles edificio 50 apartamento B4.detras de la secundaria Máximo Gomez Baez +5352466299",
+    "compras": [
+      {
+        "id": "prod_pack_manzana",
+        "name": "Pack x 6 Manzana",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 6.9,
+        "discount": 0
+      },
+      {
+        "id": "prod_bolsa_pan",
+        "name": "Bolsa de pan 10u",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.8,
+        "discount": 0
+      },
+      {
+        "id": "prod_galletas_soda",
+        "name": "Caja de galletas de soda Saltine 227g",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.9,
+        "discount": 0
+      },
+      {
+        "id": "prod_limon_libra",
+        "name": "Limón (por libra)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_mayonesa_hp",
+        "name": "Mayonesa HollandPark (250ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.42,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "20.12",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://www.google.com/"
+  },
+  {
+    "ip": "2600:387:15:3c12::a",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-02-09 07:51:27",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Fabio Roman Moreno",
+    "telefono_comprador": "+17862299155",
+    "correo_comprador": "fabiogrm2024@gmail.com",
+    "direccion_envio": "Ave. Frank País Edificio 1 apto 13. Entre ave. 2 de diciembre y R naranjo. Rpto Velazquez",
+    "compras": [
+      {
+        "id": "prod_1769295656223_5sbmcfw58",
+        "name": "Salchicha Sublime de Pollo – 1kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_x6vswdewh",
+        "name": "Arroz (1Kg)",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 2.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_giw45i4dl",
+        "name": "Paquete de Harina (1kg)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_bluy6jgyz",
+        "name": "Leche Condensada Azucarada Castellum (390g)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 1.42,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ynzwusik9",
+        "name": "Paquete de azúcar 1kg",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 1.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768918643793_wff5w2f61",
+        "name": "Frijoles rojos x(lbs)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769920633225_umws2zt0k",
+        "name": "Carne de Res enlatada Sublime",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 2.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ma2k8r01f",
+        "name": "Aceite (900ml)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 3.65,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_tf4rwuo62",
+        "name": "Frijol Negro (500g)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_gkp20pj1x",
+        "name": "Espaguetis (500g)",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.12,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "99.43",
+    "navegador": "Samsung Browser",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  }
 ]
