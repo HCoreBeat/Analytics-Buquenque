@@ -1549,14 +1549,6 @@
         "discount": 0
       },
       {
-        "id": "prod_galletas_soda",
-        "name": "Caja de galletas de soda Saltine 227g",
-        "quantity": 3,
-        "type": "product",
-        "unitPrice": 1.9,
-        "discount": 0
-      },
-      {
         "id": "prod_limon_libra",
         "name": "Limón (por libra)",
         "quantity": 1,
@@ -1573,7 +1565,7 @@
         "discount": 0
       }
     ],
-    "precio_compra_total": "20.12",
+    "precio_compra_total": "14.42",
     "navegador": "Chrome",
     "sistema_operativo": "Linux",
     "tipo_usuario": "Recurrente",
