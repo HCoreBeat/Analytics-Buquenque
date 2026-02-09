@@ -1674,88 +1674,181 @@
     "fuente_trafico": "Directo"
   },
   {
- "ip": "152.206.214.188",
-  "pais": "CU",
-  "fecha_hora_entrada": "2026-02-09 12:54:13",
-  "origen": "https://www.buquenqe.com/#",
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 0,
-  "tiempo_carga_pagina_ms": 0,
-  "nombre_comprador": "Yudith Vázquez Nuñez",
-  "telefono_comprador": "53192532",
-  "correo_comprador": "bellyu0529@gmail.com",
-  "direccion_envio": "Calle José Fernández Peña #56 /Eddy Chibás y Cristino Naranjo. Sosa",
-  "compras": [
-    {
-      "id": "prod_001",
-      "name": "Aceite (900ml)",
-      "quantity": 2,
-      "type": "product",
-      "unitPrice": 4.5,
-      "discount": 0
-    },
-    {
-      "id": "prod_002",
-      "name": "Arroz (1Kg)",
-      "quantity": 3,
-      "type": "product",
-      "unitPrice": 2.17,
-      "discount": 0
-    },
-    {
-      "id": "prod_003",
-      "name": "Paquete de azúcar 1kg",
-      "quantity": 4,
-      "type": "product",
-      "unitPrice": 1.95,
-      "discount": 0
-    },
-    {
-      "id": "prod_004",
-      "name": "Sopa instantánea sabor Pollo (80g)",
-      "quantity": 2,
-      "type": "product",
-      "unitPrice": 0.8,
-      "discount": 0
-    },
-    {
-      "id": "prod_005",
-      "name": "Espaguetis (500g)",
-      "quantity": 2,
-      "type": "product",
-      "unitPrice": 1.12,
-      "discount": 0
-    },
-    {
-      "id": "prod_006",
-      "name": "Codito (500g)",
-      "quantity": 1,
-      "type": "product",
-      "unitPrice": 1.07,
-      "discount": 0
-    },
-    {
-      "id": "prod_007",
-      "name": "Carne de Res enlatada Sublime",
-      "quantity": 1,
-      "type": "product",
-      "unitPrice": 2.5,
-      "discount": 0
-    },
-    {
-      "id": "prod_008",
-      "name": "Chupa Chupa x unidad",
-      "quantity": 1,
-      "type": "product",
-      "unitPrice": 0.25,
-      "discount": 0
-    }
-  ],
-  "precio_compra_total": "30.97",
-  "navegador": "Samsung Browser",
-  "sistema_operativo": "Linux",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-}
+    "ip": "152.206.214.188",
+    "pais": "CU",
+    "fecha_hora_entrada": "2026-02-09 12:54:13",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yudith Vázquez Nuñez",
+    "telefono_comprador": "53192532",
+    "correo_comprador": "bellyu0529@gmail.com",
+    "direccion_envio": "Calle José Fernández Peña #56 /Eddy Chibás y Cristino Naranjo. Sosa",
+    "compras": [
+      {
+        "id": "prod_001",
+        "name": "Aceite (900ml)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 4.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_002",
+        "name": "Arroz (1Kg)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 2.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_003",
+        "name": "Paquete de azúcar 1kg",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_004",
+        "name": "Sopa instantánea sabor Pollo (80g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.8,
+        "discount": 0
+      },
+      {
+        "id": "prod_005",
+        "name": "Espaguetis (500g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.12,
+        "discount": 0
+      },
+      {
+        "id": "prod_006",
+        "name": "Codito (500g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.07,
+        "discount": 0
+      },
+      {
+        "id": "prod_007",
+        "name": "Carne de Res enlatada Sublime",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_008",
+        "name": "Chupa Chupa x unidad",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.25,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "30.97",
+    "navegador": "Samsung Browser",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2603:6012:f8f0:5850:68ef:763d:3ec8:280",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-02-09 17:41:11",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Daimarelis Diaz Vazquez",
+    "telefono_comprador": "54935704",
+    "correo_comprador": "daimarelisdiazvasquez@gmail.com",
+    "direccion_envio": "Calle colon",
+    "compras": [
+      {
+        "id": "prod_1769297232608_fwssmtz8c",
+        "name": "Mortadella de Pollo",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.6000740000000002,
+        "discount": 35.74
+      },
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_3cdu00quq",
+        "name": "Papas tostadas 30g",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 0.9,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769227733184_kw7ouwd8b",
+        "name": "Pomo de Gelatina (50/u)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 22,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768509219912_tvj6iq15t",
+        "name": "Mayonesa Victoria (250ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.47,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 8.9999,
+        "discount": 21.74
+      },
+      {
+        "id": "prod_1769613603917_5rg815imv",
+        "name": "Pollo entero Saera(1300g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 7,
+        "discount": 12.5
+      },
+      {
+        "id": "prod_1768441690510_p8q4pyl2i",
+        "name": "Pack x 6 Manzana 🍎",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 6.9,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.8,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "58.81",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  }
 ]
