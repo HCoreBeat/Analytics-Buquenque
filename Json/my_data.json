@@ -1672,5 +1672,66 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "152.206.214.188",
+    "pais": "CU",
+    "fecha_hora_entrada": "2026-02-09 12:54:13",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yudith Vázquez Nuñez",
+    "telefono_comprador": "53192532",
+    "correo_comprador": "bellyu0529@gmail.com",
+    "direccion_envio": "Calle José Fernández Peña #56 /Eddy Chibás y Cristino Naranjo. Sosa",
+    "compras": [
+      {
+        "id": "prod_1768441690510_ma2k8r01f",
+        "name": "Aceite (900ml)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 4.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_x6vswdewh",
+        "name": "Arroz (1Kg)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 2.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ynzwusik9",
+        "name": "Paquete de azúcar 1kg",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769299337399_whcc4wirj",
+        "name": "Paquete de café La Llave (284g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 7.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ovzxwkud2",
+        "name": "Sopa instantánea sabor Pollo (80g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.8,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "30.95",
+    "navegador": "Samsung Browser",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
