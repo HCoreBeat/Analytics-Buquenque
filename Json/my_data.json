@@ -1674,28 +1674,7 @@
     "fuente_trafico": "Directo"
   },
   {
-    "ip": "152.206.214.188",
-    "pais": "CU",
-    "fecha_hora_entrada": "2026-02-09 12:54:13",
-    "origen": "https://www.buquenqe.com/#",
-    "afiliado": "Ninguno",
-    "duracion_sesion_segundos": 0,
-    "tiempo_carga_pagina_ms": 0,
-    "nombre_comprador": "Yudith Vázquez Nuñez",
-    "telefono_comprador": "53192532",
-    "correo_comprador": "bellyu0529@gmail.com",
-    "direccion_envio": "Calle José Fernández Peña #56 /Eddy Chibás y Cristino Naranjo. Sosa",
-    "compras": [
-      {
-        "id": "prod_1768441690510_ma2k8r01f",
-        "name": "Aceite (900ml)",
-        "quantity": 2,
-        "type": "product",
-        "unitPrice": 4.5,
-        "discount": 0
-      },
-      {
-  "ip": "152.206.214.188",
+ "ip": "152.206.214.188",
   "pais": "CU",
   "fecha_hora_entrada": "2026-02-09 12:54:13",
   "origen": "https://www.buquenqe.com/#",
