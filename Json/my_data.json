@@ -1759,96 +1759,94 @@
     "fuente_trafico": "Directo"
   },
   {
-    "ip": "2603:6012:f8f0:5850:68ef:763d:3ec8:280",
-    "pais": "US",
-    "fecha_hora_entrada": "2026-02-09 17:41:11",
-    "origen": "https://www.buquenqe.com/",
-    "afiliado": "Ninguno",
-    "duracion_sesion_segundos": 0,
-    "tiempo_carga_pagina_ms": 0,
-    "nombre_comprador": "Daimarelis Diaz Vazquez",
-    "telefono_comprador": "54935704",
-    "correo_comprador": "daimarelisdiazvasquez@gmail.com",
-    "direccion_envio": "Calle colon",
-    "compras": [
-      {
-        "id": "prod_1769297232608_fwssmtz8c",
-        "name": "Mortadella de Pollo",
-        "quantity": 2,
-        "type": "product",
-        "unitPrice": 1.6000740000000002,
-        "discount": 35.74
-      },
-      {
-        "id": "prod_1769200481205_vpc09blss",
-        "name": "Galletas de Sal Criollas – Paquete Tradicional",
-        "quantity": 1,
-        "type": "product",
-        "unitPrice": 3.74,
-        "discount": 0
-      },
-      {
-        "id": "prod_1768441690510_3cdu00quq",
-        "name": "Papas tostadas 30g",
-        "quantity": 3,
-        "type": "product",
-        "unitPrice": 0.9,
-        "discount": 0
-      },
-      {
-        "id": "prod_1769227733184_kw7ouwd8b",
-        "name": "Pomo de Gelatina (50/u)",
-        "quantity": 1,
-        "type": "product",
-        "unitPrice": 22,
-        "discount": 0
-      },
-      {
-        "id": "prod_1768509219912_tvj6iq15t",
-        "name": "Mayonesa Victoria (250ml)",
-        "quantity": 1,
-        "type": "product",
-        "unitPrice": 2.47,
-        "discount": 0
-      },
-      {
-        "id": "prod_1768783820711_rmnry541r",
-        "name": "Cartón de Huevos",
-        "quantity": 1,
-        "type": "product",
-        "unitPrice": 8.9999,
-        "discount": 21.74
-      },
-      {
-        "id": "prod_1769613603917_5rg815imv",
-        "name": "Pollo entero Saera(1300g)",
-        "quantity": 1,
-        "type": "product",
-        "unitPrice": 7,
-        "discount": 12.5
-      },
-      {
-        "id": "prod_1768441690510_p8q4pyl2i",
-        "name": "Pack x 6 Manzana 🍎",
-        "quantity": 1,
-        "type": "product",
-        "unitPrice": 6.9,
-        "discount": 0
-      },
-      {
-        "id": "prod_1768441690510_ujn45fhvi",
-        "name": "Bolsa de pan 10u",
-        "quantity": 1,
-        "type": "product",
-        "unitPrice": 1.8,
-        "discount": 0
-      }
-    ],
-    "precio_compra_total": "58.81",
-    "navegador": "Safari",
-    "sistema_operativo": "MacOS",
-    "tipo_usuario": "Recurrente",
-    "tiempo_promedio_pagina": 0,
-    "fuente_trafico": "Directo"
-  }
+  "ip": "2603:6012:f8f0:5850:68ef:763d:3ec8:280",
+  "pais": "US",
+  "fecha_hora_entrada": "2026-02-09 17:41:11",
+  "origen": "https://www.buquenqe.com/",
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 0,
+  "tiempo_carga_pagina_ms": 0,
+  "nombre_comprador": "Daimarelis Diaz Vazquez",
+  "telefono_comprador": "54935704",
+  "correo_comprador": "daimarelisdiazvasquez@gmail.com",
+  "direccion_envio": "Calle colon",
+  "compras": [
+    {
+      "id": "prod_1769297232608_fwssmtz8c",
+      "name": "Mortadella de Pollo",
+      "quantity": 2,
+      "unitPrice": 1.600074,
+      "discount": 35.74
+    },
+    {
+      "id": "prod_1769200481205_vpc09blss",
+      "name": "Galletas de Sal Criollas – Paquete Tradicional",
+      "quantity": 1,
+      "unitPrice": 3.74,
+      "discount": 0
+    },
+    {
+      "id": "prod_1769227733184_kw7ouwd8b",
+      "name": "Pomo de Gelatina (50/u)",
+      "quantity": 1,
+      "unitPrice": 22,
+      "discount": 0
+    },
+    {
+      "id": "prod_1768509219912_tvj6iq15t",
+      "name": "Mayonesa Victoria (250ml)",
+      "quantity": 1,
+      "unitPrice": 2.47,
+      "discount": 0
+    },
+    {
+      "id": "prod_1768783820711_rmnry541r",
+      "name": "Cartón de Huevos",
+      "quantity": 1,
+      "unitPrice": 8.9999,
+      "discount": 21.74
+    },
+    {
+      "id": "prod_1769613603917_5rg815imv",
+      "name": "Pollo entero Saera(1300g)",
+      "quantity": 1,
+      "unitPrice": 7,
+      "discount": 12.5
+    },
+    {
+      "id": "prod_1768441690510_p8q4pyl2i",
+      "name": "Pack x 6 Manzana 🍎",
+      "quantity": 1,
+      "unitPrice": 6.9,
+      "discount": 0
+    },
+    {
+      "id": "prod_1768441690510_ujn45fhvi",
+      "name": "Bolsa de pan 10u",
+      "quantity": 1,
+      "unitPrice": 1.8,
+      "discount": 0
+    },
+    {
+      "id": "prod_1768441690510_7q2xoyywi",
+      "name": "Refresco Gaseado Mate (1.5Lt)",
+      "quantity": 4,
+      "unitPrice": 2.5,
+      "discount": 0
+    },
+    {
+      "id": "prod_1768441690510_w0k18968m",
+      "name": "Néctar de Manzana 🍎",
+      "quantity": 15,
+      "unitPrice": 1.50,
+      "discount": 0
+    }
+  ],
+  "precio_compra_total": "88.61",
+  "navegador": "Safari",
+  "sistema_operativo": "MacOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
+}
 ]
