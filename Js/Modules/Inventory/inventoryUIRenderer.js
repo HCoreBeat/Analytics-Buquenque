@@ -211,7 +211,7 @@ export class InventoryUIRenderer {
             <div class="inventory-toolbar">
                 <div class="search-box">
                     <i class="fas fa-search"></i>
-                    <input type="text" id="search-products" placeholder="Buscar productos...">
+                    <input type="text" id="search-products" placeholder="Buscar productos..." autocomplete="off" autocapitalize="off" spellcheck="false">
                 </div>
                 <div class="filter-controls">
                     <select class="filter-select" id="filter-category">
@@ -353,7 +353,7 @@ export class InventoryUIRenderer {
         let stockBadge = '';
         if (stockVal !== null) {
             if (stockVal === 0) {
-                stockBadge = '<span class="product-badge stock-out">Agotado</span>';
+                stockBadge = '<span class="product-badge stock-out">Sin Stock</span>';
             } else if (stockVal < 5) {
                 stockBadge = '<span class="product-badge stock-low">Bajo Stock</span>';
             } else if (stockVal < 20) {
@@ -372,7 +372,9 @@ export class InventoryUIRenderer {
                 <div class="product-meta">
                     <small>Creado: ${createdStr}</small><br>
                     <small>Última modificación: ${modifiedStr}</small>
+                    ${stockBadge}
                 </div>
+                
                 <div class="product-inventory" ${product.inventory && product.inventory.last_updated ? `title="Última actualización: ${product.inventory.last_updated}"` : ''}>
                             ${ (this.productManager && this.productManager._loadingInventories && (product.stock === null || product.stock === undefined)) ? `
                                 <small class="product-inventory-loading">Cargando...</small>
@@ -389,11 +391,11 @@ export class InventoryUIRenderer {
         return `
             <div class="product-card ${isModified ? 'modified' : ''} ${isDeleted ? 'deleted' : ''}" data-product-id="${product.id}">
                 <div class="product-image">
+                
                     <div class="product-image-size" data-src="${product.imagenUrl}"></div>
                     <img src="${product.imagenUrl}" alt="${product.nombre}" onerror="this.src='Img/no_image.jpg'">
                     ${product.nuevo ? '<span class="product-badge new">Nuevo</span>' : ''}
                     ${product.oferta ? '<span class="product-badge sale">Oferta</span>' : ''}
-                    ${stockBadge}
                     ${isModified ? '<span class="product-badge modified">Modificado</span>' : ''}
                     ${isDeleted ? '<span class="product-badge deleted">Eliminado</span>' : ''}
                 </div>

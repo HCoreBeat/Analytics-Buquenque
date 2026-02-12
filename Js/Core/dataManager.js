@@ -64,6 +64,12 @@ export class DataManager {
             // Campo de búsqueda
             item.searchText = `${item.buyerName} ${item.country} ${item.userType} ${item.affiliate} ${item.buyerPhone} ${item.buyerEmail} ${item.shippingAddress} ${item.browser} ${item.operatingSystem} ${item.trafficSource}`.toLowerCase();
 
+            // Origen: normalizar la propiedad especial "buquenqe.com" (si existe)
+            // - si la clave existe y es false => no viene desde la web
+            // - por defecto tratamos como proveniente de Buquenque
+            item.isFromBuquenqe = item.hasOwnProperty('buquenqe.com') ? Boolean(item['buquenqe.com']) : true;
+            item.sourceLabel = item.isFromBuquenqe ? 'Buquenque' : 'Externo';
+
             // Normaliza productos
             item.compras = item.compras.map(product => {
                 const priceBeforeDiscount = product.quantity * product.unitPrice;

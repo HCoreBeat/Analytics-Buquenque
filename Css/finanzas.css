@@ -553,9 +553,7 @@
 .finanzas-details-section {
   background: linear-gradient(135deg, #ffffff 0%, #f8faff 100%);
   border: 2px solid #e2e8f0;
-  border-radius: 16px;
   padding: 2rem 1.5rem;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
 }
 
 .finanzas-details-section h3 {

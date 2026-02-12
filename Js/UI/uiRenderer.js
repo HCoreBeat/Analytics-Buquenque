@@ -323,7 +323,8 @@ export class UIRenderer {
         container.innerHTML = data
             .sort((a, b) => b.date - a.date)
             .map((order, idx) => `
-                <div class="order-card" data-order-idx="${idx}">
+                <div class="order-card ${order.isFromBuquenqe ? 'internal-source' : 'external-source'}" data-order-idx="${idx}" data-source-label="${order.sourceLabel}">
+                    ${order.isFromBuquenqe ? `<div class="internal-ribbon" aria-hidden="true">WEB</div>` : `<div class="external-ribbon" aria-hidden="true">EXTERNO</div>`}
                     <div class="order-header">
                         <div class="order-main-info">
                             <div class="customer-header">
@@ -355,6 +356,7 @@ export class UIRenderer {
                             <div class="traffic-source">
                                 <i class="fas fa-route"></i>
                                 <span>Origen: ${order.fuente_trafico}</span>
+                                ${order.isFromBuquenqe ? `<span class="source-badge internal"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06A2 2 0 0 1 2.34 17.7l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09c.7 0 1.3-.4 1.51-1a1.65 1.65 0 0 0-.33-1.82l-.06-.06A2 2 0 0 1 6.7 2.34l.06.06c.5.5 1.2.7 1.82.33.5-.3 1-.5 1.51-.5H12c.5 0 1 .2 1.51.5.62.37 1.32.17 1.82-.33l.06-.06A2 2 0 0 1 19.66 6.3l-.06.06c-.3.5-.5 1-.33 1.82.3.5.5 1.3.5 1.82V12c0 .5-.2 1-.5 1.51z\"></path></svg> Buquenque</span>` : `<span class="source-badge external"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6\"></path><polyline points=\"15 3 21 3 21 9\"></polyline><line x1=\"10\" y1=\"14\" x2=\"21\" y2=\"3\"></line></svg> Externo</span>`}
                             </div>
                         </div>
                         <div class="order-stats">
@@ -367,7 +369,7 @@ export class UIRenderer {
                             ${order.compras.map(product => `
                                 <div class="product-item">
                                     <span>${product.name}</span>
-                                    <span>${product.quantity} × ${getCurrencySymbol()} ${product.unitPrice}</span>
+                                    <span>${product.quantity} × ${getCurrencySymbol()} ${product.unitPrice.toFixed(2)}</span>
                                     ${product.discount > 0 ? `<span style="color: var(--error);">(-${product.discount}%)</span>` : ''}
                                 </div>
                             `).join('')}

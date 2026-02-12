@@ -125,7 +125,7 @@
   }
 
   .card-header-with-tabs {
-    padding: 0.875rem;
+    padding: 0.3rem;
     flex-direction: column;
     gap: 0.75rem;
   }

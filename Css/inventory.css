@@ -567,9 +567,6 @@
 }
 
 .product-badge {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
   padding: 0.25rem 0.5rem;
   background: rgba(0, 0, 0, 0.7);
   color: white;
@@ -581,18 +578,30 @@
 
 .product-badge.new {
   background: #27ae60;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
 }
 
 .product-badge.sale {
   background: #e74c3c;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
 }
 
 .product-badge.modified {
   background: #f39c12;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
 }
 
 .product-badge.deleted {
   background: #e74c3c;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
 }
 
 /* Badges de Stock (Posicionados a la izquierda para no solapar con Nuevo/Oferta) */
@@ -600,10 +609,12 @@
 .product-badge.stock-low,
 .product-badge.stock-medium,
 .product-badge.stock-high {
-  right: auto;
-  left: 0.5rem;
+  left: auto;
+  right: 0.5rem;
   padding: 0.2rem;
   font-size: 0.55rem;
+  bottom: 0;
+  top: auto;
 }
 
 .product-badge.stock-out {
