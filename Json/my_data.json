@@ -1878,5 +1878,122 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:58b:c600:de40:35fb:1cc9:e0cd:552a",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-02-15 19:33:15",
+    "origen": "https://www.buquenqe.com/#category=Despensa",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Annia Barcelo Hidalgo",
+    "telefono_comprador": "7866081089",
+    "correo_comprador": "anniabarcelo@gmail.com",
+    "direccion_envio": "J.espinoza #141Alto entre jorge Rodriguez y Guillermo tejas .Buena vista ,las tunas .",
+    "compras": [
+      {
+        "id": "prod_1770819915685_uohxroax1",
+        "name": "Saco de Arroz 25Kg",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 50,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_p9644ie5y",
+        "name": "Paquete de papas Idaho (5lbs)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 9.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_1q2faykkk",
+        "name": "Plátano (por unidad)",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.31,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_8q6y9td5k",
+        "name": "Limón (por libra)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768918643793_wff5w2f61",
+        "name": "Frijoles rojos x(lbs)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ynzwusik9",
+        "name": "Paquete de azúcar 1kg",
+        "quantity": 6,
+        "type": "product",
+        "unitPrice": 2.25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_tf4rwuo62",
+        "name": "Frijol Negro (500g)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_giw45i4dl",
+        "name": "Paquete de Harina (1kg)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 2.25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 8.9999,
+        "discount": 21.74
+      },
+      {
+        "id": "prod_1769297232608_t1t8j7j86",
+        "name": "Lomitos de Atún en aceite",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.5,
+        "discount": 0
+      },
+      {
+        "id": "group_Spam de",
+        "name": "Spam de (Pollo) (340g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.5,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "197.81",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://lm.facebook.com/"
   }
 ]
