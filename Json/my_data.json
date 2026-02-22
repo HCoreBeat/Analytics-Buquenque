@@ -2150,7 +2150,7 @@
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
   },
-  {
+    {
     "ip": "2607:fb90:e28c:d1b6:f587:f3ee:fc68:cd0b",
     "pais": "US",
     "fecha_hora_entrada": "2026-02-22 15:02:44",
@@ -2196,12 +2196,12 @@
         "discount": 0
       },
       {
-        "id": "prod_1769213534534_s8dqaxn10",
-        "name": "Yogurt probiótico de 1L (fresa-natural- guanábana)",
+        "id": "null",
+        "name": "Yogurt Natural Azucarado Vima",
         "quantity": 1,
         "type": "product",
-        "unitPrice": 5.8002,
-        "discount": 3.33
+        "unitPrice": 3.12,
+        "discount": 0
       },
       {
         "id": "prod_1768441690510_jiwy36eez",
@@ -2242,9 +2242,17 @@
         "type": "product",
         "unitPrice": 1.2899250000000002,
         "discount": 26.29
+      },
+      {
+        "id": "prod_1769919470708_wghwn1olf",
+        "name": "Leche en polvo (1kg)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 8,
+        "discount": 0
       }
     ],
-    "precio_compra_total": "108.89",
+    "precio_compra_total": "122.21",
     "navegador": "Safari",
     "sistema_operativo": "MacOS",
     "tipo_usuario": "Recurrente",
