@@ -2149,5 +2149,106 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb90:e28c:d1b6:f587:f3ee:fc68:cd0b",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-02-22 15:02:44",
+    "origen": "https://www.buquenqe.com/?fbclid=IwZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQKNjYyODU2ODM3OQABHtiaAGr1QOKN3B4ibXIhSzNaVtEo3gUSxs_luVfhN9EGiZBOQpb8-JIuu9Ml_aem_IqXfuK6JdMbYb1bqQKcU8A",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Melissa Benitez",
+    "telefono_comprador": "9418226365",
+    "correo_comprador": "mbenitez04@yahoo.com",
+    "direccion_envio": "Calle 32 s/n Avenida Aeropuerto Entre calle 7 y Rafael Martínez",
+    "compras": [
+      {
+        "id": "prod_1768679794475_s112jvux0",
+        "name": "Paquete de cuartos de pollo 10 lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 15,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 8.9999,
+        "discount": 21.74
+      },
+      {
+        "id": "prod_1771364303825_60754qup9",
+        "name": "Paquete de Salchicha 3kg",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 11,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ynzwusik9",
+        "name": "Paquete de azúcar 1kg",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769213534534_s8dqaxn10",
+        "name": "Yogurt probiótico de 1L (fresa-natural- guanábana)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 5.8002,
+        "discount": 3.33
+      },
+      {
+        "id": "prod_1768441690510_jiwy36eez",
+        "name": "Caja de Malta",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769297232608_j4a56xz23",
+        "name": "Mayonesa HollandPark (250ml)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.419935,
+        "discount": 15.09
+      },
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ify26lfde",
+        "name": "Papel Sanitario",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.4,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769226986599_pfsrf2pax",
+        "name": "Detergente (500g)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.2899250000000002,
+        "discount": 26.29
+      }
+    ],
+    "precio_compra_total": "108.89",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "http://m.facebook.com/"
   }
 ]
