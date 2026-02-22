@@ -2088,5 +2088,66 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb90:7c22:c5ea:4da:8745:4ab2:7b0c",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-02-21 21:23:20",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yisel Leyva",
+    "telefono_comprador": "(505) 589-2289",
+    "correo_comprador": "aismaraleyva90@gmail.com",
+    "direccion_envio": "Jorge Rodriguez Napoles #44 fondo%Cristino Barredas y J Espinosa,Bonachea.",
+    "compras": [
+      {
+        "id": "prod_1768441690510_p8q4pyl2i",
+        "name": "Pack x 6 Manzana 🍎",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 6.9,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_8asugkx1n",
+        "name": "Galletas Renata Maizena (170g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_vxcu9hmme",
+        "name": "Paquete de Chupa Chupa (48/u)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 8.57,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768918643793_umkfz2iov",
+        "name": "Galletas Monro Vainilla (50g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.7,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ovzxwkud2",
+        "name": "Sopa instantánea sabor Pollo (80g)",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 0.8,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "21.97",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
