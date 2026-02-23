@@ -2150,7 +2150,7 @@
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
   },
-    {
+  {
     "ip": "2607:fb90:e28c:d1b6:f587:f3ee:fc68:cd0b",
     "pais": "US",
     "fecha_hora_entrada": "2026-02-22 15:02:44",
@@ -2258,5 +2258,90 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "http://m.facebook.com/"
+  },
+  {
+    "ip": "170.39.89.185",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-02-23 13:57:46",
+    "origen": "https://www.buquenqe.com/#category=Despensa",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Diana Aice palacios",
+    "telefono_comprador": "5127652702",
+    "correo_comprador": "dluzaice@gmail.com",
+    "direccion_envio": "Paso marañón entre trista y río # 36 reparto Santo Domingo las tunas",
+    "compras": [
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 8.9999,
+        "discount": 21.74
+      },
+      {
+        "id": "prod_1771810113359_uesbogopo",
+        "name": "Café la llave",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 11,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_lmfmz1hj5",
+        "name": "Frazada de Piso",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_p8q4pyl2i",
+        "name": "Pack x 6 Manzana 🍎",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 6.9,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768918643793_v1ax5w4ut",
+        "name": "Jabón de Baño Florona (75g)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 0.6,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769226986599_pfsrf2pax",
+        "name": "Detergente (500g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.2899250000000002,
+        "discount": 26.29
+      },
+      {
+        "id": "prod_1769920633225_aw89nywas",
+        "name": "Mayonesa Victoria Garden",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "42.02",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
