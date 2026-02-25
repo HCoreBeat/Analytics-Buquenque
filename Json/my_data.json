@@ -2622,5 +2622,162 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "47.185.255.245",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-02-24 21:33:24",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Eilys Queen",
+    "telefono_comprador": "+17863023628",
+    "correo_comprador": "edcespedes95@gmail.com",
+    "direccion_envio": "Calle Cristino Barreda #32 entre 33y 35 Alturas de Buena Vista",
+    "compras": [
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 9.500150000000001,
+        "discount": 17.39
+      },
+      {
+        "id": "prod_1768441690510_gkp20pj1x",
+        "name": "Espaguetis (500g)",
+        "quantity": 6,
+        "type": "product",
+        "unitPrice": 1.12,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768918643793_wff5w2f61",
+        "name": "Frijoles rojos x(lbs)",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_7gy02c75y",
+        "name": "Codito (500g)",
+        "quantity": 6,
+        "type": "product",
+        "unitPrice": 1.07,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_bluy6jgyz",
+        "name": "Leche Condensada Azucarada Castellum (390g)",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 1.42,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255455739_z92mxmjqj",
+        "name": "Harina de trigo Vima 1kg",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769920633225_aw89nywas",
+        "name": "Mayonesa Victoria Garden",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769920633225_umws2zt0k",
+        "name": "Carne de Res enlatada Sublime",
+        "quantity": 6,
+        "type": "product",
+        "unitPrice": 2.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_jiwy36eez",
+        "name": "Caja de Malta",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769226986599_pfsrf2pax",
+        "name": "Detergente (500g)",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.2899250000000002,
+        "discount": 26.29
+      },
+      {
+        "id": "prod_1768918643793_v1ax5w4ut",
+        "name": "Jabón de Baño Florona (75g)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 0.6,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ify26lfde",
+        "name": "Papel Sanitario",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.4,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_p9644ie5y",
+        "name": "Paquete de papas Idaho (5lbs)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 9.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_1q2faykkk",
+        "name": "Plátano (por unidad)",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.31,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_8q6y9td5k",
+        "name": "Limón (por libra)",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.5,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "146.41",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "http://m.facebook.com/"
   }
 ]
