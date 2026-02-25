@@ -391,13 +391,16 @@ export class InventoryUIRenderer {
         return `
             <div class="product-card ${isModified ? 'modified' : ''} ${isDeleted ? 'deleted' : ''}" data-product-id="${product.id}">
                 <div class="product-image">
-                
-                    <div class="product-image-size" data-src="${product.imagenUrl}"></div>
-                    <img src="${product.imagenUrl}" alt="${product.nombre}" onerror="this.src='Img/no_image.jpg'">
-                    ${product.nuevo ? '<span class="product-badge new">Nuevo</span>' : ''}
-                    ${product.oferta ? '<span class="product-badge sale">Oferta</span>' : ''}
-                    ${isModified ? '<span class="product-badge modified">Modificado</span>' : ''}
-                    ${isDeleted ? '<span class="product-badge deleted">Eliminado</span>' : ''}
+                        <div class="contenedor-imagen">
+                        ${product.disponibilidad === false ? '<span class="product-badge unavailable">No disponible</span>' : ''}
+                        <div class="product-image-size" data-src="${product.imagenUrl}"></div>
+                        <img src="${product.imagenUrl}" alt="${product.nombre}" onerror="this.src='Img/no_image.jpg'">
+                        
+                        ${product.nuevo ? '<span class="product-badge new">Nuevo</span>' : ''}
+                        ${product.oferta ? '<span class="product-badge sale">Oferta</span>' : ''}
+                        ${isModified ? '<span class="product-badge modified">Modificado</span>' : ''}
+                        ${isDeleted ? '<span class="product-badge deleted">Eliminado</span>' : ''}
+                    </div>
                 </div>
                 <div class="product-info">
                     <div class="product-name">${product.nombre}</div>

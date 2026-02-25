@@ -437,38 +437,69 @@ export class UIRenderer {
             minute: '2-digit' 
         });
 
+        const orderDate = order.fecha_hora_entrada ? new Date(order.fecha_hora_entrada) : null;
+        const fechaPedido = orderDate ? orderDate.toLocaleDateString('es-ES', { day:'2-digit', month:'2-digit', year:'numeric', hour:'2-digit', minute:'2-digit' }) : '';
+
         const receiptHtml = `
-            <div id="receipt-content" style="width:370px;padding:28px 20px;background:#fff;border:1.5px solid #e3e6e8;border-radius:10px;box-shadow:0 2px 12px #0001;font-family:Arial,sans-serif;color:#222;">
-                <div style="text-align:center;margin-bottom:10px;">
-                    <div style="font-size:18px;font-weight:bold;color:#3B82F6;">BUQUENQUE</div>
-                    <div style="font-size:13px;color:#888;">Recibo de Pago</div>
+            <div id="receipt-content" style="width:400px;padding:18px;background:#fff;border:1.5px solid #e3e6e8;border-radius:10px;box-shadow:0 2px 12px #0001;font-family:'Courier New',monospace;color:#222;">
+                <!-- header -->
+                <div style="text-align:center;margin-bottom:14px;">
+                    <div style="font-size:24px;font-weight:900;color:#000;letter-spacing:1px;">BUQUENQUE</div>
+                    <div style="font-size:13px;color:#333;font-weight:600;">Recibo de Pago</div>
+                    ${fechaPedido ? `<div style="font-size:11px;color:#333;margin-top:2px;">${fechaPedido}</div>` : ''}
                 </div>
-                <hr style="margin:10px 0 14px 0;border:0;border-top:1.5px solid #e3e6e8;">
-                <div style="font-size:15px;margin-bottom:8px;"><b>Cliente:</b> ${order.nombre_comprador}</div>
-                <div style="font-size:13px;margin-bottom:8px;"><b>Fecha:</b> ${fechaDescarga}</div>
-                <div style="background:#f6f6f6;padding:10px 12px;border-radius:6px;margin-bottom:10px;">
-                    <div style="font-size:14px;margin-bottom:6px;"><b>Productos:</b></div>
-                    <table style="width:100%;font-size:13px;border-collapse:collapse;">
-                        <thead>
-                            <tr style="color:#888;text-align:left;">
-                                <th style="padding-bottom:3px;">Producto</th>
-                                <th style="padding-bottom:3px;">Cantidad</th>
-                                <th style="padding-bottom:3px;">Precio</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${order.compras.map(p => `
+
+                <!-- customer info -->
+                <div style="font-size:13px;font-weight:600;margin-bottom:3px;"><b>Cliente:</b> ${order.nombre_comprador || ''}</div>
+                <div style="font-size:12px;color:#555;margin-bottom:5px;line-height:1.3;">
+                    ${order.telefono_comprador ? `<div>Tel: ${order.telefono_comprador}</div>` : ''}
+                    ${order.correo_comprador ? `<div>${order.correo_comprador}</div>` : ''}
+                    ${order.direccion_envio ? `<div>${order.direccion_envio}</div>` : ''}
+                </div>
+
+                <div style="border-top:1px dashed #aaa;margin:10px 0;"></div>
+
+                <!-- products table -->
+                <table style="width:100%;font-size:14px;border-collapse:collapse;">
+                    <thead>
+                        <tr style="color:#000;">
+                            <th style="width:60%;text-align:left;padding-bottom:6px;font-weight:700;">Producto</th>
+                            <th style="width:20%;text-align:center;padding-bottom:6px;font-weight:700;">Cant.</th>
+                            <th style="width:20%;text-align:right;padding-bottom:6px;font-weight:700;">Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${order.compras.map(p => {
+                            const subtotal = formatCurrency(p.unitPrice * p.quantity * (1 - (p.discount || 0)/100));
+                            const name = p.name + (p.discount > 0 ? ` <span style='color:#EF4444;'>(-${p.discount}%)</span>` : '');
+                            return `
                                 <tr>
-                                    <td>${p.name}${p.discount > 0 ? ` <span style='color:#EF4444;'>(-${p.discount}%)</span>` : ''}</td>
-                                    <td>${p.quantity}</td>
-                                    <td>${formatCurrency(p.unitPrice * p.quantity * (1 - (p.discount || 0)/100))}</td>
+                                    <td style="padding:4px 0;font-weight:600;">${name}</td>
+                                    <td style="text-align:center;font-weight:600;">${p.quantity}</td>
+                                    <td style="text-align:right;font-weight:600;">${subtotal}</td>
                                 </tr>
-                            `).join('')}
-                        </tbody>
-                    </table>
+                            `;
+                        }).join('')}
+                        <tr><td colspan="3" style="border-top:1px dashed #aaa;padding-top:5px;"></td></tr>
+                    </tbody>
+                </table>
+
+                <div style="border-top:1px dashed #aaa;margin:10px 0;"></div>
+
+                <!-- totals -->
+                <div style="text-align:right;font-size:16px;margin-bottom:4px;font-weight:800;">
+                    <b>Total:</b> <span style="font-weight:900;color:#10B981;">${formatCurrency(order.total)}</span>
                 </div>
-                <div style="font-size:15px;margin-bottom:8px;text-align:right;"><b>Total:</b> <span style='color:#10B981;font-weight:bold;'>${formatCurrency(order.total)}</span></div>
-                <div style="margin-top:18px;text-align:center;font-size:13px;color:#3B82F6;">¡Gracias por su compra!<br>Buquenque</div>
+
+                <!-- footer info -->
+                <div style="font-size:10px;text-align:center;color:#666;margin-top:6px;line-height:1.3;">
+                    ${order.ip ? `Pedido ID: ${order.ip}` : ''}${order.ip ? '<br>' : ''}
+                    ${order.fecha_hora_entrada ? `Fecha pedido: ${new Date(order.fecha_hora_entrada).toLocaleString('es-ES')}` : ''}${(order.ip || order.fecha_hora_entrada) ? '<br>' : ''}
+                    Fecha emisión: ${fechaDescarga}
+                </div>
+                <div style="font-size:12px;text-align:center;margin-top:14px;color:#3B82F6;font-weight:600;">
+                    ¡Gracias por su compra!
+                </div>
             </div>
         `;
 

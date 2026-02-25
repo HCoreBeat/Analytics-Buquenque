@@ -63,6 +63,7 @@ export class GitHubSaveModal {
         this.modalProgress.style.display = 'none';
         this.retryBtn.style.display = 'none';
         this.closeFinalBtn.style.display = 'block';
+        // only show if not already visible (show() handles this check)
         this.show();
     }
 
@@ -120,6 +121,10 @@ export class GitHubSaveModal {
      * Muestra el modal
      */
     show() {
+        // avoid incrementing scroll lock if already visible
+        if (this.modal?.classList.contains('active')) {
+            return;
+        }
         this.modal?.classList.add('active');
         disableBodyScroll();
     }

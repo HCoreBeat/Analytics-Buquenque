@@ -384,7 +384,7 @@ function crearCardPedido(pedido) {
     let productosHTML = '';
     if (pedido.compras && pedido.compras.length > 0) {
         pedido.compras.forEach((producto, idx) => {
-            const precioProducto = (producto.unitPrice * producto.quantity) - (producto.discount || 0);
+            const precioProducto = (producto.unitPrice * producto.quantity);
             const precioProductoFormato = new Intl.NumberFormat('en-US', {
                 style: 'currency',
                 currency: 'USD',
