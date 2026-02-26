@@ -2580,7 +2580,7 @@
         "name": "Caja de pollo",
         "quantity": 1,
         "type": "product",
-        "unitPrice": 60,
+        "unitPrice": 55,
         "discount": 0
       },
       {
@@ -2616,7 +2616,7 @@
         "discount": 0
       }
     ],
-    "precio_compra_total": "167.52",
+    "precio_compra_total": "162.52",
     "navegador": "Safari",
     "sistema_operativo": "MacOS",
     "tipo_usuario": "Recurrente",
