@@ -3034,5 +3034,154 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:1006:b088:36d3:d730:517e:9f13:f853",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-02-28 09:11:04",
+    "origen": "https://www.buquenqe.com/?fbclid=IwdGRjcAP8lSdleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR7lxzSDBhzdG98XmQYW6g-Fk8KcbrNBdVwTfrG7_GsR6_fLtyt-7pc1XbcloA_aem_TzageuPkQKAcGK4TJZ9OKA",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Annia Barcelo Hidalgo",
+    "telefono_comprador": "7866081089",
+    "correo_comprador": "anniabarcelo@gmail.com",
+    "direccion_envio": "J.  Espinoza 141 alto % jorge Rodriguez y Guillermo tejas .buena vista",
+    "compras": [
+      {
+        "id": "prod_1772070039908_h8liucaq8",
+        "name": "Cubeta de Galletas de Soda",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 11.47,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_nm24ia7xr",
+        "name": "Manzana 🍎 x unidad",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.15,
+        "discount": 0
+      },
+      {
+        "id": "group_Pasta de Tomate",
+        "name": "Pasta de Tomate (Oderich)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.7,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255455739_z92mxmjqj",
+        "name": "Harina de trigo Vima 1kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255643827_anfwn47zs",
+        "name": "Troncho de pescado en tomate 425g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769920633225_umws2zt0k",
+        "name": "Carne de Res enlatada Sublime",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 2.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769030417838_noe5sa2wa",
+        "name": "Refresco Instantáneo (2Lt)",
+        "quantity": 15,
+        "type": "product",
+        "unitPrice": 0.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769399997761_cesvzwr9h",
+        "name": "Nutella Ferreo(350g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 7.67,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768918643793_v1ax5w4ut",
+        "name": "Jabón de Baño Florona (75g)",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 0.6,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769226986599_pfsrf2pax",
+        "name": "Detergente (500g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.2899250000000002,
+        "discount": 26.29
+      },
+      {
+        "id": "prod_1768441690510_h5qqrqz06",
+        "name": "Carne de ovejo x lbs",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 2.37,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768509219912_tvj6iq15t",
+        "name": "Mayonesa Victoria (250ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.47,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769612979664_j0trpj4ig",
+        "name": "Vinagre Gourmet con Especias – 500 ml",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.14,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_p9644ie5y",
+        "name": "Paquete de papas Idaho (5lbs)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 9.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_1q2faykkk",
+        "name": "Plátano (por unidad)",
+        "quantity": 12,
+        "type": "product",
+        "unitPrice": 0.31,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_8q6y9td5k",
+        "name": "Limón (por libra)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.5,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "103.62",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://lm.facebook.com/"
   }
 ]
