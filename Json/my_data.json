@@ -2880,5 +2880,90 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "https://lm.facebook.com/"
+  },
+  {
+    "ip": "97.138.150.85",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-02-27 20:07:03",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Martha Margarita cuba",
+    "telefono_comprador": "7867292894",
+    "correo_comprador": "marthamargarita0473@icloud.com",
+    "direccion_envio": "Eligió Fonseca numero5A reparto la victoria",
+    "compras": [
+      {
+        "id": "prod_1769297232608_yu795qbia",
+        "name": "Nutella de Chocolate (350g)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 3.0000750000000003,
+        "discount": 7.69
+      },
+      {
+        "id": "group_Spam de",
+        "name": "Spam de (Pollo) (340g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_gkp20pj1x",
+        "name": "Espaguetis (500g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.12,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_7gy02c75y",
+        "name": "Codito (500g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.07,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_bluy6jgyz",
+        "name": "Leche Condensada Azucarada Castellum (390g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.42,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768837249014_0e8hctca5",
+        "name": "Paquete de café Dufiltro (250g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.9,
+        "discount": 2.5
+      },
+      {
+        "id": "prod_1769920633225_umws2zt0k",
+        "name": "Carne de Res enlatada Sublime",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768509219912_tvj6iq15t",
+        "name": "Mayonesa Victoria (250ml)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.47,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "38.96",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
