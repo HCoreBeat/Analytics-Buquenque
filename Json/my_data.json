@@ -2965,5 +2965,74 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb90:e382:4b1b:74b5:8035:41f8:b61d",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-02-27 20:41:09",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yisel Leyva",
+    "telefono_comprador": "(505) 589-2289",
+    "correo_comprador": "aismaraleyva90@gmail.com",
+    "direccion_envio": "Calle Jorge  Rodriguez  Napoles  edificio 50 apartamento B4.detras de la secundaria Máximo  Gomez Baez +5352466299",
+    "compras": [
+      {
+        "id": "prod_1768441690510_1q2faykkk",
+        "name": "Plátano (por unidad)",
+        "quantity": 11,
+        "type": "product",
+        "unitPrice": 0.31,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_7gy02c75y",
+        "name": "Codito (500g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.07,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_p8q4pyl2i",
+        "name": "Pack x 6 Manzana 🍎",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 6.9,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_gkp20pj1x",
+        "name": "Espaguetis (500g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.12,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_covgyshrh",
+        "name": "Mano de plátano burro",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.8,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "19.94",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
