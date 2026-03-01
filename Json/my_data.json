@@ -3276,5 +3276,111 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "76.108.207.91",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-03-01 11:47:13",
+    "origen": "https://www.buquenqe.com/#Saco%20de%20Arroz%2025Kg",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Keiler Arostica Acuña",
+    "telefono_comprador": "7862986818",
+    "correo_comprador": "ensolser2024@gmail.com",
+    "direccion_envio": "Altos de buena vista calle 23 entre Martha Abreu y calle 6",
+    "compras": [
+      {
+        "id": "2",
+        "name": "Pack Banquete Criollo",
+        "quantity": 1,
+        "type": "pack",
+        "unitPrice": 15,
+        "discount": 0
+      },
+      {
+        "id": "prod_1770819915685_uohxroax1",
+        "name": "Saco de Arroz 25Kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 50,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "65.00",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "75.90.101.163",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-03-01 13:07:21",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yosvanny Castillo",
+    "telefono_comprador": "4706414996",
+    "correo_comprador": "yosvannycg@gmail.com",
+    "direccion_envio": "Calle Luis Manuel Suarez. Triplanta 7.Apto C-4. Reparto Santos. Las Tunas",
+    "compras": [
+      {
+        "id": "prod_1768441690510_jiwy36eez",
+        "name": "Caja de Malta",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_p8q4pyl2i",
+        "name": "Pack x 6 Manzana 🍎",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 6.9,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769030417838_noe5sa2wa",
+        "name": "Refresco Instantáneo (2Lt)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 0.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769297232608_yu795qbia",
+        "name": "Nutella de Chocolate (350g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.0000750000000003,
+        "discount": 7.69
+      }
+    ],
+    "precio_compra_total": "41.29",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
