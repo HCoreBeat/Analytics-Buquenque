@@ -125,7 +125,8 @@
 
 .summary-item {
     background: var(--secondary-dark);
-    padding: 1rem;
+    padding: 0.6rem;
+    margin: 0.2rem 0;
     border-radius: var(--border-radius-sm);
     border: 1px solid var(--border-light);
     transition: var(--transition-fast);

@@ -46,6 +46,7 @@
   }
 
   .summary-grid {
+    display: ruby;
     grid-template-columns: 1fr !important;
   }
 

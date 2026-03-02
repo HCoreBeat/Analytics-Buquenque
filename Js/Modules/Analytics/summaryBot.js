@@ -18,6 +18,35 @@ export const SummaryBot = (() => {
     let notificationInterval = null;
     let notificationHideTimeout = null;
 
+    // Funciones para bloquear/desbloquear scroll del body
+    const disableBodyScroll = () => {
+        try {
+            const count = parseInt(document.documentElement.getAttribute('data-modal-count') || '0', 10) || 0;
+            document.documentElement.setAttribute('data-modal-count', String(count + 1));
+            document.documentElement.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden';
+            document.body.classList.add('modal-open');
+        } catch (e) {
+            console.warn('disableBodyScroll error', e);
+        }
+    };
+
+    const enableBodyScroll = () => {
+        try {
+            const count = parseInt(document.documentElement.getAttribute('data-modal-count') || '0', 10) || 0;
+            const next = Math.max(0, count - 1);
+            document.documentElement.setAttribute('data-modal-count', String(next));
+            if (next === 0) {
+                document.documentElement.style.overflow = '';
+                document.body.style.overflow = '';
+                document.body.classList.remove('modal-open');
+                document.documentElement.removeAttribute('data-modal-count');
+            }
+        } catch (e) {
+            console.warn('enableBodyScroll error', e);
+        }
+    };
+
     async function init() {
         createElements();
         addEventListeners();
@@ -333,35 +362,38 @@ export const SummaryBot = (() => {
         
         // Format numbers with separators
         const formatNumber = (num) => {
-            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            if (!num && num !== 0) return '0';
+            return Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         };
         
+        // Total revenue notification - CORRECTED
+        notifs.push(`💰 Ingresos: $${formatNumber(stats.totalRevenue)}`);
+        
         // Order count notification
-        notifs.push(`${formatNumber(stats.totalOrders)} pedidos`);
+        notifs.push(`📦 ${formatNumber(stats.totalOrders)} pedidos`);
+        
+        // Unique customers
+        notifs.push(`👥 ${formatNumber(stats.uniqueCustomers)} clientes`);
         
         // Total items notification
-        notifs.push(`${formatNumber(stats.totalItems)} items`);
+        notifs.push(`📊 ${formatNumber(stats.totalItems)} items`);
         
-        // Avg items per order
-        notifs.push(`Prom: ${stats.avgItemsPerOrder} items`);
+        // Avg order value
+        notifs.push(`🔢 Prom: $${formatNumber(stats.avgOrderValue)}`);
         
         // Top customer
         if (stats.topCustomers && stats.topCustomers.length > 0) {
             const topCustomer = stats.topCustomers[0];
             const firstName = topCustomer.name.split(' ')[0];
-            notifs.push(`👑 ${firstName.substring(0, 10)}`);
+            notifs.push(`👑 ${firstName.substring(0, 15)}`);
         }
         
         // Top product
         if (stats.topItems && stats.topItems.length > 0) {
             const topProduct = stats.topItems[0];
-            const productName = topProduct.name.substring(0, 12);
+            const productName = topProduct.name.substring(0, 18);
             notifs.push(`⭐ ${productName}`);
         }
-        
-        // Revenue summary
-        const totalRevenue = stats.topCustomers.reduce((sum, c) => sum + c.spent, 0);
-        notifs.push(`💰 $${formatNumber(totalRevenue.toFixed(0))}`);
 
         return notifs;
     }
@@ -370,6 +402,9 @@ export const SummaryBot = (() => {
         isPanelVisible = !isPanelVisible;
         panel.classList.toggle('active', isPanelVisible);
         if (isPanelVisible) {
+            // Bloquear scroll del body
+            disableBodyScroll();
+            
             // hide bubble and messages while panel is open
             if (bubble) bubble.style.visibility = 'hidden';
             if (notificationBadge) {
@@ -396,6 +431,9 @@ export const SummaryBot = (() => {
                 panel.style.top = top + 'px';
             }
         } else {
+            // Desbloquear scroll del body
+            enableBodyScroll();
+            
             // just closed: reset manual flag so next open repositions
             panelManual = false;
             if (bubble) bubble.style.visibility = 'visible';
@@ -416,11 +454,18 @@ export const SummaryBot = (() => {
         const customerMap = {};
         const itemMap = {};
         let totalItems = 0;
+        let totalRevenue = 0;
+        let uniqueCustomers = new Set();
+        
         (data || []).forEach(order => {
             const name = order.nombre_comprador || 'Desconocido';
             const orderTotal = parseFloat(order.precio_compra_total) || 0;
+            
+            uniqueCustomers.add(name);
+            totalRevenue += orderTotal;
+            
             if (!customerMap[name]) {
-                customerMap[name] = {name, orders:0, spent:0};
+                customerMap[name] = {name, orders: 0, spent: 0};
             }
             customerMap[name].orders++;
             customerMap[name].spent += orderTotal;
@@ -428,24 +473,35 @@ export const SummaryBot = (() => {
                 order.compras.forEach(item => {
                     const key = item.name || 'Sin nombre';
                     if (!itemMap[key]) {
-                        itemMap[key] = {name:key, qty:0, revenue:0};
+                        itemMap[key] = {name: key, qty: 0, revenue: 0};
                     }
                     const q = parseFloat(item.quantity) || 0;
                     const p = parseFloat(item.unitPrice) || 0;
                     itemMap[key].qty += q;
-                    itemMap[key].revenue += q * p;
+                    itemMap[key].revenue += (q * p);
                     totalItems += q;
                 });
             }
         });
         const topCustomers = Object.values(customerMap)
-            .sort((a,b)=>b.spent - a.spent)
-            .slice(0,5);
+            .sort((a, b) => b.spent - a.spent)
+            .slice(0, 5);
         const topItems = Object.values(itemMap)
-            .sort((a,b)=>b.qty - a.qty)
-            .slice(0,5);
-        const avgItemsPerOrder = totalOrders ? (totalItems/totalOrders).toFixed(2) : 0;
-        return { totalOrders, totalItems, avgItemsPerOrder, topCustomers, topItems };
+            .sort((a, b) => b.qty - a.qty)
+            .slice(0, 5);
+        const avgOrderValue = totalOrders ? (totalRevenue / totalOrders).toFixed(2) : 0;
+        const avgItemsPerOrder = totalOrders ? (totalItems / totalOrders).toFixed(2) : 0;
+        const uniqueCount = uniqueCustomers.size;
+        return {
+            totalOrders,
+            totalItems,
+            totalRevenue,
+            avgItemsPerOrder,
+            avgOrderValue,
+            uniqueCustomers: uniqueCount,
+            topCustomers,
+            topItems
+        };
     }
 
     function renderStats(stats) {
@@ -454,68 +510,86 @@ export const SummaryBot = (() => {
         if (!content) return;
         
         const formatNumber = (num) => {
-            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            if (!num && num !== 0) return '0';
+            return Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         };
+        
         const formatCurrency = (num) => {
-            return '$' + formatNumber(num.toFixed(0));
+            if (!num && num !== 0) return '$0';
+            return '$' + formatNumber(Math.round(num));
         };
         
         // clear previous
         content.innerHTML = '';
         
-        // stats cards
-        const cards = document.createElement('div');
-        cards.className = 'bot-stats';
-        cards.innerHTML = `
-            <div class="stat">
-                <div class="label">Pedidos</div>
-                <div class="value">${formatNumber(stats.totalOrders)}</div>
-            </div>
-            <div class="stat">
-                <div class="label">Items</div>
-                <div class="value">${formatNumber(stats.totalItems)}</div>
-            </div>
-            <div class="stat">
-                <div class="label">Promedio</div>
-                <div class="value">${stats.avgItemsPerOrder}</div>
-            </div>
-        `;
-        content.appendChild(cards);
-
-        // Total revenue
-        const totalRevenue = stats.topCustomers.reduce((sum, c) => sum + c.spent, 0);
+        // hero card: Total revenue - CORRECTED
         const revenueCard = document.createElement('div');
-        revenueCard.style.cssText = 'background: linear-gradient(135deg, #f39c12, #e67e22); color: #fff; padding: 1rem; border-radius: 8px; text-align: center; margin-bottom: 1rem;';
+        revenueCard.style.cssText = 'background: linear-gradient(135deg, #f39c12, #e67e22); color: #fff; padding: 1.2rem; border-radius: 10px; text-align: center; margin-bottom: 1.5rem; box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);';
         revenueCard.innerHTML = `
-            <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.9; margin-bottom: 0.5rem;">Ingresos Totales</div>
-            <div style="font-size: 1.4rem; font-weight: 700;">${formatCurrency(totalRevenue)}</div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.8px; opacity: 0.95; margin-bottom: 0.6rem; font-weight: 600;">💰 Ingresos Totales</div>
+            <div style="font-size: 1.8rem; font-weight: 800; letter-spacing: -0.5px;">${formatCurrency(stats.totalRevenue)}</div>
         `;
         content.appendChild(revenueCard);
+        
+        // Key metrics grid
+        const metricsGrid = document.createElement('div');
+        metricsGrid.style.cssText = 'display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: 1.5rem;';
+        metricsGrid.innerHTML = `
+            <div style="background: linear-gradient(135deg, #e3f2fd, #bbdefb); padding: 0.9rem; border-radius: 8px; border-left: 4px solid #1976d2; text-align: center;">
+                <div style="font-size: 0.7rem; color: #666; text-transform: uppercase; font-weight: 600; margin-bottom: 0.3rem;">Pedidos</div>
+                <div style="font-size: 1.5rem; font-weight: 800; color: #1976d2;">${formatNumber(stats.totalOrders)}</div>
+            </div>
+            <div style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); padding: 0.9rem; border-radius: 8px; border-left: 4px solid #388e3c; text-align: center;">
+                <div style="font-size: 0.7rem; color: #666; text-transform: uppercase; font-weight: 600; margin-bottom: 0.3rem;">Clientes</div>
+                <div style="font-size: 1.5rem; font-weight: 800; color: #388e3c;">${formatNumber(stats.uniqueCustomers)}</div>
+            </div>
+            <div style="background: linear-gradient(135deg, #f3e5f5, #e1bee7); padding: 0.9rem; border-radius: 8px; border-left: 4px solid #7b1fa2; text-align: center;">
+                <div style="font-size: 0.7rem; color: #666; text-transform: uppercase; font-weight: 600; margin-bottom: 0.3rem;">Items</div>
+                <div style="font-size: 1.5rem; font-weight: 800; color: #7b1fa2;">${formatNumber(stats.totalItems)}</div>
+            </div>
+            <div style="background: linear-gradient(135deg, #fff3e0, #ffe0b2); padding: 0.9rem; border-radius: 8px; border-left: 4px solid #f57c00; text-align: center;">
+                <div style="font-size: 0.7rem; color: #666; text-transform: uppercase; font-weight: 600; margin-bottom: 0.3rem;">Prom. Pedido</div>
+                <div style="font-size: 1.5rem; font-weight: 800; color: #f57c00;">${formatCurrency(stats.avgOrderValue)}</div>
+            </div>
+        `;
+        content.appendChild(metricsGrid);
+        
+        // Average metrics section
+        const avgSection = document.createElement('div');
+        avgSection.style.cssText = 'background: #f9fafb; padding: 0.9rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid #5e35b1; font-size: 0.85rem;';
+        avgSection.innerHTML = `
+            <div style="margin-bottom: 0.6rem;"><strong style="color: #5e35b1;">📈 Items/Pedido:</strong> <span style="color: #333; font-weight: 600;">${stats.avgItemsPerOrder}</span></div>
+            <div style="margin-bottom: 0.6rem;"><strong style="color: #5e35b1;">💳 Valor Prom.:</strong> <span style="color: #333; font-weight: 600;">${formatCurrency(stats.avgOrderValue)}</span></div>
+            <div><strong style="color: #5e35b1;">👤 Pedidos/Cliente:</strong> <span style="color: #333; font-weight: 600;">${(stats.totalOrders / stats.uniqueCustomers).toFixed(2)}</span></div>
+        `;
+        content.appendChild(avgSection);
 
-        if (stats.topCustomers && stats.topCustomers.length) {
+        // Top Customers
+        if (stats.topCustomers && stats.topCustomers.length > 0) {
             const h = document.createElement('h4');
-            h.textContent = 'Clientes Top';
+            h.textContent = '🥇 Clientes Top';
             content.appendChild(h);
             const ul = document.createElement('ul');
             ul.className = 'summary-list';
             stats.topCustomers.forEach((c, idx) => {
                 const li = document.createElement('li');
-                const medal = idx === 0 ? '🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : '✓';
+                const medal = idx === 0 ? '🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : idx === 3 ? '4️⃣' : '5️⃣';
                 li.innerHTML = `<strong>${medal} ${c.name}</strong><span style="font-size: 0.75rem; color: #999;">${formatCurrency(c.spent)} • ${c.orders} ped.</span>`;
                 ul.appendChild(li);
             });
             content.appendChild(ul);
         }
         
-        if (stats.topItems && stats.topItems.length) {
+        // Top Products
+        if (stats.topItems && stats.topItems.length > 0) {
             const h = document.createElement('h4');
-            h.textContent = 'Productos Top';
+            h.textContent = '⭐ Productos Top';
             content.appendChild(h);
             const ul = document.createElement('ul');
             ul.className = 'summary-list';
             stats.topItems.forEach((i, idx) => {
                 const li = document.createElement('li');
-                const star = idx === 0 ? '⭐' : idx === 1 ? '✨' : idx === 2 ? '🌟' : '◆';
+                const star = idx === 0 ? '⭐' : idx === 1 ? '✨' : idx === 2 ? '🌟' : idx === 3 ? '💫' : '◆';
                 li.innerHTML = `<strong>${star} ${i.name}</strong><span style="font-size: 0.75rem; color: #999;">${formatNumber(i.qty)} u. • ${formatCurrency(i.revenue)}</span>`;
                 ul.appendChild(li);
             });

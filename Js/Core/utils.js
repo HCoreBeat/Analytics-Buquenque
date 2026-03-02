@@ -53,8 +53,36 @@ export function formatDate(date, options = {}) {
 // Validar rango de fechas
 export function isDateInRange(date, startDate, endDate) {
     const itemDate = new Date(date);
-    if (startDate && itemDate < new Date(startDate)) return false;
-    if (endDate && itemDate > new Date(endDate)) return false;
+    
+    // Normalizar a medianoche en zona horaria local para comparación correcta
+    const itemDateOnly = new Date(itemDate.getFullYear(), itemDate.getMonth(), itemDate.getDate());
+    
+    if (startDate) {
+        let compareStart;
+        if (typeof startDate === 'string') {
+            // Si es string en formato YYYY-MM-DD (de input HTML type=date)
+            const [year, month, day] = startDate.split('-').map(Number);
+            compareStart = new Date(year, month - 1, day, 0, 0, 0, 0);
+        } else {
+            compareStart = new Date(startDate);
+            compareStart = new Date(compareStart.getFullYear(), compareStart.getMonth(), compareStart.getDate());
+        }
+        if (itemDateOnly < compareStart) return false;
+    }
+    
+    if (endDate) {
+        let compareEnd;
+        if (typeof endDate === 'string') {
+            // Si es string en formato YYYY-MM-DD (de input HTML type=date)
+            const [year, month, day] = endDate.split('-').map(Number);
+            compareEnd = new Date(year, month - 1, day, 23, 59, 59, 999);
+        } else {
+            compareEnd = new Date(endDate);
+            compareEnd = new Date(compareEnd.getFullYear(), compareEnd.getMonth(), compareEnd.getDate(), 23, 59, 59, 999);
+        }
+        if (itemDateOnly > compareEnd) return false;
+    }
+    
     return true;
 }
 

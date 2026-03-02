@@ -139,17 +139,75 @@ function ensureAvatarFallbacks(container){
 
 function createAvatarModal(){
     if (document.getElementById('avatar-preview-modal')) return;
-    const modal = document.createElement('div'); modal.id = 'avatar-preview-modal'; modal.className='avatar-modal';
+    
+    // Importar funciones de scroll
+    const { disableBodyScroll, enableBodyScroll } = (() => {
+        return {
+            disableBodyScroll: () => {
+                try {
+                    const count = parseInt(document.documentElement.getAttribute('data-modal-count') || '0', 10) || 0;
+                    document.documentElement.setAttribute('data-modal-count', String(count + 1));
+                    document.documentElement.style.overflow = 'hidden';
+                    document.body.style.overflow = 'hidden';
+                    document.body.classList.add('modal-open');
+                } catch (e) {
+                    console.warn('disableBodyScroll error', e);
+                }
+            },
+            enableBodyScroll: () => {
+                try {
+                    const count = parseInt(document.documentElement.getAttribute('data-modal-count') || '0', 10) || 0;
+                    const next = Math.max(0, count - 1);
+                    document.documentElement.setAttribute('data-modal-count', String(next));
+                    if (next === 0) {
+                        document.documentElement.style.overflow = '';
+                        document.body.style.overflow = '';
+                        document.body.classList.remove('modal-open');
+                        document.documentElement.removeAttribute('data-modal-count');
+                    }
+                } catch (e) {
+                    console.warn('enableBodyScroll error', e);
+                }
+            }
+        };
+    })();
+    
+    const modal = document.createElement('div'); 
+    modal.id = 'avatar-preview-modal'; 
+    modal.className='avatar-modal';
     modal.innerHTML = `
         <div class="avatar-modal-overlay"></div>
         <div class="avatar-modal-content">
-            <button class="avatar-modal-close">&times;</button>
+            <button class="avatar-modal-close" aria-label="Cerrar imagen">&times;</button>
             <div class="avatar-modal-body"></div>
         </div>
     `;
     document.body.appendChild(modal);
-    modal.querySelector('.avatar-modal-close').addEventListener('click', ()=> modal.classList.remove('open'));
-    modal.querySelector('.avatar-modal-overlay').addEventListener('click', ()=> modal.classList.remove('open'));
+    
+    const closeBtn = modal.querySelector('.avatar-modal-close');
+    const overlay = modal.querySelector('.avatar-modal-overlay');
+    
+    // Función para cerrar modal
+    const closeModal = (e) => {
+        if (e) e.preventDefault();
+        modal.classList.remove('open');
+        enableBodyScroll();
+    };
+    
+    // Event listeners
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', closeModal);
+    
+    // Cerrar con Escape
+    const escapeHandler = (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('open')) {
+            closeModal();
+        }
+    };
+    document.addEventListener('keydown', escapeHandler);
+    
+    // Guardar referencia para limpiar si es necesario
+    modal.escapeHandler = escapeHandler;
 }
 
 function showAvatarPreview(el){
@@ -157,17 +215,37 @@ function showAvatarPreview(el){
     const modal = document.getElementById('avatar-preview-modal');
     const body = modal.querySelector('.avatar-modal-body');
     body.innerHTML = '';
+    
     const img = el.querySelector('.avatar-img');
     if (img) {
-        const big = document.createElement('img'); big.src = img.src; big.alt = img.alt || ''; big.className = 'avatar-modal-image';
+        const big = document.createElement('img'); 
+        big.src = img.src; 
+        big.alt = img.alt || ''; 
+        big.className = 'avatar-modal-image';
         body.appendChild(big);
     } else {
-        const tile = document.createElement('div'); tile.className = 'avatar-modal-tile';
+        const tile = document.createElement('div'); 
+        tile.className = 'avatar-modal-tile';
         tile.innerText = (el.querySelector('.avatar-initials')?.innerText) || el.textContent.trim().slice(0,2).toUpperCase();
         tile.style.background = el.style.background || generateGradient(el.getAttribute('data-email')|| el.textContent);
         body.appendChild(tile);
     }
+    
+    // Importar funciones de scroll
+    const disableBodyScroll = () => {
+        try {
+            const count = parseInt(document.documentElement.getAttribute('data-modal-count') || '0', 10) || 0;
+            document.documentElement.setAttribute('data-modal-count', String(count + 1));
+            document.documentElement.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden';
+            document.body.classList.add('modal-open');
+        } catch (e) {
+            console.warn('disableBodyScroll error', e);
+        }
+    };
+    
     modal.classList.add('open');
+    disableBodyScroll();
 }
 
 export class UIRenderer {

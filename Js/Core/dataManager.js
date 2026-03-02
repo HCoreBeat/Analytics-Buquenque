@@ -86,45 +86,101 @@ export class DataManager {
 
     /**
      * Filtra los datos por rango de fechas y período
+     * Si se especifica un rango de fechas, tiene prioridad sobre el período
      */
     filterByDateRange(startDate = null, endDate = null, period = 'all') {
         const now = new Date();
         let periodStart, periodEnd;
         
-        switch (period) {
-            case 'month':
-                periodStart = new Date(now.getFullYear(), now.getMonth(), 1);
-                periodEnd = new Date(now.getFullYear(), now.getMonth() + 1, 0);
-                periodEnd.setHours(23, 59, 59, 999);
-                break;
-            case 'last-month':
-                periodStart = new Date(now.getFullYear(), now.getMonth() - 1, 1);
-                periodEnd = new Date(now.getFullYear(), now.getMonth(), 0);
-                periodEnd.setHours(23, 59, 59, 999);
-                break;
-            case 'year':
-                periodStart = new Date(now.getFullYear(), 0, 1);
-                periodEnd = new Date(now.getFullYear(), 11, 31);
-                periodEnd.setHours(23, 59, 59, 999);
-                break;
-            default:
-                periodStart = null;
-                periodEnd = null;
+        // Normalizar valores vacíos a null
+        startDate = startDate && typeof startDate === 'string' && startDate.trim() ? startDate.trim() : null;
+        endDate = endDate && typeof endDate === 'string' && endDate.trim() ? endDate.trim() : null;
+        
+        let hasDateRange = startDate || endDate;
+        
+        // Si se especifica un rango de fechas, usarlo directamente sin período
+        if (hasDateRange) {
+            periodStart = null;
+            periodEnd = null;
+        } else {
+            // Solo aplicar período si NO hay rango de fechas especificado
+            switch (period) {
+                case 'month':
+                    periodStart = new Date(now.getFullYear(), now.getMonth(), 1);
+                    periodEnd = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+                    periodEnd.setHours(23, 59, 59, 999);
+                    break;
+                case 'last-month':
+                    periodStart = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+                    periodEnd = new Date(now.getFullYear(), now.getMonth(), 0);
+                    periodEnd.setHours(23, 59, 59, 999);
+                    break;
+                case 'year':
+                    periodStart = new Date(now.getFullYear(), 0, 1);
+                    periodEnd = new Date(now.getFullYear(), 11, 31);
+                    periodEnd.setHours(23, 59, 59, 999);
+                    break;
+                default:
+                    periodStart = null;
+                    periodEnd = null;
+            }
         }
         
         this.filteredData = this.data.filter(item => {
             const itemDate = item.date;
-            const itemDateStr = itemDate.toISOString().split('T')[0];
-
-            const dateInRange =
-                (!startDate || itemDateStr >= startDate) &&
-                (!endDate || itemDateStr <= endDate);
-                
+            
+            // Verificar rango de fechas: comparar usando fechas completas (Date objects)
+            // Normalizar las fechas a medianoche para comparación correcta
+            let dateInRange = true;
+            
+            if (startDate) {
+                try {
+                    // Parsear startDate (formato YYYY-MM-DD desde input HTML)
+                    const parts = startDate.split('-');
+                    if (parts.length === 3) {
+                        const year = parseInt(parts[0], 10);
+                        const month = parseInt(parts[1], 10);
+                        const day = parseInt(parts[2], 10);
+                        const rangeStart = new Date(year, month - 1, day, 0, 0, 0, 0);
+                        dateInRange = itemDate >= rangeStart;
+                    }
+                } catch (e) {
+                    console.warn('Error al parsear startDate:', startDate, e);
+                    dateInRange = true; // Si hay error, permitir el item
+                }
+            }
+            
+            if (endDate && dateInRange) {
+                try {
+                    // Parsear endDate (formato YYYY-MM-DD desde input HTML)
+                    const parts = endDate.split('-');
+                    if (parts.length === 3) {
+                        const year = parseInt(parts[0], 10);
+                        const month = parseInt(parts[1], 10);
+                        const day = parseInt(parts[2], 10);
+                        const rangeEnd = new Date(year, month - 1, day, 23, 59, 59, 999);
+                        dateInRange = itemDate <= rangeEnd;
+                    }
+                } catch (e) {
+                    console.warn('Error al parsear endDate:', endDate, e);
+                    dateInRange = true; // Si hay error, permitir el item
+                }
+            }
+            
+            // Verificar período
             const periodInRange =
                 !periodStart ||
                 (itemDate >= periodStart && itemDate <= periodEnd);
-                
-            return dateInRange && periodInRange;
+            
+            // Debug logs (comentar después de verificar)
+            // console.log(`Item: ${item.dateStr} | DateInRange: ${dateInRange} | PeriodInRange: ${periodInRange}`);
+            
+            // Si hay rango de fechas, ignora el período; si no, aplica el período
+            if (hasDateRange) {
+                return dateInRange;
+            } else {
+                return dateInRange && periodInRange;
+            }
         });
         
         return this.filteredData;

@@ -414,8 +414,9 @@ class DashboardApp {
     }
 
     applyFilters() {
-        const startDate = document.getElementById('filter-date-start')?.value;
-        const endDate = document.getElementById('filter-date-end')?.value;
+        // Obtener valores de filtros de fecha - convertir cadenas vacías a null
+        const startDate = document.getElementById('filter-date-start')?.value || null;
+        const endDate = document.getElementById('filter-date-end')?.value || null;
         const period = document.getElementById('filter-period')?.value || 'all';
 
         const country = document.getElementById('filter-country')?.value || 'all';

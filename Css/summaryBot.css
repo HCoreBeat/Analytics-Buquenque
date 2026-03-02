@@ -80,21 +80,22 @@
   position: fixed;
   background: linear-gradient(135deg, #f39c12, #e67e22);
   color: #fff;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  padding: 0.6rem 0.9rem;
-  border-radius: 14px;
+  padding: 0.8rem 1rem;
+  border-radius: 16px;
   z-index: 9998;
   white-space: normal;
-  max-width: 150px;
+  max-width: 220px;
+  min-height: 50px;
   text-align: center;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 6px 20px rgba(243, 156, 18, 0.35);
   animation: chatBobbing 3s ease-in-out infinite;
   pointer-events: none;
   display: none;
   opacity: 0;
   transition: opacity 0.2s;
-  line-height: 1.4;
+  line-height: 1.5;
   word-wrap: break-word;
   overflow: hidden;
 }
@@ -158,9 +159,10 @@
 /* Responsive adjustments for chat bubble */
 @media (max-width: 600px) {
   #summary-bot-chat-bubble {
-    font-size: 0.7rem;
-    padding: 0.4rem 0.6rem;
-    max-width: 100px;
+    font-size: 0.75rem;
+    padding: 0.5rem 0.7rem;
+    max-width: 140px;
+    min-height: 40px;
   }
 }
 
@@ -168,9 +170,9 @@
   position: fixed;
   top: 60px;
   right: 60px;
-  width: 360px;
-  max-width: 90vw;
-  max-height: 80vh;
+  width: 420px;
+  max-width: 95vw;
+  max-height: 85vh;
   background: #fff;
   border-radius: 14px;
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
@@ -188,8 +190,8 @@
 /* larger screens can have a fixed width for consistency */
 @media (min-width: 1024px) {
   #summary-bot-panel {
-    width: 360px;
-    max-height: 70vh;
+    width: 420px;
+    max-height: 80vh;
   }
 }
 
@@ -396,13 +398,13 @@
   }
 
   #summary-bot-panel {
-    width: 92vw;
-    left: 4vw !important;
-    max-height: 70vh;
+    width: 94vw;
+    left: 3vw !important;
+    max-height: 75vh;
   }
 
   #summary-bot-panel .content {
-    max-height: calc(70vh - 45px);
+    max-height: calc(75vh - 50px);
   }
 
   #summary-bot-panel .bot-stats .stat {

@@ -369,14 +369,18 @@
 .avatar-modal {
   position: fixed;
   inset: 0;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   z-index: 2000;
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
 .avatar-modal.open {
+  display: flex;
   pointer-events: auto;
+  opacity: 1;
 }
 .avatar-modal-overlay {
   position: absolute;
