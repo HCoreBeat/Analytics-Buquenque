@@ -3669,5 +3669,215 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "https://www.google.com/"
+  },
+  {
+    "ip": "2601:58a:8100:c620:102a:befd:c2f:7964",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-03-05 17:11:19",
+    "origen": "https://www.buquenqe.com/#Aceite%20(1L)",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Dailien D Aguilera",
+    "telefono_comprador": "+17866787210",
+    "correo_comprador": "bryan.daily04@gmail.com",
+    "direccion_envio": "Eddy Martinez #57 entre Genaro Rojas y Cristino Barreda. Buena vista",
+    "compras": [
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 10.99975,
+        "discount": 4.35
+      },
+      {
+        "id": "prod_1769919470708_wghwn1olf",
+        "name": "Leche en polvo (1kg)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 10,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_gkp20pj1x",
+        "name": "Espaguetis (500g)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.16,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_x6vswdewh",
+        "name": "Arroz (1Kg)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 2.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_tf4rwuo62",
+        "name": "Frijol Negro (500g)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.7,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ynzwusik9",
+        "name": "Paquete de azúcar 1kg",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 2.25,
+        "discount": 0
+      },
+      {
+        "id": "group_Jabón de Baño AURA",
+        "name": "Jabón de Baño AURA (Rosa)",
+        "quantity": 9,
+        "type": "product",
+        "unitPrice": 0.69,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769226986599_pfsrf2pax",
+        "name": "Detergente (500g)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.2899250000000002,
+        "discount": 26.29
+      },
+      {
+        "id": "prod_1769613603917_5rg815imv",
+        "name": "Pollo entero Saera(1300g)",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 7,
+        "discount": 12.5
+      },
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769030417838_noe5sa2wa",
+        "name": "Refresco Instantáneo (2Lt)",
+        "quantity": 9,
+        "type": "product",
+        "unitPrice": 0.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ovzxwkud2",
+        "name": "Sopa instantánea sabor Pollo (80g)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 0.8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_8ocdeke0z",
+        "name": "Pastilla de Pollo x unidad",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.15,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_7gy02c75y",
+        "name": "Codito (500g)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_aa0pwzj5i",
+        "name": "Rayan Chocolate",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 4.28,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771953998923_b4sri6e8j",
+        "name": "Malta Bucanero",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 1.17,
+        "discount": 0
+      },
+      {
+        "id": "group_Helado Nestle 450ml",
+        "name": "Helado Nestle 450ml (Fresa)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 4.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_p9644ie5y",
+        "name": "Paquete de papas Idaho (5lbs)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 9.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1772238758846_9o5c439un",
+        "name": "Helado Nestle 450ml (Vainilla)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 4.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ma2k8r01f",
+        "name": "Aceite (1L)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 4.87,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "195.21",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:58a:8100:c620:102a:befd:c2f:7964",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-03-05 17:34:37",
+    "origen": "https://www.buquenqe.com/#Aceite%20(1L)",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Dailien D Aguilera",
+    "telefono_comprador": "+17866787210",
+    "correo_comprador": "bryan.daily04@gmail.com",
+    "direccion_envio": "Eddy Martinez #57 entre Genaro Rojas y Cristino Barreda. Buena vista",
+    "compras": [
+      {
+        "id": "prod_1768441690510_ma2k8r01f",
+        "name": "Aceite (1L)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 4.87,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "14.61",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
