@@ -3879,5 +3879,143 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "152.207.148.197",
+    "pais": "CU",
+    "fecha_hora_entrada": "2026-03-06 11:21:27",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yudith Vázquez Nuñez",
+    "telefono_comprador": "53192532",
+    "correo_comprador": "bellyu0529@gmail.com",
+    "direccion_envio": "Calle José Fernández Peña #56 /Eddy Chibás y Cristino Naranjo. Sosa",
+    "compras": [
+      {
+        "id": "prod_1768441690510_ma2k8r01f",
+        "name": "Aceite (1L)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.87,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255568932_49z71tujl",
+        "name": "Pasta de tomate Vima 400g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768443205852_ac2tz1k6u",
+        "name": "Carne de cerdo x lbs",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 3,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_x6vswdewh",
+        "name": "Arroz (1Kg)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 2.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768509219912_orvyg0rkr",
+        "name": "Galletas Marías",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.33,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "32.95",
+    "navegador": "Samsung Browser",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Único",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:1006:b194:998e:0:21:b1bc:9401",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-03-06 12:05:48",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Rosario Santiesteban",
+    "telefono_comprador": "8632351669",
+    "correo_comprador": "rosariosantiesteban53@gmail.com",
+    "direccion_envio": "Calle 36 numero 19 entre 17 y 25 reparto Fernando betancourt",
+    "compras": [
+      {
+        "id": "prod_1769613603917_5rg815imv",
+        "name": "Pollo entero Saera(1300g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 7,
+        "discount": 12.5
+      },
+      {
+        "id": "prod_1768443205852_ac2tz1k6u",
+        "name": "Carne de cerdo x lbs",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 3,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_h5qqrqz06",
+        "name": "Carne de ovejo x lbs",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 2.37,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769974779697_ub9f4j1l3",
+        "name": "Macarela al natural(425g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_x6vswdewh",
+        "name": "Arroz (1Kg)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 2.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ma2k8r01f",
+        "name": "Aceite (1L)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 4.87,
+        "discount": 0
+      },
+      {
+        "id": "2",
+        "name": "Pack Banquete Criollo",
+        "quantity": 1,
+        "type": "pack",
+        "unitPrice": 15,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "104.79",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
