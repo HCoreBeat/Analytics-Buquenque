@@ -3979,11 +3979,11 @@
         "discount": 0
       },
       {
-        "id": "prod_1769974779697_ub9f4j1l3",
-        "name": "Macarela al natural(425g)",
+        "id": "prod_1769297232608_t1t8j7j86",
+        "name": "Lomitos de Atún en aceite",
         "quantity": 2,
         "type": "product",
-        "unitPrice": 2.8,
+        "unitPrice": 2.5,
         "discount": 0
       },
       {
@@ -4011,7 +4011,7 @@
         "discount": 0
       }
     ],
-    "precio_compra_total": "104.79",
+    "precio_compra_total": "104.19",
     "navegador": "Chrome",
     "sistema_operativo": "Linux",
     "tipo_usuario": "Recurrente",
