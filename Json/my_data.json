@@ -4062,5 +4062,44 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "http://m.facebook.com/"
+  },
+  {
+    "ip": "2607:fb91:8c1b:1170:8cdc:53dc:b48e:8eb2",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-03-07 16:26:39",
+    "origen": "https://www.buquenqe.com/p/prod_1772820254113_06vdipx9o",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yaneidis Rivero",
+    "telefono_comprador": "4075157526",
+    "nombre_persona_entrega": "Rosa Paulina comendador",
+    "telefono_persona_entrega": "52403457",
+    "correo_comprador": "yaneidisrc@icloud.com",
+    "direccion_envio": "Calle 47 #13 altos reparto Fernando Betancourt las tunas",
+    "compras": [
+      {
+        "id": "prod_1771953998923_b4sri6e8j",
+        "name": "Malta Bucanero",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 1.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1772820254113_06vdipx9o",
+        "name": "Jugo Nezka de Mango",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 1.5,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "26.70",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
