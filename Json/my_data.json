@@ -4101,5 +4101,92 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:58a:8402:2490:9988:a0cb:6a72:32d3",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-03-09 19:37:29",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Licet Escobar",
+    "telefono_comprador": "7869570022",
+    "nombre_persona_entrega": "Nayelis Nsgarian Escobar",
+    "telefono_persona_entrega": "56252973",
+    "correo_comprador": "escobarlicet47@gmail.com",
+    "direccion_envio": "Eddy martines edificio 53 apto A9, entre Agustín Cebreco y Israel Santo",
+    "compras": [
+      {
+        "id": "prod_1772820254113_06vdipx9o",
+        "name": "Jugo Nezka de Mango",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 1.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      },
+      {
+        "id": "prod_1772069781750_na7wo0yhn",
+        "name": "Mayonesa HollandPark (500ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_5stmkk7i6",
+        "name": "Leche condensada 390g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.65,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768509219912_orvyg0rkr",
+        "name": "Galletas Marías",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.33,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769398503693_qcw6jw6ui",
+        "name": "Coffee Mate(155porciones)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 5.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ify26lfde",
+        "name": "Papel Sanitario",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.4,
+        "discount": 0
+      },
+      {
+        "id": "prod_1772439257972_9nrd57jde",
+        "name": "Lomo de cerdo x lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.66,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "39.27",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
