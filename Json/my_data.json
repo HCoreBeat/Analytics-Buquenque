@@ -4346,5 +4346,36 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:1700:1ec6:ba50:3b07:4047:811c:818d",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-03-15 13:00:50",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Fabio Roman Moreno",
+    "telefono_comprador": "+17862299155",
+    "nombre_persona_entrega": "Saraí leyva comendador",
+    "telefono_persona_entrega": "56904237",
+    "correo_comprador": "fabiogrm2024@gmail.com",
+    "direccion_envio": "waldemar días # 22A entre 26 de julio y 54. reparto La loma",
+    "compras": [
+      {
+        "id": "prod_1770927044510_a0fr6jdmw",
+        "name": "Paquete de cuartos de Pollo",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 15,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "30.00",
+    "navegador": "Samsung Browser",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
