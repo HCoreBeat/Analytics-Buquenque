@@ -4283,5 +4283,68 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2603:300c:14ce:4600:3595:b4fe:1733:554b",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-03-15 11:57:30",
+    "origen": "https://www.buquenqe.com/#category=Aderezos",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yamila Quesada Suarez",
+    "telefono_comprador": "12817605145",
+    "nombre_persona_entrega": "Zenaida Suarez",
+    "telefono_persona_entrega": "31340255",
+    "correo_comprador": "yquesada1980@gmail.com",
+    "direccion_envio": "Jorge Espinosa Napoles, # 42 altos % Camilo Cienfuegoz y J Espinos",
+    "compras": [
+      {
+        "id": "3",
+        "name": "Pack Hogar Criollo",
+        "quantity": 3,
+        "type": "pack",
+        "unitPrice": 18,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_1q2faykkk",
+        "name": "Plátano (por unidad)",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.31,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_8q6y9td5k",
+        "name": "Limón (por libra)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768443205852_jk51wnt6q",
+        "name": "Pimiento x lb",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 2.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_14e74xnoh",
+        "name": "Cabeza de Ajo",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.51,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "71.53",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
