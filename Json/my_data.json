@@ -4377,5 +4377,138 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "108.227.117.180",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-03-16 08:47:09",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Fabio Roman Moreno",
+    "telefono_comprador": "+17862299155",
+    "nombre_persona_entrega": "Saraí leyva comendador",
+    "telefono_persona_entrega": "56904237",
+    "correo_comprador": "fabiogrm2024@gmail.com",
+    "direccion_envio": "waldemar días # 22A entre 26 de julio y 54. reparto La loma",
+    "compras": [
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 10.99975,
+        "discount": 4.35
+      },
+      {
+        "id": "prod_1770927044510_a0fr6jdmw",
+        "name": "Paquete de cuartos de Pollo",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 15,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "26.00",
+    "navegador": "Samsung Browser",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb91:8c14:ec8f:59cb:8960:3006:35b6",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-03-16 08:56:05",
+    "origen": "https://www.buquenqe.com/p/prod_1768783820711_rmnry541r",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Melissa Benitez",
+    "telefono_comprador": "9418226365",
+    "nombre_persona_entrega": "Yuda",
+    "telefono_persona_entrega": "51512957",
+    "correo_comprador": "mbenitez04@yahoo.com",
+    "direccion_envio": "Calle 32 s/n avenida aeropuerto Entre calle 7 y Rafael Martínez",
+    "compras": [
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 10.99975,
+        "discount": 4.35
+      },
+      {
+        "id": "prod_1770927044510_a0fr6jdmw",
+        "name": "Paquete de cuartos de Pollo",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 15,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769919470708_wghwn1olf",
+        "name": "Leche en polvo (1kg)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 10,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "62.00",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "http://m.facebook.com/"
+  },
+  {
+    "ip": "172.56.100.14",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-03-16 09:01:45",
+    "origen": "https://www.buquenqe.com/p/prod_1768441690510_ma2k8r01f",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Melissa Benitez",
+    "telefono_comprador": "9418226365",
+    "nombre_persona_entrega": "Yuda",
+    "telefono_persona_entrega": "51512957",
+    "correo_comprador": "mbenitez04@yahoo.com",
+    "direccion_envio": "Calle 32 s/n avenida aeropuerto Entre calle 7 y Rafael Martínez",
+    "compras": [
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 10.99975,
+        "discount": 4.35
+      },
+      {
+        "id": "prod_1770927044510_a0fr6jdmw",
+        "name": "Paquete de cuartos de Pollo",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 15,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ma2k8r01f",
+        "name": "Aceite (1L)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.87,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "30.87",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Único",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "http://m.facebook.com/"
   }
 ]
