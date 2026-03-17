@@ -4510,5 +4510,60 @@
     "tipo_usuario": "Único",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "http://m.facebook.com/"
+  },
+  {
+    "ip": "207.104.43.131",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-03-17 10:34:42",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Licet Escobar",
+    "telefono_comprador": "7869570022",
+    "nombre_persona_entrega": "Nayelis",
+    "telefono_persona_entrega": "56252973",
+    "correo_comprador": "escobarlicet47@gmail.com",
+    "direccion_envio": "Eddy martines edificio 53 apto A9, entre Agustín Cebreco y Israel Santo",
+    "compras": [
+      {
+        "id": "prod_1768443205852_ac2tz1k6u",
+        "name": "Carne de cerdo x lbs",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 3,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768918643793_wff5w2f61",
+        "name": "Frijoles rojos x(lbs)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.09,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769612979664_6f4o3BE2I",
+        "name": "Chuleta de cerdo x lb",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 3.31,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "33.93",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
