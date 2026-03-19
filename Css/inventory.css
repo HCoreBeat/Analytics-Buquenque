@@ -594,10 +594,10 @@
 }
 
 .product-badge.sale {
-  background: #e74c3c;
+  background: #ff1900;
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  top: 0rem;
+  right: 0rem;
 }
 
 .product-badge.modified {
@@ -849,7 +849,7 @@
 }
 
 .btn-product-delete {
-  background: #e74c3c;
+  background: #ff00009c;
   color: white;
 }
 
@@ -863,9 +863,9 @@
    right. Instead we position it on the left and scope the rule to the
    product card so it doesn't accidentally apply globally. */
 .product-card .product-badge.unavailable {
-  background: #e74c3c;
+  background: #ff00009c;
   position: absolute;
-  top: 0.5rem;
+  top: 3.5rem;
   left: 0.5rem;
   right: auto;
   /* no z-index so it participates with other badges; left placement
