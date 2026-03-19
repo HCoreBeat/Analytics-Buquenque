@@ -154,7 +154,17 @@ export class GitHubManager {
             }
 
             // Preparar el contenido con JSON.stringify preservando caracteres especiales
-            const fileContent = JSON.stringify(pedidos, null, 2);
+            // Usar un replacer para evitar referencias circulares
+            const seen = new WeakSet();
+            const fileContent = JSON.stringify(pedidos, (key, value) => {
+                if (typeof value === 'object' && value !== null) {
+                    if (seen.has(value)) {
+                        return undefined; // Ignorar referencias circulares
+                    }
+                    seen.add(value);
+                }
+                return value;
+            }, 2);
             
             // Codificar a Base64 preservando UTF-8
             const encoder = new TextEncoder();

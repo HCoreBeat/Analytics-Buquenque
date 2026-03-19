@@ -1188,14 +1188,26 @@ class ServerPanel {
     const existingMap = {};
     existingData.forEach((pedido) => {
       const key = `${pedido.ip}_${pedido.fecha_hora_entrada}`;
-      existingMap[key] = pedido;
+      // Crear una copia profunda para evitar referencias circulares
+      try {
+        existingMap[key] = JSON.parse(JSON.stringify(pedido));
+      } catch (error) {
+        console.warn(`Advertencia: No se pudo serializar pedido existente, usando referencia original:`, error);
+        existingMap[key] = pedido;
+      }
     });
 
     // Agregar nuevos pedidos que no estén duplicados
     newOrders.forEach((newPedido) => {
       const key = `${newPedido.ip}_${newPedido.fecha_hora_entrada}`;
       if (!existingMap[key]) {
-        existingMap[key] = newPedido;
+        // Crear una copia profunda para evitar referencias circulares
+        try {
+          existingMap[key] = JSON.parse(JSON.stringify(newPedido));
+        } catch (error) {
+          console.warn(`Advertencia: No se pudo serializar nuevo pedido, usando referencia original:`, error);
+          existingMap[key] = newPedido;
+        }
       }
     });
 
