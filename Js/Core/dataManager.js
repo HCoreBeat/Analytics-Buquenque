@@ -46,11 +46,6 @@ export class DataManager {
             // Parsea el precio
             item.total = parseFloat(item.precio_compra_total) || 0;
             
-            // Asegura que compras es un array
-            if (!Array.isArray(item.compras)) {
-                item.compras = [];
-            }
-            
             // Conteo de productos
             item.productsCount = item.compras.reduce((acc, curr) => acc + (curr.quantity || 0), 0);
 

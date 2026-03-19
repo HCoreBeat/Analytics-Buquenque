@@ -132,69 +132,6 @@ export class GitHubManager {
     }
 
     /**
-     * Saneifica los datos eliminando referencias circulares y objetos no serializables
-     * @param {*} obj - Objeto a saneificar
-     * @param {Set} visited - Set de objetos ya visitados (para detectar ciclos)
-     * @returns {*} Objeto saneificado sin referencias circulares
-     */
-    deepClean(obj, visited = new Set()) {
-        // Tipos primitivos
-        if (obj === null || obj === undefined) {
-            return obj;
-        }
-
-        if (typeof obj !== 'object') {
-            return obj;
-        }
-
-        // Detección de ciclos
-        if (visited.has(obj)) {
-            return undefined;
-        }
-
-        // Manejo de Dates
-        if (obj instanceof Date) {
-            return obj.toISOString();
-        }
-
-        // Manejo de arrays
-        if (Array.isArray(obj)) {
-            visited.add(obj);
-            const cleaned = obj
-                .map(item => this.deepClean(item, visited))
-                .filter(item => item !== undefined);
-            visited.delete(obj);
-            return cleaned;
-        }
-
-        // Manejo de objetos
-        visited.add(obj);
-        const cleaned = {};
-        try {
-            for (const key in obj) {
-                if (Object.prototype.hasOwnProperty.call(obj, key)) {
-                    const value = obj[key];
-                    // Solo incluir valores primitivos, arrays y objetos simples
-                    if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean' || value === null) {
-                        cleaned[key] = value;
-                    } else if (value instanceof Date) {
-                        cleaned[key] = value.toISOString();
-                    } else if (Array.isArray(value) || (typeof value === 'object' && value !== null)) {
-                        const cleanedValue = this.deepClean(value, visited);
-                        if (cleanedValue !== undefined) {
-                            cleaned[key] = cleanedValue;
-                        }
-                    }
-                }
-            }
-        } catch (error) {
-            console.warn('Error al limpiar objeto:', error);
-        }
-        visited.delete(obj);
-        return cleaned;
-    }
-
-    /**
      * Guarda los pedidos en GitHub
      * @param {Array} pedidos - Array de pedidos a guardar
      * @param {String} commitMessage - Mensaje del commit
@@ -216,11 +153,8 @@ export class GitHubManager {
                 console.log('Archivo no existe, se creará uno nuevo');
             }
 
-            // Saneificar los datos para eliminar referencias circulares
-            const cleanedPedidos = this.deepClean(pedidos);
-
-            // Preparar el contenido con JSON.stringify
-            const fileContent = JSON.stringify(cleanedPedidos, null, 2);
+            // Preparar el contenido con JSON.stringify preservando caracteres especiales
+            const fileContent = JSON.stringify(pedidos, null, 2);
             
             // Codificar a Base64 preservando UTF-8
             const encoder = new TextEncoder();

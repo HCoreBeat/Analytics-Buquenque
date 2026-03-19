@@ -1187,43 +1187,15 @@ class ServerPanel {
     // Usamos IP + fecha_hora_entrada como clave única
     const existingMap = {};
     existingData.forEach((pedido) => {
-      if (pedido && pedido.ip && pedido.fecha_hora_entrada) {
-        const key = `${pedido.ip}_${pedido.fecha_hora_entrada}`;
-        // Crear copia simple solo con propiedades primitivas
-        const cleanPedido = {};
-        for (const prop in pedido) {
-          if (Object.prototype.hasOwnProperty.call(pedido, prop)) {
-            const value = pedido[prop];
-            if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean' || value === null) {
-              cleanPedido[prop] = value;
-            } else if (value instanceof Date) {
-              cleanPedido[prop] = value.toISOString();
-            }
-          }
-        }
-        existingMap[key] = cleanPedido;
-      }
+      const key = `${pedido.ip}_${pedido.fecha_hora_entrada}`;
+      existingMap[key] = pedido;
     });
 
     // Agregar nuevos pedidos que no estén duplicados
     newOrders.forEach((newPedido) => {
-      if (newPedido && newPedido.ip && newPedido.fecha_hora_entrada) {
-        const key = `${newPedido.ip}_${newPedido.fecha_hora_entrada}`;
-        if (!existingMap[key]) {
-          // Crear copia simple solo con propiedades primitivas
-          const cleanPedido = {};
-          for (const prop in newPedido) {
-            if (Object.prototype.hasOwnProperty.call(newPedido, prop)) {
-              const value = newPedido[prop];
-              if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean' || value === null) {
-                cleanPedido[prop] = value;
-              } else if (value instanceof Date) {
-                cleanPedido[prop] = value.toISOString();
-              }
-            }
-          }
-          existingMap[key] = cleanPedido;
-        }
+      const key = `${newPedido.ip}_${newPedido.fecha_hora_entrada}`;
+      if (!existingMap[key]) {
+        existingMap[key] = newPedido;
       }
     });
 
