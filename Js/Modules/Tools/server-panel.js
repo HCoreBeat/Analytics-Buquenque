@@ -1160,9 +1160,7 @@ class ServerPanel {
       console.error("Error al guardar en GitHub:", error);
 
       if (!isSilent) {
-        this.saveModal.showError(error.message, () =>
-          this.saveOrdersToGitHub(isSilent),
-        );
+        this.saveModal.showError(error.message, null);
       }
 
       showAlert(`❌ Error: ${error.message}`, "error", 4000);
