@@ -4953,5 +4953,123 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "152.207.244.27",
+    "pais": "CU",
+    "fecha_hora_entrada": "2026-03-22 19:38:02",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yudith Vázquez Nuñez",
+    "telefono_comprador": "53192532",
+    "nombre_persona_entrega": "Yudith Vázquez Núñez",
+    "telefono_persona_entrega": "53192532",
+    "correo_comprador": "bellyu0529@gmail.com",
+    "direccion_envio": "Calle José Fernández Peña #56 /Eddy Chibás y Cristino Naranjo. Sosa",
+    "compras": [
+      {
+        "id": "prod_1769613603917_5rg815imv",
+        "name": "Pollo entero Saera(1300g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 7,
+        "discount": 12.5
+      },
+      {
+        "id": "group_Pack x4 Yogurt Vima",
+        "name": "Pack x4 Yogurt Vima (Fresa)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768509219912_orvyg0rkr",
+        "name": "Galletas Marías",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.33,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ok1axebuc",
+        "name": "Malta Guajira (330ml)",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.15,
+        "discount": 0
+      },
+      {
+        "id": "group_Galletas Creme Bite",
+        "name": "Galletas Creme Bite (Fresa)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.5,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "19.91",
+    "navegador": "Samsung Browser",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb91:8cab:454e:ac39:d377:825b:ddd6",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-03-22 23:47:50",
+    "origen": "https://www.buquenqe.com/#category=C%C3%A1rnicos%20y%20Embutidos",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Reinaldo Alvarez",
+    "telefono_comprador": "8632536481",
+    "nombre_persona_entrega": "Leidys Marian Sánchez Nuñez",
+    "telefono_persona_entrega": "59240102",
+    "correo_comprador": "reinaldoalvarez2107@gmail.com",
+    "direccion_envio": "Calle 80 #93A san José Las tunas",
+    "compras": [
+      {
+        "id": "prod_1772439456822_kktbprsor",
+        "name": "Saco de Arroz supreme 55lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 47,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774222778857_b1qujwhp4",
+        "name": "Pack 1Kg Queso Gouda y 1Kg Jamón",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 23.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_6xn0n5bsd",
+        "name": "Pack x 12 Néctar de Pera 🍐 (12x330ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 15.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769612979664_6f4o3BE2I",
+        "name": "Chuleta de cerdo x lb",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 3.37,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "103.81",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
