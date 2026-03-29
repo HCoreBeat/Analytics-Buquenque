@@ -5071,5 +5071,60 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:1700:4b00:bd0:3dbf:d4f3:b8d4:329c",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-03-28 18:58:01",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Eliani",
+    "telefono_comprador": "3058463318",
+    "nombre_persona_entrega": "Mercedes",
+    "telefono_persona_entrega": "+53 5 8712491",
+    "correo_comprador": "elianisabel0695@gmail.com",
+    "direccion_envio": "Emilio gonzales 30 altos entre Mario j perez y José licea Aguilera",
+    "compras": [
+      {
+        "id": "prod_1769612979664_6f4o3BE2I",
+        "name": "Chuleta de cerdo x lb",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 3.37,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255568932_49z71tujl",
+        "name": "Pasta de tomate Vima 400g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ma2k8r01f",
+        "name": "Aceite (1L)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.29,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_1q2faykkk",
+        "name": "Plátano (por unidad)",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.31,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "25.99",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
