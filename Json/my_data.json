@@ -5205,5 +5205,68 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb91:1a:c119:e8ab:df20:5d09:5e44",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-03-30 07:59:52",
+    "origen": "https://www.buquenqe.com/#category=Bebidas%20no%20alcoh%C3%B3licas",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yaneidis Rivero",
+    "telefono_comprador": "4075157526",
+    "nombre_persona_entrega": "Rosa Paulina comendador",
+    "telefono_persona_entrega": "52403457",
+    "correo_comprador": "yaneidisrc@icloud.com",
+    "direccion_envio": "Calle 47 #13 altos reparto Fernando Betancourt las tunas",
+    "compras": [
+      {
+        "id": "prod_1771953998923_b4sri6e8j",
+        "name": "Malta Bucanero",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.17,
+        "discount": 0
+      },
+      {
+        "id": "group_Néctar de",
+        "name": "Néctar de (Pera 🍐) x unidad (330ml)",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 1.4,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774743001771_4ql9niare",
+        "name": "Jalea de Guayaba",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.99,
+        "discount": 0
+      },
+      {
+        "id": "group_Caja de refresco 24u",
+        "name": "Caja de refresco 24u (Cola)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 18.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774742941861_rn5ai5a43",
+        "name": "Queso Criollo x Lb",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.15,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "46.92",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
