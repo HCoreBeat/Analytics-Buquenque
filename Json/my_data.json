@@ -5268,5 +5268,139 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:1700:4b00:bd0:2d92:a052:eb5a:a5f8",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-03-31 10:30:01",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Eliani Rojas",
+    "telefono_comprador": "3058463318",
+    "nombre_persona_entrega": "Yusmary",
+    "telefono_persona_entrega": "+53 5 0680540",
+    "correo_comprador": "elianisabel0695@gmail.com",
+    "direccion_envio": "Calle 6 #49 entre flor combre y general Moncada  reparto aguilera",
+    "compras": [
+      {
+        "id": "prod_1768441690510_h5qqrqz06",
+        "name": "Carne de ovejo x lbs",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 2.37,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774742941861_rn5ai5a43",
+        "name": "Queso Criollo x Lb",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.15,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "15.00",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:c4:c881:1450:6cf3:2797:4bf1:4170",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-03-31 11:41:26",
+    "origen": "https://www.buquenqe.com/p/prod_1768441690510_nm24ia7xr",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yisel Leyva",
+    "telefono_comprador": "(505) 589-2289",
+    "nombre_persona_entrega": "Ailin segura",
+    "telefono_persona_entrega": "5355771904",
+    "correo_comprador": "aismaraleyva90@gmail.com",
+    "direccion_envio": "Calle Irael Santos%calle Mario oro y julio dieguez Edif 46 apt A2 reparto  Santos",
+    "compras": [
+      {
+        "id": "prod_1768441690510_nm24ia7xr",
+        "name": "Manzana 🍎 x unidad",
+        "quantity": 7,
+        "type": "product",
+        "unitPrice": 1.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 10.96985,
+        "discount": 4.61
+      },
+      {
+        "id": "prod_1774589037954_ne3iqyc5v",
+        "name": "Café natural Vima 250g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 7.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.9,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_cgr6pnapy",
+        "name": "Refresco Gaseado Limón (1.5Lt)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.49,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774588718809_f6anpwdzt",
+        "name": "Mayonesa Vima 450ml",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768509219912_orvyg0rkr",
+        "name": "Galletas Marías",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.33,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768918643793_wff5w2f61",
+        "name": "Frijoles rojos x(lbs)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.09,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_gkp20pj1x",
+        "name": "Espaguetis (500g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.16,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "44.91",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
