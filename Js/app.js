@@ -176,6 +176,11 @@ class DashboardApp {
                 this.finanzasUI.setProductManager(this.inventoryApp.productManager);
             }
 
+            // Enlazar DataManager para reportes de órdenes y pagos del programador
+            if (this.finanzasUI) {
+                this.finanzasUI.setDataManager(this.dataManager);
+            }
+
             // Paso 4: Preload Finanzas KPI
             this.loadingManager.updateStep(4, 'Configurando finanzas...');
             try {
@@ -301,8 +306,8 @@ class DashboardApp {
 
         // Si la vista es finanzas, inicializar UI de finanzas
         if (viewName === 'finanzas' && this.finanzasUI) {
-            const stats = this.dataManager.getStats();
-            this.finanzasUI.showFinanzas(stats.totalSales).catch(err => console.warn('Error mostrando finanzas:', err));
+            const programadorData = this.dataManager.getProgrammerPaymentData(0);
+            this.finanzasUI.showFinanzas(programadorData.totalSales, programadorData).catch(err => console.warn('Error mostrando finanzas:', err));
         }
 
         // Si la vista es notificaciones, reinicializar el editor

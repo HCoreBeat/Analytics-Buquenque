@@ -93,47 +93,65 @@ export class GitHubManager {
 
   /**
    * Obtiene el contenido actual del archivo desde GitHub
+   * @param {number} retries - Número de reintentos
    */
-  async getFileContent() {
+  async getFileContent(retries = 3) {
     if (!this.isConfigured()) {
       throw new Error("Configuración incompleta.");
     }
 
-    try {
-      const response = await fetch(
-        `${this.apiBase}/repos/${GITHUB_CONFIG.REPO}/contents/${GITHUB_CONFIG.FILE_PATH}`,
-        {
-          headers: {
-            Authorization: `token ${this.token}`,
-            Accept: "application/vnd.github.v3+json",
+    let lastError;
+    for (let attempt = 0; attempt < retries; attempt++) {
+      try {
+        const response = await fetch(
+          `${this.apiBase}/repos/${GITHUB_CONFIG.REPO}/contents/${GITHUB_CONFIG.FILE_PATH}`,
+          {
+            headers: {
+              Authorization: `token ${this.token}`,
+              Accept: "application/vnd.github.v3+json",
+            },
           },
-        },
-      );
+        );
 
-      if (!response.ok) {
-        if (response.status === 404) {
-          return null; // Archivo no existe
+        if (!response.ok) {
+          if (response.status === 404) {
+            return null; // Archivo no existe
+          }
+          if (response.status === 429) {
+            // Rate limit - esperar y reintentar
+            const retryAfter = response.headers.get('Retry-After') || (30 * (attempt + 1));
+            console.warn(`Rate limit. Esperando ${retryAfter}s antes de reintentar...`);
+            await new Promise(resolve => setTimeout(resolve, retryAfter * 1000));
+            continue;
+          }
+          throw new Error(`Error ${response.status}: ${response.statusText}`);
         }
-        throw new Error(`Error ${response.status}: ${response.statusText}`);
-      }
 
-      const data = await response.json();
-      // Decodificar base64 preservando UTF-8
-      const binaryString = atob(data.content);
-      const bytes = new Uint8Array(binaryString.length);
-      for (let i = 0; i < binaryString.length; i++) {
-        bytes[i] = binaryString.charCodeAt(i);
-      }
-      const decoder = new TextDecoder("utf-8");
-      const content = decoder.decode(bytes);
+        const data = await response.json();
+        // Decodificar base64 preservando UTF-8
+        const binaryString = atob(data.content);
+        const bytes = new Uint8Array(binaryString.length);
+        for (let i = 0; i < binaryString.length; i++) {
+          bytes[i] = binaryString.charCodeAt(i);
+        }
+        const decoder = new TextDecoder("utf-8");
+        const content = decoder.decode(bytes);
 
-      return {
-        content: JSON.parse(content),
-        sha: data.sha,
-      };
-    } catch (error) {
-      throw new Error(`Error al obtener archivo: ${error.message}`);
+        return {
+          content: JSON.parse(content),
+          sha: data.sha,
+        };
+      } catch (error) {
+        lastError = error;
+        if (attempt < retries - 1) {
+          // Esperar antes de reintentar (backoff exponencial)
+          const delayMs = Math.min(1000 * Math.pow(2, attempt), 10000);
+          await new Promise(resolve => setTimeout(resolve, delayMs));
+        }
+      }
     }
+    
+    throw new Error(`Error al obtener archivo después de ${retries} intentos: ${lastError.message}`);
   }
 
   /**
@@ -211,13 +229,15 @@ export class GitHubManager {
   }
 
   /**
-   * Guarda los pedidos en GitHub
+   * Guarda los pedidos en GitHub con reintentos automáticos
    * @param {Array} pedidos - Array de pedidos a guardar
    * @param {String} commitMessage - Mensaje del commit
+   * @param {number} retries - Número de reintentos en caso de conflicto
    */
   async savePedidos(
     pedidos,
     commitMessage = "Actualizar pedidos - Analytics Dashboard",
+    retries = 5,
   ) {
     if (!this.isConfigured()) {
       throw new Error(
@@ -225,75 +245,114 @@ export class GitHubManager {
       );
     }
 
-    try {
-      // Intentar obtener el contenido actual para obtener el SHA
-      let sha = null;
+    let lastError;
+    for (let attempt = 0; attempt < retries; attempt++) {
       try {
-        const existing = await this.getFileContent();
-        if (existing) {
-          sha = existing.sha;
+        // Obtener el contenido actual para obtener el SHA más reciente
+        let sha = null;
+        let existing = null;
+        
+        try {
+          existing = await this.getFileContent(3);
+          if (existing) {
+            sha = existing.sha;
+          }
+        } catch (error) {
+          console.log("Archivo no existe, se creará uno nuevo:", error.message);
         }
-      } catch (error) {
-        console.log("Archivo no existe, se creará uno nuevo");
-      }
 
-      // Limpiar datos antes de stringify para evitar referencias circulares
-      const cleanedPedidos = this.cleanData(pedidos);
-      const fileContent = JSON.stringify(cleanedPedidos, null, 2);
+        // Limpiar datos antes de stringify para evitar referencias circulares
+        const cleanedPedidos = this.cleanData(pedidos);
+        const fileContent = JSON.stringify(cleanedPedidos, null, 2);
 
-      // Codificar a Base64 preservando UTF-8 (sin usar apply para evitar stack overflow)
-      const encoder = new TextEncoder();
-      const data = encoder.encode(fileContent);
-      
-      // Convertir Uint8Array a string sin usar apply
-      let binaryString = "";
-      for (let i = 0; i < data.length; i++) {
-        binaryString += String.fromCharCode(data[i]);
-      }
-      const encodedContent = btoa(binaryString);
+        // Codificar a Base64 preservando UTF-8 (sin usar apply para evitar stack overflow)
+        const encoder = new TextEncoder();
+        const data = encoder.encode(fileContent);
+        
+        // Convertir Uint8Array a string sin usar apply
+        let binaryString = "";
+        for (let i = 0; i < data.length; i++) {
+          binaryString += String.fromCharCode(data[i]);
+        }
+        const encodedContent = btoa(binaryString);
 
-      // Preparar el body de la solicitud
-      const body = {
-        message: commitMessage,
-        content: encodedContent,
-        branch: GITHUB_CONFIG.BRANCH,
-      };
+        // Preparar el body de la solicitud
+        const body = {
+          message: commitMessage,
+          content: encodedContent,
+          branch: GITHUB_CONFIG.BRANCH,
+        };
 
-      if (sha) {
-        body.sha = sha; // Necesario para actualizar archivo existente
-      }
+        if (sha) {
+          body.sha = sha; // Necesario para actualizar archivo existente
+        }
 
-      // Hacer la solicitud PUT a GitHub
-      const response = await fetch(
-        `${this.apiBase}/repos/${GITHUB_CONFIG.REPO}/contents/${GITHUB_CONFIG.FILE_PATH}`,
-        {
-          method: "PUT",
-          headers: {
-            Authorization: `token ${this.token}`,
-            Accept: "application/vnd.github.v3+json",
-            "Content-Type": "application/json; charset=utf-8",
+        // Hacer la solicitud PUT a GitHub
+        const response = await fetch(
+          `${this.apiBase}/repos/${GITHUB_CONFIG.REPO}/contents/${GITHUB_CONFIG.FILE_PATH}`,
+          {
+            method: "PUT",
+            headers: {
+              Authorization: `token ${this.token}`,
+              Accept: "application/vnd.github.v3+json",
+              "Content-Type": "application/json; charset=utf-8",
+            },
+            body: JSON.stringify(body),
           },
-          body: JSON.stringify(body),
-        },
-      );
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(
-          `Error ${response.status}: ${errorData.message || response.statusText}`,
         );
-      }
 
-      const result = await response.json();
-      return {
-        success: true,
-        message: "Pedidos guardados exitosamente en GitHub",
-        commit: result.commit.html_url,
-        sha: result.content.sha,
-      };
-    } catch (error) {
-      throw new Error(`Error al guardar pedidos: ${error.message}`);
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => ({}));
+          
+          if (response.status === 409) {
+            // Conflicto: reintentar con backoff exponencial
+            lastError = new Error(`Conflicto 409 (intento ${attempt + 1}/${retries}): ${errorData.message || response.statusText}`);
+            console.warn(lastError.message);
+            
+            if (attempt < retries - 1) {
+              // Esperar antes de reintentar (backoff exponencial)
+              const delayMs = Math.min(1000 * Math.pow(2, attempt), 10000);
+              console.log(`Esperando ${delayMs}ms antes de reintentar...`);
+              await new Promise(resolve => setTimeout(resolve, delayMs));
+              continue;
+            }
+          } else if (response.status === 429) {
+            // Rate limit
+            lastError = new Error(`Rate limit ${response.status}`);
+            const retryAfter = response.headers.get('Retry-After') || (30 * (attempt + 1));
+            console.warn(`Rate limit. Esperando ${retryAfter}s...`);
+            await new Promise(resolve => setTimeout(resolve, retryAfter * 1000));
+            continue;
+          }
+          
+          throw new Error(
+            `Error ${response.status}: ${errorData.message || response.statusText}`,
+          );
+        }
+
+        const result = await response.json();
+        return {
+          success: true,
+          message: "Pedidos guardados exitosamente en GitHub",
+          commit: result.commit.html_url,
+          sha: result.content.sha,
+          attempt: attempt + 1,
+        };
+      } catch (error) {
+        lastError = error;
+        
+        // Si es un error que no es 409, no reintentar
+        if (error.message && !error.message.includes("409") && !error.message.includes("Rate limit")) {
+          throw error;
+        }
+        
+        if (attempt < retries - 1) {
+          console.warn(`Intento ${attempt + 1} fallido: ${error.message}`);
+        }
+      }
     }
+    
+    throw new Error(`Error al guardar pedidos después de ${retries} intentos: ${lastError.message}`);
   }
 
   /**
@@ -352,98 +411,135 @@ export class GitHubManager {
   }
 
   /**
-   * Sube un archivo a GitHub usando la API (para repositorio Buquenque)
+   * Sube un archivo a GitHub usando la API con reintentos (para repositorio Buquenque)
    * @param {string} filePath - Ruta del archivo en el repositorio
    * @param {string} base64Content - Contenido en Base64
    * @param {string} message - Mensaje del commit
+   * @param {number} retries - Número de reintentos en caso de conflicto
    */
-  async uploadFile(filePath, base64Content, message = "Actualizar archivo") {
+  async uploadFile(filePath, base64Content, message = "Actualizar archivo", retries = 5) {
     if (!this.isConfigured()) {
       throw new Error("Token de GitHub no configurado");
     }
 
-    try {
-      // Obtener SHA del archivo si existe (para actualización)
-      let sha = null;
+    let lastError;
+    for (let attempt = 0; attempt < retries; attempt++) {
       try {
+        // Obtener SHA del archivo si existe (para actualización)
+        let sha = null;
+        try {
+          const response = await fetch(
+            `${this.apiBase}/repos/HCoreBeat/Buquenque/contents/${filePath}`,
+            {
+              headers: {
+                Authorization: `token ${this.token}`,
+                Accept: "application/vnd.github.v3+json",
+              },
+            },
+          );
+
+          if (response.ok) {
+            const data = await response.json();
+            sha = data.sha;
+          } else if (response.status !== 404) {
+            console.warn(`Error ${response.status} al obtener SHA de ${filePath}`);
+          }
+        } catch (error) {
+          console.log(`Archivo no existe: ${filePath}`);
+        }
+
+        // Preparar el body
+        const body = {
+          message: message,
+          content: base64Content,
+          branch: "main",
+        };
+
+        if (sha) {
+          body.sha = sha;
+        }
+
+        // Hacer PUT a GitHub
         const response = await fetch(
           `${this.apiBase}/repos/HCoreBeat/Buquenque/contents/${filePath}`,
           {
+            method: "PUT",
             headers: {
               Authorization: `token ${this.token}`,
               Accept: "application/vnd.github.v3+json",
+              "Content-Type": "application/json",
             },
+            body: JSON.stringify(body),
           },
         );
 
-        if (response.ok) {
-          const data = await response.json();
-          sha = data.sha;
-        }
-      } catch (error) {
-        console.log(`Archivo no existe o error al obtener SHA: ${filePath}`);
-      }
-
-      // Preparar el body
-      const body = {
-        message: message,
-        content: base64Content,
-        branch: "main",
-      };
-
-      if (sha) {
-        body.sha = sha;
-      }
-
-      // Hacer PUT a GitHub
-      const response = await fetch(
-        `${this.apiBase}/repos/HCoreBeat/Buquenque/contents/${filePath}`,
-        {
-          method: "PUT",
-          headers: {
-            Authorization: `token ${this.token}`,
-            Accept: "application/vnd.github.v3+json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(body),
-        },
-      );
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        if (response.status === 409) {
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => ({}));
+          
+          if (response.status === 409) {
+            // Conflicto: reintentar con backoff exponencial
+            lastError = new Error(`Conflicto 409 (intento ${attempt + 1}/${retries})`);
+            console.warn(`${lastError.message}: ${errorData.message || response.statusText}`);
+            
+            if (attempt < retries - 1) {
+              const delayMs = Math.min(1000 * Math.pow(2, attempt), 10000);
+              console.log(`Esperando ${delayMs}ms antes de reintentar...`);
+              await new Promise(resolve => setTimeout(resolve, delayMs));
+              continue;
+            }
+          } else if (response.status === 401) {
+            throw new Error("Token de GitHub inválido o expirado");
+          } else if (response.status === 429) {
+            // Rate limit
+            lastError = new Error(`Rate limit ${response.status}`);
+            const retryAfter = response.headers.get('Retry-After') || (30 * (attempt + 1));
+            console.warn(`Rate limit. Esperando ${retryAfter}s...`);
+            await new Promise(resolve => setTimeout(resolve, retryAfter * 1000));
+            continue;
+          }
+          
           throw new Error(
-            `Conflicto al actualizar ${filePath}. Intenta de nuevo.`,
+            `Error ${response.status}: ${errorData.message || response.statusText}`,
           );
-        } else if (response.status === 401) {
-          throw new Error("Token de GitHub inválido o expirado");
         }
-        throw new Error(
-          `Error ${response.status}: ${errorData.message || response.statusText}`,
-        );
-      }
 
-      const result = await response.json();
-      return {
-        success: true,
-        message: `Archivo subido: ${filePath}`,
-        commit: result.commit,
-        sha: result.content.sha,
-      };
-    } catch (error) {
-      console.error("Error en uploadFile:", error);
-      throw error;
+        const result = await response.json();
+        return {
+          success: true,
+          message: `Archivo subido: ${filePath}`,
+          commit: result.commit,
+          sha: result.content.sha,
+          attempt: attempt + 1,
+        };
+      } catch (error) {
+        lastError = error;
+        
+        // Si es un error no recuperable, no reintentar
+        if (error.message && !error.message.includes("409") && !error.message.includes("Rate limit")) {
+          console.error("Error en uploadFile:", error);
+          throw error;
+        }
+        
+        if (attempt < retries - 1) {
+          console.warn(`Intento ${attempt + 1} fallido: ${error.message}`);
+        }
+      }
     }
+    
+    console.error("Error en uploadFile:", lastError);
+    throw lastError;
   }
 
   /**
-   * Guarda los datos de notificación en el repositorio Buquenque
+   * Guarda los datos de notificación en el repositorio Buquenque con reintentos
    * @param {Object} notificationData - Objeto con id, titulo, mensaje, subtitulo, tipo, icono
    * @param {String} commitMessage - Mensaje del commit
+   * @param {number} retries - Número de reintentos en caso de conflicto
    */
   async saveNotificationData(
     notificationData,
     commitMessage = "Actualizar notificación desde editor",
+    retries = 5,
   ) {
     if (!this.isConfigured()) {
       throw new Error(
@@ -451,89 +547,127 @@ export class GitHubManager {
       );
     }
 
-    try {
-      // Ruta del archivo en el repositorio Buquenque
-      const filePath = "Json/data.json";
-      const repoPath = "HCoreBeat/Buquenque";
-
-      // Obtener SHA del archivo si existe
-      let sha = null;
+    let lastError;
+    for (let attempt = 0; attempt < retries; attempt++) {
       try {
+        // Ruta del archivo en el repositorio Buquenque
+        const filePath = "Json/data.json";
+        const repoPath = "HCoreBeat/Buquenque";
+
+        // Obtener SHA del archivo si existe
+        let sha = null;
+        try {
+          const response = await fetch(
+            `${this.apiBase}/repos/${repoPath}/contents/${filePath}`,
+            {
+              headers: {
+                Authorization: `token ${this.token}`,
+                Accept: "application/vnd.github.v3+json",
+              },
+            },
+          );
+
+          if (response.ok) {
+            const data = await response.json();
+            sha = data.sha;
+          } else if (response.status !== 404) {
+            throw new Error(`Error ${response.status} al obtener SHA: ${response.statusText}`);
+          }
+        } catch (error) {
+          console.log(`Archivo no existe, se creará uno nuevo: ${filePath}`);
+        }
+
+        // Preparar contenido con UTF-8
+        const fileContent = JSON.stringify(notificationData, null, 4);
+
+        // Codificar a Base64 preservando UTF-8 (sin usar apply para evitar stack overflow)
+        const encoder = new TextEncoder();
+        const data = encoder.encode(fileContent);
+        
+        // Convertir Uint8Array a string sin usar apply
+        let binaryString = "";
+        for (let i = 0; i < data.length; i++) {
+          binaryString += String.fromCharCode(data[i]);
+        }
+        const encodedContent = btoa(binaryString);
+
+        // Preparar body de la solicitud
+        const body = {
+          message: commitMessage,
+          content: encodedContent,
+          branch: "main",
+        };
+
+        if (sha) {
+          body.sha = sha;
+        }
+
+        // Hacer PUT a GitHub
         const response = await fetch(
           `${this.apiBase}/repos/${repoPath}/contents/${filePath}`,
           {
+            method: "PUT",
             headers: {
               Authorization: `token ${this.token}`,
               Accept: "application/vnd.github.v3+json",
+              "Content-Type": "application/json; charset=utf-8",
             },
+            body: JSON.stringify(body),
           },
         );
 
-        if (response.ok) {
-          const data = await response.json();
-          sha = data.sha;
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => ({}));
+          
+          if (response.status === 409) {
+            // Conflicto: reintentar con backoff exponencial
+            lastError = new Error(`Conflicto 409 (intento ${attempt + 1}/${retries}): ${errorData.message || response.statusText}`);
+            console.warn(lastError.message);
+            
+            if (attempt < retries - 1) {
+              const delayMs = Math.min(1000 * Math.pow(2, attempt), 10000);
+              console.log(`Esperando ${delayMs}ms antes de reintentar...`);
+              await new Promise(resolve => setTimeout(resolve, delayMs));
+              continue;
+            }
+          } else if (response.status === 429) {
+            // Rate limit
+            lastError = new Error(`Rate limit ${response.status}`);
+            const retryAfter = response.headers.get('Retry-After') || (30 * (attempt + 1));
+            console.warn(`Rate limit. Esperando ${retryAfter}s...`);
+            await new Promise(resolve => setTimeout(resolve, retryAfter * 1000));
+            continue;
+          }
+          
+          throw new Error(
+            `Error ${response.status}: ${errorData.message || response.statusText}`,
+          );
         }
+
+        const result = await response.json();
+        return {
+          success: true,
+          message: "Notificación guardada exitosamente en GitHub",
+          commit: result.commit.html_url,
+          sha: result.content.sha,
+          file: filePath,
+          attempt: attempt + 1,
+        };
       } catch (error) {
-        console.log(`Archivo no existe, se creará uno nuevo: ${filePath}`);
+        lastError = error;
+        
+        // Si es un error que no es 409, no reintentar
+        if (error.message && !error.message.includes("409") && !error.message.includes("Rate limit")) {
+          throw error;
+        }
+        
+        if (attempt < retries - 1) {
+          console.warn(`Intento ${attempt + 1} fallido: ${error.message}`);
+        }
       }
-
-      // Preparar contenido con UTF-8
-      const fileContent = JSON.stringify(notificationData, null, 4);
-
-      // Codificar a Base64 preservando UTF-8 (sin usar apply para evitar stack overflow)
-      const encoder = new TextEncoder();
-      const data = encoder.encode(fileContent);
-      
-      // Convertir Uint8Array a string sin usar apply
-      let binaryString = "";
-      for (let i = 0; i < data.length; i++) {
-        binaryString += String.fromCharCode(data[i]);
-      }
-      const encodedContent = btoa(binaryString);
-
-      // Preparar body de la solicitud
-      const body = {
-        message: commitMessage,
-        content: encodedContent,
-        branch: "main",
-      };
-
-      if (sha) {
-        body.sha = sha;
-      }
-
-      // Hacer PUT a GitHub
-      const response = await fetch(
-        `${this.apiBase}/repos/${repoPath}/contents/${filePath}`,
-        {
-          method: "PUT",
-          headers: {
-            Authorization: `token ${this.token}`,
-            Accept: "application/vnd.github.v3+json",
-            "Content-Type": "application/json; charset=utf-8",
-          },
-          body: JSON.stringify(body),
-        },
-      );
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(
-          `Error ${response.status}: ${errorData.message || response.statusText}`,
-        );
-      }
-
-      const result = await response.json();
-      return {
-        success: true,
-        message: "Notificación guardada exitosamente en GitHub",
-        commit: result.commit.html_url,
-        sha: result.content.sha,
-        file: filePath,
-      };
-    } catch (error) {
-      throw new Error(`Error al guardar notificación: ${error.message}`);
     }
+    
+    throw new Error(`Error al guardar notificación después de ${retries} intentos: ${lastError.message}`);
   }
 
   /**

@@ -270,6 +270,42 @@
   flex-wrap: wrap;
   justify-content: flex-end;
 }
+.finanzas-filter-period {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-size: 0.75rem;
+  color: #f8fafc;
+  text-align: right;
+}
+.finanzas-filter-period label {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+}
+.finanzas-filter-period select {
+  border: 1px solid #e2e8f0;
+  background: white;
+  color: #1e293b;
+  border-radius: 8px;
+  padding: 0.35rem 0.5rem;
+}
+.kpi-card.programador {
+  background: linear-gradient(135deg, #FFFBEB 0%, #FFF7E2 100%);
+  border-color: #f59e0b;
+}
+.kpi-card.programador .kpi-label {
+  color: #b45309;
+}
+.kpi-card.programador .kpi-value,
+.kpi-card.programador .kpi-subvalue {
+  color: #92400e;
+}
+.kpi-card.programador .kpi-subinfo {
+  font-size: 0.78rem;
+  color: #7c2d12;
+  margin-top: 0.25rem;
+}
+
 .finanzas-header-stats {
   display: flex;
   gap: 10px;

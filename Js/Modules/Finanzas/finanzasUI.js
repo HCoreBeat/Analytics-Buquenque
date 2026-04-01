@@ -11,11 +11,18 @@ export class FinanzasUI {
         this._lastLoadedPrice = null; // para comparación de sesión
         this._kpiValue = null; // mantener valor persistente del KPI
         this.productManager = null;
+        this.dataManager = null;
+        this.programadorMonthOffset = 0;
+        this.programadorData = null;
         this.metrics = null; // Guardar métricas para filtrado
     }
 
     setProductManager(pm) {
         this.productManager = pm;
+    }
+
+    setDataManager(dm) {
+        this.dataManager = dm;
     }
 
     /**
@@ -40,10 +47,17 @@ export class FinanzasUI {
         }
     }
 
-    async showFinanzas(totalSales = 0) {
+    async showFinanzas(totalSales = 0, programadorData = null) {
         try {
             if (!this.container) this.container = document.querySelector(this.containerSelector);
             if (!this.container) return;
+
+            // Selección de rango de pagos del programador (desde DataManager)
+            if (!programadorData && this.dataManager) {
+                programadorData = this.dataManager.getProgrammerPaymentData(this.programadorMonthOffset);
+            }
+            this.programadorData = programadorData;
+            const rangoTotalSales = Number(programadorData?.totalSales || totalSales || 0);
 
             // Ensure CSS loaded (optional)
             if (!document.querySelector('link[href*="finanzas.css"]')) {
@@ -108,7 +122,7 @@ export class FinanzasUI {
             // Calcular métricas si hay productManager
             let metrics = null;
             if (this.productManager && this.productManager.products) {
-                metrics = await this.manager.calculateFinancials(this.productManager.products, tasa, totalSales);
+                metrics = await this.manager.calculateFinancials(this.productManager.products, tasa, rangoTotalSales);
             }
             this.metrics = metrics;
             this.tasa = tasa;
@@ -122,6 +136,12 @@ export class FinanzasUI {
                     <div class="finanzas-header-actions">
                         <div class="finanzas-search-wrapper">
                             <input type="text" id="finanzas-search" placeholder="Buscar producto..." class="input-light">
+                        </div>
+                        <div class="finanzas-filter-period">
+                            <label for="finanzas-period-select">Rango Pago Prog</label>
+                            <select id="finanzas-period-select" class="input-light">
+                                ${this._buildProgramadorOptions()}
+                            </select>
                         </div>
                         <button class="btn btn-outline" id="finanzas-edit-btn">Editar Tasa</button>
                         <button class="btn" id="finanzas-refresh-btn"><i class="fas fa-sync-alt"></i> Refrescar</button>
@@ -142,7 +162,7 @@ export class FinanzasUI {
                         </div>
                     </div>
 
-                    ${metrics ? this._renderMetrics(metrics, tasa) : ''}
+                    ${metrics ? this._renderMetrics(metrics, tasa, this.programadorData) : ''}
                 </div>
 
                 <div id="finanzas-table-container">
@@ -160,9 +180,16 @@ export class FinanzasUI {
         }
     }
 
-    _renderMetrics(metrics, tasa) {
+    _renderMetrics(metrics, tasa, programadorData = null) {
         const { totales } = metrics;
-        
+
+        const pagoProgramadorUSD = Number(programadorData?.pagoProgramadorUSD ?? (totales.pagoProgramadorUSD || 0));
+        const pagoProgramadorCUP = Number((pagoProgramadorUSD * tasa) || 0);
+        const rangeLabel = programadorData?.startDate && programadorData?.endDate
+            ? `${programadorData.startDate} - ${programadorData.endDate}`
+            : 'Rango por defecto';
+        const periodLabel = programadorData?.periodLabel || 'sin periodo';
+
         // Calcular ROI y otras métricas
         const roi = totales.costoUSD > 0 ? ((totales.gananciaUSD / totales.costoUSD) * 100).toFixed(1) : 0;
         const margenPromedio = metrics.detalles.length > 0 
@@ -179,6 +206,14 @@ export class FinanzasUI {
 
         return `
             <div class="finanzas-kpi-grid">
+                <div class="kpi-card programador">
+                    <div class="kpi-label"><i class="fas fa-code"></i> Pago Programador (5%)</div>
+                    <div class="kpi-value">${formatCurrency(pagoProgramadorUSD)} <small>Zelle</small></div>
+                    <div class="kpi-subvalue">${formatCurrency(pagoProgramadorCUP).replace('$', '')} CUP</div>
+                    <div class="kpi-subinfo">Periodo: ${periodLabel}</div>
+                    <div class="kpi-subinfo">Rango: ${rangeLabel}</div>
+                    <div class="kpi-subinfo">Pedidos: ${programadorData?.totalOrders ?? 'N/A'}</div>
+                </div>
                 <div class="kpi-card">
                     <div class="kpi-label"><i class="fas fa-dollar-sign"></i> Valor Inventario (Venta)</div>
                     <div class="kpi-value">${formatCurrency(totales.ventaUSD)} <small>USD</small></div>
@@ -205,11 +240,6 @@ export class FinanzasUI {
                     <div class="kpi-subvalue">Retorno sobre inversión</div>
                 </div>
                 <div class="kpi-card">
-                    <div class="kpi-label"><i class="fas fa-code"></i> Pago Programador (5%)</div>
-                    <div class="kpi-value">${formatCurrency(totales.pagoProgramadorUSD)} <small>USD</small></div>
-                    <div class="kpi-subvalue">${formatCurrency(totales.pagoProgramadorCUP).replace('$', '')} CUP</div>
-                </div>
-                <div class="kpi-card">
                     <div class="kpi-label"><i class="fas fa-chart-bar"></i> Margen Promedio</div>
                     <div class="kpi-value success">${margenPromedio}%</div>
                     <div class="kpi-subvalue">En todos los productos</div>
@@ -228,6 +258,16 @@ export class FinanzasUI {
                 ` : ''}
             </div>
         `;
+    }
+
+    _buildProgramadorOptions() {
+        const options = [];
+        for (let i = 0; i <= 6; i++) {
+            const label = i === 0 ? 'Actual' : `${i} mes(es) atrás`;
+            const selected = i === this.programadorMonthOffset ? 'selected' : '';
+            options.push(`<option value="${i}" ${selected}>${label}</option>`);
+        }
+        return options.join('');
     }
 
     _renderDetailsTable(detalles, tasa) {
@@ -425,6 +465,16 @@ export class FinanzasUI {
         if (refreshBtn) {
             refreshBtn.addEventListener('click', () => {
                 this.showFinanzas().catch(err => console.warn('Error refrescando finanzas:', err));
+            });
+        }
+
+        // Selección de periodo para Pago Programador
+        const periodSelect = document.getElementById('finanzas-period-select');
+        if (periodSelect) {
+            periodSelect.addEventListener('change', async (e) => {
+                this.programadorMonthOffset = Number(e.target.value) || 0;
+                const programadorData = this.dataManager ? this.dataManager.getProgrammerPaymentData(this.programadorMonthOffset) : null;
+                await this.showFinanzas(programadorData?.totalSales || 0, programadorData);
             });
         }
 

@@ -265,6 +265,53 @@ export class DataManager {
     }
 
     /**
+     * Obtiene el rango de fechas para Pago del Programador basado en el último día del mes anterior y el penúltimo día del mes seleccionado.
+     * monthOffset = 0 -> mes actual, 1 -> mes anterior, etc.
+     */
+    getProgrammerPaymentData(monthOffset = 0) {
+        const now = new Date();
+        const targetMonth = new Date(now.getFullYear(), now.getMonth() - monthOffset, 1);
+        const previousMonth = new Date(targetMonth.getFullYear(), targetMonth.getMonth() - 1, 1);
+
+        const rangeStartDate = new Date(previousMonth.getFullYear(), previousMonth.getMonth() + 1, 0, 0, 0, 0, 0);
+        const lastDayOfTarget = new Date(targetMonth.getFullYear(), targetMonth.getMonth() + 1, 0);
+        const rangeEndDate = new Date(targetMonth.getFullYear(), targetMonth.getMonth(), Math.max(1, lastDayOfTarget.getDate() - 1), 23, 59, 59, 999);
+
+        const formatYYYYMMDD = (date) => {
+            const y = date.getFullYear();
+            const m = String(date.getMonth() + 1).padStart(2, '0');
+            const d = String(date.getDate()).padStart(2, '0');
+            return `${y}-${m}-${d}`;
+        };
+
+        const startDateStr = formatYYYYMMDD(rangeStartDate);
+        const endDateStr = formatYYYYMMDD(rangeEndDate);
+
+        const currentFiltered = this.filteredData;
+
+        this.filterByDateRange(startDateStr, endDateStr, 'all');
+        const rangeStats = this.getStats(this.filteredData);
+
+        // Restaurar filtro previo para no afectar interfaces externas
+        this.filteredData = currentFiltered;
+
+        const pagoProgramadorUSD = Number(rangeStats.totalSales || 0) * 0.05;
+        const pagoProgramadorCUP = pagoProgramadorUSD * 1; // Sin conversión de moneda en datos de pedidos
+
+        const periodLabel = monthOffset === 0 ? 'Mes actual' : `${monthOffset} meses atrás`;
+
+        return {
+            startDate: startDateStr,
+            endDate: endDateStr,
+            totalOrders: rangeStats.totalOrders,
+            totalSales: rangeStats.totalSales,
+            pagoProgramadorUSD,
+            pagoProgramadorCUP,
+            periodLabel
+        };
+    }
+
+    /**
      * Obtiene datos mensuales comparativos
      */
     getMonthlyComparison(data = this.data) {
