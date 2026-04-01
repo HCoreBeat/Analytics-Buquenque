@@ -5402,5 +5402,52 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2603:300c:14ce:4600:b2f7:a8b:80fc:1cb6",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-04-01 11:24:47",
+    "origen": "https://www.buquenqe.com/#category=Frutas",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yamila Quesada",
+    "telefono_comprador": "+11337660576",
+    "nombre_persona_entrega": "Zenaida Suarez",
+    "telefono_persona_entrega": "+5331340255",
+    "correo_comprador": "Yquesada1980@gmail.com",
+    "direccion_envio": "Jorge Rodriguez napolez # 42 altos. Entre avenida camilo cienfuegos y J espinosa. Bonachea",
+    "compras": [
+      {
+        "id": "prod_1768443205852_jk51wnt6q",
+        "name": "Pimiento x lb",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 2.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_p9644ie5y",
+        "name": "Paquete de papas Idaho (5lbs)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 9.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_1q2faykkk",
+        "name": "Plátano (por unidad)",
+        "quantity": 16,
+        "type": "product",
+        "unitPrice": 0.31,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "29.78",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
