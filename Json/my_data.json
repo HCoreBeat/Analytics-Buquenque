@@ -5633,14 +5633,6 @@
         "discount": 0
       },
       {
-        "id": "prod_1769613603917_5rg815imv",
-        "name": "Pollo entero Saera(1300g)",
-        "quantity": 1,
-        "type": "product",
-        "unitPrice": 7,
-        "discount": 12.5
-      },
-      {
         "id": "prod_1772732799999_4pu74vvsy",
         "name": "Crema de Abellanas y Cacao",
         "quantity": 1,
@@ -5657,7 +5649,7 @@
         "discount": 0
       }
     ],
-    "precio_compra_total": "31.27",
+    "precio_compra_total": "24.27",
     "navegador": "Safari",
     "sistema_operativo": "MacOS",
     "tipo_usuario": "Recurrente",
