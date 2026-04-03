@@ -5592,5 +5592,76 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2603:900b:d500:2f4d:ad0d:ea16:9e97:63a3",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-04-03 14:41:03",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Damaris Belkis",
+    "telefono_comprador": "8135930034",
+    "nombre_persona_entrega": "Teresa Rodriguez",
+    "telefono_persona_entrega": "+5353171842",
+    "correo_comprador": "padron.rodriguez93@icloud.com",
+    "direccion_envio": "Calle 15 #24A %14 y 16 Aguilera",
+    "compras": [
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 8.85,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774743001771_4ql9niare",
+        "name": "Jalea de Guayaba",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774015812916_vgwyv0fp2",
+        "name": "Picadillo de pollo 400g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.35,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769613603917_5rg815imv",
+        "name": "Pollo entero Saera(1300g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 7,
+        "discount": 12.5
+      },
+      {
+        "id": "prod_1772732799999_4pu74vvsy",
+        "name": "Crema de Abellanas y Cacao",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "31.27",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
