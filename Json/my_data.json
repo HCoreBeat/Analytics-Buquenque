@@ -5655,5 +5655,92 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2603:6012:f8f0:260:7843:d251:76e8:740",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-04-04 11:14:08",
+    "origen": "https://www.buquenqe.com/p/prod_1768918643793_wff5w2f61",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Daimarelis Diaz Vazquez",
+    "telefono_comprador": "54935704",
+    "nombre_persona_entrega": "Angelita",
+    "telefono_persona_entrega": "54935704",
+    "correo_comprador": "daimarelisdiazvasquez@gmail.com",
+    "direccion_envio": "Colon",
+    "compras": [
+      {
+        "id": "group_Caja de refresco 24u",
+        "name": "Caja de refresco 24u (Cola)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 18.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774742941861_rn5ai5a43",
+        "name": "Queso Criollo x Lb",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 3.15,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768918643793_wff5w2f61",
+        "name": "Frijoles rojos x(lbs)",
+        "quantity": 8,
+        "type": "product",
+        "unitPrice": 2.09,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ynzwusik9",
+        "name": "Paquete de azúcar 1kg",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1772442996727_xhrueb4xd",
+        "name": "Bolso",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.79,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_covgyshrh",
+        "name": "Mano de plátano burro",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_nm24ia7xr",
+        "name": "Manzana 🍎 x unidad",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.5,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "62.09",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://www.buquenqe.com/p/prod_1768918643793_wff5w2f61"
   }
 ]
