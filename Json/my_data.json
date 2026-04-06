@@ -5885,5 +5885,92 @@
     "tipo_usuario": "Único",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:58a:8402:2490:f103:7b00:1045:b781",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-04-05 21:54:16",
+    "origen": "https://www.buquenqe.com/#Pack%20Banquete%20Criollo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Licet Escobar",
+    "telefono_comprador": "7869570022",
+    "nombre_persona_entrega": "Nayelis Nagarian",
+    "telefono_persona_entrega": "56252973",
+    "correo_comprador": "escobarlicet47@gmail.com",
+    "direccion_envio": "Eddy martines edificio 53 apto A9, entre Agustín Cebreco y Israel Santo",
+    "compras": [
+      {
+        "id": "prod_1768441690510_ynzwusik9",
+        "name": "Paquete de azúcar 1kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      },
+      {
+        "id": "prod_1772069781750_na7wo0yhn",
+        "name": "Mayonesa HollandPark (500ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768837249014_0e8hctca5",
+        "name": "Paquete de café Dufiltro (250g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771364303825_60754qup9",
+        "name": "Paquete de Salchicha 3kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 12,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255296430_p8ultevvt",
+        "name": "Pasta para bocaditos 225ml",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.65,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774743001771_4ql9niare",
+        "name": "Jalea de Guayaba",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.99,
+        "discount": 0
+      },
+      {
+        "id": "2",
+        "name": "Pack Banquete Criollo",
+        "quantity": 1,
+        "type": "pack",
+        "unitPrice": 18,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "50.59",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
