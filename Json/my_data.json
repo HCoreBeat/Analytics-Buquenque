@@ -5972,5 +5972,60 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:1700:419b:e800:f055:7ba6:7bc9:4f85",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-04-08 09:23:46",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Rosa Amelia Ponce avila",
+    "telefono_comprador": "17542723280",
+    "nombre_persona_entrega": "Wilder vazquez",
+    "telefono_persona_entrega": "53683268",
+    "correo_comprador": "ameliaponce76065457@yahoo.com",
+    "direccion_envio": "Las tunas",
+    "compras": [
+      {
+        "id": "prod_1769297232608_t1t8j7j86",
+        "name": "Lomitos de Atún en aceite",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 2.5,
+        "discount": 0
+      },
+      {
+        "id": "2",
+        "name": "Pack Banquete Criollo",
+        "quantity": 1,
+        "type": "pack",
+        "unitPrice": 18,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.9,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768443205852_ac2tz1k6u",
+        "name": "Carne de cerdo x lbs",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 3.07,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "45.25",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
