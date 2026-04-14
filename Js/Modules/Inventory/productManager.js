@@ -718,10 +718,8 @@ export class ProductManager {
                 console.log(`✓ JSON validado correctamente con ${reParsed.products.length} productos`);
                 console.log(`JSON (primeros 500 caracteres):`, jsonString.substring(0, 500));
                 
-                // Codificar a Base64 preservando UTF-8
-                const encoder = new TextEncoder();
-                const data = encoder.encode(jsonString);
-                const base64Content = btoa(String.fromCharCode.apply(null, data));
+                // Codificar a Base64 preservando UTF-8 de forma segura
+                const base64Content = objectToBase64(fileContent);
                 
                 // 5. Subir archivo de productos a GitHub
                 report(75, 'Subiendo archivo de productos a la base de datos...');

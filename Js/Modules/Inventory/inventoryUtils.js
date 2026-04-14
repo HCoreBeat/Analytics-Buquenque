@@ -91,12 +91,22 @@ export function sanitizeFileName(fileName) {
  * @param {Object} obj - Objeto a convertir
  * @returns {string} - JSON codificado en Base64 con UTF-8
  */
+export function uint8ArrayToBase64(uint8Array) {
+    let binary = '';
+    const chunkSize = 0x8000;
+    for (let i = 0; i < uint8Array.length; i += chunkSize) {
+        const chunk = uint8Array.subarray(i, i + chunkSize);
+        binary += String.fromCharCode.apply(null, chunk);
+    }
+    return btoa(binary);
+}
+
 export function objectToBase64(obj) {
-    const jsonString = JSON.stringify(obj);
+    const jsonString = JSON.stringify(obj, null, 2);
     // Codificar a Base64 preservando UTF-8
     const encoder = new TextEncoder();
     const data = encoder.encode(jsonString);
-    return btoa(String.fromCharCode.apply(null, data));
+    return uint8ArrayToBase64(data);
 }
 
 /**

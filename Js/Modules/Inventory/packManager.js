@@ -307,10 +307,8 @@ export class PackManager {
                 const reParsed = JSON.parse(jsonString);
                 if (!reParsed.packs || !Array.isArray(reParsed.packs)) throw new Error('JSON no es válido después de serialización');
                 if (reParsed.packs.length !== processedPacks.length) throw new Error('Mismatch de cantidad de packs');
-                // Codificar a Base64 preservando UTF-8
-                const encoder = new TextEncoder();
-                const data = encoder.encode(jsonString);
-                const base64Content = btoa(String.fromCharCode.apply(null, data));
+                // Codificar a Base64 preservando UTF-8 de forma segura
+                const base64Content = objectToBase64(fileContent);
                 uploadResult = await this.githubManager.uploadFile(CONFIG.GITHUB_API.PACKS_FILE_PATH, base64Content, `Actualizar packs - ${processedPacks.length} items (${this.stagedChanges.length} cambios)`);
             } catch (error) { console.error('Error validando o serializando JSON:', error); throw error; }
 
