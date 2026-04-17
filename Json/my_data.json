@@ -6264,5 +6264,76 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "162.201.185.66",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-04-16 22:13:36",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Eliani Rojas",
+    "telefono_comprador": "3058463318",
+    "nombre_persona_entrega": "Yusmary",
+    "telefono_persona_entrega": "+53 5 0680540",
+    "correo_comprador": "elianisabel0695@gmail.com",
+    "direccion_envio": "Calle 6#49 entre flor combret y general Moncada reparto aguilera",
+    "compras": [
+      {
+        "id": "prod_1768441690510_h5qqrqz06",
+        "name": "Carne de ovejo x lbs",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 2.37,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769612979664_6f4o3BE2I",
+        "name": "Chuleta de cerdo x lb",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 3.37,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_1q2faykkk",
+        "name": "Plátano (por unidad)",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.31,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_covgyshrh",
+        "name": "Mano de plátano burro",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_8q6y9td5k",
+        "name": "Limón (por libra)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774743134406_moehq1avd",
+        "name": "Boniato x Lb",
+        "quantity": 7,
+        "type": "product",
+        "unitPrice": 0.45,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "39.90",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
