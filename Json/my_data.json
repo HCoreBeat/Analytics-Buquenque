@@ -6509,5 +6509,52 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "50.24.73.72",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-04-23 12:48:05",
+    "origen": "https://www.buquenqe.com/#category=Verduras",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yamila Quesada",
+    "telefono_comprador": "+11337660576",
+    "nombre_persona_entrega": "Zenaida Suarez",
+    "telefono_persona_entrega": "31340255",
+    "correo_comprador": "Yquesada1980@gmail.com",
+    "direccion_envio": "Jorge Rodriguez napolez # 42 altos. Entre avenida camilo cienfuegos y J espinosa. Bonachea",
+    "compras": [
+      {
+        "id": "prod_1768441690510_1q2faykkk",
+        "name": "Plátano (por unidad)",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.31,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_8q6y9td5k",
+        "name": "Limón (por libra)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768443205852_qlg8xocr5",
+        "name": "Cebolla morada x lb",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 3.37,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "29.90",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
