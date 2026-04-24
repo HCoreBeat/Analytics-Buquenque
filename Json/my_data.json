@@ -6556,5 +6556,188 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:1006:b140:edb3:0:57:4a39:e201",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-04-24 11:44:56",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Rosario Santiesteban",
+    "telefono_comprador": "+1 863-235-1669",
+    "nombre_persona_entrega": "Oniria Alvarez Escalona",
+    "telefono_persona_entrega": "54058474",
+    "correo_comprador": "rosariosantiesteban53@gmail.com",
+    "direccion_envio": "Calle 36 numero 19 entre 17 y 25 reparto Fernando betancourt Las Tunas",
+    "compras": [
+      {
+        "id": "prod_1768679794475_s112jvux0",
+        "name": "Paquete de cuartos de pollo 10 lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 14,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ma2k8r01f",
+        "name": "Aceite (1L)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.29,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 8.85,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771364303825_60754qup9",
+        "name": "Paquete de Salchicha 3kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 12,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768443205852_ac2tz1k6u",
+        "name": "Carne de cerdo x lbs",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 3.07,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ynzwusik9",
+        "name": "Paquete de azúcar 1kg",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.77,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_tf4rwuo62",
+        "name": "Frijol Negro (500g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.7,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_7gy02c75y",
+        "name": "Codito (500g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_x6vswdewh",
+        "name": "Arroz de (1Kg)",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 2.17,
+        "discount": 0
+      },
+      {
+        "id": "group_Pack x4 Yogurt Vima",
+        "name": "Pack x4 Yogurt Vima (Fresa)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.99,
+        "discount": 0
+      },
+      {
+        "id": "group_Néctar de",
+        "name": "Néctar de (Pera 🍐) x unidad (330ml)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.4,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_oqd90ndvr",
+        "name": "Néctar de (Manzana 🍎) x unidad (330ml)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.4,
+        "discount": 0
+      },
+      {
+        "id": "prod_1772820254113_06vdipx9o",
+        "name": "Jugo Nezka de Mango",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771953998923_b4sri6e8j",
+        "name": "Malta Bucanero",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774015812916_vgwyv0fp2",
+        "name": "Picadillo de pollo 400g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.35,
+        "discount": 0
+      },
+      {
+        "id": "prod_1776152818872_5i4jjxahl",
+        "name": "troncho de pescado en aceite vegetal",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.35,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_jeg5mb96s",
+        "name": "Jamonilla de (Pollo) (340g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.37,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_7pj6exbyx",
+        "name": "Pasta de Tomate (Oderich)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.7,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768509219912_orvyg0rkr",
+        "name": "Galletas Marías",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.33,
+        "discount": 0
+      },
+      {
+        "id": "group_Galletas Creme Bite",
+        "name": "Galletas Creme Bite (Fresa)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.5,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "99.87",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
