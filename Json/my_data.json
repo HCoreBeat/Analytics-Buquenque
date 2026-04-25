@@ -6493,17 +6493,9 @@
         "type": "product",
         "unitPrice": 8.85,
         "discount": 0
-      },
-      {
-        "id": "prod_1768441690510_nm24ia7xr",
-        "name": "Manzana 🍎 x unidad",
-        "quantity": 4,
-        "type": "product",
-        "unitPrice": 1.5,
-        "discount": 0
       }
     ],
-    "precio_compra_total": "66.28",
+    "precio_compra_total": "60.28",
     "navegador": "Safari",
     "sistema_operativo": "MacOS",
     "tipo_usuario": "Recurrente",
