@@ -6731,5 +6731,68 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb91:4e85:542c:488d:2a9f:f84d:3084",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-04-27 16:36:04",
+    "origen": "https://www.buquenqe.com/p/prod_1777104949342_f0hmt1vea",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yilian Perea Verdecia",
+    "telefono_comprador": "+19412506664",
+    "nombre_persona_entrega": "Maricela",
+    "telefono_persona_entrega": "+5352019279",
+    "correo_comprador": "yilianpverdecia@gmail.com",
+    "direccion_envio": "Calle Aurora #21 entre Pepito Peña y Fernando de la Cruz",
+    "compras": [
+      {
+        "id": "prod_1768509219912_pb6y62qrk",
+        "name": "Caja de cerveza Cristal (24 unidades)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 22.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 11,
+        "discount": 0
+      },
+      {
+        "id": "prod_1773856590032_j2m7p5am9",
+        "name": "Croquetas de Bacalao 500g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.45,
+        "discount": 0
+      },
+      {
+        "id": "prod_1772443579416_ssrc7h8pg",
+        "name": "Galletas Renata (Vainilla)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.16,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "42.85",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
