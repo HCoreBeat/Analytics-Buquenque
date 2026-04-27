@@ -6794,5 +6794,68 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb91:cee:c5d2:ac39:be38:b3dd:b1b4",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-04-27 18:05:02",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Rosa Amelia Ponce avila",
+    "telefono_comprador": "17542723280",
+    "nombre_persona_entrega": "Wilder vazquz",
+    "telefono_persona_entrega": "53683268",
+    "correo_comprador": "ameliaponce76065457@yahoo.com",
+    "direccion_envio": "Circulo",
+    "compras": [
+      {
+        "id": "prod_1775429464494_g3",
+        "name": "Paca de Arroz 30 bolsas 1Kg / 66lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 48,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_tf4rwuo62",
+        "name": "Frijol Negro (500g)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 1.7,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_7pj6exbyx",
+        "name": "Pasta de Tomate (Oderich)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.7,
+        "discount": 0
+      },
+      {
+        "id": "prod_1772069781750_na7wo0yhn",
+        "name": "Mayonesa HollandPark (500ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_piqbut8gb",
+        "name": "Azúcar blanca x lb",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "72.67",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
