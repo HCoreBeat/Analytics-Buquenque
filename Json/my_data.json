@@ -7230,5 +7230,44 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "https://facebook.com/"
+  },
+  {
+    "ip": "2607:fb90:e21c:5a80:ac39:33b1:4e60:c7a8",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-05-03 19:28:52",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Reinaldo Alvarez",
+    "telefono_comprador": "8632536481",
+    "nombre_persona_entrega": "Eunice beatriz Escalona Pérez",
+    "telefono_persona_entrega": "53654086",
+    "correo_comprador": "reinaldoalvarez2107@gmail.com",
+    "direccion_envio": "Calle 2 número 18 entre 23 y 25 reparto propulsión",
+    "compras": [
+      {
+        "id": "1",
+        "name": "Pack Esencial Familiar",
+        "quantity": 1,
+        "type": "pack",
+        "unitPrice": 30,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 11,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "41.00",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
