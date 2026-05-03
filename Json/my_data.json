@@ -7087,5 +7087,148 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2001:579:92dc:b30:d935:d4b1:8d1b:1aa4",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-05-03 01:51:44",
+    "origen": "https://www.buquenqe.com/?fbclid=IwZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQKNjYyODU2ODM3OQABHus8YVhJ8e3juI--nHMbmA0B6J8Qk9Q0AJfWQPJ-63PARCsDtmJXmYZtQIE0_aem_MVY4NDnIOm_kxmmMhXDWvg",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yamilka Gamboa Garrido Gamboa",
+    "telefono_comprador": "7029940227",
+    "nombre_persona_entrega": "Eulicer Gamboa Reyna",
+    "telefono_persona_entrega": "+53 5 0267371",
+    "correo_comprador": "yamilka.lio2015@gmail.com",
+    "direccion_envio": "Calle Oscar Dieguez, es la calle del ministerio de trabajo # 39 reparto sosa tunas",
+    "compras": [
+      {
+        "id": "group_Jabón de Baño AURA",
+        "name": "Jabón de Baño AURA (Rosa)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.69,
+        "discount": 0
+      },
+      {
+        "id": "prod_1772443369943_z7ttwozkg",
+        "name": "Jabón de Baño AURA (Orquidea)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.69,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769226986599_pfsrf2pax",
+        "name": "Detergente (500g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.2899250000000002,
+        "discount": 26.29
+      },
+      {
+        "id": "prod_1768441690510_14e74xnoh",
+        "name": "Cabeza de Ajo",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 0.51,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255568932_49z71tujl",
+        "name": "Pasta de tomate Vima 400g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ma2k8r01f",
+        "name": "Aceite (1L)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.29,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_x6vswdewh",
+        "name": "Arroz (1Kg)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1772442996727_xhrueb4xd",
+        "name": "Bolso",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.79,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_tf4rwuo62",
+        "name": "Frijol Negro (500g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.7,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_piqbut8gb",
+        "name": "Azúcar blanca x lb",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769030417838_noe5sa2wa",
+        "name": "Refresco Instantáneo (2Lt)",
+        "quantity": 8,
+        "type": "product",
+        "unitPrice": 0.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768443205852_jk51wnt6q",
+        "name": "Pimiento x lb",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_covgyshrh",
+        "name": "Mano de plátano burro",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769612979664_6f4o3BE2I",
+        "name": "Chuleta de cerdo x lb",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.37,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "37.57",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://facebook.com/"
   }
 ]
