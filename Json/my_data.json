@@ -7269,5 +7269,156 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "147.136.9.183",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-05-04 10:24:17",
+    "origen": "https://www.buquenqe.com/#category=C%C3%A1rnicos%20y%20Embutidos",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Diana Aice",
+    "telefono_comprador": "5127652702",
+    "nombre_persona_entrega": "Norma Palacios",
+    "telefono_persona_entrega": "56905400",
+    "correo_comprador": "dluzaice@gmail.com",
+    "direccion_envio": "Paso marañón entre trista y río reparto Santo Domingo 36 A",
+    "compras": [
+      {
+        "id": "prod_1769919470708_wghwn1olf",
+        "name": "Leche en polvo (1kg)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 10,
+        "discount": 0
+      },
+      {
+        "id": "prod_1773856590032_j2m7p5am9",
+        "name": "Croquetas de Bacalao 500g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.45,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774743001771_4ql9niare",
+        "name": "Jalea de Guayaba",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_aa0pwzj5i",
+        "name": "Rayan Chocolate",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.78,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769398503693_qcw6jw6ui",
+        "name": "Coffee Mate(155porciones)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 5.5,
+        "discount": 0
+      },
+      {
+        "id": "group_Pack x4 Yogurt Vima",
+        "name": "Pack x4 Yogurt Vima (Fresa)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1773859339068_wex9cz8jw",
+        "name": "Pack x4 Yogurt Vima (Natural)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      },
+      {
+        "id": "group_Jabón de Baño AURA",
+        "name": "Jabón de Baño AURA (Rosa)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 0.69,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777745055131_1nw9hbsff",
+        "name": "Frazada de piso",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 0.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777289998552_upjj1k1o7",
+        "name": "Pasta dental Coolwhite",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255296430_p8ultevvt",
+        "name": "Pasta para bocaditos 225ml",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.65,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.9,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769226986599_pfsrf2pax",
+        "name": "Detergente (500g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.2899250000000002,
+        "discount": 26.29
+      },
+      {
+        "id": "prod_1768441690510_ify26lfde",
+        "name": "Papel Sanitario",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.4,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769612979664_6f4o3BE2I",
+        "name": "Chuleta de cerdo x lb",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.37,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "66.23",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
