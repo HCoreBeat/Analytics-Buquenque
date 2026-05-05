@@ -7420,5 +7420,140 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:c4:c881:1450:8496:e4ca:60cc:52ff",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-05-05 11:59:40",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yisel Leyva",
+    "telefono_comprador": "(505) 589-2289",
+    "nombre_persona_entrega": "Noelia Gonzalez",
+    "telefono_persona_entrega": "+5352466299",
+    "correo_comprador": "aismaraleyva90@gmail.com",
+    "direccion_envio": "Calle Jorge  Rodriguez  Napoles  edificio 50 apartamento B4.detras de la secundaria Máximo  Gomez Baez",
+    "compras": [
+      {
+        "id": "prod_1774743001771_4ql9niare",
+        "name": "Jalea de Guayaba",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1776152786987_fj2z16ewo",
+        "name": "Melocotón en almibar 425g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1776151451302_wkzwq860c",
+        "name": "Pack de 4 Yogurts (Fresa, Platanito, Natural, Macedonia)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.9,
+        "discount": 0
+      },
+      {
+        "id": "prod_1776151765995_a6s81351f",
+        "name": "Queso crema 200g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.29,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255455739_z92mxmjqj",
+        "name": "Harina de trigo Vima 1kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255296430_p8ultevvt",
+        "name": "Pasta para bocaditos 225ml",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.65,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774589037954_ne3iqyc5v",
+        "name": "Café natural Vima 250g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 7.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.9,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774588718809_f6anpwdzt",
+        "name": "Mayonesa Vima 450ml",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777745771069_ajaergvdx",
+        "name": "Donut Dulce",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 0.6,
+        "discount": 0
+      },
+      {
+        "id": "group_Caja de refresco 24u",
+        "name": "Caja de refresco 24u (Cola)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 18.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777745831018_3zjzns3pq",
+        "name": "Pelly sabor tocino",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.6,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777745695199_ib8pmu14r",
+        "name": "Ponquesitos Dulces",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 0.6,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_8ocdeke0z",
+        "name": "Pastilla de Pollo x unidad",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 0.15,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "65.00",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
