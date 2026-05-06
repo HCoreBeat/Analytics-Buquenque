@@ -7682,5 +7682,60 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb90:e22c:9f07:ad2:d751:66e4:667",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-05-06 13:26:02",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Reinaldo Alvarez",
+    "telefono_comprador": "8632536481",
+    "nombre_persona_entrega": "Eunice beatriz Escalona Pérez",
+    "telefono_persona_entrega": "53654086",
+    "correo_comprador": "reinaldoalvarez2107@gmail.com",
+    "direccion_envio": "Calle 2 número 18 entre 23 y 25 reparto propulsión",
+    "compras": [
+      {
+        "id": "prod_1771255763596_eaz128kna",
+        "name": "Atún premium en aceite vegetal 1Kg",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 13.69,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769920633225_umws2zt0k",
+        "name": "Carne de Res enlatada Sublime",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_6xn0n5bsd",
+        "name": "Pack x 12 Néctar de Pera 🍐 (12x330ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 15.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1776590917088_17s74pewj",
+        "name": "Leche en polvo Entera macro food 1kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 9.75,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "58.12",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://www.google.com/"
   }
 ]
