@@ -7855,5 +7855,100 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "24.38.93.130",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-05-08 10:40:28",
+    "origen": "https://www.buquenqe.com/?fbclid=IwdGRjcAP8lSdleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR7lxzSDBhzdG98XmQYW6g-Fk8KcbrNBdVwTfrG7_GsR6_fLtyt-7pc1XbcloA_aem_TzageuPkQKAcGK4TJZ9OKA",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Annia Barcelo Hidalgo",
+    "telefono_comprador": "7866081089",
+    "nombre_persona_entrega": "Lianet chavez Barcelo",
+    "telefono_persona_entrega": "5352046914",
+    "correo_comprador": "anniabarcelo@gmail.com",
+    "direccion_envio": "J.espinosa # 141 alto entre  Jorge Rodriguez y Guillermo tejas.buena vista",
+    "compras": [
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 8.85,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ynzwusik9",
+        "name": "Paquete de azúcar 1kg",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.77,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769030417838_noe5sa2wa",
+        "name": "Refresco Instantáneo (2Lt)",
+        "quantity": 20,
+        "type": "product",
+        "unitPrice": 0.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1775429464494_g3",
+        "name": "Paca de Arroz 30 bolsas 1Kg / 66lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 45,
+        "discount": 0
+      },
+      {
+        "id": "prod_1776408550912_nhajoiiqh",
+        "name": "Porrón de aceite 17.5lts",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 47.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_h5qqrqz06",
+        "name": "Carne de ovejo x lbs",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 2.57,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777104839776_bmwky6d4m",
+        "name": "Paquete de Cuartos de pollo 11lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 14,
+        "discount": 0
+      },
+      {
+        "id": "prod_1776590805262_gsxaukooi",
+        "name": "Leche en polvo Aloy 1Kg",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 12,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_8q6y9td5k",
+        "name": "Limón (por libra)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "177.58",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://lm.facebook.com/"
   }
 ]
