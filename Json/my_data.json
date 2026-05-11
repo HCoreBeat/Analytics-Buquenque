@@ -8013,5 +8013,68 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "https://facebook.com/"
+  },
+  {
+    "ip": "147.136.9.183",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-05-11 11:35:20",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Diana Aice",
+    "telefono_comprador": "5127652702",
+    "nombre_persona_entrega": "Norma palacios",
+    "telefono_persona_entrega": "5127652702",
+    "correo_comprador": "dluzaice@gmail.com",
+    "direccion_envio": "Paso marañón entre trista y río reparto santo domingo",
+    "compras": [
+      {
+        "id": "prod_1768441690510_nm24ia7xr",
+        "name": "Manzana 🍎 x unidad",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 1.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_renf0iq34",
+        "name": "Pack x 12 Néctar de Manzana 🍎 (12x330ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 15.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_5bquahf1q",
+        "name": "Galletas Petit Biscuits de coco 80g",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 0.8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255296430_p8ultevvt",
+        "name": "Pasta para bocaditos 225ml",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.65,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "45.60",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
