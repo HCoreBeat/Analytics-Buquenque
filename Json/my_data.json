@@ -8076,5 +8076,52 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb90:e206:4eb:ac39:33b1:696a:4e5",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-05-11 21:16:51",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Reinaldo Alvarez",
+    "telefono_comprador": "8632536481",
+    "nombre_persona_entrega": "Leidys Marian Sánchez Nuñez",
+    "telefono_persona_entrega": "59240102",
+    "correo_comprador": "reinaldoalvarez2107@gmail.com",
+    "direccion_envio": "Calle 6 número 9 San José",
+    "compras": [
+      {
+        "id": "prod_1775429464494_g3",
+        "name": "Paca de Arroz 30 bolsas 1Kg / 66lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 45,
+        "discount": 0
+      },
+      {
+        "id": "prod_1772439529396_kh3fahrr4",
+        "name": "Saco de azúcar blanca 25kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 47.85,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769297232608_616ijabck",
+        "name": "Queso Gouda 3Kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 36.2489,
+        "discount": 2.03
+      }
+    ],
+    "precio_compra_total": "129.10",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "android-app://com.google.android.googlequicksearchbox/"
   }
 ]
