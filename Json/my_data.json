@@ -8234,5 +8234,132 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb90:e812:d288:b027:1489:acde:3241",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-05-13 14:47:31",
+    "origen": "https://www.buquenqe.com/index.html",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Linnet Moreno Caldenteys",
+    "telefono_comprador": "7867212640",
+    "nombre_persona_entrega": "Joaquina Caldenteys Gómez",
+    "telefono_persona_entrega": "50785803",
+    "correo_comprador": "linnetmoreno93@gmail.com",
+    "direccion_envio": "Carretera Central edificio 3 apartamento B10 reparto Aguilera",
+    "compras": [
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      },
+      {
+        "id": "prod_1772443528708_c9r8jr80o",
+        "name": "Sorbeto Renata (Fresa)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.16,
+        "discount": 0
+      },
+      {
+        "id": "prod_1772732759012_tojcqpnpu",
+        "name": "Sorbetes bon o bon",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768509219912_orvyg0rkr",
+        "name": "Galletas Marías",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.33,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ify26lfde",
+        "name": "Papel Sanitario",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.4,
+        "discount": 0
+      },
+      {
+        "id": "group_Chupa chupa popmania maxxi",
+        "name": "Chupa chupa popmania maxxi (Frutilla)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.45,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769030417838_noe5sa2wa",
+        "name": "Refresco Instantáneo (2Lt)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_renf0iq34",
+        "name": "Pack x 12 Néctar de Manzana 🍎 (12x330ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 15.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777744697829_j6ymprakj",
+        "name": "Caja de Malta Boa",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 24,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774589037954_ne3iqyc5v",
+        "name": "Café natural Vima 250g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 7.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 11.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_h5qqrqz06",
+        "name": "Carne de ovejo x lbs",
+        "quantity": 6,
+        "type": "product",
+        "unitPrice": 2.57,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768443205852_ac2tz1k6u",
+        "name": "Carne de cerdo x lbs",
+        "quantity": 6,
+        "type": "product",
+        "unitPrice": 3.75,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "110.40",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
