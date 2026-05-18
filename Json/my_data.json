@@ -8598,5 +8598,132 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:1702:8900:b8e0:443b:514f:2e12:57fc",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-05-18 12:06:06",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Marilú Socorro",
+    "telefono_comprador": "19548539956",
+    "nombre_persona_entrega": "Norys Camejo Padilla",
+    "telefono_persona_entrega": "5354512838",
+    "correo_comprador": "gonzalezmarilu39@yahoo.com",
+    "direccion_envio": "Calle 24 # 39 '/,Rafael Maŕtinez y calle 11  reparto Aeropuerto  Las Tunas",
+    "compras": [
+      {
+        "id": "prod_1768441690510_8ocdeke0z",
+        "name": "Pastilla de Pollo x unidad",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.15,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_h5qqrqz06",
+        "name": "Carne de ovejo x lbs",
+        "quantity": 6,
+        "type": "product",
+        "unitPrice": 2.37,
+        "discount": 0
+      },
+      {
+        "id": "3",
+        "name": "Pack Hogar Criollo",
+        "quantity": 2,
+        "type": "pack",
+        "unitPrice": 20,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 11.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_x6vswdewh",
+        "name": "Arroz de (1Kg)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768918643793_wff5w2f61",
+        "name": "Frijoles rojos x(lbs)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.09,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ynzwusik9",
+        "name": "Paquete de azúcar 1kg",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 2.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_covgyshrh",
+        "name": "Mano de plátano burro",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ma2k8r01f",
+        "name": "Aceite (1L)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.749889,
+        "discount": 12.59
+      },
+      {
+        "id": "prod_1768441690510_gkp20pj1x",
+        "name": "Espaguetis (500g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.16,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_7gy02c75y",
+        "name": "Codito (500g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1778607321781_sbqte5wko",
+        "name": "Jabón de lavar 150g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769226986599_pfsrf2pax",
+        "name": "Detergente (500g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.97,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "98.43",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://www.google.com/"
   }
 ]
