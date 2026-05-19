@@ -8725,5 +8725,164 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "https://www.google.com/"
+  },
+  {
+    "ip": "2600:1006:b0a8:ce79:f4fe:f9d:2b6:c26a",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-05-18 20:29:41",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Melissa Alvarez",
+    "telefono_comprador": "9412983767",
+    "nombre_persona_entrega": "Yudith Curbelo",
+    "telefono_persona_entrega": "63235122",
+    "correo_comprador": "alvarezbaez2024@gmail.com",
+    "direccion_envio": "Calle Cuba entre 31 y33 # 38",
+    "compras": [
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 11.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_x6vswdewh",
+        "name": "Arroz de (1Kg)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 1.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_renf0iq34",
+        "name": "Pack x 12 Néctar de Manzana 🍎 (12x330ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 15.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ehifoffi7",
+        "name": "Galletas de Soda con Mantequilla Doricas",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ify26lfde",
+        "name": "Papel Sanitario",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.4,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_14e74xnoh",
+        "name": "Cabeza de Ajo",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 0.49,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_8q6y9td5k",
+        "name": "Limón (por libra)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768443205852_jk51wnt6q",
+        "name": "Pimiento x lb",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 2.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777289998552_upjj1k1o7",
+        "name": "Pasta dental Coolwhite",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ma2k8r01f",
+        "name": "Aceite (1L)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.29,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768837249014_0e8hctca5",
+        "name": "Paquete de café Dufiltro (250g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ynzwusik9",
+        "name": "Paquete de azúcar 1kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.77,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_tf4rwuo62",
+        "name": "Frijol Negro (500g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.7,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769612979664_6f4o3BE2I",
+        "name": "Chuleta de cerdo x lb",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 3.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769226986599_pfsrf2pax",
+        "name": "Detergente (500g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768679794475_s112jvux0",
+        "name": "Paquete de cuartos de pollo 10 lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 13.7494,
+        "discount": 1.79
+      }
+    ],
+    "precio_compra_total": "108.43",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "android-app://com.google.android.googlequicksearchbox/"
   }
 ]
