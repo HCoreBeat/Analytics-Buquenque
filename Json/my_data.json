@@ -9003,5 +9003,60 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb91:3700:8e4e:ac80:20ef:ee35:fdbb",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-05-20 18:20:46",
+    "origen": "https://www.buquenqe.com/p/prod_1778630940473_bcv60b3g9",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Carlos avalos",
+    "telefono_comprador": "+15856352665",
+    "nombre_persona_entrega": "Beatriz gonzalez guerra",
+    "telefono_persona_entrega": "+5359595797",
+    "correo_comprador": "avalosc36@yahoo.com",
+    "direccion_envio": "Universidad ciencias medicas las tunas",
+    "compras": [
+      {
+        "id": "prod_1778630888133_0e5bf6jsc",
+        "name": "Paquete de caramelos surtidos 3lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 7.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1778689868277_3y4kwdx7u",
+        "name": "Chocolate Bon o Bon wafer 8u",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.75,
+        "discount": 0
+      },
+      {
+        "id": "group_Pomo de Refresco 1.5lts",
+        "name": "Pomo de Refresco 1.5lts (Naranja)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.49,
+        "discount": 0
+      },
+      {
+        "id": "prod_1778630940473_bcv60b3g9",
+        "name": "Bombón de chocolate y frutilla 5u",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.75,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "20.99",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
