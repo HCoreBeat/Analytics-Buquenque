@@ -9097,5 +9097,52 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2a09:bac2:6c9e:290f::417:1a",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-05-24 16:50:32",
+    "origen": "https://www.buquenqe.com/p/prod_1776590917088_17s74pewj",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yaneidis Rivero",
+    "telefono_comprador": "4075157526",
+    "nombre_persona_entrega": "Rosa Paulina comendador Escobar",
+    "telefono_persona_entrega": "52403457",
+    "correo_comprador": "yaneidisrc@icloud.com",
+    "direccion_envio": "Calle 47 # 13 altos  Rpto Fernando Betancourt",
+    "compras": [
+      {
+        "id": "group_Caja de refresco Rayan",
+        "name": "Caja de refresco Rayan (cola)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 15.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ynzwusik9",
+        "name": "Paquete de azúcar 1kg",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1776590917088_17s74pewj",
+        "name": "Leche en polvo Entera macro food 1kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 9.75,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "29.84",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Único",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://www.buquenqe.com/p/prod_1776590917088_17s74pewj"
   }
 ]
