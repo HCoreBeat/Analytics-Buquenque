@@ -9144,5 +9144,60 @@
     "tipo_usuario": "Único",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "https://www.buquenqe.com/p/prod_1776590917088_17s74pewj"
+  },
+  {
+    "ip": "2600:387:15:1a13::2",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-05-26 11:12:31",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Eilys Queen",
+    "telefono_comprador": "+17863023628",
+    "nombre_persona_entrega": "Mirian Reyes",
+    "telefono_persona_entrega": "52262247",
+    "correo_comprador": "edcespedes95@gmail.com",
+    "direccion_envio": "Calle Cristino Barreda # 32",
+    "compras": [
+      {
+        "id": "prod_1768441690510_ynzwusik9",
+        "name": "Paquete de azúcar 1kg",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 2.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255296430_p8ultevvt",
+        "name": "Pasta para bocaditos 225ml",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.65,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_tf4rwuo62",
+        "name": "Frijol Negro (500g)",
+        "quantity": 8,
+        "type": "product",
+        "unitPrice": 1.7,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768509219912_orvyg0rkr",
+        "name": "Galletas Marías",
+        "quantity": 8,
+        "type": "product",
+        "unitPrice": 1.33,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "51.24",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://facebook.com/"
   }
 ]
