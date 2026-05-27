@@ -3,15 +3,13 @@
  * ═══════════════════════════════════════════════════════════ */
 
 .app-header {
-  background: linear-gradient(135deg, #2a77c5 0%, #354a6b 100%);
+  background: #2c2c2c;
   border-bottom: 1px solid rgba(74, 144, 226, 0.2);
   padding: 0.2rem 1.5rem;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   z-index: 100;
   position: sticky;
   top: 0;
-  backdrop-filter: blur(10px);
-  background-color: rgba(42, 63, 95, 0.98);
 }
 
 .header-content {

@@ -555,7 +555,7 @@
   align-items: center;
   gap: 0.4rem;
   border: 1px solid var(--accent-light);
-  color: var(--text);
+  color: #09090a;
   border-radius: 4px;
   font-weight: 500;
 }

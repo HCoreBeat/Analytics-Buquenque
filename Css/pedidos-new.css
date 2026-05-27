@@ -13,15 +13,15 @@
     align-items: center;
     margin-bottom: 2.5rem;
     padding: 1.75rem 2rem;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    border-radius: 12px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, #2058b6 100%);
+    border-radius: 18px;
     flex-wrap: wrap;
     gap: 1.5rem;
-    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.15);
+    box-shadow: 0 18px 40px rgba(34, 78, 143, 0.18);
 }
 
 .pedidos-header h2 {
-    font-size: 1.75rem;
+    font-size: 1.8rem;
     font-weight: 700;
     color: white;
     display: flex;
@@ -31,7 +31,7 @@
 }
 
 .pedidos-header h2 i {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.95);
     font-size: 1.5rem;
 }
 
@@ -50,19 +50,19 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    background: rgba(255, 255, 255, 0.15);
-    padding: 0.75rem 1.25rem;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.18);
+    padding: 0.8rem 1.2rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
     transition: var(--transition);
     backdrop-filter: blur(10px);
 }
 
 .auto-refresh-panel-pedidos:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.12);
 }
 
 .refresh-label {
@@ -77,39 +77,39 @@
 }
 
 .refresh-label i {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.95);
 }
 
 .refresh-select {
-    padding: 0.5rem 0.75rem;
+    padding: 0.55rem 0.85rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 6px;
-    background: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.96);
     font-size: 0.9rem;
     color: var(--color-text-primary);
     cursor: pointer;
-    font-weight: 500;
+    font-weight: 600;
     transition: var(--transition);
 }
 
 .refresh-select:hover {
-    border-color: white;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-color: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
 }
 
 .refresh-select:focus {
     outline: none;
-    border-color: white;
-    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+    border-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.25);
 }
 
 .last-update-pedidos {
     font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.87);
     white-space: nowrap;
-    padding: 0.5rem 0.75rem;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 6px;
+    padding: 0.55rem 0.85rem;
+    background: rgba(255, 255, 255, 0.16);
+    border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
@@ -118,15 +118,17 @@
     background: white;
     color: var(--color-primary);
     border: none;
-    padding: 0.65rem 1.25rem;
-    font-weight: 600;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 0.75rem 1.3rem;
+    font-weight: 700;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.14);
+    transition: var(--transition);
 }
 
 .pedidos-header .btn-primary:hover {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.98);
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.18);
 }
 
 .pedidos-header .btn-primary:active {
@@ -273,19 +275,20 @@
    ================================ */
 
 .pedido-card {
+    position: relative;
     background: white;
-    border-radius: 12px;
+    border-radius: 18px;
     border: 1px solid var(--color-border);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 18px 34px rgba(18, 64, 141, 0.08);
     transition: var(--transition);
-    overflow: visible;
-    animation: slideIn 0.3s ease-out;
+    overflow: hidden;
+    animation: slideIn 0.35s ease-out;
 }
 
 @keyframes slideIn {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(16px);
     }
     to {
         opacity: 1;
@@ -293,13 +296,23 @@
     }
 }
 
+.pedido-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, var(--color-primary), #4fb0ff);
+}
+
 .pedido-card:hover {
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-2px);
+    box-shadow: 0 24px 42px rgba(18, 64, 141, 0.14);
+    transform: translateY(-1px);
 }
 
 .pedido-card.procesando {
-    opacity: 0.6;
+    opacity: 0.7;
     pointer-events: none;
 }
 
@@ -329,6 +342,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    gap: 1rem;
     margin-bottom: 1.5rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid var(--color-border);
@@ -413,29 +427,32 @@
 .pedido-fecha {
     font-size: 0.85rem;
     color: var(--color-text-secondary);
-    padding: 0.4rem 0.8rem;
-    background: var(--color-light);
-    border-radius: 6px;
-    font-weight: 500;
+    padding: 0.45rem 0.9rem;
+    background: #f2f7ff;
+    border-radius: 999px;
+    font-weight: 600;
+    border: 1px solid #dce9ff;
 }
 
 .pedido-precio-total {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 0.3rem;
+    gap: 0.35rem;
+    min-width: 150px;
 }
 
 .pedido-precio-total .label {
     font-size: 0.8rem;
     color: var(--color-text-secondary);
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
+    letter-spacing: 0.4px;
 }
 
 .pedido-precio-total .monto {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.7rem;
+    font-weight: 800;
     color: var(--color-success);
 }
 
@@ -549,21 +566,21 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 0.2rem 1rem;
-    background: var(--color-light-gray);
-    border-radius: 8px;
-    border-left: 3px solid var(--color-light);
+    padding: 1rem 1.1rem;
+    background: #f8fbff;
+    border-radius: 14px;
+    border-left: 4px solid rgba(74, 144, 226, 0.3);
     transition: var(--transition);
     flex-wrap: wrap;
 }
 
 .producto-item:hover {
-    background: #f0f2f5;
+    background: #f0f5ff;
     border-left-color: var(--color-primary);
 }
 
 .producto-item.primer-producto {
-    background: rgba(74, 144, 226, 0.08);
+    background: rgba(74, 144, 226, 0.12);
     border-left-color: var(--color-primary);
 }
 
@@ -639,11 +656,11 @@
 
 .btn-entregado {
     flex: 1;
-    padding: 0.85rem 1.5rem;
-    background: linear-gradient(135deg, var(--color-success) 0%, #20c997 100%);
+    padding: 0.95rem 1.6rem;
+    background: linear-gradient(135deg, var(--color-success) 0%, #1fa973 100%);
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 14px;
     font-size: 0.95rem;
     font-weight: 700;
     cursor: pointer;
@@ -651,16 +668,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 0.6rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 12px 24px rgba(32, 169, 115, 0.18);
 }
 
 .btn-entregado:hover:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-    background: linear-gradient(135deg, #239949 0%, #1aa179 100%);
+    box-shadow: 0 14px 28px rgba(32, 169, 115, 0.22);
+    background: linear-gradient(135deg, #20b275 0%, #178f68 100%);
 }
 
 .btn-entregado:active:not(:disabled) {
@@ -790,10 +807,6 @@
     .pedidos-header .btn-primary {
         width: 100%;
         padding: 0.75rem 1rem;
-    }
-
-    .pedidos-stats {
-        grid-template-columns: 1fr;
     }
 
     .card-header-info {

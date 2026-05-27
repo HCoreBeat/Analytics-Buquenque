@@ -1,4 +1,4 @@
-/* ═══════════════════════════════════════════════════════════
+﻿/* ═══════════════════════════════════════════════════════════
  * SIDEBAR MENU - Menú lateral con hamburguesa
  * ═══════════════════════════════════════════════════════════ */
 
@@ -58,8 +58,8 @@
     position: fixed;
     left: -300px;
     top: 0;
+    bottom: 0;
     width: 300px;
-    height: 100vh;
     background: linear-gradient(180deg, #f9fafb 0%, #f5f7fa 100%);
     border-right: 1px solid rgba(74, 144, 226, 0.08);
     box-shadow: 2px 0 12px rgba(0, 0, 0, 0.08);
@@ -183,6 +183,10 @@
     gap: 0.5rem;
 }
 
+.menu-list li {
+    width: 100%;
+}
+
 /* Menu Separator */
 .menu-separator {
     height: 1px;
@@ -195,9 +199,10 @@
 .menu-item {
     display: flex;
     align-items: center;
+    width: 100%;
+    box-sizing: border-box;
     gap: 1rem;
     padding: 1rem 1.2rem;
-    color: var(--text);
     text-decoration: none;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     border-left: 0px solid transparent;
@@ -207,6 +212,7 @@
     margin: 0 0.5rem;
     border-radius: 8px;
     font-size: 0.95rem;
+    cursor: pointer;
 }
 
 .menu-item i {
@@ -239,7 +245,6 @@
 .menu-item:hover {
     background: rgba(74, 144, 226, 0.08);
     color: #4A90E2;
-    padding-left: 1.3rem;
     transform: translateX(2px);
     box-shadow: inset 2px 0 0 rgba(74, 144, 226, 0.1);
 }
@@ -247,6 +252,11 @@
 .menu-item:hover i {
     transform: scale(1.1) translateX(1px);
     color: #4A90E2;
+}
+
+.menu-item:focus-visible {
+    outline: 2px solid rgba(74, 144, 226, 0.6);
+    outline-offset: 2px;
 }
 
 /* Menu Item Active State */
@@ -259,7 +269,6 @@
     box-shadow: 0 2px 8px rgba(74, 144, 226, 0.15);
     position: relative;
     margin: 0 0.5rem;
-    padding-left: 1.2rem;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -777,7 +786,8 @@
     }
 
     .menu-item:hover {
-        padding-left: 1.1rem;
+        transform: translateX(2px);
+        box-shadow: inset 2px 0 0 rgba(74, 144, 226, 0.1);
     }
 
     .header-content {
@@ -831,8 +841,10 @@
     }
 
     .sidebar-menu {
+        border-radius: 20px;
+        margin: 10px;
         width: 190px;
-        left: -190px;
+        left: -290px;
     }
 
     .sidebar-menu::-webkit-scrollbar {
@@ -878,7 +890,8 @@
     }
 
     .menu-item:hover {
-        padding-left: 0.95rem;
+        transform: translateX(2px);
+        box-shadow: inset 2px 0 0 rgba(74, 144, 226, 0.1);
     }
 
     .header-content {

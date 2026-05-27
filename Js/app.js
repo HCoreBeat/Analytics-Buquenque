@@ -35,14 +35,14 @@ class LoadingManager {
         
         // Mapeo de fases a mensajes de estado
         this.statusMap = {
-            0: { server: 'Conectando...', data: 'Preparando...', speed: 'Optimizando...' },
-            1: { server: 'Conectado', data: 'Cargando...', speed: 'Optimizando...' },
-            2: { server: 'Conectado', data: 'Procesando...', speed: 'Optimizando...' },
-            3: { server: 'Conectado', data: 'Cargando inv...', speed: 'Optimizando...' },
-            4: { server: 'Conectado', data: 'Finanzas...', speed: 'Optimizando...' },
-            5: { server: 'Conectado', data: 'Notificaciones...', speed: 'Optimizando...' },
-            6: { server: 'Conectado', data: 'Sincronizando...', speed: 'Optimizando...' },
-            7: { server: 'Listo', data: 'Completado', speed: 'Óptimo' }
+            0: { server: 'Conectando...', data: 'Preparando recursos...', speed: 'Iniciando...' },
+            1: { server: 'Conectado', data: 'Cargando datos...', speed: 'Estable' },
+            2: { server: 'Conectado', data: 'Inicializando gráficos...', speed: 'Estable' },
+            3: { server: 'Conectado', data: 'Cargando inventario...', speed: 'Óptimo' },
+            4: { server: 'Conectado', data: 'Configurando finanzas...', speed: 'Óptimo' },
+            5: { server: 'Conectado', data: 'Preparando notificaciones...', speed: 'Óptimo' },
+            6: { server: 'Listo', data: 'Finalizando configuración...', speed: 'Listo' },
+            7: { server: 'Listo', data: 'Interfaz activa', speed: 'Listo' }
         };
         
         this.startTimeTracking();
@@ -56,6 +56,11 @@ class LoadingManager {
     }
 
     startTimeTracking() {
+        // Evitar intervalos duplicados
+        if (this.timeInterval) {
+            clearInterval(this.timeInterval);
+        }
+
         // Actualizar tiempo transcurrido cada 100ms
         this.timeInterval = setInterval(() => {
             if (this.panel && !this.panel.classList.contains('hidden')) {
@@ -148,19 +153,20 @@ class DashboardApp {
         try {
             // Definir pasos de carga
             this.loadingManager.setSteps([
-                'Conectando con servidores...',
-                'Cargando datos de transacciones...',
-                'Inicializando gráficos...',
-                'Cargando inventario...',
-                'Configurando finanzas...',
-                'Inicializando notificaciones...',
-                'Finalizando configuración...',
-                'Activando interfaz...'
+                'Conexión inicial',
+                'Carga de datos',
+                'Inicialización de gráficos',
+                'Inventario',
+                'Finanzas',
+                'Notificaciones',
+                'Finalizando configuración',
+                'Interfaz activa'
             ]);
 
-            // Paso 1: Cargar datos
+            // Paso 1: Conectar y cargar datos
             this.loadingManager.updateStep(0, 'Conectando con servidores...');
             await this.dataManager.loadData();
+            this.loadingManager.updateStep(1, 'Cargando datos...');
             
             // Paso 2: Inicializar gráficos
             this.loadingManager.updateStep(2, 'Inicializando gráficos...');
