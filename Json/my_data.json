@@ -9199,5 +9199,92 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "https://facebook.com/"
+  },
+  {
+    "ip": "2600:6c4d:63f:a5d4:ace8:2681:1b66:16e8",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-05-27 22:13:11",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Aliuska hidalgo",
+    "telefono_comprador": "4024290753",
+    "nombre_persona_entrega": "Tamara iacona hidalgo",
+    "telefono_persona_entrega": "63827407",
+    "correo_comprador": "torresaliuska82@gmail.com",
+    "direccion_envio": "Ramón Ortuño 188 altos entre marti y cucalambe reparto Santo Domingo",
+    "compras": [
+      {
+        "id": "prod_1776408550912_nhajoiiqh",
+        "name": "Porrón de aceite 17.5lts",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 47.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777745771069_ajaergvdx",
+        "name": "Donut Dulce",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 0.6,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769030417838_noe5sa2wa",
+        "name": "Refresco Instantáneo (2Lt)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 0.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1776151451302_wkzwq860c",
+        "name": "Pack de 4 Yogurts (Fresa, Platanito, Natural, Macedonia)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_covgyshrh",
+        "name": "Mano de plátano burro",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777745055131_1nw9hbsff",
+        "name": "Frazada de piso",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 0.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777745328446_ztbmwzow3",
+        "name": "Sardina Entera 1lb",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 4.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_nm24ia7xr",
+        "name": "Manzana 🍎 x unidad",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.5,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "77.58",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
