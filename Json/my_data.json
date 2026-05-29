@@ -9278,5 +9278,52 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "166.196.82.101",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-05-29 15:56:51",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Norma  L Silva",
+    "telefono_comprador": "4043995725",
+    "nombre_persona_entrega": "Jorge Silva",
+    "telefono_persona_entrega": "+5356560706",
+    "correo_comprador": "nlssglez97@gmail.com",
+    "direccion_envio": "Calle 26 casa#3 entre 1y3 aeropuerto las tunas",
+    "compras": [
+      {
+        "id": "prod_1768679794475_s112jvux0",
+        "name": "Paquete de cuartos de pollo 10 lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 13.7494,
+        "discount": 1.79
+      },
+      {
+        "id": "prod_1768441690510_ma2k8r01f",
+        "name": "Aceite (1L)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.749889,
+        "discount": 12.59
+      },
+      {
+        "id": "prod_1775429464494_g3",
+        "name": "Paca de Arroz 30 bolsas 1Kg / 66lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 45,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "66.25",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
