@@ -9216,14 +9216,6 @@
     "direccion_envio": "Ramón Ortuño 188 altos entre marti y cucalambe reparto Santo Domingo",
     "compras": [
       {
-        "id": "prod_1776408550912_nhajoiiqh",
-        "name": "Porrón de aceite 17.5lts",
-        "quantity": 1,
-        "type": "product",
-        "unitPrice": 47.97,
-        "discount": 0
-      },
-      {
         "id": "prod_1777745771069_ajaergvdx",
         "name": "Donut Dulce",
         "quantity": 5,
@@ -9280,7 +9272,7 @@
         "discount": 0
       }
     ],
-    "precio_compra_total": "77.58",
+    "precio_compra_total": "29.61",
     "navegador": "Safari",
     "sistema_operativo": "MacOS",
     "tipo_usuario": "Recurrente",
