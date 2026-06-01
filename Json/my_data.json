@@ -9499,5 +9499,68 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2603:6012:f8f0:260:e0ca:3454:ba54:1e42",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-06-01 15:40:40",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Daimarelis Diaz Vazquez",
+    "telefono_comprador": "54935704",
+    "nombre_persona_entrega": "Any",
+    "telefono_persona_entrega": "56935704",
+    "correo_comprador": "daimarelisdiazvasquez@gmail.com",
+    "direccion_envio": "Calle colon",
+    "compras": [
+      {
+        "id": "prod_1779297405433_otlql24m5",
+        "name": "Mortadella Criolla 800g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 8.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1772439529396_kh3fahrr4",
+        "name": "Saco de azúcar blanca 25kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 49.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1775429464494_g3",
+        "name": "Paca de Arroz 30 bolsas 1Kg / 66lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 45,
+        "discount": 0
+      },
+      {
+        "id": "prod_1778001464975_diexd9v4e",
+        "name": "Pelly sabor tocino",
+        "quantity": 6,
+        "type": "product",
+        "unitPrice": 0.6,
+        "discount": 0
+      },
+      {
+        "id": "prod_1776151451302_wkzwq860c",
+        "name": "Pack de 4 Yogurts (Fresa, Platanito, Natural, Macedonia)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.97,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "113.28",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
