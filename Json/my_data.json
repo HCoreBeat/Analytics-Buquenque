@@ -9633,5 +9633,44 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb91:2092:87a1:b526:ccb4:bc87:e959",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-06-04 20:28:04",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Olga martinez",
+    "telefono_comprador": "7029340026",
+    "nombre_persona_entrega": "Sonisleydis barroso",
+    "telefono_persona_entrega": "54248173",
+    "correo_comprador": "olgamartinez21122003@gmail.com",
+    "direccion_envio": "Las tunas Calle 27 A#101 entre cuba y 6b buena vista",
+    "compras": [
+      {
+        "id": "group_Sorbeto Renata",
+        "name": "Sorbeto Renata (Fresa)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.16,
+        "discount": 0
+      },
+      {
+        "id": "group_Caja de Bombón 30u",
+        "name": "Caja de Bombón 30u (Chocolate)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 7.99,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "10.31",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
