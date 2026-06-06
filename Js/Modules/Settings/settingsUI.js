@@ -6,6 +6,7 @@
 import { GitHubManager } from '../Github/githubManager.js';
 import { showAlert } from '../../Core/utils.js';
 import { confirm as modalConfirm } from '../../UI/modalUtils.js';
+import { CONFIG } from '../../Core/config.js';
 
 export class SettingsUI {
     constructor() {
@@ -31,6 +32,7 @@ export class SettingsUI {
         // General Preferences
         this.autoSaveCheckbox = document.getElementById('auto-save-enabled');
         this.autoSaveInterval = document.getElementById('auto-save-interval');
+        this.summaryBotCheckbox = document.getElementById('summary-bot-enabled');
         this.savePreferencesBtn = document.getElementById('save-preferences');
     }
 
@@ -52,12 +54,17 @@ export class SettingsUI {
         // Load Preferences
         const autoSaveEnabled = localStorage.getItem('auto_save_enabled') === 'true';
         const autoSaveIntervalValue = localStorage.getItem('auto_save_interval') || '5';
+        const summaryBotStored = localStorage.getItem('summary_bot_enabled');
+        const summaryBotEnabled = summaryBotStored === null ? CONFIG.SUMMARY_BOT.ENABLED_BY_DEFAULT : summaryBotStored === 'true';
 
         if (this.autoSaveCheckbox) {
             this.autoSaveCheckbox.checked = autoSaveEnabled;
         }
         if (this.autoSaveInterval) {
             this.autoSaveInterval.value = autoSaveIntervalValue;
+        }
+        if (this.summaryBotCheckbox) {
+            this.summaryBotCheckbox.checked = summaryBotEnabled;
         }
     }
 
@@ -159,9 +166,15 @@ export class SettingsUI {
     savePreferences() {
         const autoSaveEnabled = this.autoSaveCheckbox?.checked || false;
         const autoSaveInterval = this.autoSaveInterval?.value || '5';
+        const summaryBotEnabled = this.summaryBotCheckbox?.checked ?? CONFIG.SUMMARY_BOT.ENABLED_BY_DEFAULT;
 
         localStorage.setItem('auto_save_enabled', autoSaveEnabled.toString());
         localStorage.setItem('auto_save_interval', autoSaveInterval);
+        localStorage.setItem('summary_bot_enabled', summaryBotEnabled.toString());
+
+        if (window.SummaryBot && typeof window.SummaryBot.setEnabled === 'function') {
+            window.SummaryBot.setEnabled(summaryBotEnabled);
+        }
 
         showAlert('✅ Preferencias guardadas correctamente', 'success', 2000);
     }

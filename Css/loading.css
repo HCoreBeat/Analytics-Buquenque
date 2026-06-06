@@ -7,11 +7,10 @@
     --bg-main: #090e1d;
     --panel-bg: rgba(14, 21, 37, 0.96);
     --panel-border: rgba(255, 255, 255, 0.08);
-    --text: #f4f7ff;
     --muted: rgba(244, 247, 255, 0.65);
-    --accent: #5f7cff;
     --accent-soft: rgba(95, 124, 255, 0.14);
     --shadow: 0 28px 80px rgba(0, 0, 0, 0.2);
+    --text-load: #f4f7ff;
 }
 
 .loading-panel {
@@ -80,7 +79,7 @@
     margin: 0;
     font-size: 1.75rem;
     font-weight: 700;
-    color: var(--text);
+    color: var(--text-load);
     letter-spacing: 0.2px;
 }
 
@@ -126,7 +125,7 @@
 .loading-percent-value {
     font-size: 1rem;
     font-weight: 700;
-    color: var(--text);
+    color: var(--text-load);
 }
 
 .loading-status-panel {
@@ -170,7 +169,7 @@
 
 .loading-status-value {
     font-size: 0.95rem;
-    color: var(--text);
+    color: var(--text-load);
     font-weight: 500;
 }
 
@@ -226,7 +225,7 @@
 }
 
 .loading-mini-value {
-    color: var(--text);
+    color: var(--text-load);
     font-weight: 700;
 }
 

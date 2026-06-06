@@ -4,6 +4,8 @@
  * despliega un panel con la información.
  */
 
+import { CONFIG } from '../../Core/config.js';
+
 export const SummaryBot = (() => {
     let bubble, panel, notificationBadge;
     let isDragging = false;
@@ -16,8 +18,7 @@ export const SummaryBot = (() => {
     let currentStats = null;
     let notificationIndex = 0;
     let notificationInterval = null;
-    let notificationHideTimeout = null;
-
+    let notificationHideTimeout = null;    let resizeHandler = null;
     // Funciones para bloquear/desbloquear scroll del body
     const disableBodyScroll = () => {
         try {
@@ -47,7 +48,63 @@ export const SummaryBot = (() => {
         }
     };
 
+    function isBotEnabled() {
+        const stored = localStorage.getItem('summary_bot_enabled');
+        if (stored === null) {
+            return CONFIG.SUMMARY_BOT.ENABLED_BY_DEFAULT;
+        }
+        return stored === 'true';
+    }
+
+    function setBotEnabled(enabled) {
+        localStorage.setItem('summary_bot_enabled', enabled.toString());
+        if (enabled) {
+            init();
+        } else {
+            destroy();
+        }
+    }
+
+    function destroy() {
+        if (notificationInterval) {
+            clearInterval(notificationInterval);
+            notificationInterval = null;
+        }
+        if (notificationHideTimeout) {
+            clearTimeout(notificationHideTimeout);
+            notificationHideTimeout = null;
+        }
+        if (bubble && bubble.parentNode) {
+            bubble.parentNode.removeChild(bubble);
+        }
+        if (notificationBadge && notificationBadge.parentNode) {
+            notificationBadge.parentNode.removeChild(notificationBadge);
+        }
+        if (panel && panel.parentNode) {
+            panel.parentNode.removeChild(panel);
+        }
+        bubble = null;
+        panel = null;
+        notificationBadge = null;
+        isDragging = false;
+        panelManual = false;
+        currentStats = null;
+        if (resizeHandler) {
+            window.removeEventListener('resize', resizeHandler);
+            resizeHandler = null;
+        }
+    }
+
     async function init() {
+        if (!isBotEnabled()) {
+            destroy();
+            return;
+        }
+
+        if (bubble || panel || notificationBadge) {
+            return;
+        }
+
         createElements();
         addEventListeners();
         try {
@@ -239,11 +296,13 @@ export const SummaryBot = (() => {
 
         // close button
         panel.querySelector('.bot-close')?.addEventListener('click', () => togglePanel());
+
         // reposition panel/chat on resize so it stays near bubble
-        window.addEventListener('resize', () => {
+        resizeHandler = () => {
             if (isPanelVisible) repositionPanel();
             repositionChatBubble();
-        });
+        };
+        window.addEventListener('resize', resizeHandler);
 
         // allow dragging panel by its header only (keep users free to click links inside)
         let panelDrag = false;
@@ -597,10 +656,26 @@ export const SummaryBot = (() => {
         }
     }
 
-    return { init };
+    function setEnabled(enabled) {
+        setBotEnabled(enabled);
+    }
+
+    function isEnabled() {
+        return isBotEnabled();
+    }
+
+    return { init, setEnabled, isEnabled, destroy };
 })();
+
+window.SummaryBot = SummaryBot;
 
 // auto-run on page load
 window.addEventListener('DOMContentLoaded', () => {
-    try { SummaryBot.init(); } catch (e) { console.error('SummaryBot load error', e); }
+    try {
+        if (SummaryBot.isEnabled()) {
+            SummaryBot.init();
+        }
+    } catch (e) {
+        console.error('SummaryBot load error', e);
+    }
 });

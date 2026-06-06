@@ -185,10 +185,20 @@ export class InventoryUIRenderer {
 
             <!-- Panel de Staging -->
             <div class="staging-panel hidden" id="staging-panel">
+
+                <div class="staging-actions">
+                    <button class="btn-discard-all" id="btn-discard-all">
+                        <i class="fas fa-trash"></i> Descartar Todos
+                    </button>
+                    <button class="btn-sync-github" id="btn-sync-github">
+                        <i class="fas fa-cloud-upload-alt"></i> Sincronizar
+                    </button>
+                </div>
+
                 <div class="staging-header">
                     <div class="staging-title">
                         <i class="fas fa-code-branch"></i>
-                        <span>Cambios Pendientes en Staging</span>
+                        <span>Cambios Pendientes</span>
                     </div>
                 </div>
 
@@ -196,15 +206,6 @@ export class InventoryUIRenderer {
 
                 <!-- Las pestañas se crean dinámicamente -->
                 <!-- staging-tabs, staging-tab-content se insertan aquí -->
-
-                <div class="staging-actions">
-                    <button class="btn-discard-all" id="btn-discard-all">
-                        <i class="fas fa-trash"></i> Descartar Todos
-                    </button>
-                    <button class="btn-sync-github" id="btn-sync-github">
-                        <i class="fas fa-cloud-upload-alt"></i> Sincronizar con Base de Datos
-                    </button>
-                </div>
             </div>
 
             <!-- Toolbar -->
@@ -283,7 +284,7 @@ export class InventoryUIRenderer {
      */
     renderProductsGrid(products = null) {
         const grid = document.getElementById('products-grid');
-        const productsToRender = products || this.productManager.products;
+        const productsToRender = products || this.getFilteredProducts();
 
         if (!grid) return;
 
@@ -338,6 +339,59 @@ export class InventoryUIRenderer {
         
         // Setup listeners para abrir imagen en modal al hacer clic
         try { this.setupProductImageModalListeners(); } catch (e) { console.warn('setupProductImageModalListeners error', e); }
+    }
+
+    getCurrentProductFilters() {
+        const searchInput = document.getElementById('search-products');
+        const categoryFilter = document.getElementById('filter-category');
+        const modifiedFilter = document.getElementById('filter-modified');
+        const sortSelect = document.getElementById('sort-products');
+
+        return {
+            search: searchInput ? searchInput.value.trim() : '',
+            category: categoryFilter ? categoryFilter.value : 'todos',
+            modified: modifiedFilter ? modifiedFilter.value : 'all',
+            sort: sortSelect ? sortSelect.value : 'default'
+        };
+    }
+
+    getFilteredProducts() {
+        if (!this.productManager) return [];
+
+        let products = [...this.productManager.products];
+        const filters = this.getCurrentProductFilters();
+
+        // Aplicar categoría primero
+        if (filters.category && filters.category !== 'todos') {
+            products = this.productManager.filterByCategory(filters.category, products);
+        }
+
+        // Aplicar búsqueda flexible sin acentos
+        if (filters.search) {
+            products = this.productManager.searchProducts(filters.search, products);
+        }
+
+        // Aplicar vista de modificados/nuevos
+        if (filters.modified === 'modified') {
+            const modifiedIds = new Set(this.productManager.getStagedChanges().filter(c => c.type === 'modify').map(c => c.productId));
+            products = products.filter(p => modifiedIds.has(p.id));
+        } else if (filters.modified === 'new') {
+            const newIds = new Set(this.productManager.getStagedChanges().filter(c => c.type === 'new').map(c => c.productId));
+            products = products.filter(p => newIds.has(p.id));
+        }
+
+        // Aplicar orden
+        if (filters.sort === 'price_desc') {
+            products.sort((a, b) => (b.precioFinal || 0) - (a.precioFinal || 0));
+        } else if (filters.sort === 'price_asc') {
+            products.sort((a, b) => (a.precioFinal || 0) - (b.precioFinal || 0));
+        } else if (filters.sort === 'date_modified') {
+            products.sort((a, b) => new Date(b.modified_at || 0) - new Date(a.modified_at || 0));
+        } else if (filters.sort === 'date_created') {
+            products.sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0));
+        }
+
+        return products;
     }
 
     /**
@@ -633,18 +687,21 @@ export class InventoryUIRenderer {
 
         // Construir HTML de cambios
         const changesHTML = changes.map(change => `
-            <div class="change-item ${change.type} " data-change-id="${change.id}">
-                <div style="display: flex; align-items: center; gap: 0.75rem;">
-                    <span class="change-type ${change.type}">
-                        <i class="fas ${this.getChangeIcon(change.type)}"></i>
-                        ${change.type.charAt(0).toUpperCase() + change.type.slice(1)} ${change.kind === 'pack' ? '(Pack)' : ''}
-                    </span>
-                    <div class="change-product-name">${change.productData.nombre}</div>
-                    <div style="margin-left:auto; color:#7f8c8d; font-size:0.85rem;">
-                        ${change.timestamp ? formatDate(new Date(change.timestamp)) : ''}
+            <div class="change-item ${change.type}" data-change-id="${change.id}">
+                <div class="change-item-header">
+                    <div class="change-item-title">
+                        <span class="change-product-name">${change.productData.nombre || change.productId}</span>
+                        <span class="change-product-id">${change.productId || ''}</span>
                     </div>
-                    ${change.hasNewImage ? '<i class="fas fa-image" style="color: #3498db; font-size: 0.9rem;"></i>' : ''}
+                    <div class="change-item-tags">
+                        <span class="change-type ${change.type}">
+                            <i class="fas ${this.getChangeIcon(change.type)}"></i>
+                            ${change.type.charAt(0).toUpperCase() + change.type.slice(1)} ${change.kind === 'pack' ? '(Pack)' : ''}
+                        </span>
+                        ${change.hasNewImage ? '<span class="change-preview-badge"><i class="fas fa-image"></i> Imagen</span>' : ''}
+                    </div>
                 </div>
+                <div class="change-summary">${change.changeSummary || 'Resumen de cambios no disponible.'}</div>
                 <div class="change-actions">
                     <button class="btn-view-change" data-change-id="${change.id}"><i class="fas fa-eye"></i> Ver</button>
                     ${change.type === 'modify' ? `<button class="btn-edit-change" data-change-id="${change.id}"><i class="fas fa-pen"></i> Editar</button>` : ''}
@@ -652,19 +709,53 @@ export class InventoryUIRenderer {
                         <i class="fas fa-times"></i> Descartar
                     </button>
                 </div>
-                <div class="change-preview" id="change-preview-${change.id}" style="display:none; margin-top:0.5rem; padding:0.75rem; border:1px solid #eee; border-radius:4px;">
-                    <div style="display:flex; gap:0.75rem; align-items:flex-start;">
-                        <div style="flex:1;">
-                            <div><strong>Categoría:</strong> ${change.productData.categoria || '—'}</div>
-                            <div><strong>Precio:</strong> $${change.productData.precio || '—'}</div>
-                            <div><strong>Descuento:</strong> ${change.productData.descuento || 0}%</div>
-                            <div><strong>Oferta:</strong> ${change.productData.oferta ? 'Sí' : 'No'}</div>
-                            <div style="margin-top:0.5rem;"><strong>Descripción:</strong><div>${change.productData.descripcion || '—'}</div></div>
+                <div class="change-preview" id="change-preview-${change.id}">
+                    <div class="change-preview-grid">
+                        <div class="change-preview-side">
+                            <div class="change-detail-card">
+                                <div class="change-detail-row">
+                                    <span class="label">Categoría</span>
+                                    <span class="value">${change.productData.categoria || '—'}</span>
+                                </div>
+                                <div class="change-detail-row">
+                                    <span class="label">Precio</span>
+                                    <span class="value">$${change.productData.precio || '—'}</span>
+                                </div>
+                                <div class="change-detail-row">
+                                    <span class="label">Descuento</span>
+                                    <span class="value">${change.productData.descuento || 0}%</span>
+                                </div>
+                                <div class="change-detail-row">
+                                    <span class="label">Oferta</span>
+                                    <span class="value">${change.productData.oferta ? 'Sí' : 'No'}</span>
+                                </div>
+                                <div class="change-detail-row change-detail-description">
+                                    <span class="label">Descripción</span>
+                                    <span class="value">${change.productData.descripcion || '—'}</span>
+                                </div>
+                            </div>
                         </div>
-                        <div style="width:120px;">
-                            <div id="change-preview-img-${change.id}"></div>
+                        <div class="change-preview-aside">
+                            <div class="change-preview-image" id="change-preview-img-${change.id}"></div>
                         </div>
                     </div>
+                    ${change.changeHistory && change.changeHistory.length ? `
+                        <div class="change-history">
+                            <div class="change-history-title">Detalle de cambios</div>
+                            <div class="change-history-grid">
+                                ${change.changeHistory.map(item => `
+                                    <div class="change-history-item">
+                                        <div class="change-history-field">${item.label}</div>
+                                        <div class="change-history-diff">
+                                            <span class="diff-block diff-old">${item.oldValue}</span>
+                                            <span class="diff-arrow">→</span>
+                                            <span class="diff-block diff-new">${item.newValue}</span>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
                 </div>
             </div>
         `).join('');
@@ -1810,13 +1901,11 @@ export class InventoryUIRenderer {
         const searchInput = document.getElementById('search-products');
         if (searchInput) {
             searchInput.addEventListener('input', (e) => {
-                const q = e.target.value || '';
                 if (this.currentView === 'packs' && this.packManager) {
-                    const results = this.packManager.searchPacks(q);
+                    const results = this.packManager.searchPacks(e.target.value || '');
                     this.renderPacksGrid(results);
                 } else {
-                    const results = this.productManager.searchProducts(q);
-                    this.renderProductsGrid(results);
+                    this.renderProductsGrid();
                 }
             });
         }
@@ -1825,14 +1914,12 @@ export class InventoryUIRenderer {
         this.updateCategoryFilter();
         const categoryFilter = document.getElementById('filter-category');
         if (categoryFilter) {
-            categoryFilter.addEventListener('change', (e) => {
-                const val = e.target.value;
+            categoryFilter.addEventListener('change', () => {
                 if (this.currentView === 'packs' && this.packManager) {
-                    const results = this.packManager.filterByCategory(val);
+                    const results = this.packManager.filterByCategory(categoryFilter.value);
                     this.renderPacksGrid(results);
                 } else {
-                    const results = this.productManager.filterByCategory(val);
-                    this.renderProductsGrid(results);
+                    this.renderProductsGrid();
                 }
             });
         }
@@ -1840,31 +1927,16 @@ export class InventoryUIRenderer {
         // Filtro por modificado / nuevos
         const modifiedFilter = document.getElementById('filter-modified');
         if (modifiedFilter) {
-            modifiedFilter.addEventListener('change', (e) => {
-                const v = e.target.value;
-                let results = this.productManager.products;
-                if (v === 'modified') {
-                    const modifiedIds = new Set(this.productManager.getStagedChanges().filter(c=>c.type==='modify').map(c=>c.productId));
-                    results = results.filter(p => modifiedIds.has(p.id));
-                } else if (v === 'new') {
-                    const newIds = new Set(this.productManager.getStagedChanges().filter(c=>c.type==='new').map(c=>c.productId));
-                    results = results.filter(p => newIds.has(p.id));
-                }
-                this.renderProductsGrid(results);
+            modifiedFilter.addEventListener('change', () => {
+                this.renderProductsGrid();
             });
         }
 
         // Sort
         const sortSelect = document.getElementById('sort-products');
         if (sortSelect) {
-            sortSelect.addEventListener('change', (e) => {
-                const v = e.target.value;
-                let results = [...this.productManager.products];
-                if (v === 'price_desc') results.sort((a,b)=>b.precioFinal - a.precioFinal);
-                else if (v === 'price_asc') results.sort((a,b)=>a.precioFinal - b.precioFinal);
-                else if (v === 'date_modified') results.sort((a,b)=>new Date(b.modified_at || 0) - new Date(a.modified_at || 0));
-                else if (v === 'date_created') results.sort((a,b)=>new Date(b.created_at || 0) - new Date(a.created_at || 0));
-                this.renderProductsGrid(results);
+            sortSelect.addEventListener('change', () => {
+                this.renderProductsGrid();
             });
         }
 
@@ -1891,7 +1963,7 @@ export class InventoryUIRenderer {
         if (clearFiltersBtn) {
             clearFiltersBtn.addEventListener('click', () => {
                 const search = document.getElementById('search-products'); if (search) search.value = '';
-                const cat = document.getElementById('filter-category'); if (cat) cat.value = '';
+                const cat = document.getElementById('filter-category'); if (cat) cat.value = 'todos';
                 const mod = document.getElementById('filter-modified'); if (mod) mod.value = 'all';
                 const sort = document.getElementById('sort-products'); if (sort) sort.value = 'default';
                 this.renderProductsGrid();
@@ -2434,6 +2506,7 @@ export class InventoryUIRenderer {
             if (!handled) throw new Error('Cambio no encontrado');
 
             this.updateStagingPanel();
+            if (this.currentView !== 'packs') this.renderProductsGrid();
             this.showNotification('Cambio descartado', 'info');
         } catch (error) {
             this.showNotification(`Error: ${error.message}`, 'error');
@@ -2577,6 +2650,7 @@ export class InventoryUIRenderer {
             if (this.productManager) await this.productManager.discardAllChanges();
             if (this.packManager) await this.packManager.discardAllChanges();
             this.updateStagingPanel();
+            if (this.currentView !== 'packs') this.renderProductsGrid();
             this.showNotification('Todos los cambios han sido descartados', 'info');
         } catch (error) {
             this.showNotification(`Error: ${error.message}`, 'error');

@@ -864,67 +864,76 @@
         <div id="settings-view" class="view-content">
             <div class="settings-header">
                 <h2><i class="fas fa-cog"></i> Ajustes</h2>
+                <p class="settings-subtitle">Controla la integración y la experiencia de tu dashboard desde una misma pantalla.</p>
             </div>
             
             <div class="settings-container">
-                <!-- GitHub Integration Section -->
-                <div class="settings-card">
-                    <div class="card-header">
-                        <h3><i class="fab fa-github"></i> Integración de GitHub</h3>
-                        <p class="card-description">Configura tu token de GitHub para guardar datos en tus repositorios</p>
-                    </div>
-                    
-                    <div class="settings-form">
-                        <div class="form-group">
-                            <label for="github-token-input">Token de GitHub</label>
-                            <div class="token-input-wrapper">
-                                <input 
-                                    type="password" 
-                                    id="github-token-input" 
-                                    placeholder="ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-                                    class="input-light token-input"
-                                >
-                                <button class="btn-toggle-token" id="toggle-token-visibility" title="Mostrar/Ocultar token">
-                                    <i class="fas fa-eye"></i>
+                <div class="settings-grid">
+                    <div class="settings-card">
+                        <div class="card-header">
+                            <h3><i class="fab fa-github"></i> Integración de GitHub</h3>
+                            <p class="card-description">Configura tu token para sincronizar tus datos con el repositorio.</p>
+                        </div>
+                        <div class="settings-form">
+                            <div class="form-group">
+                                <label for="github-token-input">Token de GitHub</label>
+                                <div class="token-input-wrapper">
+                                    <input 
+                                        type="password" 
+                                        id="github-token-input" 
+                                        placeholder="ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+                                        class="input-light token-input"
+                                    >
+                                    <button class="btn-toggle-token" id="toggle-token-visibility" title="Mostrar/Ocultar token">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <p class="input-help">
+                                    <i class="fas fa-info-circle"></i>
+                                    Tu token se almacena localmente en el navegador. No compartas tu dispositivo mientras esté abierto.
+                                </p>
+                            </div>
+
+                            <div class="form-actions">
+                                <button class="btn btn-primary" id="save-github-settings">
+                                    <i class="fas fa-save"></i> Guardar Token
+                                </button>
+                                <button class="btn btn-secondary" id="test-github-connection">
+                                    <i class="fas fa-plug"></i> Probar Conexión
+                                </button>
+                                <button class="btn btn-danger" id="clear-github-settings">
+                                    <i class="fas fa-trash"></i> Limpiar Token
                                 </button>
                             </div>
-                            <p class="input-help">
-                                <i class="fas fa-info-circle"></i>
-                                Tu token se almacena localmente en el navegador por tanto evita darle el telefono a alguien mas que pueda entrar aqui.
-                            </p>
-                        </div>
 
-                        <div class="form-group info-group">
-                            <h4>Configuración Fija</h4>
-                            <div class="config-display">
-                                <div class="config-item">
-                                    <span class="label">Repositorio:</span>
-                                    <span class="value" id="config-repo">HCoreBeat/Analytics-Buquenque</span>
+                            <div class="settings-status" id="github-settings-status" style="display: none;"></div>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-sliders-h"></i> Preferencias</h3>
+                            <p class="card-description">Ajusta el comportamiento y la visibilidad de tu experiencia.</p>
+                        </div>
+                        <div class="settings-form">
+                            <div class="form-group switch-group">
+                                <label for="summary-bot-enabled">Mostrar Summary Bot</label>
+                                <div class="checkbox-field">
+                                    <input type="checkbox" id="summary-bot-enabled" />
+                                    <label for="summary-bot-enabled">Activa el asistente flotante de resumen</label>
                                 </div>
-                                <div class="config-item">
-                                    <span class="label">Ruta del Archivo:</span>
-                                    <span class="value" id="config-file-path">Json/my_data.json</span>
-                                </div>
+                                <p class="input-help">
+                                    <i class="fas fa-info-circle"></i>
+                                    Guarda esta preferencia para que el bot se muestre u oculte en tus próximas sesiones.
+                                </p>
                             </div>
-                            <p class="input-help">
-                                <i class="fas fa-lock"></i>
-                                Estos valores están predefinidos y no pueden ser cambiados
-                            </p>
-                        </div>
 
-                        <div class="form-actions">
-                            <button class="btn btn-primary" id="save-github-settings">
-                                <i class="fas fa-save"></i> Guardar Token
-                            </button>
-                            <button class="btn btn-secondary" id="test-github-connection">
-                                <i class="fas fa-plug"></i> Probar Conexión
-                            </button>
-                            <button class="btn btn-danger" id="clear-github-settings">
-                                <i class="fas fa-trash"></i> Limpiar Token
-                            </button>
+                            <div class="form-actions">
+                                <button class="btn btn-primary" id="save-preferences">
+                                    <i class="fas fa-save"></i> Guardar Preferencias
+                                </button>
+                            </div>
                         </div>
-
-                        <div class="settings-status" id="github-settings-status" style="display: none;"></div>
                     </div>
                 </div>
             </div>

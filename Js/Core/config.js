@@ -9,6 +9,9 @@ export const CONFIG = {
         FILE_PATH: 'Json/my_data.json',
         BRANCH: 'main'
     },
+    SUMMARY_BOT: {
+        ENABLED_BY_DEFAULT: true
+    },
     AUTO_REFRESH: {
         DEFAULT_INTERVAL: 10000
     }

@@ -111,6 +111,13 @@ export class ProductManager {
     /**
      * Normaliza estructura de productos
      */
+    normalizeString(value) {
+        return String(value || '')
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .toLowerCase();
+    }
+
     normalizeProducts() {
         this.products.forEach((product) => {
             // Generar ID si no existe
@@ -140,8 +147,10 @@ export class ProductManager {
                 product.imagenUrl = 'Img/no_image.jpg';
             }
             
-            // Crear campo de búsqueda
-            product.searchText = `${product.nombre} ${product.categoria} ${product.descripcion || ''}`.toLowerCase();
+            // Crear campo de búsqueda normalizado para búsquedas flexibles
+            product.searchText = `${product.nombre} ${product.categoria} ${product.descripcion || ''}`;
+            product.searchTextNormalized = this.normalizeString(product.searchText);
+
             // Normalizar timestamps si existen o mapear campo legacy 'hora'
             product.created_at = product.created_at || product.hora || null;
             product.modified_at = product.modified_at || product.created_at || null;
@@ -150,6 +159,89 @@ export class ProductManager {
             product.stock = null;
             product.precio_compra = null;
         });
+    }
+
+    /**
+     * Crea un valor formateado para la comparación de cambios
+     */
+    formatChangeValue(key, value) {
+        if (value === null || value === undefined || value === '') {
+            return '';
+        }
+
+        if (Array.isArray(value)) {
+            return value.join(', ');
+        }
+
+        if (typeof value === 'boolean') {
+            return value ? 'Sí' : 'No';
+        }
+
+        if (key === 'precio') {
+            const parsed = parseFloat(value);
+            return isNaN(parsed) ? String(value) : `$${parsed.toFixed(2)}`;
+        }
+
+        if (key === 'descuento') {
+            const parsed = parseFloat(value);
+            return isNaN(parsed) ? String(value) : `${parsed.toFixed(2)}%`;
+        }
+
+        return String(value).trim();
+    }
+
+    /**
+     * Genera historial de cambios entre el producto original y la versión editada
+     */
+    createChangeHistory(original, edited) {
+        const fields = [
+            { key: 'nombre', label: 'Nombre' },
+            { key: 'categoria', label: 'Categoría' },
+            { key: 'precio', label: 'Precio' },
+            { key: 'descuento', label: 'Descuento' },
+            { key: 'disponibilidad', label: 'Disponible' },
+            { key: 'nuevo', label: 'Nuevo' },
+            { key: 'oferta', label: 'Oferta' },
+            { key: 'mas_vendido', label: 'Más vendido' },
+            { key: 'imagenes', label: 'Imágenes' },
+            { key: 'descripcion', label: 'Descripción' }
+        ];
+
+        const history = [];
+        for (const field of fields) {
+            const oldVal = this.formatChangeValue(field.key, original[field.key]);
+            const newVal = this.formatChangeValue(field.key, edited[field.key]);
+            if (oldVal !== newVal) {
+                history.push({
+                    field: field.key,
+                    label: field.label,
+                    oldValue: oldVal === '' ? '—' : oldVal,
+                    newValue: newVal === '' ? '—' : newVal
+                });
+            }
+        }
+
+        return history;
+    }
+
+    /**
+     * Devuelve un resumen legible a partir del historial de cambios
+     */
+    createChangeSummary(history, type) {
+        if (!Array.isArray(history) || history.length === 0) {
+            if (type === 'new') return 'Producto nuevo agregado al staging.';
+            if (type === 'delete') return 'Producto marcado para eliminación.';
+            return 'Se aplicó una modificación al producto.';
+        }
+
+        return history
+            .slice(0, 3)
+            .map(item => `Se cambió ${item.label} de ${item.oldValue} a ${item.newValue}`)
+            .join('. ') + (history.length > 3 ? '...' : '');
+    }
+
+    getStagedChangeByProductId(productId) {
+        return this.stagedChanges.find(change => change.productId === productId) || null;
     }
 
     /**
@@ -281,6 +373,12 @@ export class ProductManager {
             throw new Error(`Producto inválido: ${validation.errors.join(', ')}`);
         }
 
+        const productId = productData.id || null;
+        const existingChangeIndex = productId ? this.stagedChanges.findIndex(c => c.productId === productId) : -1;
+        const existingChange = existingChangeIndex >= 0 ? this.stagedChanges[existingChangeIndex] : null;
+        const originalProduct = productId ? this.products.find(p => p.id === productId) : null;
+        const originalProductName = originalProduct ? originalProduct.nombre : null;
+
         // Generar ID si es nuevo (asegurar unicidad respecto a productos actuales y cambios staged)
         if (type === 'new' && !productData.id) {
             let newId;
@@ -293,13 +391,74 @@ export class ProductManager {
             productData.id = newId;
         }
 
-        // Si es modificación, guardar el nombre original para referencia
-        let originalProductName = null;
-        if (type === 'modify') {
-            const existingProduct = this.products.find(p => p.id === productData.id);
-            if (existingProduct) {
-                originalProductName = existingProduct.nombre;
+        const processImageFile = async (changeObject) => {
+            if (!imageFile) return;
+            if (!isValidImageFile(imageFile)) {
+                throw new Error('El archivo debe ser una imagen válida (JPEG, PNG, GIF, WebP)');
             }
+            if (!isValidFileSize(imageFile)) {
+                throw new Error('El archivo excede 5MB');
+            }
+
+            if (changeObject.imageKey) {
+                try {
+                    await this.stagingDB.deleteImageFromIDB(changeObject.imageKey);
+                } catch (err) {
+                    console.warn('No se pudo eliminar la imagen anterior de staging:', err);
+                }
+            }
+
+            const base64 = await fileToDataURL(imageFile);
+            const imageKey = sanitizeFileName(imageFile.name);
+            changeObject.imageKey = imageKey;
+            changeObject.hasNewImage = true;
+            await this.stagingDB.saveImageToIDB(imageKey, base64);
+            changeObject.productData.imagenes = [imageKey];
+        };
+
+        const mergeExistingChange = async (existing, newType) => {
+            const mergedType = (() => {
+                if (existing.type === 'new' && newType === 'delete') return 'removed';
+                if (existing.type === 'delete' && newType === 'modify') return 'modify';
+                if (existing.type === 'new') return 'new';
+                if (newType === 'delete') return 'delete';
+                return existing.type || newType;
+            })();
+
+            if (mergedType === 'removed') {
+                if (existing.imageKey) {
+                    await this.stagingDB.deleteImageFromIDB(existing.imageKey);
+                }
+                this.stagedChanges.splice(existingChangeIndex, 1);
+                this.saveStagedChanges();
+                return null;
+            }
+
+            const updatedProductData = {
+                ...existing.productData,
+                ...productData
+            };
+
+            const changed = {
+                ...existing,
+                type: mergedType,
+                timestamp: Date.now(),
+                productData: JSON.parse(JSON.stringify(updatedProductData)),
+                originalProductName: existing.originalProductName || originalProductName
+            };
+
+            await processImageFile(changed);
+            changed.changeHistory = this.createChangeHistory(originalProduct || {}, changed.productData);
+            changed.changeSummary = this.createChangeSummary(changed.changeHistory, changed.type);
+            changed.productData.changeHistory = changed.changeHistory;
+
+            this.stagedChanges[existingChangeIndex] = changed;
+            this.saveStagedChanges();
+            return changed;
+        };
+
+        if (existingChange) {
+            return await mergeExistingChange(existingChange, type);
         }
 
         const change = {
@@ -308,45 +467,19 @@ export class ProductManager {
             timestamp: Date.now(),
             productId: productData.id,
             productData: JSON.parse(JSON.stringify(productData)), // Deep copy
-            originalProductName: originalProductName, // Guardar nombre original para búsqueda
+            originalProductName: originalProductName,
             hasNewImage: false,
             imageKey: null,
-            originalImagePath: null
+            originalImagePath: null,
+            changeHistory: [],
+            changeSummary: ''
         };
 
-        // Procesar imagen si existe
-        if (imageFile) {
-            if (!isValidImageFile(imageFile)) {
-                throw new Error('El archivo debe ser una imagen válida (JPEG, PNG, GIF, WebP)');
-            }
+        await processImageFile(change);
+        change.changeHistory = this.createChangeHistory(originalProduct || {}, change.productData);
+        change.changeSummary = this.createChangeSummary(change.changeHistory, change.type);
+        change.productData.changeHistory = change.changeHistory;
 
-            if (!isValidFileSize(imageFile)) {
-                throw new Error('El archivo excede 5MB');
-            }
-
-            try {
-                // Convertir a Base64
-                const base64 = await fileToDataURL(imageFile);
-
-                // Generar clave única
-                const imageKey = sanitizeFileName(imageFile.name);
-                change.imageKey = imageKey;
-                change.hasNewImage = true;
-
-                // Guardar en IndexedDB
-                await this.stagingDB.saveImageToIDB(imageKey, base64);
-
-                // Actualizar ruta de imagen en producto
-                change.productData.imagenes = [imageKey];
-
-                console.log(`Imagen procesada y guardada: ${imageKey}`);
-            } catch (error) {
-                console.error('Error procesando imagen:', error);
-                throw error;
-            }
-        }
-
-        // Guardar cambio en staged_changes
         this.stagedChanges.push(change);
         this.saveStagedChanges();
 
@@ -864,9 +997,16 @@ export class ProductManager {
      * @param {string} searchTerm
      * @returns {Array}
      */
-    searchProducts(searchTerm) {
-        const term = searchTerm.toLowerCase();
-        return this.products.filter(p => p.searchText.includes(term));
+    searchProducts(searchTerm, sourceProducts = null) {
+        const term = this.normalizeString(searchTerm || '');
+        const products = Array.isArray(sourceProducts) ? sourceProducts : this.products;
+        if (!term) {
+            return products;
+        }
+        return products.filter(p => {
+            const normalizedSearchText = p.searchTextNormalized || this.normalizeString(`${p.nombre} ${p.categoria} ${p.descripcion || ''}`);
+            return normalizedSearchText.includes(term);
+        });
     }
 
     /**
@@ -875,10 +1015,13 @@ export class ProductManager {
      * @returns {Array}
      */
     filterByCategory(category) {
-        if (!category || category === 'todos') {
+        const normalizedCategory = this.normalizeString(category || '');
+        if (!normalizedCategory || normalizedCategory === this.normalizeString('todos')) {
             return this.products;
         }
-        return this.products.filter(p => p.categoria.toLowerCase() === category.toLowerCase());
+        return this.products.filter(p =>
+            this.normalizeString(p.categoria).includes(normalizedCategory)
+        );
     }
 
     /**
