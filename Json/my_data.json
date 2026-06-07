@@ -9885,5 +9885,68 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2001:579:92dc:b30:98ce:9886:5399:4de1",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-06-07 19:06:59",
+    "origen": "https://www.buquenqe.com/?fbclid=IwZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQKNjYyODU2ODM3OQABHn1HimIDkZQClj07bhO9m38cm4habfG7jJ2AjGrzfg7lOZTpr01IPfWr3QzP_aem_2qHvAXVBh1QTWX1kgHufzw",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yamilka Gamboa Garrido Gamboa",
+    "telefono_comprador": "7029940227",
+    "nombre_persona_entrega": "Eulicer Gamboa Reyna",
+    "telefono_persona_entrega": "+53 5 0267371",
+    "correo_comprador": "yamilka.lio2015@gmail.com",
+    "direccion_envio": "Calle Oscar Diéguez,es la calle del Ministerio de trabajo # 39 Reparto Sosa, Tunas.",
+    "compras": [
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_piqbut8gb",
+        "name": "Azúcar blanca x lb",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 9.3702,
+        "discount": 18.52
+      },
+      {
+        "id": "prod_1768441690510_ijaa8o33p",
+        "name": "Arroz Importado 1Lb",
+        "quantity": 8,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ma2k8r01f",
+        "name": "Aceite (900ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.969966,
+        "discount": 7.46
+      }
+    ],
+    "precio_compra_total": "24.83",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://facebook.com/"
   }
 ]
