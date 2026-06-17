@@ -10684,5 +10684,68 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "https://facebook.com/"
+  },
+  {
+    "ip": "108.191.2.209",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-06-17 11:24:41",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yousys Oro Almaguer",
+    "telefono_comprador": "3522966259",
+    "nombre_persona_entrega": "Rene Oro",
+    "telefono_persona_entrega": "55468046",
+    "correo_comprador": "yousysoro@gmail.com",
+    "direccion_envio": "Calle 87 sin numero reparto finlay las tunas",
+    "compras": [
+      {
+        "id": "prod_1768441690510_ijaa8o33p",
+        "name": "Arroz Importado 1Lb",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768509219912_orvyg0rkr",
+        "name": "Galletas Marías",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.33,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777745695199_ib8pmu14r",
+        "name": "Ponquesitos Dulces",
+        "quantity": 8,
+        "type": "product",
+        "unitPrice": 0.6,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769030417838_noe5sa2wa",
+        "name": "Refresco Instantáneo (2Lt)",
+        "quantity": 9,
+        "type": "product",
+        "unitPrice": 0.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1776151451302_wkzwq860c",
+        "name": "Pack de 4 Yogurts (Fresa, Platanito, Natural, Macedonia)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.97,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "20.13",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Único",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
