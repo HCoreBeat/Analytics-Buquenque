@@ -10962,5 +10962,227 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb91:8ca2:d080:bc89:b4e6:f9cd:9b66",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-06-20 11:16:54",
+    "origen": "https://www.buquenqe.com/p/prod_1768679794475_s112jvux0",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Melissa Benitez",
+    "telefono_comprador": "9418226365",
+    "nombre_persona_entrega": "Yuda",
+    "telefono_persona_entrega": "51512957",
+    "correo_comprador": "mbenitez04@yahoo.com",
+    "direccion_envio": "Calle 32 s/n aeropuerto",
+    "compras": [
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 9.3702,
+        "discount": 18.52
+      },
+      {
+        "id": "prod_1768679794475_s112jvux0",
+        "name": "Paquete de cuartos de pollo 10 lbs",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 14,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774222439833_s0jwz3gyf",
+        "name": "Jamón Bravo 2kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 22.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_x6vswdewh",
+        "name": "Arroz de (1Kg)",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      },
+      {
+        "id": "prod_1772916022776_bilx1sk92",
+        "name": "Pack x 12 Néctar de Piña (12x330ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 15.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_6xn0n5bsd",
+        "name": "Pack x 12 Néctar de Pera 🍐 (12x330ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 15.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ify26lfde",
+        "name": "Papel Sanitario",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.4,
+        "discount": 0
+      },
+      {
+        "id": "prod_1776590917088_17s74pewj",
+        "name": "Leche en polvo Entera macro food 1kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 9.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1776151451302_wkzwq860c",
+        "name": "Pack de 4 Yogurts (Fresa, Platanito, Natural, Macedonia)",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 2.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1772443671662_3zlv75nd6",
+        "name": "Leche condensada La Keka",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774588718809_f6anpwdzt",
+        "name": "Mayonesa Vima 450ml",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 5.45,
+        "discount": 0
+      },
+      {
+        "id": "prod_1779468598674_3w4zhfylf",
+        "name": "Caja de refresco Rayan (naranja)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 15.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ynzwusik9",
+        "name": "Paquete de azúcar 1kg",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774743001771_4ql9niare",
+        "name": "Jalea de Guayaba",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255568932_49z71tujl",
+        "name": "Pasta de tomate Vima 400g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ma2k8r01f",
+        "name": "Aceite (900ml)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.969966,
+        "discount": 7.46
+      }
+    ],
+    "precio_compra_total": "186.74",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "http://m.facebook.com/"
+  },
+  {
+    "ip": "2603:8080:700:1d1d:76fd:3038:5607:723",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-06-20 12:43:01",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yislenys Navas",
+    "telefono_comprador": "12144342693",
+    "nombre_persona_entrega": "Lixandry garcia fernandez",
+    "telefono_persona_entrega": "54179509",
+    "correo_comprador": "nyislenys@gmail.com",
+    "direccion_envio": "Avenida carlos juan Finlay....edificio.21 torreA ..apto . #2.reparto.buena vista.",
+    "compras": [
+      {
+        "id": "prod_1774743001771_4ql9niare",
+        "name": "Jalea de Guayaba",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "group_Pomo de Refresco 1.5lts",
+        "name": "Pomo de Refresco 1.5lts (Naranja)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.49,
+        "discount": 0
+      },
+      {
+        "id": "prod_1778000167417_ei33ur4id",
+        "name": "Pomo de Refresco 1.5lts (Cola)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.49,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774742941861_rn5ai5a43",
+        "name": "Queso Criollo x Lb",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 3.15,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "30.03",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
