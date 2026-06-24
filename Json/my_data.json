@@ -11509,5 +11509,417 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb91:26a6:40d8:ad3:e257:563d:4bd8",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-06-24 06:23:16",
+    "origen": "https://www.buquenqe.com/#category=Confitura",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Carlos avalos",
+    "telefono_comprador": "+15856352665",
+    "nombre_persona_entrega": "Beatriz gonzalez guerra",
+    "telefono_persona_entrega": "59595797",
+    "correo_comprador": "avalosc36@yahoo.com",
+    "direccion_envio": "Universidad ciencias medicas las tunas",
+    "compras": [
+      {
+        "id": "group_Caja de Bombón 30u",
+        "name": "Caja de Bombón 30u (Chocolate)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 7.99,
+        "discount": 0
+      },
+      {
+        "id": "group_Sorbeto Renata",
+        "name": "Sorbeto Renata (Fresa)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.16,
+        "discount": 0
+      },
+      {
+        "id": "prod_1772732759012_tojcqpnpu",
+        "name": "Sorbetes bon o bon",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777745771069_ajaergvdx",
+        "name": "Donut Dulce",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.6,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_5bquahf1q",
+        "name": "Galletas Petit Biscuits de coco 80g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1772443613305_eh6i8vglo",
+        "name": "Sorbeto Renata (Chocolate)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.16,
+        "discount": 0
+      },
+      {
+        "id": "prod_1778630940473_bcv60b3g9",
+        "name": "Bombón de chocolate y frutilla 5u",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777745695199_ib8pmu14r",
+        "name": "Ponquesitos Dulces",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.6,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768509219912_orvyg0rkr",
+        "name": "Galletas Marías",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.33,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "18.09",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb91:26a6:40d8:ad3:e257:563d:4bd8",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-06-24 06:23:37",
+    "origen": "https://www.buquenqe.com/#category=Confitura",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Carlos avalos",
+    "telefono_comprador": "+15856352665",
+    "nombre_persona_entrega": "Beatriz gonzalez guerra",
+    "telefono_persona_entrega": "59595797",
+    "correo_comprador": "avalosc36@yahoo.com",
+    "direccion_envio": "Universidad ciencias medicas las tunas",
+    "compras": [
+      {
+        "id": "group_Caja de Bombón 30u",
+        "name": "Caja de Bombón 30u (Chocolate)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 7.99,
+        "discount": 0
+      },
+      {
+        "id": "group_Sorbeto Renata",
+        "name": "Sorbeto Renata (Fresa)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.16,
+        "discount": 0
+      },
+      {
+        "id": "prod_1772732759012_tojcqpnpu",
+        "name": "Sorbetes bon o bon",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777745771069_ajaergvdx",
+        "name": "Donut Dulce",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.6,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_5bquahf1q",
+        "name": "Galletas Petit Biscuits de coco 80g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1772443613305_eh6i8vglo",
+        "name": "Sorbeto Renata (Chocolate)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.16,
+        "discount": 0
+      },
+      {
+        "id": "prod_1778630940473_bcv60b3g9",
+        "name": "Bombón de chocolate y frutilla 5u",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777745695199_ib8pmu14r",
+        "name": "Ponquesitos Dulces",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.6,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768509219912_orvyg0rkr",
+        "name": "Galletas Marías",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.33,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "18.09",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb90:2c1b:c837:20b5:ec0:d84d:f7ba",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-06-24 07:51:48",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Daimarelis Diaz Vazquez",
+    "telefono_comprador": "54935704",
+    "nombre_persona_entrega": "Daimarelis",
+    "telefono_persona_entrega": "56935705",
+    "correo_comprador": "daimarelisdiazvasquez@gmail.com",
+    "direccion_envio": "Colon",
+    "compras": [
+      {
+        "id": "prod_1781992568846_o6abtahci",
+        "name": "Salchichas de pollo(10u)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1782001815822_n5g1trxf9",
+        "name": "Cafe Espresso Sello Rojo(283g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 6.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1779297405433_otlql24m5",
+        "name": "Mortadella Criolla 800g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 8.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ma2k8r01f",
+        "name": "Aceite (900ml)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 4.5,
+        "discount": 0
+      },
+      {
+        "id": "group_Caja de refresco Rayan",
+        "name": "Caja de refresco Rayan (cola)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 15.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_tf4rwuo62",
+        "name": "Frijol Negro (1kg)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255568932_49z71tujl",
+        "name": "Pasta de tomate Vima 400g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_8ocdeke0z",
+        "name": "Pastilla de Pollo x unidad",
+        "quantity": 8,
+        "type": "product",
+        "unitPrice": 0.15,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769030417838_noe5sa2wa",
+        "name": "Refresco Instantáneo (2Lt)",
+        "quantity": 6,
+        "type": "product",
+        "unitPrice": 0.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1778606658661_zqzsx1hhm",
+        "name": "Jabón Baño Marwa 100g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.6,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768679794475_s112jvux0",
+        "name": "Paquete de cuartos de pollo 10 lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 14,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_x6vswdewh",
+        "name": "Arroz de (1Kg)",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 1.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1772443671662_3zlv75nd6",
+        "name": "Leche condensada La Keka",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "108.70",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:1702:6d50:9640:68a6:2568:2db2:439f",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-06-24 12:37:29",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yilian Perea Verdecia",
+    "telefono_comprador": "+19412506664",
+    "nombre_persona_entrega": "Orlen",
+    "telefono_persona_entrega": "+5352014356",
+    "correo_comprador": "yilianpverdecia@gmail.com",
+    "direccion_envio": "Calle Aurora #21 entre Pepito Peña y Fernando de la Cruz reparto Aurora",
+    "compras": [
+      {
+        "id": "prod_1771255174691_cpxbapmjz",
+        "name": "Ketchup 310ml",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.18,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 9.3702,
+        "discount": 18.52
+      },
+      {
+        "id": "prod_1778630888133_0e5bf6jsc",
+        "name": "Paquete de caramelos surtidos 3lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 7.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774588718809_f6anpwdzt",
+        "name": "Mayonesa Vima 450ml",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 5.45,
+        "discount": 0
+      },
+      {
+        "id": "prod_1778000167417_ei33ur4id",
+        "name": "Pomo de Refresco 1.5lts (Cola)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.49,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ovzxwkud2",
+        "name": "Sopa instantánea sabor Pollo (80g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1773856590032_j2m7p5am9",
+        "name": "Croquetas de Bacalao 500g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.45,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "39.27",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Único",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
