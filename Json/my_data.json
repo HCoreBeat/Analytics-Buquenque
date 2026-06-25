@@ -11921,5 +11921,139 @@
     "tipo_usuario": "Único",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb90:9286:441e:6056:a037:6907:3f6c",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-06-24 20:56:06",
+    "origen": "https://www.buquenqe.com/p/prod_1774222439833_s0jwz3gyf",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Argel Hidalgo Leyva",
+    "telefono_comprador": "4093638299",
+    "nombre_persona_entrega": "Ruth Jiménez de Castro Torres",
+    "telefono_persona_entrega": "59537382",
+    "correo_comprador": "argelito97101216765@gmail.com",
+    "direccion_envio": "Calle los maceos entre Agustín cebreco y calle 36 edif 30 apto D6 reparto santos",
+    "compras": [
+      {
+        "id": "prod_1769297232608_616ijabck",
+        "name": "Queso Gouda 3Kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 36.2489,
+        "discount": 2.03
+      },
+      {
+        "id": "prod_1774222439833_s0jwz3gyf",
+        "name": "Jamón Bravo 2kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 25,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "61.25",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://www.buquenqe.com/p/prod_1774222439833_s0jwz3gyf"
+  },
+  {
+    "ip": "64.237.149.39",
+    "pais": "PR",
+    "fecha_hora_entrada": "2026-06-25 08:19:53",
+    "origen": "https://www.buquenqe.com/#category=Utiles%20del%20Hogar",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yamila Quesada Suárez",
+    "telefono_comprador": "13376605760",
+    "nombre_persona_entrega": "Zenaida Suarez",
+    "telefono_persona_entrega": "13376605760",
+    "correo_comprador": "Yquesada1980@gmail.com",
+    "direccion_envio": "Jorge Rodriguez napolez # 42 altos. Entre avenida camilo cienfuegos y J espinosa. Bonachea",
+    "compras": [
+      {
+        "id": "prod_1768441690510_8q6y9td5k",
+        "name": "Limón (por libra)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_1q2faykkk",
+        "name": "Plátano (por unidad)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 0.35,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768443205852_qlg8xocr5",
+        "name": "Cebolla morada x lb",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 3.37,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774743134406_moehq1avd",
+        "name": "Boniato x Lb",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.45,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_gkp20pj1x",
+        "name": "Espaguetis (500g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.16,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255296430_p8ultevvt",
+        "name": "Pasta para bocaditos 225ml",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.65,
+        "discount": 0
+      },
+      {
+        "id": "prod_1782001815822_n5g1trxf9",
+        "name": "Cafe Espresso Sello Rojo(283g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 6.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ovzxwkud2",
+        "name": "Sopa instantánea sabor Pollo (80g)",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769612979664_6f4o3BE2I",
+        "name": "Chuleta de cerdo x lb",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 3.75,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "56.44",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Único",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
