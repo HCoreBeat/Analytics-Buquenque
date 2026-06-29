@@ -12039,5 +12039,244 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:382:b81a:400b:5064:e3d4:429d:dfb5",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-06-29 15:29:09",
+    "origen": "https://www.buquenqe.com/p/prod_1774588718809_f6anpwdzt",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Mabel Suarez",
+    "telefono_comprador": "7024707464",
+    "nombre_persona_entrega": "Yormis Hernández monjes",
+    "telefono_persona_entrega": "54794755",
+    "correo_comprador": "lybermilan@icloud.com",
+    "direccion_envio": "Calle general Moncada #78 % calle 11 y calle 7 reparto Aguilera",
+    "compras": [
+      {
+        "id": "prod_1782605932077_d2od04209",
+        "name": "Pasta para Bocadito (465ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 5.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_gkp20pj1x",
+        "name": "Espaguetis (500g)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 0.750056,
+        "discount": 35.34
+      },
+      {
+        "id": "prod_1781992568846_o6abtahci",
+        "name": "Salchichas de pollo(10u)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774222439833_s0jwz3gyf",
+        "name": "Jamón Bravo 2kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1782504884491_2t4hvb17l",
+        "name": "CAJA DE CUARTOS DE POLLO 40lbs (4paquetes de 10lbs)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 50,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 7.5003,
+        "discount": 34.78
+      },
+      {
+        "id": "prod_1768441690510_ma2k8r01f",
+        "name": "Aceite (900ml)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 4.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_nm24ia7xr",
+        "name": "Manzana 🍎 x unidad",
+        "quantity": 6,
+        "type": "product",
+        "unitPrice": 1.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_7gy02c75y",
+        "name": "Codito (500g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255568932_49z71tujl",
+        "name": "Pasta de tomate Vima 400g",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_8ocdeke0z",
+        "name": "Pastilla de Pollo x unidad",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.15,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ynzwusik9",
+        "name": "Paquete de azúcar 1kg",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_tf4rwuo62",
+        "name": "Frijol Negro (1kg)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ijaa8o33p",
+        "name": "Arroz Importado 1Lb",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1778630888133_0e5bf6jsc",
+        "name": "Paquete de caramelos surtidos 3lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 6.24975,
+        "discount": 16.67
+      },
+      {
+        "id": "prod_1768441690510_lx2ochyll",
+        "name": "Chupa Chupa x unidad",
+        "quantity": 7,
+        "type": "product",
+        "unitPrice": 0.16999999999999998,
+        "discount": 32
+      },
+      {
+        "id": "prod_1768441690510_5bquahf1q",
+        "name": "Galletas Petit Biscuits de coco 80g",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 0.8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777745771069_ajaergvdx",
+        "name": "Donut Dulce",
+        "quantity": 6,
+        "type": "product",
+        "unitPrice": 0.6,
+        "discount": 0
+      },
+      {
+        "id": "prod_1772732759012_tojcqpnpu",
+        "name": "Sorbetes bon o bon",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 0.75,
+        "discount": 0
+      },
+      {
+        "id": "group_Chupa chupa popmania maxxi",
+        "name": "Chupa chupa popmania maxxi (Frutilla)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.45,
+        "discount": 0
+      },
+      {
+        "id": "prod_1778689868277_3y4kwdx7u",
+        "name": "Chocolate Bon o Bon wafer 8u",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.75,
+        "discount": 0
+      },
+      {
+        "id": "group_Sorbeto Renata",
+        "name": "Sorbeto Renata (Fresa)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.16,
+        "discount": 0
+      },
+      {
+        "id": "prod_1779468214397_abvbwgjsu",
+        "name": "Caja de Bombón 30u (Crema de cacahuete, maní y oblea)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 7.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1780867059345_appdawmz7",
+        "name": "Caja de Barra Snack Bon Bon (24u)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 10,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777744940773_l4rwx3dni",
+        "name": "Galletas Saltitacos",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777745695199_ib8pmu14r",
+        "name": "Ponquesitos Dulces",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 0.6,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "219.72",
+    "navegador": "Desconocido",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
