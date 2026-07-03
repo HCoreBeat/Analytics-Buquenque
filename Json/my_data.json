@@ -12278,5 +12278,52 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:1700:4b00:bd0:f419:aae0:c9d2:61df",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-03 00:08:16",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Eliani Rojas",
+    "telefono_comprador": "3058463318",
+    "nombre_persona_entrega": "Yusmari",
+    "telefono_persona_entrega": "+53 5 0680540",
+    "correo_comprador": "elianisabel0695@gmail.com",
+    "direccion_envio": "Calle 6 #49 entre flor Combret y general Moncada reparto aguilera",
+    "compras": [
+      {
+        "id": "prod_1774742941861_rn5ai5a43",
+        "name": "Queso Criollo x Lb",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 3.15,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769612979664_6f4o3BE2I",
+        "name": "Chuleta de cerdo x lb",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 3.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1778000167417_ei33ur4id",
+        "name": "Pomo de Refresco 1.5lts (Cola)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.49,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "30.69",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
