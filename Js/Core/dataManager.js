@@ -10,6 +10,37 @@ export class DataManager {
         this.filteredData = [];
     }
 
+    normalizeWhatsAppPhone(phone, country = null) {
+        if (phone === null || phone === undefined) return null;
+
+        const raw = String(phone).trim();
+        if (!raw) return null;
+
+        const cleaned = raw.replace(/[^\d+]/g, '');
+        if (!cleaned) return null;
+
+        if (cleaned.startsWith('+')) {
+            return cleaned;
+        }
+
+        if (cleaned.startsWith('00')) {
+            return `+${cleaned.slice(2)}`;
+        }
+
+        const normalizedCountry = String(country || '').trim().toUpperCase();
+        if (['US', 'USA', 'UNITED STATES', 'UNITEDSTATES'].includes(normalizedCountry)) {
+            return `+1${cleaned.replace(/^1/, '')}`;
+        }
+        if (['PR', 'PUERTO RICO'].includes(normalizedCountry)) {
+            return `+1${cleaned.replace(/^1/, '')}`;
+        }
+        if (['CU', 'CUBA'].includes(normalizedCountry)) {
+            return `+53${cleaned}`;
+        }
+
+        return `+${cleaned}`;
+    }
+
     /**
      * Carga los datos desde el archivo JSON
      */
@@ -55,6 +86,8 @@ export class DataManager {
             item.country = item.pais || 'No especificado';
             item.buyerName = item.nombre_comprador || 'Desconocido';
             item.buyerPhone = item.telefono_comprador || 'No especificado';
+            item.buyerPhoneNormalized = this.normalizeWhatsAppPhone(item.telefono_comprador, item.pais);
+            item.whatsappUrl = item.buyerPhoneNormalized ? `https://wa.me/${encodeURIComponent(item.buyerPhoneNormalized)}` : null;
             item.buyerEmail = item.correo_comprador || 'No especificado';
             item.shippingAddress = item.direccion_envio || 'No especificada';
             item.browser = item.navegador || 'No especificado';

@@ -312,8 +312,10 @@ class DashboardApp {
 
         // Si la vista es finanzas, inicializar UI de finanzas
         if (viewName === 'finanzas' && this.finanzasUI) {
-            const programadorData = this.dataManager.getProgrammerPaymentData(0);
-            this.finanzasUI.showFinanzas(programadorData.totalSales, programadorData).catch(err => console.warn('Error mostrando finanzas:', err));
+            const totalSales = this.dataManager && typeof this.dataManager.getStats === 'function'
+                ? this.dataManager.getStats().totalSales
+                : 0;
+            this.finanzasUI.showFinanzas(totalSales).catch(err => console.warn('Error mostrando finanzas:', err));
         }
 
         // Si la vista es notificaciones, reinicializar el editor

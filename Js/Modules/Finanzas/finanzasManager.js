@@ -107,10 +107,6 @@ export class FinanzasManager {
         // No ordenar, respetar orden del JSON
         // detalles.sort((a, b) => b.ganancia - a.ganancia);
 
-        // Calcular Pago del Programador basado en Ventas Reales (totalSales)
-        const pagoProgramadorUSD = (Number(totalSales) || 0) * 0.05;
-        const pagoProgramadorCUP = pagoProgramadorUSD * tasaCambio;
-        
         // Calcular estadísticas adicionales
         const gananciasArray = detalles.filter(d => d.ganancia > 0).map(d => d.ganancia);
         const margenPromedio = detalles.length > 0 ? detalles.reduce((sum, d) => sum + d.margen, 0) / detalles.length : 0;
@@ -126,8 +122,6 @@ export class FinanzasManager {
                 costoCUP: totalCostoUSD * tasaCambio,
                 ventaCUP: totalVentaUSD * tasaCambio,
                 gananciaCUP: (totalVentaUSD - totalCostoUSD) * tasaCambio,
-                pagoProgramadorUSD: pagoProgramadorUSD,
-                pagoProgramadorCUP: pagoProgramadorCUP,
                 tasa: tasaCambio,
                 totalProductos,
                 productosConStock,

@@ -463,7 +463,10 @@ export class UIRenderer {
                             </div>
                             <div class="meta-item">
                                 <i class="fas fa-phone"></i>
-                                ${order.telefono_comprador}
+                                ${order.whatsappUrl
+                                    ? `<a href="${order.whatsappUrl}" target="_blank" rel="noopener noreferrer" class="whatsapp-link" title="Abrir chat de WhatsApp">${order.telefono_comprador}</a>`
+                                    : order.telefono_comprador
+                                }
                             </div>
                             <div class="meta-item">
                                 <i class="fas fa-envelope"></i>
@@ -482,6 +485,12 @@ export class UIRenderer {
             btn.addEventListener('click', (e) => {
                 const idx = btn.getAttribute('data-order-idx');
                 onReceiptClick(data[idx], idx);
+            });
+        });
+
+        container.querySelectorAll('.whatsapp-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.stopPropagation();
             });
         });
 
