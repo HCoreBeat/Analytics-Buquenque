@@ -12816,5 +12816,108 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "57.132.215.169",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-07 13:11:29",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "MAYDELIS Ramírez",
+    "telefono_comprador": "5127022210",
+    "nombre_persona_entrega": "Lazara salinas",
+    "telefono_persona_entrega": "59148600",
+    "correo_comprador": "mayram2411@gmail.com",
+    "direccion_envio": "1200  mays street Round Rock Texas",
+    "compras": [
+      {
+        "id": "prod_1783195258767_j38ma7vme",
+        "name": "Mayonesa HollandPark (500ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 5.55,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255174691_cpxbapmjz",
+        "name": "Ketchup 310ml",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.18,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ovzxwkud2",
+        "name": "Sopa instantánea sabor Pollo (80g)",
+        "quantity": 11,
+        "type": "product",
+        "unitPrice": 0.8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768509219912_orvyg0rkr",
+        "name": "Galletas Marías",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.33,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777744940773_l4rwx3dni",
+        "name": "Galletas Saltitacos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1772443671662_3zlv75nd6",
+        "name": "Leche condensada 390g",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1782605932077_d2od04209",
+        "name": "Pasta para Bocadito (465ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 5.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769202654831_7rc37gvmx",
+        "name": "Giardino Mostaza Premium – 300ml",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.5,
+        "discount": 0
+      },
+      {
+        "id": "group_Sorbeto Renata",
+        "name": "Sorbeto Renata (Fresa)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.16,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "49.97",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
