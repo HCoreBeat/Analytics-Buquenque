@@ -13006,9 +13006,16 @@
         "type": "product",
         "unitPrice": 0.97,
         "discount": 0
-      }
+      },
+{
+"name": Leche en polvo",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 10,
+        "discount": 0
+}
     ],
-    "precio_compra_total": "76.19",
+    "precio_compra_total": "96.19",
     "navegador": "Safari",
     "sistema_operativo": "MacOS",
     "tipo_usuario": "Recurrente",
