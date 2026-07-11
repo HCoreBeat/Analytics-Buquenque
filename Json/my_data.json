@@ -13007,13 +13007,13 @@
         "unitPrice": 0.97,
         "discount": 0
       },
-{
-"name": "Leche en polvo",
+      {
+        "name": "Leche en polvo",
         "quantity": 2,
         "type": "product",
         "unitPrice": 10,
         "discount": 0
-}
+      }
     ],
     "precio_compra_total": "96.19",
     "navegador": "Safari",
@@ -13089,6 +13089,148 @@
     "precio_compra_total": "35.94",
     "navegador": "Samsung Browser",
     "sistema_operativo": "Linux",
+    "tipo_usuario": "Único",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2606:4d80:1306:cf03:d0db:2a40:ba54:4253",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-11 11:24:20",
+    "origen": "https://www.buquenqe.com/#category=Despensa",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Melissa",
+    "telefono_comprador": "51512957",
+    "nombre_persona_entrega": "Yuda",
+    "telefono_persona_entrega": "51512957",
+    "correo_comprador": "mbenitez04@yahoo.com",
+    "direccion_envio": "Calle 32 s/n avenida aeropuerto",
+    "compras": [
+      {
+        "id": "prod_1772916022776_bilx1sk92",
+        "name": "Pack x 12 Néctar de Piña (12x330ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 15.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_renf0iq34",
+        "name": "Pack x 12 Néctar de Manzana 🍎 (12x330ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 15.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_6xn0n5bsd",
+        "name": "Pack x 12 Néctar de Pera 🍐 (12x330ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 15.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ify26lfde",
+        "name": "Papel Sanitario",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.4,
+        "discount": 0
+      },
+      {
+        "id": "prod_1778607321781_sbqte5wko",
+        "name": "Jabón de lavar 150g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1778606658661_zqzsx1hhm",
+        "name": "Jabón Baño Marwa 100g",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 0.6,
+        "discount": 0
+      },
+      {
+        "id": "prod_1776590917088_17s74pewj",
+        "name": "Leche en Polvo 1kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 10,
+        "discount": 0
+      },
+      {
+        "id": "group_Mayonesa HollandPark",
+        "name": "Mayonesa HollandPark (250ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777744940773_l4rwx3dni",
+        "name": "Galletas Saltitacos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 5,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "79.26",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb91:4e85:494b::2e2",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-11 14:14:40",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yilian Perea Verdecia",
+    "telefono_comprador": "+19412506664",
+    "nombre_persona_entrega": "Maricela",
+    "telefono_persona_entrega": "5352019279",
+    "correo_comprador": "yilianpverdecia@gmail.com",
+    "direccion_envio": "Calle Aurora #21 entre Pepito Peña y Fernando de la Cruz",
+    "compras": [
+      {
+        "id": "prod_1777104949342_f0hmt1vea",
+        "name": "Rollitos de primavera 200g",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.85,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768509219912_pb6y62qrk",
+        "name": "Caja de cerveza Cristal (24 unidades)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 22.5,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "29.90",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
     "tipo_usuario": "Único",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
