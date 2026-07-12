@@ -13305,5 +13305,68 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:387:15:3c18::9",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-12 08:13:41",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Fabio Roman Moreno",
+    "telefono_comprador": "+17862299155",
+    "nombre_persona_entrega": "yanet leyva Gomez",
+    "telefono_persona_entrega": "54179152",
+    "correo_comprador": "fabiogrm2024@gmail.com",
+    "direccion_envio": "Ave. Frank País Edificio 1 apto 13. Entre ave. 2 de diciembre y R naranjo. Rpto Velazquez",
+    "compras": [
+      {
+        "id": "prod_1781992568846_o6abtahci",
+        "name": "Salchichas de pollo(10u)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768918643793_wff5w2f61",
+        "name": "Frijoles rojos x(lbs)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.09,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_jnja8jl1s",
+        "name": "Servilletas (100u)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.9,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768509219912_orvyg0rkr",
+        "name": "Galletas Marías",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.33,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_jeg5mb96s",
+        "name": "Jamonilla de (Pollo) (340g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.37,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "17.94",
+    "navegador": "Samsung Browser",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
