@@ -13368,5 +13368,107 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:100c:a122:85e3:804a:6de:1d43:e911",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-12 13:54:48",
+    "origen": "https://www.buquenqe.com/#category=L%C3%A1cteos",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yoiler Mesa Sánchez",
+    "telefono_comprador": "+18326526812",
+    "nombre_persona_entrega": "Betsy Lisbet Hidalgo Palma",
+    "telefono_persona_entrega": "+5363107563",
+    "correo_comprador": "yoilermesa@gmail.com",
+    "direccion_envio": "Calle 14 # 26 entre 33 y 35 Reparto Buena Vista Las Tunas , Las Tunas",
+    "compras": [
+      {
+        "id": "prod_1783803493141_wysxivcd5",
+        "name": "Pack de 4 yogurts (Fresa)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.9,
+        "discount": 0
+      },
+      {
+        "id": "group_Pack de 4 yogurts",
+        "name": "Pack de 4 yogurts (Natural)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.9,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "7.80",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:100c:a122:85e3:804a:6de:1d43:e911",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-12 14:13:04",
+    "origen": "https://www.buquenqe.com/#category=Postres",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yoiler Mesa Sánchez",
+    "telefono_comprador": "+18326526812",
+    "nombre_persona_entrega": "Betsy Lisbet Hidalgo Palma",
+    "telefono_persona_entrega": "+5363107563",
+    "correo_comprador": "yoilermesa@gmail.com",
+    "direccion_envio": "Calle 14 # 26 entre 33 y 35 Reparto Buena Vista Las Tunas , Las Tunas",
+    "compras": [
+      {
+        "id": "prod_1768441690510_nm24ia7xr",
+        "name": "Manzana 🍎 x unidad",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 1.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_7gy02c75y",
+        "name": "Codito (500g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_8ocdeke0z",
+        "name": "Pastilla de Pollo x unidad",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.15,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769920633225_umws2zt0k",
+        "name": "Carne de Res enlatada Sublime",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.5,
+        "discount": 0
+      },
+      {
+        "id": "group_Caja de Bombón 30u",
+        "name": "Caja de Bombón 30u (Chocolate)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 7.99,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "28.63",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
