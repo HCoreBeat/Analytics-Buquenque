@@ -13470,5 +13470,44 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:58a:8402:a5a0:409f:997e:4d9f:6993",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-13 21:31:48",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Licet Escobar",
+    "telefono_comprador": "7869570022",
+    "nombre_persona_entrega": "Nayelis",
+    "telefono_persona_entrega": "56252973",
+    "correo_comprador": "escobarlicet47@gmail.com",
+    "direccion_envio": "Eddy Martínez 53 entre Agustín Cebreco e Israel santos",
+    "compras": [
+      {
+        "id": "prod_1769612979664_6f4o3BE2I",
+        "name": "Chuleta de cerdo x lb",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 3.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 11.5,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "26.50",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
