@@ -13509,5 +13509,179 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "152.206.213.211",
+    "pais": "CU",
+    "fecha_hora_entrada": "2026-07-15 15:35:42",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yudith Vázquez Nuñez",
+    "telefono_comprador": "53192532",
+    "nombre_persona_entrega": "Yudith Vázquez Núñez",
+    "telefono_persona_entrega": "53192532",
+    "correo_comprador": "bellyu0529@gmail.com",
+    "direccion_envio": "Calle José Fernández Peña #56 /Eddy Chibás y Cristino Naranjo. Sosa",
+    "compras": [
+      {
+        "id": "prod_1782605932077_d2od04209",
+        "name": "Pasta para Bocadito (465ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 5.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1778805120168_k4cioz6iy",
+        "name": "Malta Guajira 330ml X 6u (pack)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 5.99,
+        "discount": 0
+      },
+      {
+        "id": "group_Pack de 4 yogurts",
+        "name": "Pack de 4 yogurts (Natural)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.9,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "15.84",
+    "navegador": "Samsung Browser",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:1006:b08d:9ad0:613b:3737:a9c:13c5",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-15 16:10:25",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Annia Barcelo Hidalgo",
+    "telefono_comprador": "7866081089",
+    "nombre_persona_entrega": "Lianet chavez Barcelo",
+    "telefono_persona_entrega": "52046914",
+    "correo_comprador": "anniabarcelo@gmail.com",
+    "direccion_envio": "J.espinosa #141 alto entre Jorge Rodríguez y Guillermo tejas  Rprto buena vista",
+    "compras": [
+      {
+        "id": "prod_1782001815822_n5g1trxf9",
+        "name": "Cafe Espresso Sello Rojo(283g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255568932_49z71tujl",
+        "name": "Pasta de tomate Vima 400g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ynzwusik9",
+        "name": "Paquete de azúcar 1kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ovzxwkud2",
+        "name": "Sopa instantánea sabor Pollo (80g)",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1783802941980_u3zhj2bl8",
+        "name": "Frijol Negro x Lb",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 1.2,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 11.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1781992568846_o6abtahci",
+        "name": "Salchichas de pollo(10u)",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 2.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774222439833_s0jwz3gyf",
+        "name": "Jamón Bravo 2kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 19.75,
+        "discount": 21
+      },
+      {
+        "id": "prod_1768679794475_s112jvux0",
+        "name": "Paquete de cuartos de pollo 10 lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 14,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_gkp20pj1x",
+        "name": "Espaguetis (500g)",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.16,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769920633225_umws2zt0k",
+        "name": "Carne de Res enlatada Sublime",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768918643793_wff5w2f61",
+        "name": "Frijoles rojos x(lbs)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 2.09,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_8ocdeke0z",
+        "name": "Pastilla de Pollo x unidad",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.15,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "113.84",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
