@@ -14745,5 +14745,36 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "https://lm.facebook.com/"
+  },
+  {
+    "ip": "2603:9000:d1f0:25b0:7550:7496:2ea2:911f",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-18 12:59:05",
+    "origen": "https://www.buquenqe.com/#packs",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Dianelis Escandon Ramirez",
+    "telefono_comprador": "8135506020",
+    "nombre_persona_entrega": "Marvelis Ramírez",
+    "telefono_persona_entrega": "+5354056929",
+    "correo_comprador": "dianelis.escandon7@icloud.com",
+    "direccion_envio": "Adonis Cabrera #16 alto entre carretera central y Reinaldo Bermúdez",
+    "compras": [
+      {
+        "id": "1",
+        "name": "Pack Esencial Familiar",
+        "quantity": 2,
+        "type": "pack",
+        "unitPrice": 30,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "60.00",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
