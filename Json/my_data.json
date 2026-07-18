@@ -14776,5 +14776,107 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "97.125.224.7",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-18 13:06:09",
+    "origen": "https://www.buquenqe.com/?fbclid=IwcGRvZgVmZGlkFlCsOLA_cHdPowvkYc8rFYUAu44XhWZleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEey_t3RX5JPqSSeKRDVKyDCYAciEqzzNplSymU5UL3tR9bkBrME12fj8nqoGU_aem_vM23zQhXCnGGQC47evT8sw",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Mirielys Cutino Guerra",
+    "telefono_comprador": "6824179515",
+    "nombre_persona_entrega": "Julio Comendador Garcia",
+    "telefono_persona_entrega": "+5351409162",
+    "correo_comprador": "cutinoguerramirielys@gmail.com",
+    "direccion_envio": "Calle 1ra #5 Las Margaritas",
+    "compras": [
+      {
+        "id": "prod_1771255296430_p8ultevvt",
+        "name": "Pasta para bocaditos 225ml",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.65,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "group_Pomo de Refresco 1.5lts",
+        "name": "Pomo de Refresco 1.5lts (Naranja)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.49,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777744940773_l4rwx3dni",
+        "name": "Galletas Saltitacos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1776590917088_17s74pewj",
+        "name": "Leche en Polvo 1kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 10,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "25.87",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://facebook.com/"
+  },
+  {
+    "ip": "97.125.224.7",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-18 13:11:34",
+    "origen": "https://www.buquenqe.com/?fbclid=IwcGRvZgVmZGlkFlCsOLA_cHdPowvkYc8rFYUAu44XhWZleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEey_t3RX5JPqSSeKRDVKyDCYAciEqzzNplSymU5UL3tR9bkBrME12fj8nqoGU_aem_vM23zQhXCnGGQC47evT8sw#Pack%20Banquete%20Criollo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Mirielys Cutino Guerra",
+    "telefono_comprador": "6824179515",
+    "nombre_persona_entrega": "Julio Comendador García",
+    "telefono_persona_entrega": "+5351409162",
+    "correo_comprador": "cutinoguerramirielys@gmail.com",
+    "direccion_envio": "Calle 1ra #5 Las Margaritas",
+    "compras": [
+      {
+        "id": "2",
+        "name": "Pack Banquete Criollo",
+        "quantity": 1,
+        "type": "pack",
+        "unitPrice": 18,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "18.00",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://facebook.com/"
   }
 ]
