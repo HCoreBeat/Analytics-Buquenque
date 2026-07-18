@@ -14516,5 +14516,76 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "https://lm.facebook.com/"
+  },
+  {
+    "ip": "108.211.239.39",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-18 10:55:09",
+    "origen": "https://www.buquenqe.com/#category=Aseo%20y%20Belleza",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "German Carlos Columbie Pavon",
+    "telefono_comprador": "15026564202",
+    "nombre_persona_entrega": "Zulema Columbie Pavon",
+    "telefono_persona_entrega": "+5355263703",
+    "correo_comprador": "germancarloscolumbie@gmail.com",
+    "direccion_envio": "1933 LOWER HUNTERS TRACE",
+    "compras": [
+      {
+        "id": "prod_1778607321781_sbqte5wko",
+        "name": "Jabón de lavar 150g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_jnja8jl1s",
+        "name": "Servilletas (50u)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.9,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769297232608_1rpawqvbr",
+        "name": "Cepillo de diente (/u)",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 0.7499630000000002,
+        "discount": 29.91
+      },
+      {
+        "id": "prod_1769226986599_pfsrf2pax",
+        "name": "Detergente Defá Fragancia lavanda  (1kg)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ify26lfde",
+        "name": "Papel Sanitario",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.4,
+        "discount": 0
+      },
+      {
+        "id": "prod_1778606658661_zqzsx1hhm",
+        "name": "Jabón Baño Marwa 100g",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 0.6,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "17.00",
+    "navegador": "Chrome",
+    "sistema_operativo": "Windows",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
