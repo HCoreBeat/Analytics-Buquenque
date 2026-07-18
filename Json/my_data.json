@@ -14023,5 +14023,204 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:382:1048:83ca:a07c:26ce:afb6:9ea6",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-18 08:45:29",
+    "origen": "https://www.buquenqe.com/?fbclid=IwY2xjawTIUpBleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR4lVSokZOBby25oe9vdJSYNLNBkcwc7YOAz1hJqzrOm2q6NK1hPQENLUQY5WQ_aem_zr2rZQuWP13Se2HfcLipkw",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yuniel Rosales Cruz",
+    "telefono_comprador": "+19046582251",
+    "nombre_persona_entrega": "Yordania Aguilera Morales",
+    "telefono_persona_entrega": "5355616616",
+    "correo_comprador": "yuroc41@gmail.com",
+    "direccion_envio": "Edificio 29 apt e8 rept Isrrael Santos Ave 1ro de enero",
+    "compras": [
+      {
+        "id": "prod_1774222439833_s0jwz3gyf",
+        "name": "Jamón Bravo 2kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 19.75,
+        "discount": 21
+      },
+      {
+        "id": "prod_1774589037954_ne3iqyc5v",
+        "name": "Café natural Vima 250g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 6.949702,
+        "discount": 13.02
+      },
+      {
+        "id": "prod_1768441690510_gkp20pj1x",
+        "name": "Espaguetis (500g)",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.16,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768918643793_wff5w2f61",
+        "name": "Frijoles rojos x(lbs)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 2.09,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_x6vswdewh",
+        "name": "Arroz de (1Kg)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 2.25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_nm24ia7xr",
+        "name": "Manzana 🍎 x unidad",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 1.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255174691_cpxbapmjz",
+        "name": "Ketchup 310ml",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.18,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255568932_49z71tujl",
+        "name": "Pasta de tomate Vima 400g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_8ocdeke0z",
+        "name": "Pastilla de Pollo x unidad",
+        "quantity": 20,
+        "type": "product",
+        "unitPrice": 0.15,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "group_Pomo de Refresco 1.5lts",
+        "name": "Pomo de Refresco 1.5lts (Naranja)",
+        "quantity": 6,
+        "type": "product",
+        "unitPrice": 2.49,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ify26lfde",
+        "name": "Papel Sanitario",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.4,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774742941861_rn5ai5a43",
+        "name": "Queso Criollo x Lb",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.2500449999999996,
+        "discount": 28.57
+      },
+      {
+        "id": "prod_1772443671662_3zlv75nd6",
+        "name": "Leche condensada 390g",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774588013360_4mvfuxndo",
+        "name": "Salsa Barbacoa 320g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774588718809_f6anpwdzt",
+        "name": "Mayonesa Vima 450ml",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 5.45,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_8q6y9td5k",
+        "name": "Limón (por libra)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_1q2faykkk",
+        "name": "Plátano (por unidad)",
+        "quantity": 15,
+        "type": "product",
+        "unitPrice": 0.35,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_covgyshrh",
+        "name": "Mano de plátano burro",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777745055131_1nw9hbsff",
+        "name": "Frazada de piso",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784050450186_cd965lvlm",
+        "name": "Saco de carbón",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 7.69,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "146.80",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://lm.facebook.com/"
   }
 ]
