@@ -14222,5 +14222,299 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "https://lm.facebook.com/"
+  },
+  {
+    "ip": "2600:1700:4530:5d10:2451:68de:6183:b5da",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-18 09:47:52",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Alexander Mora",
+    "telefono_comprador": "4322084508",
+    "nombre_persona_entrega": "Maricela Alamaguer",
+    "telefono_persona_entrega": "+53 5 2399738",
+    "correo_comprador": "alexmora@icloud.com",
+    "direccion_envio": "Angel Guerra % Lora y Heredia #124 altos",
+    "compras": [
+      {
+        "id": "prod_1772443671662_3zlv75nd6",
+        "name": "Leche condensada 390g",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774588718809_f6anpwdzt",
+        "name": "Mayonesa Vima 450ml",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 5.45,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774742941861_rn5ai5a43",
+        "name": "Queso Criollo x Lb",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 2.2500449999999996,
+        "discount": 28.57
+      },
+      {
+        "id": "prod_1774588196965_61a1oo6gg",
+        "name": "Leche evaporada 377ml",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.9900000000000002,
+        "discount": 20.4
+      },
+      {
+        "id": "prod_1777745695199_ib8pmu14r",
+        "name": "Ponquesitos Dulces",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.6,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      },
+      {
+        "id": "group_Néctar de",
+        "name": "Néctar de (Pera 🍐) x unidad (330ml)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.4,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_oqd90ndvr",
+        "name": "Néctar de (Manzana 🍎) x unidad (330ml)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.4,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ok1axebuc",
+        "name": "Malta Guajira (1500ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.25,
+        "discount": 0
+      },
+      {
+        "id": "group_Pomo de Refresco 1.5lts",
+        "name": "Pomo de Refresco 1.5lts (Naranja)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.49,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769920633225_umws2zt0k",
+        "name": "Carne de Res enlatada Sublime",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 2.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774743001771_4ql9niare",
+        "name": "Jalea de Guayaba",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255568932_49z71tujl",
+        "name": "Pasta de tomate Vima 400g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ma2k8r01f",
+        "name": "Aceite (900ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.85,
+        "discount": 0
+      },
+      {
+        "id": "prod_1781992568846_o6abtahci",
+        "name": "Salchichas de pollo(10u)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_covgyshrh",
+        "name": "Mano de plátano burro",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_1q2faykkk",
+        "name": "Plátano (por unidad)",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.35,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_8q6y9td5k",
+        "name": "Limón (por libra)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768443205852_jk51wnt6q",
+        "name": "Pimiento x lb",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768443205852_qlg8xocr5",
+        "name": "Cebolla morada x lb",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.37,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768443205852_grvowt193",
+        "name": "Cebolla blanca x lb",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.37,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774222439833_s0jwz3gyf",
+        "name": "Jamón Bravo 2kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 19.75,
+        "discount": 21
+      }
+    ],
+    "precio_compra_total": "99.26",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "199.125.30.10",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-18 10:18:22",
+    "origen": "https://www.buquenqe.com/?fbclid=IwY2xjawTIaeFleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR4v8_JZWUBTZUV2meU4s5g6MSxzORyqBTm1LYKbwF710nEZHy2BpHDcyxVFIg_aem_cX1UYnsYHUdFWARt7XUAPQ",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yurisleydis Vazquez",
+    "telefono_comprador": "8155012892",
+    "nombre_persona_entrega": "Zenia Hechavarria Hechavarria.",
+    "telefono_persona_entrega": "+53 5 9240287",
+    "correo_comprador": "vazquez.yurisleydis@gmail.com",
+    "direccion_envio": "Calle Carlos Labrada # 53 altos entre 24 de febrero y 13 de Octubre La Loma.",
+    "compras": [
+      {
+        "id": "prod_1769030417838_noe5sa2wa",
+        "name": "Refresco Instantáneo (2Lt)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 0.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1778606658661_zqzsx1hhm",
+        "name": "Jabón Baño Marwa 100g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.6,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769226986599_pfsrf2pax",
+        "name": "Detergente Defá Fragancia lavanda  (1kg)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ovzxwkud2",
+        "name": "Sopa instantánea sabor Pollo (80g)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 0.8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ynzwusik9",
+        "name": "Paquete de azúcar 1kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ma2k8r01f",
+        "name": "Aceite (900ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.85,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769612979664_6f4o3BE2I",
+        "name": "Chuleta de cerdo x lb",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.75,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "24.45",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://lm.facebook.com/"
   }
 ]
