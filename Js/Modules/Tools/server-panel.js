@@ -6,6 +6,7 @@ import { GitHubManager } from "../Github/githubManager.js";
 import { GitHubSaveModal } from "../Github/githubSaveModal.js";
 import { showAlert } from "../../Core/utils.js";
 import { CONFIG } from "../../Core/config.js";
+import { confirm } from "../../UI/modalUtils.js";
 
 const BACKEND_URL = CONFIG.BACKEND_URL;
 
@@ -1070,7 +1071,7 @@ class ServerPanel {
       return;
     }
 
-    const confirmed = window.confirm("¿Deseas eliminar este pedido nuevo del backend y que no vuelva a aparecer?");
+    const confirmed = await confirm("¿Deseas eliminar este pedido nuevo del backend y que no vuelva a aparecer?");
     if (!confirmed) {
       return;
     }
@@ -1104,7 +1105,7 @@ class ServerPanel {
   }
 
   async clearStatistics() {
-    const confirmed = window.confirm("¿Deseas limpiar las estadísticas del servidor y reiniciar la lista de pedidos nuevos?");
+    const confirmed = await confirm("¿Deseas limpiar las estadísticas del servidor y reiniciar la lista de pedidos nuevos?");
     if (!confirmed) {
       return;
     }
