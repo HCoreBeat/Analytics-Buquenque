@@ -48,6 +48,7 @@ class ServerPanel {
     this.autoRefreshSelect = document.getElementById("auto-refresh-select");
     this.lastUpdateEl = document.getElementById("last-update-time");
     this.saveOrdersBtn = document.getElementById("save-orders-to-github");
+    this.clearStatisticsBtn = document.getElementById("clear-statistics-btn");
     this.currentView = "dashboard";
     this.autoRefreshInterval = null;
     this.lastUpdateTime = null;
@@ -77,6 +78,11 @@ class ServerPanel {
     // Save orders to GitHub button
     this.saveOrdersBtn?.addEventListener("click", () =>
       this.saveOrdersToGitHub(),
+    );
+
+    // Clear statistics button
+    this.clearStatisticsBtn?.addEventListener("click", () =>
+      this.clearStatistics(),
     );
 
     // Auto-refresh select
@@ -229,7 +235,6 @@ class ServerPanel {
       this.updateBrowserStats(statsData);
       this.updateConversionAnalytics(statsData);
       this.updatePerformanceMetrics(statsData);
-      this.updateAffiliatePerformance(statsData);
 
       // Update last update time
       this.updateLastUpdateTime();
@@ -429,7 +434,11 @@ class ServerPanel {
 
     if (count) count.textContent = orders.length;
 
-    if (orders.length === 0) {
+    if (this.saveOrdersBtn) {
+      this.saveOrdersBtn.disabled = !Array.isArray(orders) || orders.length === 0;
+    }
+
+    if (!Array.isArray(orders) || orders.length === 0) {
       container.innerHTML = '<p class="no-data">No hay pedidos nuevos</p>';
       return;
     }
@@ -443,6 +452,7 @@ class ServerPanel {
                         <th>Teléfono</th>
                         <th>Productos</th>
                         <th>Total</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -455,6 +465,18 @@ class ServerPanel {
                             <td>${order.telefono_comprador || "N/A"}</td>
                             <td>${(order.compras || []).length}</td>
                             <td>$ ${(order.precio_compra_total || 0).toLocaleString("es-ES")}</td>
+                            <td>
+                                <button
+                                    class="btn btn-danger"
+                                    type="button"
+                                    data-action="delete-new-order"
+                                    data-ip="${order.ip || ""}"
+                                    data-fecha="${order.fecha_hora_entrada || ""}"
+                                    title="Eliminar pedido del backend"
+                                >
+                                    <i class="fas fa-trash"></i> Eliminar
+                                </button>
+                            </td>
                         </tr>
                     `,
                       )
@@ -464,6 +486,21 @@ class ServerPanel {
         `;
 
     container.innerHTML = tableHTML;
+
+    container.querySelectorAll("[data-action='delete-new-order']").forEach((button) => {
+      button.addEventListener("click", () => {
+        const order = orders.find((item) => {
+          return (
+            String(item.ip || "") === String(button.dataset.ip || "") &&
+            String(item.fecha_hora_entrada || "") === String(button.dataset.fecha || "")
+          );
+        });
+
+        if (order) {
+          this.deleteOrder(order);
+        }
+      });
+    });
   }
 
   updateUserActivity(stats) {
@@ -991,73 +1028,6 @@ class ServerPanel {
     container.innerHTML = html;
   }
 
-  updateAffiliatePerformance(stats) {
-    const container = document.getElementById("affiliate-performance");
-    if (!container) return;
-
-    // Group by affiliate
-    const affiliates = {};
-    stats.forEach((s) => {
-      const affiliate = s.afiliado || "Ninguno";
-      if (!affiliates[affiliate]) {
-        affiliates[affiliate] = {
-          visits: 0,
-          conversions: 0,
-          revenue: 0,
-        };
-      }
-      affiliates[affiliate].visits++;
-      if (Array.isArray(s.compras) && s.compras.length > 0) {
-        affiliates[affiliate].conversions++;
-        affiliates[affiliate].revenue += s.precio_compra_total || 0;
-      }
-    });
-
-    const sorted = Object.entries(affiliates)
-      .map(([name, data]) => ({
-        name,
-        ...data,
-        conversionRate: ((data.conversions / data.visits) * 100).toFixed(2),
-      }))
-      .sort((a, b) => b.revenue - a.revenue);
-
-    if (sorted.length === 0) {
-      container.innerHTML = '<p class="no-data">Sin datos de afiliados</p>';
-      return;
-    }
-
-    const tableHTML = `
-            <table>
-                <thead>
-                    <tr>
-                        <th>Afiliado</th>
-                        <th>Visitas</th>
-                        <th>Conversiones</th>
-                        <th>Tasa Conv.</th>
-                        <th>Ingresos</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    ${sorted
-                      .map(
-                        (affiliate) => `
-                        <tr>
-                            <td>${affiliate.name}</td>
-                            <td>${affiliate.visits}</td>
-                            <td>${affiliate.conversions}</td>
-                            <td>${affiliate.conversionRate}%</td>
-                            <td>$ ${affiliate.revenue.toLocaleString("es-ES")}</td>
-                        </tr>
-                    `,
-                      )
-                      .join("")}
-                </tbody>
-            </table>
-        `;
-
-    container.innerHTML = tableHTML;
-  }
-
   showLoadingStates() {
     const containers = [
       "server-status-content",
@@ -1092,6 +1062,76 @@ class ServerPanel {
       if (el)
         el.innerHTML = `<p class="no-data" style="color: #ff6b6b;">❌ ${message}</p>`;
     });
+  }
+
+  async deleteOrder(order) {
+    if (!order?.ip || !order?.fecha_hora_entrada) {
+      showAlert("❌ No se pudo identificar el pedido para eliminar", "error", 2500);
+      return;
+    }
+
+    const confirmed = window.confirm("¿Deseas eliminar este pedido nuevo del backend y que no vuelva a aparecer?");
+    if (!confirmed) {
+      return;
+    }
+
+    try {
+      const response = await fetch(`${BACKEND_URL}/api/new-orders`, {
+        method: "DELETE",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ip: order.ip,
+          fecha_hora_entrada: order.fecha_hora_entrada,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || "No se pudo eliminar el pedido");
+      }
+
+      this.newOrdersData = data.newOrders || [];
+      this.updateNewOrders(this.newOrdersData);
+      showAlert("✅ Pedido eliminado correctamente", "success", 2500);
+    } catch (error) {
+      console.error("Error al eliminar pedido:", error);
+      showAlert(`❌ ${error.message}`, "error", 3000);
+    }
+  }
+
+  async clearStatistics() {
+    const confirmed = window.confirm("¿Deseas limpiar las estadísticas del servidor y reiniciar la lista de pedidos nuevos?");
+    if (!confirmed) {
+      return;
+    }
+
+    try {
+      const response = await fetch(`${BACKEND_URL}/api/clear-statistics`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || "No se pudo limpiar las estadísticas");
+      }
+
+      this.newOrdersData = data.newOrders || [];
+      this.updateNewOrders(this.newOrdersData);
+      showAlert(`✅ ${data.message || "Estadísticas limpiadas correctamente"}`, "success", 3000);
+      await this.loadServerData();
+    } catch (error) {
+      console.error("Error al limpiar estadísticas:", error);
+      showAlert(`❌ ${error.message}`, "error", 4000);
+    }
   }
 
   /**
