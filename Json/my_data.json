@@ -15044,5 +15044,52 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:703:0:1620:e9bd:7060:5558:baa3",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-19 08:33:56",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "frank Rivas",
+    "telefono_comprador": "9413066359",
+    "nombre_persona_entrega": "Norge Emilio Téllez",
+    "telefono_persona_entrega": "5350298788",
+    "correo_comprador": "Rfrankrivas@msn.com",
+    "direccion_envio": "Calle 31 #66 entre Genaro Rojas y 14, Buena Vista",
+    "compras": [
+      {
+        "id": "2",
+        "name": "Pack Banquete Criollo",
+        "quantity": 1,
+        "type": "pack",
+        "unitPrice": 18,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_aa0pwzj5i",
+        "name": "Rayan Chocolate",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1776590917088_17s74pewj",
+        "name": "Leche en Polvo 1kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 10,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "32.99",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
