@@ -14909,5 +14909,140 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "73.255.193.53",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-19 07:43:32",
+    "origen": "https://www.buquenqe.com/#category=Despensa",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Victoria Yero",
+    "telefono_comprador": "9415363262",
+    "nombre_persona_entrega": "Haydee García Ferralez",
+    "telefono_persona_entrega": "52367510",
+    "correo_comprador": "victoria.yero@icloud.com",
+    "direccion_envio": "Calle 3 #16 Calixto Majibacoa Las tunas",
+    "compras": [
+      {
+        "id": "prod_1768679794475_s112jvux0",
+        "name": "Paquete de cuartos de pollo 10 lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 14,
+        "discount": 0
+      },
+      {
+        "id": "prod_1779297367428_bmc729tj1",
+        "name": "Barra de Jamón York 800g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 10,
+        "discount": 0
+      },
+      {
+        "id": "prod_1773867595760_b5f1ftr6u",
+        "name": "Filetes de Panga",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 3.500028,
+        "discount": 12.28
+      },
+      {
+        "id": "prod_1781992568846_o6abtahci",
+        "name": "Salchichas de pollo(10u)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774222439833_s0jwz3gyf",
+        "name": "Jamón Bravo 2kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 19.75,
+        "discount": 21
+      },
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 11.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_gkp20pj1x",
+        "name": "Espaguetis (500g)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 1.16,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ma2k8r01f",
+        "name": "Aceite (900ml)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 4.85,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768918643793_wff5w2f61",
+        "name": "Frijoles rojos x(lbs)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 2.09,
+        "discount": 0
+      },
+      {
+        "id": "prod_1783802941980_u3zhj2bl8",
+        "name": "Frijol Negro x Lb",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 1.2,
+        "discount": 0
+      },
+      {
+        "id": "prod_1776152786987_fj2z16ewo",
+        "name": "Melocotón en almibar 425g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ynzwusik9",
+        "name": "Paquete de azúcar 1kg",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 2.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769920633225_umws2zt0k",
+        "name": "Carne de Res enlatada Sublime",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 2.5,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "157.67",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
