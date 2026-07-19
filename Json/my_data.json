@@ -14854,5 +14854,123 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "android-app://com.google.android.googlequicksearchbox/"
+  },
+  {
+    "ip": "2607:fb91:528e:aa2e:d091:1e1b:b7f8:90c6",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-18 19:57:17",
+    "origen": "https://www.buquenqe.com/?fbclid=IwZnRzaATIyp1wZG9mAWZkaWQWUKyw3gtwlaMN_JSSMEU77XpIgZ40XGV4dG4DYWVtAjExAHNydGMGYXBwX2lkCjY2Mjg1NjgzNzkAAR71FUwFzG4f4CL68Xp-suzTOSO632Xg1FAxv0kSiasDDRUiLguJ4HWDx0v8JQ_aem_K2EC64KQPqvHR52j5ij95g",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Grechel Suarez",
+    "telefono_comprador": "4074195945",
+    "nombre_persona_entrega": "Miriam Velázquez",
+    "telefono_persona_entrega": "01131335759",
+    "correo_comprador": "grechel.suarez@icloud.com",
+    "direccion_envio": "Jose mastrapa 84 % goicuria y Jose mastrapa reparto Fernando betancourt",
+    "compras": [
+      {
+        "id": "3",
+        "name": "Pack Hogar Criollo",
+        "quantity": 1,
+        "type": "pack",
+        "unitPrice": 20,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 11.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_x6vswdewh",
+        "name": "Arroz de (1Kg)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768443205852_ac2tz1k6u",
+        "name": "Carne de cerdo x lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1779297367428_bmc729tj1",
+        "name": "Barra de Jamón York 800g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 10,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "49.75",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://facebook.com/"
+  },
+  {
+    "ip": "2601:58a:8582:c7b0:10e9:810b:add9:993c",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-18 20:24:26",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Dalia Avila Góngora",
+    "telefono_comprador": "7864889323",
+    "nombre_persona_entrega": "Elder Ávila Machado",
+    "telefono_persona_entrega": "5356561377",
+    "correo_comprador": "dalia.avila305@gmail.com",
+    "direccion_envio": "Edificio 10-A Apartamento B-1",
+    "compras": [
+      {
+        "id": "prod_1769612979664_j0trpj4ig",
+        "name": "Vinagre Gourmet con Especias – 500 ml",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.9499680000000001,
+        "discount": 8.88
+      },
+      {
+        "id": "prod_1768443205852_ac2tz1k6u",
+        "name": "Carne de cerdo x lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768679794475_s112jvux0",
+        "name": "Paquete de cuartos de pollo 10 lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 14,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_x6vswdewh",
+        "name": "Arroz de (1Kg)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.25,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "21.95",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
