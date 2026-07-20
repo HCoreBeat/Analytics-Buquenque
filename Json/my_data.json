@@ -15431,45 +15431,6 @@
     "fuente_trafico": "https://www.google.com/"
   },
   {
-    "ip": "152.207.145.212",
-    "pais": "CU",
-    "fecha_hora_entrada": "2026-07-19 20:59:56",
-    "origen": "https://www.buquenqe.com/#category=Utiles%20del%20Hogar",
-    "afiliado": "Ninguno",
-    "duracion_sesion_segundos": 0,
-    "tiempo_carga_pagina_ms": 0,
-    "nombre_comprador": "Jorge Ramírez Velazquez",
-    "telefono_comprador": "+4901639095027",
-    "nombre_persona_entrega": "Yanelis Guzman González",
-    "telefono_persona_entrega": "+5351052330",
-    "correo_comprador": "jorgeramirezes6@gmail.com",
-    "direccion_envio": "Avenida Carlos J Finlay Reparto Camilo Cienfuegos edif 24 Apt B11",
-    "compras": [
-      {
-        "id": "prod_1775429464494_g3",
-        "name": "Paca de Arroz 30 bolsas 1Kg / 66lbs",
-        "quantity": 1,
-        "type": "product",
-        "unitPrice": 45,
-        "discount": 0
-      },
-      {
-        "id": "prod_1772439529396_kh3fahrr4",
-        "name": "Saco de azúcar blanca 25kg",
-        "quantity": 1,
-        "type": "product",
-        "unitPrice": 47.78,
-        "discount": 4.44
-      }
-    ],
-    "precio_compra_total": "92.78",
-    "navegador": "Chrome",
-    "sistema_operativo": "Linux",
-    "tipo_usuario": "Recurrente",
-    "tiempo_promedio_pagina": 0,
-    "fuente_trafico": "https://www.google.com/"
-  },
-  {
     "ip": "2601:58a:8a01:4f40:f501:a1ba:7dd1:25d7",
     "pais": "US",
     "fecha_hora_entrada": "2026-07-19 21:28:21",
