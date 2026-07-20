@@ -17333,5 +17333,180 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "https://facebook.com/"
+  },
+  {
+    "ip": "2603:6012:f8f0:27f0:393f:1590:97e6:2099",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-20 18:35:52",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Daimarelis Diaz Vazquez",
+    "telefono_comprador": "54935704",
+    "nombre_persona_entrega": "Ángela",
+    "telefono_persona_entrega": "56935705",
+    "correo_comprador": "daimarelisdiazvasquez@gmail.com",
+    "direccion_envio": "Calle colon",
+    "compras": [
+      {
+        "id": "prod_1774222439833_s0jwz3gyf",
+        "name": "Jamón Bravo 2kg",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 19.75,
+        "discount": 21
+      },
+      {
+        "id": "prod_1782504884491_2t4hvb17l",
+        "name": "CAJA DE CUARTOS DE POLLO 40lbs (4paquetes de 10lbs)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 50,
+        "discount": 0
+      },
+      {
+        "id": "prod_1775429464494_g3",
+        "name": "Paca de Arroz 30 bolsas 1Kg / 66lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 45,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_gkp20pj1x",
+        "name": "Espaguetis (500g)",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.16,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ma2k8r01f",
+        "name": "Aceite (900ml)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 4.85,
+        "discount": 0
+      },
+      {
+        "id": "prod_1783802941980_u3zhj2bl8",
+        "name": "Frijol Negro x Lb",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 1.2,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_8ocdeke0z",
+        "name": "Pastilla de Pollo x unidad",
+        "quantity": 8,
+        "type": "product",
+        "unitPrice": 0.15,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_piqbut8gb",
+        "name": "Azúcar blanca x lb",
+        "quantity": 8,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      },
+      {
+        "id": "group_Caja de refresco Rayan",
+        "name": "Caja de refresco Rayan (cola)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 18.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769030417838_noe5sa2wa",
+        "name": "Refresco Instantáneo (2Lt)",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1778606658661_zqzsx1hhm",
+        "name": "Jabón Baño Marwa 100g",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 0.6,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ify26lfde",
+        "name": "Papel Sanitario",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.4,
+        "discount": 0
+      },
+      {
+        "id": "prod_1772442996727_xhrueb4xd",
+        "name": "Bolso",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.79,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 11.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768837249014_0e8hctca5",
+        "name": "Paquete de café Dufiltro (250g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255568932_49z71tujl",
+        "name": "Pasta de tomate Vima 400g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769226986599_pfsrf2pax",
+        "name": "Detergente Defá Fragancia lavanda  (1kg)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774742941861_rn5ai5a43",
+        "name": "Queso Criollo x Lb",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 2.2500449999999996,
+        "discount": 28.57
+      },
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "271.82",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
