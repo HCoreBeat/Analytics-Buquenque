@@ -17214,5 +17214,124 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "https://facebook.com/"
+  },
+  {
+    "ip": "2607:fb92:982:8277:c28:d056:7ebb:59e",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-20 18:14:28",
+    "origen": "https://www.buquenqe.com/?fbclid=IwcGRvZgVleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEeeJI7EaTuIJQpQ9QMchwguYKTkic5-Hcwno7ulwuzQIuhdAXwgjYprVOuVGU_aem_K_boLvKKy2k4j3Roy-U2OQ",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Beatriz  Silva",
+    "telefono_comprador": "+17722132787",
+    "nombre_persona_entrega": "Isabel María Pérez Romero",
+    "telefono_persona_entrega": "+5355617774",
+    "correo_comprador": "betty.silva1606@icloud.com",
+    "direccion_envio": "Calle 11A #22altos Entre Calle 32 Y Calle 34",
+    "compras": [
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769920633225_umws2zt0k",
+        "name": "Carne de Res enlatada Sublime",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.5,
+        "discount": 0
+      },
+      {
+        "id": "group_Caja de Bombón 30u",
+        "name": "Caja de Bombón 30u (Chocolate)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 7.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777745695199_ib8pmu14r",
+        "name": "Ponquesitos Dulces",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.6,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774742941861_rn5ai5a43",
+        "name": "Queso Criollo x Lb",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.2500449999999996,
+        "discount": 28.57
+      },
+      {
+        "id": "prod_1783803493141_wysxivcd5",
+        "name": "Pack de 4 yogurts (Fresa)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 3.9,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777745771069_ajaergvdx",
+        "name": "Donut Dulce",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.4999799999999999,
+        "discount": 16.67
+      },
+      {
+        "id": "prod_1778805120168_k4cioz6iy",
+        "name": "Malta Guajira 330ml X 6u (pack)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 5.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255568932_49z71tujl",
+        "name": "Pasta de tomate Vima 400g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_nm24ia7xr",
+        "name": "Manzana 🍎 x unidad",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777744697829_j6ymprakj",
+        "name": "Caja de Malta Boa",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 18,
+        "discount": 25
+      }
+    ],
+    "precio_compra_total": "85.39",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://facebook.com/"
   }
 ]
