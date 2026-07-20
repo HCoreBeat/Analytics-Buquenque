@@ -15146,5 +15146,288 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "https://www.google.com/"
+  },
+  {
+    "ip": "2603:9000:b300:30d5:e1e7:2496:4229:5d35",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-19 16:15:05",
+    "origen": "https://www.buquenqe.com/p/prod_1774742941861_rn5ai5a43",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Jose Aguilera",
+    "telefono_comprador": "4076277358",
+    "nombre_persona_entrega": "Madelin armas",
+    "telefono_persona_entrega": "+5354617912",
+    "correo_comprador": "jose.aguilerar1977@gmail.com",
+    "direccion_envio": "Calle 7 S/n entre cuba y Martha abreu buena vista",
+    "compras": [
+      {
+        "id": "prod_1783802941980_u3zhj2bl8",
+        "name": "Frijol Negro x Lb",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 1.2,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774742941861_rn5ai5a43",
+        "name": "Queso Criollo x Lb",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 2.2500449999999996,
+        "discount": 28.57
+      }
+    ],
+    "precio_compra_total": "17.25",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2603:900b:ddf1:8700:1cd3:73ff:812d:b0be",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-19 17:02:48",
+    "origen": "https://www.buquenqe.com/#category=Utiles%20del%20Hogar",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yadier Labrada",
+    "telefono_comprador": "8139190748",
+    "nombre_persona_entrega": "Darlenis Labrada",
+    "telefono_persona_entrega": "+5359138042",
+    "correo_comprador": "labradayadier@gmail.com",
+    "direccion_envio": "Calle 11 número 12 alto entre j espinosa y cristiano barreda buena vista",
+    "compras": [
+      {
+        "id": "3",
+        "name": "Pack Hogar Criollo",
+        "quantity": 1,
+        "type": "pack",
+        "unitPrice": 20,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "20.00",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://lm.facebook.com/"
+  },
+  {
+    "ip": "2a04:4e41:5402:4428::7be:428",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-19 17:47:12",
+    "origen": "https://www.buquenqe.com/p/prod_1775429464494_g3",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Eliecer Guerrero Baptiste",
+    "telefono_comprador": "3464171181",
+    "nombre_persona_entrega": "Ulda baptiste",
+    "telefono_persona_entrega": "+53 5 0299274",
+    "correo_comprador": "eduardosamueley@gmail.com",
+    "direccion_envio": "Calle 2 # 11 entre 7 y 11 Aguilera",
+    "compras": [
+      {
+        "id": "prod_1775429464494_g3",
+        "name": "Paca de Arroz 30 bolsas 1Kg / 66lbs",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 45,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "90.00",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://www.google.com/"
+  },
+  {
+    "ip": "47.201.41.124",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-19 18:06:58",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yanet Puig",
+    "telefono_comprador": "7865142607",
+    "nombre_persona_entrega": "Clara pupo González",
+    "telefono_persona_entrega": "55462344",
+    "correo_comprador": "yanetcarlos74@icloud.com",
+    "direccion_envio": "Estrada palma 30 altos entre calle 38 y calle Goicuria tunas Las tunas Cuba",
+    "compras": [
+      {
+        "id": "prod_1774222439833_s0jwz3gyf",
+        "name": "Jamón Bravo 2kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 19.75,
+        "discount": 21
+      },
+      {
+        "id": "prod_1774743001771_4ql9niare",
+        "name": "Jalea de Guayaba",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.99,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "25.73",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://www.google.com/"
+  },
+  {
+    "ip": "2606:4d80:1306:c6fe:a41b:1504:df4b:919",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-19 18:27:00",
+    "origen": "https://www.buquenqe.com/p/prod_1776590917088_17s74pewj",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Enrique Alfonso Santoya Pérez",
+    "telefono_comprador": "9417805684",
+    "nombre_persona_entrega": "Onelvis Méndez Santos",
+    "telefono_persona_entrega": "+5353654259",
+    "correo_comprador": "santoyapereze@gmail.com",
+    "direccion_envio": "Calle lora 82 fondo entre 24 febrero y Ramón Ortuño reparto segundo",
+    "compras": [
+      {
+        "id": "prod_1774222439833_s0jwz3gyf",
+        "name": "Jamón Bravo 2kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 19.75,
+        "discount": 21
+      },
+      {
+        "id": "prod_1781992568846_o6abtahci",
+        "name": "Salchichas de pollo(10u)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ma2k8r01f",
+        "name": "Aceite (900ml)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 4.85,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_x6vswdewh",
+        "name": "Arroz de (1Kg)",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 2.25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_nm24ia7xr",
+        "name": "Manzana 🍎 x unidad",
+        "quantity": 6,
+        "type": "product",
+        "unitPrice": 1.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255174691_cpxbapmjz",
+        "name": "Ketchup 310ml",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.18,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769920633225_umws2zt0k",
+        "name": "Carne de Res enlatada Sublime",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1779297528751_a1st8d8ee",
+        "name": "Caja de nectar de mango 24u",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 23.749200000000002,
+        "discount": 12.04
+      },
+      {
+        "id": "prod_1777745771069_ajaergvdx",
+        "name": "Donut Dulce",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 0.4999799999999999,
+        "discount": 16.67
+      },
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768509219912_orvyg0rkr",
+        "name": "Galletas Marías",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.33,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777744940773_l4rwx3dni",
+        "name": "Galletas Saltitacos",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1778607321781_sbqte5wko",
+        "name": "Jabón de lavar 150g",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 0.8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1776590917088_17s74pewj",
+        "name": "Leche en Polvo 1kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 10,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "122.90",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://www.google.com/"
   }
 ]
