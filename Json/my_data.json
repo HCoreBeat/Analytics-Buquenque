@@ -17603,5 +17603,264 @@
     "tipo_usuario": "Único",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "https://lm.facebook.com/"
+  },
+  {
+    "ip": "2a04:4e41:3a03:d3ba::393e:43ba",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-20 20:11:15",
+    "origen": "https://www.buquenqe.com/p/prod_1769030417838_noe5sa2wa",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Laura Iglesias",
+    "telefono_comprador": "9542943331",
+    "nombre_persona_entrega": "Alcides Annier Iglesias guerra",
+    "telefono_persona_entrega": "54228101",
+    "correo_comprador": "lauraiglesias2509@gmail.com",
+    "direccion_envio": "Calle: Melanio Ortiz #105 entre 42 y 44 La Victoria",
+    "compras": [
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 11.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1776590917088_17s74pewj",
+        "name": "Leche en Polvo 1kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 12,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ma2k8r01f",
+        "name": "Aceite (900ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.85,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768918643793_wff5w2f61",
+        "name": "Frijoles rojos x(lbs)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.09,
+        "discount": 0
+      },
+      {
+        "id": "prod_1783802941980_u3zhj2bl8",
+        "name": "Frijol Negro x Lb",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.2,
+        "discount": 0
+      },
+      {
+        "id": "prod_1782001815822_n5g1trxf9",
+        "name": "Cafe Espresso Sello Rojo(283g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_piqbut8gb",
+        "name": "Azúcar blanca x lb",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_x6vswdewh",
+        "name": "Arroz de (1Kg)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1779468214397_abvbwgjsu",
+        "name": "Caja de Bombón 30u (Crema de cacahuete, maní y oblea)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 7.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769030417838_noe5sa2wa",
+        "name": "Refresco Instantáneo (2Lt)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 0.17,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "56.87",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Único",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://www.buquenqe.com/p/prod_1769030417838_noe5sa2wa"
+  },
+  {
+    "ip": "2601:582:0:c3e0:1a18:8dcc:c51:9f6c",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-20 20:19:36",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Guillermo R Collada Oliva",
+    "telefono_comprador": "(772) 971-4689",
+    "nombre_persona_entrega": "Maria Estela Oliva Espinosa",
+    "telefono_persona_entrega": "31370440",
+    "correo_comprador": "Colladag@gmail.com",
+    "direccion_envio": "Cucalambe # 182 esquina J. Santana .Las Tunas Reparto Primero",
+    "compras": [
+      {
+        "id": "prod_1779297528751_a1st8d8ee",
+        "name": "Caja de nectar de mango 24u",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 23.749200000000002,
+        "discount": 12.04
+      },
+      {
+        "id": "prod_1768441690510_ma2k8r01f",
+        "name": "Aceite (900ml)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 4.85,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "57.20",
+    "navegador": "Samsung Browser",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://search.yahoo.com/"
+  },
+  {
+    "ip": "2607:fb90:3c01:657d:445e:5945:851d:44f5",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-20 21:20:16",
+    "origen": "https://www.buquenqe.com/p/prod_1776590917088_17s74pewj",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Roberto Carlos Paz Amado",
+    "telefono_comprador": "9417354263",
+    "nombre_persona_entrega": "Gregoria Cabreja",
+    "telefono_persona_entrega": "54056589",
+    "correo_comprador": "roberttpaz74@gmail.com",
+    "direccion_envio": "Calle 35 #30 %C y 42 Rpto La Victoria, Las Tunas Cuba",
+    "compras": [
+      {
+        "id": "prod_1776590917088_17s74pewj",
+        "name": "Leche en Polvo 1kg",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 12,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "24.00",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://www.buquenqe.com/p/prod_1776590917088_17s74pewj"
+  },
+  {
+    "ip": "2601:586:5501:a240:5cce:634f:4c5f:e93d",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-20 21:47:59",
+    "origen": "https://www.buquenqe.com/p/prod_1769297232608_616ijabck",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yakeline de los Reyes",
+    "telefono_comprador": "7862861893",
+    "nombre_persona_entrega": "Juan Carlos De Los Reyes",
+    "telefono_persona_entrega": "53981150",
+    "correo_comprador": "yaki2011@live.com",
+    "direccion_envio": "Juan Espinosa # 104 entre 5 y 7 Rpto Bna Vista Las Tunas",
+    "compras": [
+      {
+        "id": "prod_1774222439833_s0jwz3gyf",
+        "name": "Jamón Bravo 2kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 23.75,
+        "discount": 5
+      },
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769297232608_616ijabck",
+        "name": "Queso Gouda 3Kg",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 36.2489,
+        "discount": 2.03
+      }
+    ],
+    "precio_compra_total": "103.73",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://www.google.com/"
+  },
+  {
+    "ip": "2600:100a:b0c2:4080:e10c:41ed:416e:1fa0",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-20 22:56:25",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Jose Angel Verdecia Rodriguez",
+    "telefono_comprador": "+18169558639",
+    "nombre_persona_entrega": "Anisley Milagro Verdecia Rodriguez",
+    "telefono_persona_entrega": "+5356560531",
+    "correo_comprador": "jverdecia77@gmail.com",
+    "direccion_envio": "Calle 3 No 3 % Calle Juan Espinosa y Ave Camilo Cienfuegos. Reparto Buena Vista",
+    "compras": [
+      {
+        "id": "prod_1775429464494_g3",
+        "name": "Paca de Arroz 30 bolsas 1Kg / 66lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 45,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 11.5,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "56.50",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "android-app://com.google.android.googlequicksearchbox/"
   }
 ]
