@@ -17508,5 +17508,100 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "209.149.51.67",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-20 19:40:23",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Keyder Pena Lopez",
+    "telefono_comprador": "+13053933625",
+    "nombre_persona_entrega": "Yanelys López Rosa",
+    "telefono_persona_entrega": "+5355468603",
+    "correo_comprador": "keyderpenalopez@gmail.com",
+    "direccion_envio": "Calle 84 S/N entre calle Quinta y 5, Las Margaritas",
+    "compras": [
+      {
+        "id": "prod_1768441690510_ify26lfde",
+        "name": "Papel Sanitario",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.4,
+        "discount": 0
+      },
+      {
+        "id": "prod_1778607321781_sbqte5wko",
+        "name": "Jabón de lavar 150g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_3adjmtv4j",
+        "name": "Protector Diario (18u)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 1.4,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784556857504_9mg1h593k",
+        "name": "Jabón de Tocador Natural 125g",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777745055131_1nw9hbsff",
+        "name": "Frazada de piso",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774743001771_4ql9niare",
+        "name": "Jalea de Guayaba",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255296430_p8ultevvt",
+        "name": "Pasta para bocaditos 225ml",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.65,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768918643793_wff5w2f61",
+        "name": "Frijoles rojos x(lbs)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 2.09,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "40.61",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Único",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://lm.facebook.com/"
   }
 ]
