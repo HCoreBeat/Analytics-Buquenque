@@ -17862,5 +17862,1586 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "android-app://com.google.android.googlequicksearchbox/"
+  },
+  {
+    "ip": "2607:fb91:1297:cda0:e98d:d5cd:938b:7af1",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-21 05:06:07",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Pavel Alfredo Fernandez Santiesteban",
+    "telefono_comprador": "12103189677",
+    "nombre_persona_entrega": "Mairet",
+    "telefono_persona_entrega": "+53 56116074",
+    "correo_comprador": "pfs3987@gmail.com",
+    "direccion_envio": "Antonio Barreda # 71a entre Cristino Barreda y Genaro roja buena vista las tunas",
+    "compras": [
+      {
+        "id": "prod_1778805120168_k4cioz6iy",
+        "name": "Malta Guajira 330ml X 6u (pack)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 5.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777745695199_ib8pmu14r",
+        "name": "Ponquesitos Dulces",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.6,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777745771069_ajaergvdx",
+        "name": "Donut Dulce",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.4999799999999999,
+        "discount": 16.67
+      },
+      {
+        "id": "prod_1768441690510_nm24ia7xr",
+        "name": "Manzana 🍎 x unidad",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769030417838_noe5sa2wa",
+        "name": "Refresco Instantáneo (2Lt)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 0.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1778689868277_3y4kwdx7u",
+        "name": "Chocolate Bon o Bon wafer 8u",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.7498750000000003,
+        "discount": 26.67
+      },
+      {
+        "id": "group_Caja de Bombón 30u",
+        "name": "Caja de Bombón 30u (Chocolate)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 7.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768509219912_orvyg0rkr",
+        "name": "Galletas Marías",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.33,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "23.01",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:58a:8a01:4f40:aecb:7e8a:5fff:a889",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-21 06:54:51",
+    "origen": "https://www.buquenqe.com/index.html?fbclid=IwY2xjawTMLKRleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR4iEo7zWpEOK0hYn9kwdGbKHcwBi_iPE4Cud7grYmcOu30ErwWqNRviw5QKMA_aem_mosfsMg4UK1_J46oL2Dh5w",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Keyder Pena Lopez",
+    "telefono_comprador": "+13053933625",
+    "nombre_persona_entrega": "Yanelys López Rosa",
+    "telefono_persona_entrega": "+5355468603",
+    "correo_comprador": "keyderpenalopez@gmail.com",
+    "direccion_envio": "Calle 84 S/N entre calle Quinta y 5, Las Margaritas",
+    "compras": [
+      {
+        "id": "prod_1768441690510_1q2faykkk",
+        "name": "Plátano (por unidad)",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.35,
+        "discount": 0
+      },
+      {
+        "id": "group_Mayonesa HollandPark",
+        "name": "Mayonesa HollandPark (250ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1772443671662_3zlv75nd6",
+        "name": "Leche condensada 390g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774742941861_rn5ai5a43",
+        "name": "Queso Criollo x Lb",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.2500449999999996,
+        "discount": 28.57
+      },
+      {
+        "id": "prod_1775429464494_gg97byto8",
+        "name": "Paquete de Muslo de pollo 4.4lb",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 9.95,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "25.64",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://lm.facebook.com/"
+  },
+  {
+    "ip": "2607:fb91:400a:1402:7439:8b14:9cfa:f272",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-21 08:27:09",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Laritza Barbara Samuel Santos",
+    "telefono_comprador": "9452646796",
+    "nombre_persona_entrega": "Nelsi Samuel",
+    "telefono_persona_entrega": "53400690",
+    "correo_comprador": "smallsamuels@gmail.com",
+    "direccion_envio": "Calle 36 #  2a entre  13 y 15 reparto Fernando Betancourt.Las 40",
+    "compras": [
+      {
+        "id": "prod_1768441690510_ma2k8r01f",
+        "name": "Aceite (900ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.85,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768837249014_0e8hctca5",
+        "name": "Paquete de café Dufiltro (250g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255455739_z92mxmjqj",
+        "name": "Harina de trigo Vima 1kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.35,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_piqbut8gb",
+        "name": "Azúcar blanca x lb",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774742941861_rn5ai5a43",
+        "name": "Queso Criollo x Lb",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.2500449999999996,
+        "discount": 28.57
+      },
+      {
+        "id": "prod_1768441690510_jeg5mb96s",
+        "name": "Jamonilla de (Pollo) (340g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784589150816_v1cacjqbz",
+        "name": "Troncho de pescado en (salsa de tomate) 425g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.35,
+        "discount": 0
+      },
+      {
+        "id": "prod_1773856436753_ggf4sat5i",
+        "name": "Maíz Dulce 1Kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.7499849999999997,
+        "discount": 24.85
+      },
+      {
+        "id": "prod_1768918643793_wff5w2f61",
+        "name": "Frijoles rojos x(lbs)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.09,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255568932_49z71tujl",
+        "name": "Pasta de tomate Vima 400g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769226986599_pfsrf2pax",
+        "name": "Detergente Defá Fragancia lavanda  (1kg)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784556857504_9mg1h593k",
+        "name": "Jabón de Tocador Natural 125g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "34.48",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2603:900b:b5f0:ed60:b15a:68a2:1137:de62",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-21 09:16:09",
+    "origen": "https://www.buquenqe.com/?fbclid=IwcGRvZgVmZGlkFlCvOnLmdtd_LhGlfgYTsUsMLQUaURNleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEe0Y_6ZXeyAW2GXUxsoIyQwR3UmAJAo09rgPDNsPEQEr75Zv5Q3ByK29-eTIE_aem_lzgRJIy2RhVQe7NCAI6FOw",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Martha Hornia",
+    "telefono_comprador": "7272885151",
+    "nombre_persona_entrega": "Martha Leyva aguilera",
+    "telefono_persona_entrega": "55267063",
+    "correo_comprador": "maitehornia@gmail.com",
+    "direccion_envio": "Marti 214 alto//ramon Ortuño y 24 febrero",
+    "compras": [
+      {
+        "id": "prod_1774588196965_61a1oo6gg",
+        "name": "Leche evaporada 377ml",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 1.9900000000000002,
+        "discount": 20.4
+      },
+      {
+        "id": "prod_1772069960674_5cjim17vs",
+        "name": "Sumo de Limon 500ml",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.7501149999999996,
+        "discount": 34.05
+      },
+      {
+        "id": "prod_1784590063403_tp11dkbww",
+        "name": "Leche condensada Vima 390g",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 2.25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774743134406_moehq1avd",
+        "name": "Boniato x Lb",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 0.45,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774061850971_c8jyb0gq1",
+        "name": "Ají pimiento",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.97,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "29.44",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://facebook.com/"
+  },
+  {
+    "ip": "2600:880a:2308:4060:6d18:7b8c:5f94:b979",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-21 11:49:56",
+    "origen": "https://www.buquenqe.com/p/prod_1777105551780_1qdxfj31j",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Anyel Isabel Gomez Rodriguez",
+    "telefono_comprador": "7022806568",
+    "nombre_persona_entrega": "Dalia Isabel Rodriguez Gallar",
+    "telefono_persona_entrega": "54248194",
+    "correo_comprador": "anyelgomezrodriguez@gmail.com",
+    "direccion_envio": "Rafael martines 202 entre pelayo paneque y fernando echenique reparto casa piedra",
+    "compras": [
+      {
+        "id": "prod_1769030417838_noe5sa2wa",
+        "name": "Refresco Instantáneo (2Lt)",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1772732759012_tojcqpnpu",
+        "name": "Sorbetes bon o bon",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.44999999999999996,
+        "discount": 40
+      },
+      {
+        "id": "prod_1768509219912_orvyg0rkr",
+        "name": "Galletas Marías",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.33,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777745695199_ib8pmu14r",
+        "name": "Ponquesitos Dulces",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.6,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784589691078_anguehmxs",
+        "name": "Paquete de azúcar blanca Vima 1kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.66,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777105551780_1qdxfj31j",
+        "name": "Paquete de puré de papa en copos 1kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 5.949959999999999,
+        "discount": 33.52
+      }
+    ],
+    "precio_compra_total": "12.69",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://www.buquenqe.com/p/prod_1768679794475_s112jvux0"
+  },
+  {
+    "ip": "2600:100c:b062:d997:d56c:ca98:3d6a:eb41",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-21 12:56:39",
+    "origen": "https://www.buquenqe.com/?fbclid=IwcGRvZgFmZGlkFlCvYL65i1SfOiQmvXYodHIcVOVhiKBleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEe97JR-jRyFn47qfMLw5qd7UBk5REUq9cYUL9On-pltcg_ThTz5hN1Oo53h4s_aem_SoOkVb9JpWxfXvlpi5f7_g",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Amanda Pena",
+    "telefono_comprador": "5024360973",
+    "nombre_persona_entrega": "Yarmelis",
+    "telefono_persona_entrega": "54513249",
+    "correo_comprador": "amandayangel2277@gmail.com",
+    "direccion_envio": "Andrés Leyva # 22 altos % Mario oro y los maceos",
+    "compras": [
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      },
+      {
+        "id": "prod_1778805120168_k4cioz6iy",
+        "name": "Malta Guajira 330ml X 6u (pack)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 5.99,
+        "discount": 0
+      },
+      {
+        "id": "group_Pomo de Refresco 1.5lts",
+        "name": "Pomo de Refresco 1.5lts (Naranja)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.49,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_piqbut8gb",
+        "name": "Azúcar blanca x lb",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_aa0pwzj5i",
+        "name": "Rayan Chocolate",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_nm24ia7xr",
+        "name": "Manzana 🍎 x unidad",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784589914440_7bzzxsl06",
+        "name": "Spaghetti Vima (400g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.9,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "47.95",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://facebook.com/"
+  },
+  {
+    "ip": "2607:fb91:4611:3eec:cd37:9073:69fa:2504",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-21 13:03:21",
+    "origen": "https://www.buquenqe.com/#category=Bebidas%20no%20alcoh%C3%B3licas",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Liliana Fernandez",
+    "telefono_comprador": "+14325561601",
+    "nombre_persona_entrega": "Edisnel Fernandez Pacheco",
+    "telefono_persona_entrega": "+5358250453",
+    "correo_comprador": "lilianavirfernandez@gmail.com",
+    "direccion_envio": "Calle 13 sn entre 72 y 66 reparto Velázquez",
+    "compras": [
+      {
+        "id": "prod_1769612979664_6f4o3BE2I",
+        "name": "Chuleta de cerdo x lb",
+        "quantity": 6,
+        "type": "product",
+        "unitPrice": 3.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768783820711_rmnry541r",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 11.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255296430_p8ultevvt",
+        "name": "Pasta para bocaditos 225ml",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.65,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769030417838_noe5sa2wa",
+        "name": "Refresco Instantáneo (2Lt)",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 0.17,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "41.07",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2003:c0:3f1b:2e00:5010:169f:598d:92aa",
+    "pais": "DE",
+    "fecha_hora_entrada": "2026-07-21 14:11:32",
+    "origen": "https://www.buquenqe.com/#category=Electrodom%C3%A9sticos",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Flor Maria Gabote Parra",
+    "telefono_comprador": "+4915560716864",
+    "nombre_persona_entrega": "Pura Gabote Parra",
+    "telefono_persona_entrega": "+53 5 1669146",
+    "correo_comprador": "floryley@yahoo.de",
+    "direccion_envio": "Calle Lenin 110 A  Entre Bartolome Maso y Alejo Tomás",
+    "compras": [
+      {
+        "id": "prod_1774742941861_rn5ai5a43",
+        "name": "Queso Criollo x Lb",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.2500449999999996,
+        "discount": 28.57
+      },
+      {
+        "id": "prod_1768441690510_jeg5mb96s",
+        "name": "Jamonilla de (Pollo) (340g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784589914440_7bzzxsl06",
+        "name": "Spaghetti Vima (400g)",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.9,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ma2k8r01f",
+        "name": "Aceite (900ml)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 4.85,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_gkp20pj1x",
+        "name": "Espaguetis (500g)",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.16,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_aa0pwzj5i",
+        "name": "Rayan Chocolate",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 4.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255296430_p8ultevvt",
+        "name": "Pasta para bocaditos 225ml",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.65,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_8ocdeke0z",
+        "name": "Pastilla de Pollo x unidad",
+        "quantity": 20,
+        "type": "product",
+        "unitPrice": 0.15,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ovzxwkud2",
+        "name": "Sopa instantánea sabor Pollo (80g)",
+        "quantity": 6,
+        "type": "product",
+        "unitPrice": 0.8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_piqbut8gb",
+        "name": "Azúcar blanca x lb",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ijaa8o33p",
+        "name": "Arroz Importado 1Lb",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774588196965_61a1oo6gg",
+        "name": "Leche evaporada 377ml",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.9900000000000002,
+        "discount": 20.4
+      },
+      {
+        "id": "prod_1769030417838_noe5sa2wa",
+        "name": "Refresco Instantáneo (2Lt)",
+        "quantity": 20,
+        "type": "product",
+        "unitPrice": 0.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784556857504_9mg1h593k",
+        "name": "Jabón de Tocador Natural 125g",
+        "quantity": 7,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769226986599_pfsrf2pax",
+        "name": "Detergente Defá Fragancia lavanda  (1kg)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769297232608_1rpawqvbr",
+        "name": "Cepillo de diente (/u)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 0.7499630000000002,
+        "discount": 29.91
+      },
+      {
+        "id": "prod_1772443671662_3zlv75nd6",
+        "name": "Leche condensada 390g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_8q6y9td5k",
+        "name": "Limón (por libra)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777289998552_upjj1k1o7",
+        "name": "Pasta dental Charcoal White 115g",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.37,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "117.58",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://lm.facebook.com/"
+  },
+  {
+    "ip": "2602:306:38c1:43a0:fa77:7014:953b:c262",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-21 14:42:32",
+    "origen": "https://www.buquenqe.com/p/prod_1768441690510_ujn45fhvi",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Elizabeth quevedo",
+    "telefono_comprador": "7864484966",
+    "nombre_persona_entrega": "Iliana cañete",
+    "telefono_persona_entrega": "58862531",
+    "correo_comprador": "heleneliza81@yahoo.es",
+    "direccion_envio": "Calle marti #290 alto entre libertad y teniente peichon",
+    "compras": [
+      {
+        "id": "3",
+        "name": "Pack Hogar Criollo",
+        "quantity": 1,
+        "type": "pack",
+        "unitPrice": 20,
+        "discount": 0
+      },
+      {
+        "id": "group_Pack de 4 yogurts",
+        "name": "Pack de 4 yogurts (Natural)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.9,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774742941861_rn5ai5a43",
+        "name": "Queso Criollo x Lb",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.2500449999999996,
+        "discount": 28.57
+      },
+      {
+        "id": "prod_1774743134406_moehq1avd",
+        "name": "Boniato x Lb",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 0.45,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_nm24ia7xr",
+        "name": "Manzana 🍎 x unidad",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777745771069_ajaergvdx",
+        "name": "Donut Dulce",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.4999799999999999,
+        "discount": 16.67
+      },
+      {
+        "id": "prod_1772732759012_tojcqpnpu",
+        "name": "Sorbetes bon o bon",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 0.44999999999999996,
+        "discount": 40
+      },
+      {
+        "id": "prod_1778630940473_bcv60b3g9",
+        "name": "Bombón de chocolate y frutilla 5u",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768509219912_orvyg0rkr",
+        "name": "Galletas Marías",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.33,
+        "discount": 0
+      },
+      {
+        "id": "prod_1776152884782_egny1kw0c",
+        "name": "Crema de cacao con avellanas",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "49.85",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://www.buquenqe.com/p/prod_1784590063403_tp11dkbww"
+  },
+  {
+    "ip": "2601:586:ce00:8e00:6d22:407c:e491:61d1",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-21 15:00:02",
+    "origen": "https://www.buquenqe.com/#Pack%20Esencial%20Familiar",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "sandra velazquez silva",
+    "telefono_comprador": "17868790355",
+    "nombre_persona_entrega": "Niuris Silva",
+    "telefono_persona_entrega": "31342975",
+    "correo_comprador": "sandrabrasil201311@gmail.com",
+    "direccion_envio": "Calle Francisco Vega número 165 A",
+    "compras": [
+      {
+        "id": "3",
+        "name": "Pack Hogar Criollo",
+        "quantity": 1,
+        "type": "pack",
+        "unitPrice": 20,
+        "discount": 0
+      },
+      {
+        "id": "1",
+        "name": "Pack Esencial Familiar",
+        "quantity": 1,
+        "type": "pack",
+        "unitPrice": 30,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "50.00",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2605:59c0:100d:ec08:9c69:dc27:a9bb:dfeb",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-21 15:36:48",
+    "origen": "https://www.buquenqe.com/p/prod_1784589150816_v1cacjqbz",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Arasay Álvarez Guevara",
+    "telefono_comprador": "+17867280827",
+    "nombre_persona_entrega": "Norma Guevara Cruz",
+    "telefono_persona_entrega": "+5359149260",
+    "correo_comprador": "alvarezarasay022@gmail.com",
+    "direccion_envio": "Jesús Argüelles #27 %Rafael Martínez y José mastrapa Reparto Casa Piedra",
+    "compras": [
+      {
+        "id": "prod_1768441690510_jeg5mb96s",
+        "name": "Jamonilla de (Pollo) (340g)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 2.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255296430_p8ultevvt",
+        "name": "Pasta para bocaditos 225ml",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.65,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777745055131_1nw9hbsff",
+        "name": "Frazada de piso",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784589150816_v1cacjqbz",
+        "name": "Troncho de pescado en (salsa de tomate) 425g",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 3.35,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "21.92",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://facebook.com/"
+  },
+  {
+    "ip": "2601:586:4601:9cf0:fdb7:d51a:ebb:6b92",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-21 16:09:13",
+    "origen": "https://www.buquenqe.com/#category=Confitura",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Arianna Gabote",
+    "telefono_comprador": "7864401237",
+    "nombre_persona_entrega": "Natia Mayo",
+    "telefono_persona_entrega": "5353352123",
+    "correo_comprador": "ariannagabote@gmail.com",
+    "direccion_envio": "Julián Santana #256 entre Rubí y Ciro Redondo",
+    "compras": [
+      {
+        "id": "prod_1777745771069_ajaergvdx",
+        "name": "Donut Dulce",
+        "quantity": 20,
+        "type": "product",
+        "unitPrice": 0.4999799999999999,
+        "discount": 16.67
+      },
+      {
+        "id": "prod_1776152884782_egny1kw0c",
+        "name": "Crema de cacao con avellanas",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.99,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "17.98",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "185.254.162.192",
+    "pais": "ES",
+    "fecha_hora_entrada": "2026-07-21 16:30:32",
+    "origen": "https://www.buquenqe.com/p/prod_1776590917088_17s74pewj",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yorqui Alvarez",
+    "telefono_comprador": "+34673931747",
+    "nombre_persona_entrega": "Idalia González",
+    "telefono_persona_entrega": "+53 5 6597217",
+    "correo_comprador": "yorquialvarez@gmail.com",
+    "direccion_envio": "Lucas Ortiz 222 a entre Julián santana y Francisco vega .reparto primero",
+    "compras": [
+      {
+        "id": "prod_1776590917088_17s74pewj",
+        "name": "Leche en Polvo 1kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 12,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "12.00",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb90:879e:43cf:ac39:c217:8193:1874",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-21 17:41:38",
+    "origen": "https://www.buquenqe.com/#category=C%C3%A1rnicos%20y%20Embutidos",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Tamara Saraiba Lopez",
+    "telefono_comprador": "17024725028",
+    "nombre_persona_entrega": "Nieves Lopez Almeida",
+    "telefono_persona_entrega": "+5359329304",
+    "correo_comprador": "tamarasaraiba60@gmail.com",
+    "direccion_envio": "Calle Máximo Gomez #42 % calle Cironel Reyes y Calle Emilio Gonzalez",
+    "compras": [
+      {
+        "id": "group_Pomo de Refresco 1.5lts",
+        "name": "Pomo de Refresco 1.5lts (Naranja)",
+        "quantity": 7,
+        "type": "product",
+        "unitPrice": 2.49,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_nm24ia7xr",
+        "name": "Manzana 🍎 x unidad",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 1.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768509219912_orvyg0rkr",
+        "name": "Galletas Marías",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.33,
+        "discount": 0
+      },
+      {
+        "id": "group_Caja de Bombón 30u",
+        "name": "Caja de Bombón 30u (Chocolate)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 7.99,
+        "discount": 0
+      },
+      {
+        "id": "group_Mayonesa HollandPark",
+        "name": "Mayonesa HollandPark (250ml)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_6xn0n5bsd",
+        "name": "Pack x 12 Néctar de Pera 🍐 (12x330ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 15.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769612979664_6f4o3BE2I",
+        "name": "Chuleta de cerdo x lb",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.75,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "66.57",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "android-app://com.google.android.googlequicksearchbox/"
+  },
+  {
+    "ip": "2806:101e:9:db7:b10d:6ab2:6c0:3d66",
+    "pais": "MX",
+    "fecha_hora_entrada": "2026-07-21 18:16:01",
+    "origen": "https://www.buquenqe.com/p/prod_1769612979664_6f4o3BE2I",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Adry Villanueva",
+    "telefono_comprador": "526621239842",
+    "nombre_persona_entrega": "Liudmila Pupo pavon",
+    "telefono_persona_entrega": "5355261633",
+    "correo_comprador": "madriana0603@yahoo.com",
+    "direccion_envio": "Othón Almada 336",
+    "compras": [
+      {
+        "id": "prod_1769612979664_6f4o3BE2I",
+        "name": "Chuleta de cerdo x lb",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 3.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774222439833_s0jwz3gyf",
+        "name": "Jamón Bravo 2kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 23.75,
+        "discount": 5
+      },
+      {
+        "id": "prod_1768679794475_s112jvux0",
+        "name": "Paquete de cuartos de pollo 10 lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 14,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "49.00",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://lm.facebook.com/"
+  },
+  {
+    "ip": "2601:6c1:a82:7b90:1891:b4bd:93ee:69f0",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-21 18:25:49",
+    "origen": "https://www.buquenqe.com/?fbclid=IwcGRvZgVleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEehAo8CePUmjH4gmi1fkt6PCrloio2C2JokV3kcoCnlec55wLFbyQUq-VUXhE_aem_ugpGZzdQ8Ws7MotZdMXfQg",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Regina Riquenes",
+    "telefono_comprador": "7868659085",
+    "nombre_persona_entrega": "Florecita Martínez",
+    "telefono_persona_entrega": "+5355887748",
+    "correo_comprador": "riquenesregina@gmail.com",
+    "direccion_envio": "Los maceos 39 altos / Andrés Leyva y Luis Molina buena vista las tunas",
+    "compras": [
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769226986599_pfsrf2pax",
+        "name": "Detergente Defá Fragancia lavanda  (1kg)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.5,
+        "discount": 0
+      },
+      {
+        "id": "3",
+        "name": "Pack Hogar Criollo",
+        "quantity": 1,
+        "type": "pack",
+        "unitPrice": 20,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774743134406_moehq1avd",
+        "name": "Boniato x Lb",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 0.45,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "45.54",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://facebook.com/"
+  },
+  {
+    "ip": "2600:100d:b007:2b20:0:27:5797:8a01",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-21 20:28:04",
+    "origen": "https://www.buquenqe.com/#category=Aseo%20y%20Belleza",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yennis Crespo",
+    "telefono_comprador": "3467579679",
+    "nombre_persona_entrega": "Ana brajani  crespo reyes",
+    "telefono_persona_entrega": "54767084",
+    "correo_comprador": "Yenniscresposantiesteb@gmail.com",
+    "direccion_envio": "8801 S Braeswood Blvd",
+    "compras": [
+      {
+        "id": "prod_1768679794475_s112jvux0",
+        "name": "Paquete de cuartos de pollo 10 lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 14,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ma2k8r01f",
+        "name": "Aceite (900ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.85,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_gkp20pj1x",
+        "name": "Espaguetis (500g)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.16,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_x6vswdewh",
+        "name": "Arroz de (1Kg)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255568932_49z71tujl",
+        "name": "Pasta de tomate Vima 400g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.75,
+        "discount": 0
+      },
+      {
+        "id": "group_Pack x4 Yogurt Vima",
+        "name": "Pack x4 Yogurt Vima (Fresa)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 4.25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1772732759012_tojcqpnpu",
+        "name": "Sorbetes bon o bon",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.44999999999999996,
+        "discount": 40
+      },
+      {
+        "id": "prod_1768509219912_orvyg0rkr",
+        "name": "Galletas Marías",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.33,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784589611692_facli6wmp",
+        "name": "Caja de jabón Dove (3u)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 5.35,
+        "discount": 0
+      },
+      {
+        "id": "prod_1778607321781_sbqte5wko",
+        "name": "Jabón de lavar 150g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "45.61",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb92:980:756:23a0:57ad:73aa:9090",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-22 00:06:26",
+    "origen": "https://www.buquenqe.com/#category=Confitura",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "OLEIKA RODRIGUEZ-POLL",
+    "telefono_comprador": "17865936121",
+    "nombre_persona_entrega": "Luria Poll",
+    "telefono_persona_entrega": "52047293",
+    "correo_comprador": "oleikarodriguez295@gmail.com",
+    "direccion_envio": "1100 Northwest 39th Court",
+    "compras": [
+      {
+        "id": "prod_1784589914440_7bzzxsl06",
+        "name": "Spaghetti Vima (400g)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 0.9,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784589691078_anguehmxs",
+        "name": "Paquete de azúcar blanca Vima 1kg",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.66,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ma2k8r01f",
+        "name": "Aceite (900ml)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 4.85,
+        "discount": 0
+      },
+      {
+        "id": "prod_1783802941980_u3zhj2bl8",
+        "name": "Frijol Negro x Lb",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 1.2,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255568932_49z71tujl",
+        "name": "Pasta de tomate Vima 400g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_piqbut8gb",
+        "name": "Azúcar blanca x lb",
+        "quantity": 8,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ijaa8o33p",
+        "name": "Arroz Importado 1Lb",
+        "quantity": 25,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768443205852_ac2tz1k6u",
+        "name": "Carne de cerdo x lbs",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 3.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768679794475_s112jvux0",
+        "name": "Paquete de cuartos de pollo 10 lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 14,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_h5qqrqz06",
+        "name": "Carne de ovejo x lbs",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 2.57,
+        "discount": 0
+      },
+      {
+        "id": "prod_1778607321781_sbqte5wko",
+        "name": "Jabón de lavar 150g",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784556857504_9mg1h593k",
+        "name": "Jabón de Tocador Natural 125g",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "130.57",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2003:f3:bf0d:7288:8ae0:d973:f6e8:17e4",
+    "pais": "DE",
+    "fecha_hora_entrada": "2026-07-22 02:32:53",
+    "origen": "https://www.buquenqe.com/p/prod_1768441690510_h5qqrqz06",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Aurora Alvarez lores",
+    "telefono_comprador": "015251352131",
+    "nombre_persona_entrega": "Víctor Alvarez lores",
+    "telefono_persona_entrega": "5353369319",
+    "correo_comprador": "Lisavogelalvarez@googlemail.com",
+    "direccion_envio": "Calle C#3/17y19 Reparto Aguilera  las tunas",
+    "compras": [
+      {
+        "id": "prod_1784589914440_7bzzxsl06",
+        "name": "Spaghetti Vima (400g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.9,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784589691078_anguehmxs",
+        "name": "Paquete de azúcar blanca Vima 1kg",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 2.66,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768918643793_wff5w2f61",
+        "name": "Frijoles rojos x(lbs)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 2.09,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774743001771_4ql9niare",
+        "name": "Jalea de Guayaba",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ujn45fhvi",
+        "name": "Bolsa de pan 10u",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "group_Pack x4 Yogurt Vima",
+        "name": "Pack x4 Yogurt Vima (Fresa)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_h5qqrqz06",
+        "name": "Carne de ovejo x lbs",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 2.57,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_x6vswdewh",
+        "name": "Arroz de (1Kg)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 2.25,
+        "discount": 0
+      },
+      {
+        "id": "group_Caja de jugo Badelli 27u",
+        "name": "Caja de jugo Badelli 27u (Mango)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ok1axebuc",
+        "name": "Malta Guajira (1500ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784556857504_9mg1h593k",
+        "name": "Jabón de Tocador Natural 125g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769226986599_pfsrf2pax",
+        "name": "Detergente Defá Fragancia lavanda  (1kg)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ify26lfde",
+        "name": "Papel Sanitario",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.4,
+        "discount": 0
+      },
+      {
+        "id": "prod_1778607321781_sbqte5wko",
+        "name": "Jabón de lavar 150g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1776590917088_17s74pewj",
+        "name": "Leche en Polvo 1kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 12,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "95.27",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://lm.facebook.com/"
   }
 ]
