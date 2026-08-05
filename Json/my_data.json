@@ -27640,5 +27640,432 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:1702:5cc1:1290:c4f9:e662:f59c:44c5",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-08-05 09:00:33",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "ALFREDO BOTELLO",
+    "telefono_comprador": "7866497582",
+    "nombre_persona_entrega": "ALFREDO BOTELLO Y ADELA PÉREZ",
+    "telefono_persona_entrega": "344118",
+    "correo_comprador": "ifatoola@gmail.com",
+    "direccion_envio": "Menocal #3 % Pepito Peña y F de la cruz",
+    "compras": [
+      {
+        "id": "prod_1776152786987_fj2z16ewo",
+        "name": "Melocotón en almibar 425g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1785348598925_bou88f02u",
+        "name": "Lomitos de atún en aceite 160g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784769934695_44j6194ta",
+        "name": "Caja de refresco sublime 24u (naranja)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 17.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1785778328335_iutgb3lr3",
+        "name": "Pomo de Refresco 1.5lts ( Limón)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1778805120168_k4cioz6iy",
+        "name": "Malta Guajira 330ml X 6u (pack)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 5.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768509219912_orvyg0rkr",
+        "name": "Galletas Marías",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.33,
+        "discount": 0
+      },
+      {
+        "id": "prod_1776152884782_egny1kw0c",
+        "name": "Crema de cacao con avellanas",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.99,
+        "discount": 0
+      },
+      {
+        "id": "group_Jamonilla de",
+        "name": "Jamonilla de (Pollo) (340g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1781992568846_o6abtahci",
+        "name": "Salchichas de pollo(10u)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784590063403_tp11dkbww",
+        "name": "Leche condensada Vima 390g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1785008748813_m1xlswbjy",
+        "name": "Salchichón de cerdo y pollo 500g M.La Favorita",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.8,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255568932_49z71tujl",
+        "name": "Pasta de tomate Vima 400g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1771255455739_z92mxmjqj",
+        "name": "Harina de trigo Vima 1kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.35,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_piqbut8gb",
+        "name": "Azúcar blanca x lb",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1785709743535_0w58t0r2d",
+        "name": "Confitura de (Albaricoque) 340g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.2,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777744940773_l4rwx3dni",
+        "name": "Galletas Saltitacos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 5,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "84.42",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb91:4080:e474:a88a:d684:46c4:255f",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-08-05 09:01:59",
+    "origen": "https://www.buquenqe.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Laritza Barbara Samuel Santos",
+    "telefono_comprador": "9452646796",
+    "nombre_persona_entrega": "Nelsi Samuel",
+    "telefono_persona_entrega": "5353400690",
+    "correo_comprador": "smallsamuels@gmail.com",
+    "direccion_envio": "Calle 36 # 2a. Entre 13 y 15. Fernando Betancourt .Las 40",
+    "compras": [
+      {
+        "id": "group_Confitura de",
+        "name": "Confitura de (Fresa) 🍓 340g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.2,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769030417838_noe5sa2wa",
+        "name": "Refresco Instantáneo (2Lt)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 0.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768509219912_orvyg0rkr",
+        "name": "Galletas Marías",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.33,
+        "discount": 0
+      },
+      {
+        "id": "prod_1783802941980_u3zhj2bl8",
+        "name": "Frijol Negro x Lb",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.2,
+        "discount": 0
+      },
+      {
+        "id": "prod_1785008620497_a5aaa5cuc",
+        "name": "Masa de chorizo 400g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1774742941861_rn5ai5a43",
+        "name": "Queso Criollo x Lb",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.2500449999999996,
+        "discount": 28.57
+      },
+      {
+        "id": "prod_1784590063403_tp11dkbww",
+        "name": "Leche condensada Vima 390g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_x6vswdewh",
+        "name": "Arroz de (1Kg)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.25,
+        "discount": 0
+      },
+      {
+        "id": "prod_1781992568846_o6abtahci",
+        "name": "Salchichas de pollo(10u)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1785348598925_bou88f02u",
+        "name": "Lomitos de atún en aceite 160g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.17,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "25.74",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2a02:b123:f05:b09e:abb4:8d92:5266:f96",
+    "pais": "IT",
+    "fecha_hora_entrada": "2026-08-05 12:25:48",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "yanuaria rodriguez",
+    "telefono_comprador": "3936871678",
+    "nombre_persona_entrega": "Maria del rosario Quintana matos",
+    "telefono_persona_entrega": "51512165",
+    "correo_comprador": "yanuaria8@yahoo.es",
+    "direccion_envio": "Calle José tey # 8 alto % Ramon ortuño y Julián santana(reparto la loma)",
+    "compras": [
+      {
+        "id": "prod_1784589914440_7bzzxsl06",
+        "name": "Spaghetti Vima (400g)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 0.9,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784050450186_cd965lvlm",
+        "name": "Saco de carbón",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 7.69,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_piqbut8gb",
+        "name": "Azúcar blanca x lb",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_ijaa8o33p",
+        "name": "Arroz Importado 1Lb",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      },
+      {
+        "id": "group_Jamonilla de",
+        "name": "Jamonilla de (Pollo) (340g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1769030417838_noe5sa2wa",
+        "name": "Refresco Instantáneo (2Lt)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 0.17,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "19.69",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Único",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "Desconocido",
+    "pais": "Desconocido",
+    "fecha_hora_entrada": "2026-08-05 14:06:03",
+    "origen": "https://www.buquenqe.com/#category=Aderezos",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Alina Garateix",
+    "telefono_comprador": "15022609585",
+    "nombre_persona_entrega": "Virgen Maria Licea Rodríguez",
+    "telefono_persona_entrega": "+5359468774",
+    "correo_comprador": "alina.garateix71@gmail.com",
+    "direccion_envio": "Calle Rastro #13 % Colón y Vicente Garcia. Reparto Primero.",
+    "compras": [
+      {
+        "id": "prod_1769612979664_6f4o3BE2I",
+        "name": "Chuleta de cerdo x lb",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_piqbut8gb",
+        "name": "Azúcar blanca x lb",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.95,
+        "discount": 0
+      },
+      {
+        "id": "1",
+        "name": "Pack Esencial Familiar",
+        "quantity": 1,
+        "type": "pack",
+        "unitPrice": 30,
+        "discount": 0
+      },
+      {
+        "id": "prod_1768441690510_1q2faykkk",
+        "name": "Plátano (por unidad)",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.35,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "42.90",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://www.google.com/"
+  },
+  {
+    "ip": "2600:8800:521b:ba00:48b6:a7f4:72ea:f789",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-08-05 16:25:35",
+    "origen": "https://www.buquenqe.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Aylin Rojas",
+    "telefono_comprador": "+18329494425",
+    "nombre_persona_entrega": "Yanelis Fernández Escriba",
+    "telefono_persona_entrega": "58861687",
+    "correo_comprador": "aylinrojas05@yahoo.com",
+    "direccion_envio": "Ramón Ortuño 139A % Vicente García y Lucas Ortiz",
+    "compras": [
+      {
+        "id": "prod_1769200481205_vpc09blss",
+        "name": "Galletas de Sal Criollas – Paquete Tradicional",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 3.74,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "14.96",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://www.google.com/"
   }
 ]
